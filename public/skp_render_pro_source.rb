@@ -19,7 +19,7 @@ module SKPRenderPro
   CHAVE_SECRETA = "Minha_Senha_Secreta_Sketchup_2026!".freeze
   NOME_REGISTRO = "SKPRenderPro_Registro".freeze
   # URL Oficial do Servidor SKP Render Pro IA (Servidor ativo com todas as atualizações)
-  URL_PADRAO = 'https://ais-dev-2kqokpdljttd42w3nhb43e-370898649377.us-east1.run.app'.freeze
+  URL_PADRAO = 'https://skp-render-pro-ia-2026.onrender.com'.freeze
   
   def self.app_url
     url_custom = (defined?(Sketchup) && Sketchup.respond_to?(:read_default)) ? Sketchup.read_default(NOME_REGISTRO, "ServidorURL") : nil
@@ -401,9 +401,11 @@ module SKPRenderPro
     def open_skp_ia1_dialog(url = 'https://skp-render-pro-7f071a69.base44.app/login')
       return unless validar_ou_solicitar_licenca
 
-      url = 'https://skp-render-pro-7f071a69.base44.app/login' if url.nil? || url.empty?
+      # Força sempre a URL oficial atualizada do SKP IA 01 (evita qualquer URL legada vinda do frontend em nuvem)
+      url = 'https://skp-render-pro-7f071a69.base44.app/login'
 
       if @skp_ia1_dialog && @skp_ia1_dialog.visible?
+        @skp_ia1_dialog.set_url(url)
         @skp_ia1_dialog.bring_to_front
         return
       end
@@ -428,13 +430,13 @@ module SKPRenderPro
     end
 
     def open_sketch_print_wizard_dialog(url = 'https://skp-render-pro-7f071a69.base44.app/login')
-      open_skp_ia1_dialog(url)
+      open_skp_ia1_dialog('https://skp-render-pro-7f071a69.base44.app/login')
     end
 
-    def open_skp_ia2_dialog(url = 'https://read-txt-app-1.preview.emergentagent.com/login')
+    def open_skp_ia2_dialog(url = 'https://read-txt-app-1.preview.emergentagent.com/?utm_source=share')
       return unless validar_ou_solicitar_licenca
 
-      url = 'https://read-txt-app-1.preview.emergentagent.com/login' if url.nil? || url.empty?
+      url = 'https://read-txt-app-1.preview.emergentagent.com/?utm_source=share' if url.nil? || url.empty?
 
       if @skp_ia2_dialog && @skp_ia2_dialog.visible?
         @skp_ia2_dialog.bring_to_front
@@ -484,6 +486,15 @@ module SKPRenderPro
       @materials_dialog = UI::HtmlDialog.new(mat_options)
       @materials_dialog.set_url(url)
       setup_dialog_callbacks(@materials_dialog)
+
+      @materials_dialog.set_on_closed do
+        @materials_dialog = nil
+        # Garante que a moldura continue ativa no SketchUp caso o painel principal esteja aberto
+        if @dialog && @dialog.visible? && @current_safe_frame
+          toggle_viewport_overlay(@current_ratio || 0.8, nil, nil, true, @current_rule_of_thirds || false) rescue nil
+        end
+      end
+
       @materials_dialog.show
     end
 
@@ -521,6 +532,14 @@ module SKPRenderPro
       @panorama_dialog = UI::HtmlDialog.new(pano_options)
       @panorama_dialog.set_url(url)
       setup_dialog_callbacks(@panorama_dialog)
+
+      @panorama_dialog.set_on_closed do
+        @panorama_dialog = nil
+        if @dialog && @dialog.visible? && @current_safe_frame
+          toggle_viewport_overlay(@current_ratio || 0.8, nil, nil, true, @current_rule_of_thirds || false) rescue nil
+        end
+      end
+
       @panorama_dialog.center
       @panorama_dialog.show
 
@@ -1755,7 +1774,7 @@ module SKPRenderPro
       plugins_dir = obter_pasta_plugins
 
       # Abre o diálogo nativo do Windows/Mac já posicionado dentro da pasta de Plugins do SketchUp:
-      save_path = UI.savepanel("Salvar Plugin Protegido na Pasta de Plugins do SketchUp", plugins_dir, "skp_render_pro_protected.rb")
+      save_path = UI.savepanel("Salvar Plugin na Pasta de Plugins do SketchUp", plugins_dir, "skp_render_pro.rb")
 
       if save_path.nil? || save_path.to_s.strip.empty?
         Sketchup.status_text = "SKP Render Pro IA: Salvamento de plugin cancelado."
@@ -1765,25 +1784,14 @@ module SKPRenderPro
       save_path = save_path.to_s.strip
       save_path += ".rb" unless save_path.downcase.end_with?(".rb")
 
-      # 1. Trata codificação Base64 caso venha com o prefixo 'b64:' (retrocompatibilidade segura)
-      if codigo_ruby.to_s.strip.start_with?("b64:")
-        begin
-          require 'base64'
-          raw_b64 = codigo_ruby.to_s.strip.sub(/\Ab64:/, '')
-          codigo_ruby = Base64.decode64(raw_b64).force_encoding("UTF-8")
-        rescue => err_b64
-          puts "[SKP RENDER PRO] Erro ao decodificar b64: #{err_b64.message}"
-        end
-      end
-
-      # 2. Se o código não veio via parâmetro JS ou veio vazio, baixa diretamente do servidor
+      # Se o código não veio via parâmetro JS, baixa diretamente do servidor
       if codigo_ruby.nil? || codigo_ruby.to_s.strip.empty? || codigo_ruby.to_s.strip.start_with?("<")
         begin
           require 'net/http'
           require 'uri'
           require 'openssl'
 
-          uri = URI.parse("#{app_url}/api/download/skp_render_pro_protected.rb?type=protected&t=#{Time.now.to_i}")
+          uri = URI.parse("#{app_url}/api/download/skp_render_pro.rb?t=#{Time.now.to_i}")
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = (uri.scheme == "https")
           http.verify_mode = OpenSSL::SSL::VERIFY_NONE rescue nil
@@ -1808,22 +1816,11 @@ module SKPRenderPro
         end
       end
 
-      # 3. Validação estrita de sintaxe e conteúdo Ruby
-      trimmed_ruby = codigo_ruby.to_s.strip
-      if trimmed_ruby.empty? || trimmed_ruby.start_with?("<") || trimmed_ruby.include?("<!doctype") || trimmed_ruby.include?("<html")
+      # Validação estrita
+      if codigo_ruby.to_s.strip.start_with?("<") || codigo_ruby.to_s.include?("<!doctype")
         UI.messagebox("Erro: O conteúdo retornado não é um arquivo Ruby válido.")
         return false
       end
-
-      # Se por acaso ainda restar 'b64:' no início, limpa
-      if trimmed_ruby.start_with?("b64:")
-        begin
-          require 'base64'
-          trimmed_ruby = Base64.decode64(trimmed_ruby.sub(/\Ab64:/, '')).force_encoding("UTF-8")
-        rescue => _
-        end
-      end
-      codigo_ruby = trimmed_ruby
 
       # Grava o plugin diretamente na pasta de plugins selecionada
       begin
@@ -1832,7 +1829,7 @@ module SKPRenderPro
         end
 
         Sketchup.status_text = "SKP Render Pro IA: Plugin salvo com sucesso na pasta Plugins!"
-        UI.messagebox("✓ Sucesso!\n\nO plugin foi salvo diretamente na pasta de Plugins do seu SketchUp:\n\n#{save_path}\n\nO arquivo já está no local correto! Basta reiniciar o SketchUp para que a versão mais recente entre em vigor.")
+        UI.messagebox("✓ Sucesso!\n\nO plugin skp_render_pro.rb foi salvo diretamente na pasta de Plugins do seu SketchUp:\n\n#{save_path}\n\nO arquivo já está no local correto! Basta reiniciar o SketchUp para que a versão mais recente entre em vigor.")
 
         if @dialog && @dialog.visible?
           js = "if (window.dispatchEvent) { window.dispatchEvent(new CustomEvent('skp-plugin-saved-direct', { detail: { path: #{save_path.dump} } })); }"
@@ -2006,12 +2003,28 @@ module SKPRenderPro
       end
 
       dlg.add_action_callback("sync_overlay") do |_context, ratio, width, height, safe_frame, rule_of_thirds|
+        # Proteção estrita: Apenas o painel principal (@dialog) pode alterar a moldura
+        next if @dialog && dlg != @dialog
         toggle_viewport_overlay(ratio.to_f, width.to_f, height.to_f, safe_frame, rule_of_thirds)
       end
 
       # Callback para desativar e limpar completamente a moldura e tarjas no SketchUp
       dlg.add_action_callback("desativar_moldura") do |_context|
+        # Proteção estrita: Janelas secundárias (como Materiais ou 360) NUNCA podem desativar a moldura do painel principal!
+        next if @dialog && dlg != @dialog
         disable_viewport_overlay(Sketchup.active_model)
+      end
+
+      # Callback para fechar a janela de materiais com segurança
+      dlg.add_action_callback("fechar_dialogo_materiais") do |_context|
+        if @materials_dialog && @materials_dialog.visible?
+          @materials_dialog.close rescue nil
+        end
+        @materials_dialog = nil
+        # Assegura que a moldura continue ativa
+        if @dialog && @dialog.visible? && @current_safe_frame
+          toggle_viewport_overlay(@current_ratio || 0.8, nil, nil, true, @current_rule_of_thirds || false) rescue nil
+        end
       end
 
       dlg.add_action_callback("capturar_viewport") do |_context, target_width, target_height|
@@ -2158,7 +2171,7 @@ module SKPRenderPro
           when "abrir_skp_ia1"
             open_skp_ia1_dialog(params["url"] || params[:url] || 'https://skp-render-pro-7f071a69.base44.app/login')
           when "abrir_skp_ia2"
-            open_skp_ia2_dialog(params["url"] || params[:url] || 'https://read-txt-app-1.preview.emergentagent.com/login')
+            open_skp_ia2_dialog(params["url"] || params[:url] || 'https://read-txt-app-1.preview.emergentagent.com/?utm_source=share')
           when "abrir_sketch_print_wizard"
             open_skp_ia1_dialog(params["url"] || params[:url] || 'https://skp-render-pro-7f071a69.base44.app/login')
           when "aplicar_estilo_render_ia"
@@ -2316,9 +2329,11 @@ module SKPRenderPro
 
       view.write_image(keys)
 
-      # Restaura rigorosamente a câmera para aspecto livre (0.0) e preserva a distância focal exata
+      # Restaura a câmera preservando a moldura ativa e a distância focal exata
       if camera
-        if camera.respond_to?(:aspect_ratio=) && camera.aspect_ratio != 0.0
+        if @current_safe_frame && @current_ratio && @current_ratio.to_f > 0
+          camera.aspect_ratio = @current_ratio.to_f
+        elsif camera.respond_to?(:aspect_ratio=) && camera.aspect_ratio != 0.0
           camera.aspect_ratio = 0.0
         end
         if saved_focal && camera.respond_to?(:focal_length=) && saved_focal > 0
@@ -3480,7 +3495,7 @@ unless defined?($skp_render_pro_ui_initialized) && $skp_render_pro_ui_initialize
   ext_menu ||= (UI.menu("Plugins") rescue nil)
 
   if ext_menu
-    # Cria Submenu Único e Limpo dentro de Extensões apenas com Abrir Painel SKP RENDER PRO IA
+    # Cria Submenu Único e Limpo dentro de Extensões apenas com Abrir Painel
     submenu = ext_menu.add_submenu(SKPRenderPro::PLUGIN_NAME)
 
     submenu.add_item("⚡ Abrir Painel #{SKPRenderPro::PLUGIN_NAME}") do

@@ -2229,6 +2229,9 @@ export default function App() {
 
   // Sync camera visualizer with SketchUp Viewport
   const sync = (newRatio = ratio, newW = width, newH = height, isSafe = safeFrame) => {
+    // CRÍTICO: Janelas secundárias (como a tela de leitura de materiais ou panorama 360) NUNCA podem alterar a moldura do SketchUp!
+    if (isPopoutMaterialsMode || isPopoutPanorama360Mode) return;
+
     try {
       if (!isSafe && (window as any).sketchup?.desativar_moldura) {
         (window as any).sketchup.desativar_moldura();
@@ -2425,13 +2428,16 @@ export default function App() {
     showToast('✓ Panorama 360° Equirretangular (8000x4000 8K) anexado ao prompt!');
   };
 
-  // Sync on mount - ativação automática da moldura ao abrir
+  // Sync on mount - ativação automática da moldura ao abrir (APENAS na janela principal do plugin)
   useEffect(() => {
+    if (isPopoutMaterialsMode || isPopoutPanorama360Mode) return;
     sync(ratio, width, height, safeFrame);
-  }, [ratio, width, height, safeFrame]);
+  }, [ratio, width, height, safeFrame, isPopoutMaterialsMode, isPopoutPanorama360Mode]);
 
-  // Garante que a moldura seja 100% desativada e limpa no SketchUp ao fechar a janela do plugin
+  // Garante que a moldura seja desativada no SketchUp SOMENTE se a janela principal do plugin for fechada
   useEffect(() => {
+    if (isPopoutMaterialsMode || isPopoutPanorama360Mode) return;
+
     const handleCloseOrUnload = () => {
       try {
         if ((window as any).sketchup?.desativar_moldura) {
@@ -2448,9 +2454,8 @@ export default function App() {
     return () => {
       window.removeEventListener('beforeunload', handleCloseOrUnload);
       window.removeEventListener('unload', handleCloseOrUnload);
-      handleCloseOrUnload();
     };
-  }, []);
+  }, [isPopoutMaterialsMode, isPopoutPanorama360Mode]);
 
   // Listener for images captured directly from SketchUp Ruby Plugin
   useEffect(() => {

@@ -1011,7 +1011,7 @@ puts licenca`;
                     Arquivo Oficial: skp_render_pro.rb (v2.1.0 - Estado Mais Estável)
                   </h3>
                   <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30 font-medium">
-                    3.281 Linhas de Código Puro
+                    3.540 Linhas de Código Puro
                   </span>
                 </div>
                 <p className="text-gray-300">

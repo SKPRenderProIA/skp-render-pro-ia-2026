@@ -1965,7 +1965,7 @@ require 'zlib';require 'base64';eval(Zlib::Inflate.inflate(Base64.decode64("${b6
         fs.writeFileSync(path.join(distDir, "skp_render_pro.rb"), sourceCode, "utf8");
       }
 
-      console.log("[ADMIN] skp_render_pro.rb restaurado com sucesso para a versão mais estável (3.281 linhas)!");
+      console.log(`[ADMIN] skp_render_pro.rb restaurado com sucesso para a versão mais estável (${sourceCode.split("\n").length} linhas)!`);
       res.json({ 
         success: true, 
         message: "Plugin skp_render_pro.rb restaurado com sucesso para o estado mais estável e completo!",
