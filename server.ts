@@ -1,4 +1,4 @@
-import express from "express";
+﻿import express from "express";
 import path from "path";
 import crypto from "crypto";
 import fs from "fs";
@@ -372,12 +372,12 @@ async function generateContentSafe(
   },
   timeoutMs: number = 45000
 ): Promise<any> {
-  // Valid high-availability active models
-  const validGuaranteedFallbacks = ["gemini-flash-latest", "gemini-3.1-flash-lite", "gemini-3.8-flash"];
+  // Modelos estaveis com cota de 1.500 req/dia no plano gratuito do Google
+  const validGuaranteedFallbacks = ["gemini-1.5-flash", "gemini-1.5-flash-latest", "gemini-2.0-flash", "gemini-1.5-flash"];
   const combinedModels = [primaryModel, ...fallbackModels, ...validGuaranteedFallbacks];
-  // Filter out any models that are known deprecated or invalid
+  // Filtra modelos experimentais que possuem cota travada de 20/dia (3.8 e 3.1)
   const modelsToTry = Array.from(new Set(combinedModels)).filter(
-    (m) => m && !m.includes("2.0") && !m.includes("2.5") && !m.includes("3.5") && !m.includes("flash-lite-latest")
+    (m) => m && !m.includes("3.8") && !m.includes("3.1") && !m.includes("3.5") && !m.includes("flash-lite-latest")
   );
   let lastError: any = null;
 
@@ -1141,8 +1141,8 @@ Para cada item retorne:
       try {
         const response = await generateContentSafe(
           ai,
-          "gemini-flash-latest",
-          ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+          "gemini-1.5-flash",
+          ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
           {
             contents: [
               {
@@ -1297,8 +1297,8 @@ Para cada item retorne:
 
       const response = await generateContentSafe(
         ai,
-        "gemini-flash-latest",
-        ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+        "gemini-1.5-flash",
+        ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
         {
           contents: contentParts,
           config: {
@@ -1435,8 +1435,8 @@ ESTRUTURA OBRIGATÓRIA:
           try {
             const response = await generateContentSafe(
               ai,
-              "gemini-flash-latest",
-              ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+              "gemini-1.5-flash",
+              ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
               {
                 contents: [
                   {
@@ -1746,8 +1746,8 @@ High-end architectural visualization, realistic lighting, global illumination, s
         try {
           const visionResponse = await generateContentSafe(
             ai,
-            "gemini-flash-latest",
-            ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+            "gemini-1.5-flash",
+            ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
             {
               contents: [
                 {
@@ -1854,8 +1854,8 @@ Responda OBRIGATORIAMENTE dentro do bloco:
           try {
             const refinementResponse = await generateContentSafe(
               ai,
-              "gemini-3.8-flash",
-              ["gemini-flash-latest", "gemini-3.1-flash-lite"],
+              "gemini-1.5-flash",
+              ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
               {
                 contents: refinementPrompt,
                 config: {
@@ -1891,8 +1891,8 @@ Responda OBRIGATORIAMENTE dentro do bloco:
         try {
           const response = await generateContentSafe(
             ai,
-            "gemini-flash-latest",
-            ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+            "gemini-1.5-flash",
+            ["gemini-1.5-flash-latest", "gemini-2.0-flash"],
             {
               contents: textContext,
               config: {
