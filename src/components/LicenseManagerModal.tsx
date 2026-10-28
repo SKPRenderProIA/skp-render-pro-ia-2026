@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, Copy, Check, Download, Terminal, 
   X, FileCode, ShieldAlert, Key, Sparkles, RefreshCw, AlertCircle, RotateCw, RotateCcw, Wrench, Globe,
-  Users, Phone, Calendar, Hash, UserPlus, Trash2, ShieldX, Clock, Search, Filter, Image as ImageIcon
+  Users, Phone, Calendar, Hash, UserPlus, Trash2, ShieldX, Clock, Search, Filter, Image as ImageIcon,
+  BellRing
 } from 'lucide-react';
 import { SKP_PLUGIN_STABLE_CODE } from '../data/skpPluginSource';
 
@@ -64,6 +65,94 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
 
   // URL do Servidor configurada no Plugin para distribuição (Padrão automático: http://localhost:3000)
   const [targetServerUrl, setTargetServerUrl] = useState<string>('http://localhost:3000');
+
+  // Controle de Notificação de Atualização do Plugin para Clientes
+  const [releaseInfo, setReleaseInfo] = useState<{
+    version: number;
+    versionName: string;
+    releaseDate: string;
+    releaseNotes: string;
+    activeAlert: boolean;
+  } | null>(null);
+  const [isPublishingRelease, setIsPublishingRelease] = useState<boolean>(false);
+
+  const fetchReleaseInfo = async () => {
+    try {
+      const res = await fetch(`/api/plugin-version?t=${Date.now()}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.success) {
+          setReleaseInfo(data);
+        }
+      }
+    } catch (_) {}
+  };
+
+  const handlePublishPluginRelease = async () => {
+    setIsPublishingRelease(true);
+    setErrorMessage(null);
+    setSuccessMessage(null);
+    try {
+      const res = await fetch('/api/admin/publish-plugin-update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          versionName: '2.1.0',
+          releaseNotes: 'Nova versão oficial do plugin SKP Render Pro IA'
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSuccessMessage('✓ Atualização lançada com sucesso! O botão no plugin dos clientes ficará LARANJA até que eles baixem o novo arquivo.');
+        if (data.releaseInfo) {
+          setReleaseInfo({
+            version: data.releaseInfo.releaseVersion,
+            versionName: data.releaseInfo.versionName,
+            releaseDate: data.releaseInfo.releaseDate,
+            releaseNotes: data.releaseInfo.releaseNotes,
+            activeAlert: data.releaseInfo.activeAlert
+          });
+        }
+      } else {
+        throw new Error(data.error || 'Falha ao publicar atualização');
+      }
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Erro ao publicar atualização');
+    } finally {
+      setIsPublishingRelease(false);
+    }
+  };
+
+  const handleClearPluginAlert = async () => {
+    setIsPublishingRelease(true);
+    setErrorMessage(null);
+    setSuccessMessage(null);
+    try {
+      const res = await fetch('/api/admin/clear-plugin-alert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSuccessMessage('✓ Alerta de atualização desativado! O botão no SketchUp voltou ao estado normal.');
+        if (data.releaseInfo) {
+          setReleaseInfo({
+            version: data.releaseInfo.releaseVersion,
+            versionName: data.releaseInfo.versionName,
+            releaseDate: data.releaseInfo.releaseDate,
+            releaseNotes: data.releaseInfo.releaseNotes,
+            activeAlert: data.releaseInfo.activeAlert
+          });
+        }
+      } else {
+        throw new Error(data.error || 'Falha ao desativar alerta');
+      }
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Erro ao desativar alerta');
+    } finally {
+      setIsPublishingRelease(false);
+    }
+  };
 
   const handlePublishProtected = async () => {
     if (!obfuscatedResult) return;
@@ -536,6 +625,7 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
     if (isOpen) {
       fetchPluginCode();
       fetchLicenses();
+      fetchReleaseInfo();
     }
   }, [isOpen]);
 
@@ -628,7 +718,13 @@ puts licenca`;
             }`}
           >
             <FileCode className="w-3.5 h-3.5" />
-            Baixar Plugin (.rb)
+            <span>Baixar Plugin (.rb)</span>
+            {releaseInfo?.activeAlert && (
+              <span className="flex h-2 w-2 relative ml-1">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+              </span>
+            )}
           </button>
 
           <button
@@ -795,6 +891,29 @@ puts licenca`;
 
               {/* Coluna 2 e 3: Lista de Clientes */}
               <div className="lg:col-span-2 space-y-3">
+                {/* Banner de Aviso Rápido de Atualização do Plugin */}
+                <div className={`p-2.5 px-3 rounded-xl border flex items-center justify-between gap-2 flex-wrap text-xs ${releaseInfo?.activeAlert ? 'bg-orange-950/40 border-orange-500/50 text-orange-200' : 'bg-[#142A1F] border-[#27533E] text-stone-300'}`}>
+                  <div className="flex items-center gap-2">
+                    <BellRing className={`w-4 h-4 ${releaseInfo?.activeAlert ? 'text-orange-400 animate-pulse' : 'text-emerald-400'}`} />
+                    <span>
+                      {releaseInfo?.activeAlert ? (
+                        <strong className="text-orange-300">Alerta de Atualização do Plugin ATIVO no SketchUp</strong>
+                      ) : (
+                        <span>Status do Plugin: <strong>Normal (Sem alerta pendente)</strong></span>
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('plugin')}
+                      className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer border ${releaseInfo?.activeAlert ? 'bg-orange-500 hover:bg-orange-600 text-white border-orange-400' : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border-emerald-500/40'}`}
+                    >
+                      {releaseInfo?.activeAlert ? 'Gerenciar Alerta (.rb)' : '📢 Lançar Atualização'}
+                    </button>
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row items-center gap-3 bg-[#0C1A14] p-3 rounded-xl border border-[#244A37]">
                   <div className="relative flex-1 w-full">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
@@ -988,6 +1107,82 @@ puts licenca`;
           {/* TAB 4: BAIXAR PLUGIN .RB */}
           {activeTab === 'plugin' && (
             <div className="space-y-4">
+              {/* CONTROLE DE NOTIFICAÇÃO DE ATUALIZAÇÃO DO PLUGIN PARA CLIENTES */}
+              <div className="p-4 bg-gradient-to-br from-amber-950/60 via-[#162a20] to-black/90 border-2 border-amber-500/50 rounded-xl space-y-3 shadow-xl">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className={`p-2 rounded-xl flex items-center justify-center ${releaseInfo?.activeAlert ? 'bg-orange-500/25 text-orange-400 border border-orange-500/50 animate-pulse' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'}`}>
+                      <BellRing className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-sm flex items-center gap-2">
+                        Aviso de Atualização do Plugin para Clientes
+                      </h3>
+                      <p className="text-[11px] text-gray-300">
+                        Clique no botão abaixo para avisar a todos os clientes que há uma nova versão do plugin (.rb).
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Badge de Status Atual */}
+                  <div className="flex items-center gap-1.5">
+                    {releaseInfo?.activeAlert ? (
+                      <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/50 text-xs font-bold animate-pulse">
+                        <span className="w-2 h-2 rounded-full bg-orange-400"></span>
+                        Alerta Ativo (Botão Laranja Ligado)
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Normal (Botão Padrão Verde)
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="p-3 bg-black/50 border border-stone-800 rounded-lg flex items-center justify-between text-xs text-stone-300 flex-wrap gap-2">
+                  <div>
+                    <span className="text-stone-400">Versão cadastrada: </span>
+                    <strong className="text-white font-mono">{releaseInfo?.versionName || '2.1.0'}</strong>
+                    {releaseInfo?.releaseDate && (
+                      <span className="text-stone-400 ml-2">
+                        (Lançada em: {new Date(releaseInfo.releaseDate).toLocaleString('pt-BR')})
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[11px] text-stone-400">
+                    {releaseInfo?.activeAlert 
+                      ? 'O botão .RB no SketchUp piscará em laranja para os clientes até que eles façam o download.'
+                      : 'Nenhum alerta ativo. Os clientes estão com o botão verde estável.'}
+                  </div>
+                </div>
+
+                {/* Botões de Ação */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={handlePublishPluginRelease}
+                    disabled={isPublishingRelease}
+                    className="py-3 px-4 bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 hover:from-orange-500 hover:to-amber-500 border border-orange-400/80 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer active:scale-98 disabled:opacity-50"
+                    title="Faz o botão .RB no SketchUp de todos os clientes piscar em laranja até que eles baixem e atualizem o arquivo"
+                  >
+                    <BellRing className={`w-4 h-4 ${isPublishingRelease ? 'animate-spin' : ''}`} />
+                    <span>📢 Lançar Atualização (Ativar Botão Laranja no Plugin)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleClearPluginAlert}
+                    disabled={isPublishingRelease || !releaseInfo?.activeAlert}
+                    className="py-3 px-4 bg-stone-800 hover:bg-stone-700 border border-stone-600 rounded-xl text-xs font-semibold text-stone-300 hover:text-white flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                    title="Desativa o alerta laranja para todos os clientes"
+                  >
+                    <X className="w-4 h-4 text-stone-400" />
+                    <span>⏹️ Desativar Alerta (Apagar Botão Laranja)</span>
+                  </button>
+                </div>
+              </div>
+
               <div className="p-4 bg-amber-950/40 border border-amber-500/50 rounded-xl space-y-2 text-xs text-amber-200">
                 <div className="flex items-center gap-2 font-bold text-amber-400 text-sm">
                   <AlertCircle className="w-4 h-4" />

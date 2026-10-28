@@ -17,6 +17,11 @@ import {
   initFirestoreSync,
   ClientLicenseRecord,
 } from "./src/lib/firestore-service";
+import {
+  getPluginReleaseInfo,
+  publishPluginRelease,
+  clearPluginReleaseAlert,
+} from "./src/lib/plugin-release-service";
 
 dotenv.config();
 
@@ -891,29 +896,63 @@ require 'zlib';require 'base64';eval(Zlib::Inflate.inflate(Base64.decode64("${b6
   // Executa uma sincronização imediata no carregamento do servidor
   updateProtectedPluginFiles();
 
-  app.get("/api/plugin-version", (req, res) => {
+  app.get("/api/plugin-version", async (req, res) => {
     try {
-      updateProtectedPluginFiles();
-      const protectedPath = path.resolve("public", "skp_render_pro_protected.rb");
-      const normalPath = path.resolve("public", "skp_render_pro.rb");
-      const targetFile = fs.existsSync(protectedPath) ? protectedPath : normalPath;
-      if (fs.existsSync(targetFile)) {
-        const stats = fs.statSync(targetFile);
-        return res.json({ success: true, version: Math.floor(stats.mtimeMs) });
-      }
-      return res.status(404).json({ success: false, error: "Arquivo não encontrado." });
+      const releaseInfo = await getPluginReleaseInfo();
+      return res.json({
+        success: true,
+        version: releaseInfo.releaseVersion,
+        versionName: releaseInfo.versionName,
+        releaseDate: releaseInfo.releaseDate,
+        releaseNotes: releaseInfo.releaseNotes,
+        activeAlert: releaseInfo.activeAlert,
+      });
     } catch (err: any) {
       return res.status(500).json({ success: false, error: err.message });
     }
   });
 
-  app.get("/api/plugin-code", (req, res) => {
+  // ROTA DO ADMIN: Lançar / Notificar Atualização do Plugin para Todos os Clientes
+  app.post("/api/admin/publish-plugin-update", async (req, res) => {
     try {
       updateProtectedPluginFiles();
+      const versionName = (req.body?.versionName || "2.1.0").toString();
+      const releaseNotes = (req.body?.releaseNotes || "Nova versão oficial do plugin SKP Render Pro IA").toString();
+      const newRelease = await publishPluginRelease(versionName, releaseNotes);
+      return res.json({
+        success: true,
+        message: "Nova atualização do plugin lançada com sucesso! O alerta laranja ficará ativo para os clientes até que eles façam o download.",
+        releaseInfo: newRelease,
+      });
+    } catch (err: any) {
+      return res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  // ROTA DO ADMIN: Desativar Alerta de Atualização
+  app.post("/api/admin/clear-plugin-alert", async (req, res) => {
+    try {
+      const updated = await clearPluginReleaseAlert();
+      return res.json({
+        success: true,
+        message: "Alerta de atualização do plugin desativado com sucesso.",
+        releaseInfo: updated,
+      });
+    } catch (err: any) {
+      return res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  app.get("/api/plugin-code", async (req, res) => {
+    try {
       const publicPath = path.resolve("public");
       const sourcePath = path.join(publicPath, "skp_render_pro_source.rb");
       const protectedPath = path.join(publicPath, "skp_render_pro_protected.rb");
       const normalPath = path.join(publicPath, "skp_render_pro.rb");
+
+      if (!fs.existsSync(protectedPath) && fs.existsSync(sourcePath)) {
+        updateProtectedPluginFiles();
+      }
       
       const isSourceRequested = req.query.type === "source" || req.query.type === "raw";
       
@@ -928,10 +967,11 @@ require 'zlib';require 'base64';eval(Zlib::Inflate.inflate(Base64.decode64("${b6
       if (fs.existsSync(fileToLoad)) {
         const stats = fs.statSync(fileToLoad);
         const code = fs.readFileSync(fileToLoad, "utf8");
+        const releaseInfo = await getPluginReleaseInfo();
         return res.json({ 
           success: true, 
           code, 
-          version: Math.floor(stats.mtimeMs),
+          version: releaseInfo.releaseVersion || Math.floor(stats.mtimeMs),
           filename: isSourceRequested ? "skp_render_pro_source.rb" : "skp_render_pro_protected.rb",
           isProtected: !isSourceRequested 
         });

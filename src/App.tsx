@@ -109,6 +109,10 @@ export default function App() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Estados de versão do Plugin
+  const [pluginVersion, setPluginVersion] = useState<number>(0);
+  const [hasPluginUpdate, setHasPluginUpdate] = useState<boolean>(false);
+
   // Monitoramento de Versão do Plugin Ruby para Alerta de Atualização
   useEffect(() => {
     const checkPluginVersion = async () => {
@@ -117,16 +121,21 @@ export default function App() {
         if (res.ok) {
           const data = await res.json();
           if (data && data.success && data.version) {
-            setPluginVersion(data.version);
-            const localVer = localStorage.getItem('skp_plugin_local_version');
-            // Se não houver versão local salva, consideramos a atual como a "instalada" 
-            // para não brilhar o botão na primeira vez que o usuário abre o app.
-            if (!localVer) {
-              localStorage.setItem('skp_plugin_local_version', data.version.toString());
+            const serverVer = Number(data.version);
+            setPluginVersion(serverVer);
+
+            // REGRA: Se o administrador NÃO ativou o alerta no servidor, NUNCA exibe o botão laranja!
+            if (!data.activeAlert) {
+              setHasPluginUpdate(false);
               return;
             }
-            if (Number(localVer) < data.version) {
+
+            // Se o alerta está ativo, verifica se o usuário já instalou/baixou esta versão
+            const localVer = localStorage.getItem('skp_plugin_installed_version') || localStorage.getItem('skp_plugin_local_version');
+            if (!localVer || Number(localVer) < serverVer) {
               setHasPluginUpdate(true);
+            } else {
+              setHasPluginUpdate(false);
             }
           }
         }
@@ -134,10 +143,22 @@ export default function App() {
     };
     
     checkPluginVersion();
-    // Verifica atualizações a cada 10 minutos
-    const intervalVersion = setInterval(checkPluginVersion, 600000);
+    // Verifica atualizações a cada 2 minutos
+    const intervalVersion = setInterval(checkPluginVersion, 120000);
     return () => clearInterval(intervalVersion);
   }, []);
+
+  // Listener para quando o plugin for salvo com sucesso no SketchUp
+  useEffect(() => {
+    const handlePluginSaved = () => {
+      const currentVer = pluginVersion || Date.now();
+      localStorage.setItem('skp_plugin_installed_version', currentVer.toString());
+      localStorage.setItem('skp_plugin_local_version', currentVer.toString());
+      setHasPluginUpdate(false);
+    };
+    window.addEventListener('skp-plugin-saved-direct', handlePluginSaved);
+    return () => window.removeEventListener('skp-plugin-saved-direct', handlePluginSaved);
+  }, [pluginVersion]);
 
   const isInsideSketchup = Boolean(isSketchupDetected || (typeof window !== 'undefined' && checkIsInsideSketchup()));
 
@@ -191,8 +212,6 @@ export default function App() {
     },
   ]);
   const [expandedMessages, setExpandedMessages] = useState<Set<string>>(new Set());
-  const [pluginVersion, setPluginVersion] = useState<number>(0);
-  const [hasPluginUpdate, setHasPluginUpdate] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
   const [attachedImage, setAttachedImage] = useState<string | null>(null);
   const [attachedImageName, setAttachedImageName] = useState<string>('');
@@ -952,6 +971,7 @@ export default function App() {
         }
         showToast('📂 Janela aberta diretamente na pasta Plugins do seu SketchUp!');
         if (pluginVersion > 0) {
+          localStorage.setItem('skp_plugin_installed_version', pluginVersion.toString());
           localStorage.setItem('skp_plugin_local_version', pluginVersion.toString());
           setHasPluginUpdate(false);
         }
@@ -975,6 +995,7 @@ export default function App() {
 
       // Marca a versão atual como "lida/instalada" para remover o alerta visual
       if (pluginVersion > 0) {
+        localStorage.setItem('skp_plugin_installed_version', pluginVersion.toString());
         localStorage.setItem('skp_plugin_local_version', pluginVersion.toString());
         setHasPluginUpdate(false);
       }

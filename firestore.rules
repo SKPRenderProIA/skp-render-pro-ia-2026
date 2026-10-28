@@ -34,5 +34,9 @@ service cloud.firestore {
       allow create, update: if isValidId(tombstoneId) && isValidTombstone(request.resource.data);
       allow delete: if isValidId(tombstoneId);
     }
+
+    match /system_config/{configId} {
+      allow read, write: if true;
+    }
   }
 }
