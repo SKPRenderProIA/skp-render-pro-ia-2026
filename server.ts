@@ -1671,8 +1671,9 @@ ESTRUTURA OBRIGATÓRIA:
         langInstruction = "🚨 IMPORTANTE - USUÁRIO FALA ESPANHOL: Você DEVE adicionar uma 'SEÇÃO 4.5 — PROMPT COMPLETO — ES' com o prompt traduzido para ESPANHOL técnico de ArchViz, logo após a seção em Português.";
       }
 
-        const visionPrompt = `SISTEMA RENDER PRO IA — LEITURA FORENSE 37 CAMADAS
-Siga rigorosamente o PROTOCOLO SKP RENDER PRO IA (CAMADAS 0 a 37).
+        const visionPrompt = `SISTEMA RENDER PRO IA — LEITURA FORENSE ULTRA-MINUCIOSA (CAMADAS 0 A 71)
+Você é o Arquiteto e Engenheiro Forense de Renderização ArchViz do SKP RENDER PRO IA.
+Sua missão é realizar uma LEITURA FORENSE PROFUNDA E EXAUSTIVA desta imagem do SketchUp, gerando o relatório técnico arquitetônico de 5 seções no padrão de excelência máximo do sistema.
 
 ${langInstruction}
 
@@ -1681,29 +1682,65 @@ CENA DO USUÁRIO: "${userInitialLead}"
 ENTRADA: "${userPrompt}"
 PROPORÇÃO: ${ratioLabel}
 
-🚨 REGRA 1: Comece SEMPRE com "${userInitialLead}".
-🚨 REGRA 2 (CAMADA 2 — MATERIAL LOCK): Identifique Material, Cor, Textura, Acabamento, PBR Roughness, Brilho, Paginação. NUNCA substitua materiais. Se parecer madeira -> é madeira.
-🚨 REGRA 3 (CAMADA 21 — REFLEXÃO): Espelhos e vidros devem refletir a cena com total fidelidade de cores reais e naturais.
+🚨 REGRA 1: Comece o relatório SEMPRE com o título: "# ${userInitialLead}".
+🚨 REGRA 2 (CAMADA 2 — MATERIAL LOCK ABSOLUTO): Identifique cada material, cor base, textura, acabamento tátil, PBR Roughness, brilho e paginação. NUNCA substitua materiais existentes. Se parecer madeira -> é madeira de padrão real. Se parecer concreto -> é concreto aparente. Correlacione toda marcenaria com catálogos brasileiros (Duratex, Guararapes, Sudati).
+🚨 REGRA 3: NUNCA mencione resoluções numéricas ou dimensões em pixels (como 720x1290, 608x1088 ou similares) no prompt.
 
-🚨 REGRA SUPREMA — PRESERVAÇÃO INTEGRAL DE ENQUADRAMENTO (MANDATORY FULL-FRAME PRESERVATION):
-Em cada prompt gerado (SEÇÃO 4 — PT e SEÇÃO 5 — EN), inclua OBRIGATORIAMENTE:
+ESTRUTURA RIGOROSA OBRIGATÓRIA DAS 5 SEÇÕES:
+
+# ${userInitialLead}
+
+### SEÇÃO 1 — IMAGEM ANALISADA
+Parágrafo completo, rico e descritivo analisando a imagem específica enviada: enquadramento da câmera (frontal, perspectiva lateral ou angular), plano principal em destaque, elementos em primeiro plano, segundo plano e plano de fundo, composição arquitetônica, teto/forro, piso e integração entre ambientes.
+
+### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA (COM MATERIAIS UNIFICADOS DO AMBIENTE)
+Lista com marcadores (- **Item:**) detalhando CADA elemento visível na cena com especificação física PBR cirúrgica (padrão de material/MDF, cor, textura, acabamento, roughness exato de 0.0 a 1.0, reflexão e comportamento de luz):
+- **Piso:** [Especificação do revestimento de piso, réguas/placas, acabamento, roughness]
+- **Paredes:** [Especificação de alvenaria, tijolos aparentes, concreto aparente, tintas minerais, roughness]
+- **Forro e Teto:** [Especificação de forro ripado, gesso, cor, acabamento, spots embutidos]
+- **Marcenaria e Armários:** [Especificação de MDF padrão Duratex/Sudati/Guararapes, acabamento acetinado/fosco, portas provençais/lisas, puxadores]
+- **Bancadas e Ilhas:** [Especificação de tampo, pedra/madeira maciça/MDF, paginação de veios, espessura, saia]
+- **Eletrodomésticos e Equipamentos:** [Especificação de coifa, cooktop, fornos, geladeira, acabamento inox/vidro temperado]
+- **Metais Sanitários e Tubulações:** [Especificação de torneiras monocomando gourmet, eletrodutos aparentes galvanizados, caixas de passagem]
+- **Mobiliário e Assentos:** [Especificação de banquetas, cadeiras, sofá, tecido de linho/couro/aço carbono, pintura eletrostática]
+- **Iluminação Técnica:** [Especificação de spots LED direcionáveis, temperatura de cor 3000K, fitas LED embutidas, luz indireta rasante]
+- **Adornos, Quadros e Decoração:** [Quadros decorativos, molduras de alumínio, objetos sobre bancadas, frascos, livros, vegetação]
+
+### SEÇÃO 3 — INTERVENÇÃO INTELIGENTE
+Parágrafo técnico descrevendo a intervenção de renderização: aplicação rigorosa de fotorrealismo PBR (Physical Based Rendering) sobre a cena base ${userInitialLead}, preservando 100% da geometria, layout, proporções, esquadrias e enquadramento originais. Injeção de micro-imperfeições texturais, reflexos fisicamente corretos (roughness, normal maps, ambient occlusion), iluminação indireta suave (Global Illumination) simulando luz natural difusa combinada com a iluminação artificial projetada.
+
+### SEÇÃO 4 — PROMPT COMPLETO — PT
+\`\`\`text
+${userInitialLead}
 
 MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
-Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials/lighting may change.
-STRICT geometric fidelity: preserve the exact camera angle, perspective, every wall, opening, furniture position, proportion and edge of the model, as if guided by a ControlNet line/depth map.
+Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
+STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
-🚨 NUNCA mencione resoluções numéricas ou dimensões em pixels (como 720x1290, 608x1088 ou similares) no prompt.
 
-ESTRUTURA OBRIGATÓRIA:
-# ${userInitialLead}
-### SEÇÃO 1 — IMAGEM ANALISADA
-### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA
-### SEÇÃO 3 — INTERVENÇÃO INTELIGENTE
-### SEÇÃO 4 — PROMPT COMPLETO — PT (\`\`\`text)
-### SEÇÃO 5 — PROMPT COMPLETO — EN (\`\`\`text)
+Apply materials and atmosphere as described: ${userInitialLead} — [Nome do Ambiente]..
+[Todos os materiais da SEÇÃO 2 concatenados em texto corrido separados por ponto e vírgula (;)]
 
-🚨 REGRA CRÍTICA (CAMADA 36): Se o comando for "GERAR", forneça as seções para análise mas priorize a integridade do enquadramento total no prompt final.`;
+High-end architectural visualization, realistic lighting, global illumination, sharp detail.
+\`\`\`
+
+### SEÇÃO 5 — PROMPT COMPLETO — EN
+\`\`\`text
+${userInitialLead}
+
+Ultra-realistic architectural interior photography of [ambiente em inglês], exact framing of scene ${userInitialLead}.
+MANDATORY FULL-FRAME PRESERVATION:
+Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
+Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
+STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
+Do not add, remove or move any object.
+
+Apply materials and atmosphere as described: ${userInitialLead} — [Room Name]..
+[English translation of all materials concatenated separated by semicolon (;)]
+
+High-end architectural visualization, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
+\`\`\``;
 
         let visionResult = "";
         try {
