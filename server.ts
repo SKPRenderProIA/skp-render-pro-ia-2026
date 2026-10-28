@@ -181,8 +181,6 @@ function ensurePromptStartsWithUserText(rawResult: string, userInitialLead: stri
       .replace(/\(?\b720x1290\s*(?:->|para)?\s*608x1088\b\)?/gi, "")
       .replace(/\b720x1290\b/gi, "")
       .replace(/\b608x1088\b/gi, "")
-      .replace(/Only requested materials(?: and lighting)? may change\.?\s*(STRICT GEOMETRIC)/gi, "Only requested materials and lighting may change.\n\n$1")
-      .replace(/(?:Do not add, remove or move any object\.?)\s*(Apply materials and atmosphere as described:)/gi, "Do not add, remove or move any object.\n\n$1")
       .trim();
     result = result.replace(secPtRegex, `$1${ptPrompt}\n$3`);
   }
@@ -225,8 +223,6 @@ function ensurePromptStartsWithUserText(rawResult: string, userInitialLead: stri
       .replace(/\(?\b720x1290\s*(?:->|para)?\s*608x1088\b\)?/gi, "")
       .replace(/\b720x1290\b/gi, "")
       .replace(/\b608x1088\b/gi, "")
-      .replace(/Only requested materials(?: and lighting)? may change\.?\s*(STRICT GEOMETRIC)/gi, "Only requested materials and lighting may change.\n\n$1")
-      .replace(/(?:Do not add, remove or move any object\.?)\s*(Apply materials and atmosphere as described:)/gi, "Do not add, remove or move any object.\n\n$1")
       .trim();
     result = result.replace(secEnRegex, `$1${enPrompt}\n$3`);
   }
@@ -1686,35 +1682,32 @@ CENA DO USUÁRIO: "${userInitialLead}"
 ENTRADA: "${userPrompt}"
 PROPORÇÃO: ${ratioLabel}
 
-🚨 DIRETRIZES DE PADRÃO OURO ARQUITETÔNICO — OBRIGATÓRIAS:
+🚨 REGRA 1: Comece o relatório SEMPRE com o título: "# ${userInitialLead}".
+🚨 REGRA 2 (CAMADA 2 — MATERIAL LOCK ABSOLUTO): Identifique cada material, cor base, textura, acabamento tátil, PBR Roughness, brilho e paginação. NUNCA substitua materiais existentes. Se parecer madeira -> é madeira de padrão real. Se parecer concreto -> é concreto aparente. Correlacione toda marcenaria com catálogos brasileiros (Duratex, Guararapes, Sudati).
+🚨 REGRA 3: NUNCA mencione resoluções numéricas ou dimensões em pixels (como 720x1290, 608x1088 ou similares) no prompt.
 
-1. PROIBIÇÃO ABSOLUTA DE RESUMO TELEGRÁFICO (ANTI-RESUMO):
-Nas Seções 2, 4 e 5, NUNCA resuma materiais em frases curtas genéricas como "Piso laminado, Roughness 0.65" ou "Cadeira em tela mesh". 
-Cada material e objeto detectado na cena DEVE OBRIGATORIAMENTE ser descrito com riqueza técnica profunda:
-- Nome exato e padrão/espécie (ex: Carvalho Natural, Carvalho Castelli, Freijó Puro, Louro Freijó, Nogueira Caiena, Aço Inox AISI 304, laca acetinada anti-touch).
-- Desenho dos veios, alinhamento, juntas chanfradas e sensação tátil (aveludada, acetinada, anti-touch, textura rústica mineral).
-- Física PBR precisa: valor exato de roughness (ex: roughness 0.05 para vidro, 0.45 para madeira acetinada, 0.85 para tijolo ou tinta mineral fosca), reflexos especulares e micro-sombras de oclusão de contato (AO).
-- Propriedades ópticas especiais quando aplicável: translucidez de subsuperfície (SSS) em folhas de plantas, anisotropia em metais escovados e antirreflexo em telas/vidros.
+ESTRUTURA RIGOROSA OBRIGATÓRIA DAS 5 SEÇÕES:
 
-2. BLOCOS DE CÓDIGO OBRIGATÓRIOS (COM QUEBRA DE LINHAS):
-As Seções 4 (PROMPT COMPLETO — PT) e 5 (PROMPT COMPLETO — EN) DEVEM OBRIGATORIAMENTE ser formatadas dentro de blocos de código markdown (\`\`\`text) com quebras de linha estruturadas entre os blocos "MANDATORY FULL-FRAME PRESERVATION", "STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK)" e a descrição de materiais, permitindo cópia limpa com 1 clique pelo usuário.
+# ${userInitialLead}
 
-3. EXEMPLO OFICIAL DE REFERÊNCIA (FEW-SHOT):
-Siga rigorosamente este modelo de profundidade técnica:
----
 ### SEÇÃO 1 — IMAGEM ANALISADA
-Perspectiva angular detalhada do ambiente, identificando o enquadramento, uso do espaço, ilha/bancada, móveis secundários, acabamentos de parede, forro e iluminação técnica.
+Parágrafo completo, rico e descritivo analisando a imagem específica enviada: enquadramento da câmera (frontal, perspectiva lateral ou angular), plano principal em destaque, elementos em primeiro plano, segundo plano e plano de fundo, composição arquitetônica, teto/forro, piso e integração entre ambientes.
 
-### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA
-- **Piso:** Tipo de piso, padrão amadeirado/porcelanato com veios lineares, acabamento acetinado de baixa refletância (roughness 0.45) e juntas chanfradas discretas.
-- **Mobiliário e Marcenaria:** Madeira natural em lâmina contínua (roughness 0.55), frentes laqueadas em laca acetinada anti-touch com puxadores usinados, gaveteiros com rodízios de silicone.
-- **Paredes:** Pintura mineral/acrílica aveludada ultra-fosca (roughness 0.85) com alta absorção de reflexos; alvenarias em tijolo aparente ou concreto estrutural.
-- **Metais e Vidros:** Metais em aço escovado acetinado fosco; vidros temperados reflexivos (roughness 0.05) com transparência e reflexos reais da cena.
-- **Estofados e Cadeiras:** Tecidos tramados, telas ergonômicas biomecânicas respiráveis semitranslúcidas, polímeros técnicos texturizados.
-- **Iluminação e Vegetação:** Iluminação técnica de plafons e spots LED (3000K a 4000K) gerando sombras de contato realistas (AO); plantas com transmissão natural de luz nas folhas (SSS).
+### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA (COM MATERIAIS UNIFICADOS DO AMBIENTE)
+Lista com marcadores (- **Item:**) detalhando CADA elemento visível na cena com especificação física PBR cirúrgica (padrão de material/MDF, cor, textura, acabamento, roughness exato de 0.0 a 1.0, reflexão e comportamento de luz):
+- **Piso:** [Especificação do revestimento de piso, réguas/placas, acabamento, roughness]
+- **Paredes:** [Especificação de alvenaria, tijolos aparentes, concreto aparente, tintas minerais, roughness]
+- **Forro e Teto:** [Especificação de forro ripado, gesso, cor, acabamento, spots embutidos]
+- **Marcenaria e Armários:** [Especificação de MDF padrão Duratex/Sudati/Guararapes, acabamento acetinado/fosco, portas provençais/lisas, puxadores]
+- **Bancadas e Ilhas:** [Especificação de tampo, pedra/madeira maciça/MDF, paginação de veios, espessura, saia]
+- **Eletrodomésticos e Equipamentos:** [Especificação de coifa, cooktop, fornos, geladeira, acabamento inox/vidro temperado]
+- **Metais Sanitários e Tubulações:** [Especificação de torneiras monocomando gourmet, eletrodutos aparentes galvanizados, caixas de passagem]
+- **Mobiliário e Assentos:** [Especificação de banquetas, cadeiras, sofá, tecido de linho/couro/aço carbono, pintura eletrostática]
+- **Iluminação Técnica:** [Especificação de spots LED direcionáveis, temperatura de cor 3000K, fitas LED embutidas, luz indireta rasante]
+- **Adornos, Quadros e Decoração:** [Quadros decorativos, molduras de alumínio, objetos sobre bancadas, frascos, livros, vegetação]
 
 ### SEÇÃO 3 — INTERVENÇÃO INTELIGENTE
-Parágrafo técnico calibrando fotorrealismo PBR, micro-deslocamento e preservação rígida de 100% da geometria original da cena.
+Parágrafo técnico descrevendo a intervenção de renderização: aplicação rigorosa de fotorrealismo PBR (Physical Based Rendering) sobre a cena base ${userInitialLead}, preservando 100% da geometria, layout, proporções, esquadrias e enquadramento originais. Injeção de micro-imperfeições texturais, reflexos fisicamente corretos (roughness, normal maps, ambient occlusion), iluminação indireta suave (Global Illumination) simulando luz natural difusa combinada com a iluminação artificial projetada.
 
 ### SEÇÃO 4 — PROMPT COMPLETO — PT
 \`\`\`text
@@ -1723,12 +1716,11 @@ ${userInitialLead}
 MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
 Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
-
 STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Nome do Ambiente]..
-[Todos os materiais da SEÇÃO 2 com riqueza técnica profunda concatenados em texto corrido separados por ponto e vírgula (;)]
+[Todos os materiais da SEÇÃO 2 concatenados em texto corrido separados por ponto e vírgula (;)]
 
 High-end architectural visualization, realistic lighting, global illumination, sharp detail.
 \`\`\`
@@ -1737,21 +1729,18 @@ High-end architectural visualization, realistic lighting, global illumination, s
 \`\`\`text
 ${userInitialLead}
 
+Ultra-realistic architectural interior photography of [ambiente em inglês], exact framing of scene ${userInitialLead}.
 MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
 Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
-
 STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Room Name]..
-[All materials from SECTION 2 translated to technical ArchViz English with deep PBR detail, concatenated separated by semicolon (;)]
+[English translation of all materials concatenated separated by semicolon (;)]
 
 High-end architectural visualization, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
-\`\`\`
-
-🚨 NUNCA mencione resoluções numéricas em pixels no texto do prompt final.
-🚨 Forneça SEMPRE as 5 seções completas, profundas e ricas para esta imagem.`;
+\`\`\``;
 
         let visionResult = "";
         try {
