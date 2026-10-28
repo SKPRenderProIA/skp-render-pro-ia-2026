@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Fibraplac">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Origens">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_ori_asp" NAME="Aspen">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Aspen.jpg</TEXTUREFILE>
+          <COLORBASE R="229" G="218" B="193" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ori_car_lat" NAME="Carvalho Latino">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Carvalho Latino.jpg</TEXTUREFILE>
+          <COLORBASE R="217" G="203" B="169" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ori_moc" NAME="Mocaccino">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Mocaccino.jpg</TEXTUREFILE>
+          <COLORBASE R="67" G="44" B="28" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ori_mur" NAME="Murano">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Murano.jpg</TEXTUREFILE>
+          <COLORBASE R="184" G="162" B="125" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ori_nac" NAME="Nacre">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Nacre.jpg</TEXTUREFILE>
+          <COLORBASE R="207" G="194" B="172" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ori_nog_bor" NAME="Nogueira Boreal">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Origens\Nogueira Boreal.jpg</TEXTUREFILE>
+          <COLORBASE R="138" G="83" B="45" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Conceito">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_con_lin_cac" NAME="Linho Cacau">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Conceito\Linho_Cacau.jpg</TEXTUREFILE>
+          <COLORBASE R="110" G="88" B="63" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_con_lin_cin_cal" NAME="Linho Cinza Calcário">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Conceito\Linho_Cinza_Calcario.jpg</TEXTUREFILE>
+          <COLORBASE R="204" G="203" B="203" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_con_lin_fen" NAME="Linho Fendi">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Conceito\Linho_Fendi.JPG</TEXTUREFILE>
+          <COLORBASE R="204" G="190" B="164" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_con_lin_pla" NAME="Linho Platina">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Conceito\Linho_Platina.jpg</TEXTUREFILE>
+          <COLORBASE R="83" G="95" B="102" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_con_lin" NAME="Linum">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Conceito\Linum.jpg</TEXTUREFILE>
+          <COLORBASE R="155" G="135" B="114" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Versátil">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_ver_cin_cal" NAME="Cinza Calcário">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\Cinza Calcario.jpg</TEXTUREFILE>
+          <COLORBASE R="207" G="206" B="202" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_ver_moc" NAME="Mocca">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\MOCCA.jpg</TEXTUREFILE>
+          <COLORBASE R="149" G="140" B="125" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ver_pan" NAME="Panna">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\PANNA.jpg</TEXTUREFILE>
+          <COLORBASE R="205" G="195" B="185" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_ver_pre" NAME="Preto">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\Preto.jpg</TEXTUREFILE>
+          <COLORBASE R="16" G="16" B="16" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_ver_pre_tra" NAME="Preto Trama">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\PRETO TRAMA.jpg</TEXTUREFILE>
+          <COLORBASE R="27" G="27" B="27" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_ver_ver" NAME="Versato">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Versatil\VERSATO.jpg</TEXTUREFILE>
+          <COLORBASE R="98" G="105" B="113" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Reserva">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_res_aur" NAME="Auris">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\Auris.jpg</TEXTUREFILE>
+          <COLORBASE R="118" G="83" B="59" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_car_mon" NAME="Carvalho Montreal">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\Carvalho Montreal.jpg</TEXTUREFILE>
+          <COLORBASE R="184" G="154" B="117" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_car_tro" NAME="Carvalho Tropical">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\CARVALHO TROPICAL.jpg</TEXTUREFILE>
+          <COLORBASE R="193" G="156" B="120" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_eba_exo" NAME="Ébano Exótico">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\Ebano_Exotico.jpg</TEXTUREFILE>
+          <COLORBASE R="31" G="25" B="21" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_fre_nat" NAME="Freijó Natura">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\FREIJO NATURA.jpg</TEXTUREFILE>
+          <COLORBASE R="153" G="103" B="45" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_nar" NAME="Narita">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\Narita.jpg</TEXTUREFILE>
+          <COLORBASE R="214" G="200" B="176" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_res_sie_nat" NAME="Siena Natural">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Reserva\Siena_Natural.jpg</TEXTUREFILE>
+          <COLORBASE R="127" G="85" B="49" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Aquarela">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_aqu_aca" NAME="Açaí">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Aquarela\Acai_2.jpg</TEXTUREFILE>
+          <COLORBASE R="108" G="35" B="51" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_aqu_cac" NAME="Cacau">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Aquarela\Cacau_2.jpg</TEXTUREFILE>
+          <COLORBASE R="90" G="67" B="43" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_aqu_mar" NAME="Maracujá">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Aquarela\Maracuja_2.jpg</TEXTUREFILE>
+          <COLORBASE R="246" G="206" B="69" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_aqu_pla" NAME="Platina">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Aquarela\Platina_2.jpg</TEXTUREFILE>
+          <COLORBASE R="158" G="141" B="133" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="fib_aqu_tur" NAME="Turmalina">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Aquarela\Turmalina_2.jpg</TEXTUREFILE>
+          <COLORBASE R="2" G="192" B="154" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="+Brancos">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="fib_bra_tx" NAME="Branco Plus TX">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Brancos\Branco_TX_tratado.jpg</TEXTUREFILE>
+          <COLORBASE R="245" G="244" B="242" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_bra_ls" NAME="Branco Plus LS">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Brancos\Branco_Plus_LS.jpg</TEXTUREFILE>
+          <COLORBASE R="255" G="255" B="255" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.3</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="fib_bra_lar_lf" NAME="Branco Larissa">
+          <TEXTUREFILE>.\textures\fabrica\Fibraplac\Brancos\Branco_Larissa_LF.jpg</TEXTUREFILE>
+          <COLORBASE R="237" G="237" B="237" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>

@@ -1,0 +1,5328 @@
+[
+  {
+    "id": "dur_con_arenito",
+    "brand": "Duratex",
+    "name": "Arenito",
+    "category": "Mineral / Pedra",
+    "hexColor": "#E2DACF",
+    "rgb": [
+      226,
+      218,
+      207
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Arenito_ Conceito.jpg",
+    "localTexture": "/textures/mdf/Arenito_ Conceito.jpg"
+  },
+  {
+    "id": "dur_con_basalto",
+    "brand": "Duratex",
+    "name": "Basalto",
+    "category": "Mineral / Pedra",
+    "hexColor": "#817E78",
+    "rgb": [
+      129,
+      126,
+      120
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Conceito_Basalto.jpg",
+    "localTexture": "/textures/mdf/Conceito_Basalto.jpg"
+  },
+  {
+    "id": "dur_con_bolero",
+    "brand": "Duratex",
+    "name": "Bolero",
+    "category": "Madeirado",
+    "hexColor": "#D8C9BB",
+    "rgb": [
+      216,
+      201,
+      187
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Conceito Bolero.jpg",
+    "localTexture": "/textures/mdf/Conceito Bolero.jpg"
+  },
+  {
+    "id": "dur_con_hong_kong",
+    "brand": "Duratex",
+    "name": "Hong Kong",
+    "category": "Madeirado",
+    "hexColor": "#B8AEA3",
+    "rgb": [
+      184,
+      174,
+      163
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Hong Kong_Conceito.jpg",
+    "localTexture": "/textures/mdf/Hong Kong_Conceito.jpg"
+  },
+  {
+    "id": "dur_con_lana",
+    "brand": "Duratex",
+    "name": "Lana",
+    "category": "Madeirado",
+    "hexColor": "#E0E1D8",
+    "rgb": [
+      224,
+      225,
+      216
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Lana_Conceito.jpg",
+    "localTexture": "/textures/mdf/Lana_Conceito.jpg"
+  },
+  {
+    "id": "dur_con_lunar",
+    "brand": "Duratex",
+    "name": "Lunar",
+    "category": "Madeirado",
+    "hexColor": "#92908C",
+    "rgb": [
+      146,
+      144,
+      140
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Lunar_Conceito.jpg",
+    "localTexture": "/textures/mdf/Lunar_Conceito.jpg"
+  },
+  {
+    "id": "dur_con_tramato",
+    "brand": "Duratex",
+    "name": "Tramato",
+    "category": "Tecido",
+    "hexColor": "#4A3C2C",
+    "rgb": [
+      74,
+      60,
+      44
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tramato_Conceito.jpg",
+    "localTexture": "/textures/mdf/Tramato_Conceito.jpg"
+  },
+  {
+    "id": "Dur_Cri_bra_diamante",
+    "brand": "Duratex",
+    "name": "Branco Diamante (Cristallo)",
+    "category": "Unicolor",
+    "hexColor": "#F3F3F3",
+    "rgb": [
+      243,
+      243,
+      243
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Branco_Diamante_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Branco_Diamante_Cristallo.jpg"
+  },
+  {
+    "id": "dur_cri_cinza_sagrado",
+    "brand": "Duratex",
+    "name": "Cinza Sagrado (Cristallo)",
+    "category": "Unicolor",
+    "hexColor": "#6F7578",
+    "rgb": [
+      111,
+      117,
+      120
+    ],
+    "roughness": 0.03,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Cinza_Sagrado_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Cinza_Sagrado_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_croma",
+    "brand": "Duratex",
+    "name": "Croma (Cristallo)",
+    "category": "Madeirado",
+    "hexColor": "#A86F4D",
+    "rgb": [
+      168,
+      111,
+      77
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Croma_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Croma_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_gianduia",
+    "brand": "Duratex",
+    "name": "Gianduia (Cristallo)",
+    "category": "Madeirado",
+    "hexColor": "#B1A79D",
+    "rgb": [
+      177,
+      167,
+      157
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Gianduia_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Gianduia_Cristallo.jpg"
+  },
+  {
+    "id": "dur_cri_opala",
+    "brand": "Duratex",
+    "name": "Opala (Cristallo)",
+    "category": "Madeirado",
+    "hexColor": "#0D0E06",
+    "rgb": [
+      13,
+      14,
+      6
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Opala_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Opala_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_pau_fer_natural",
+    "brand": "Duratex",
+    "name": "Pau Ferro Natural (Cristallo)",
+    "category": "Madeirado",
+    "hexColor": "#864529",
+    "rgb": [
+      134,
+      69,
+      41
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Pau Ferro Natural_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Pau Ferro Natural_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_preto",
+    "brand": "Duratex",
+    "name": "Preto (Cristallo)",
+    "category": "Unicolor",
+    "hexColor": "#000000",
+    "rgb": [
+      0,
+      0,
+      0
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Preto_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Preto_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_titanio",
+    "brand": "Duratex",
+    "name": "Titânio (Cristallo)",
+    "category": "Unicolor",
+    "hexColor": "#B2B0AA",
+    "rgb": [
+      178,
+      176,
+      170
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Titanio_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Titanio_Cristallo.jpg"
+  },
+  {
+    "id": "Dur_Cri_ultramarino",
+    "brand": "Duratex",
+    "name": "Ultramarino (Cristallo)",
+    "category": "Tecido",
+    "hexColor": "#005057",
+    "rgb": [
+      0,
+      80,
+      87
+    ],
+    "roughness": 0.05,
+    "specular": 0.5,
+    "mcode": "",
+    "textureFile": "Ultramarino_Cristallo.jpg",
+    "localTexture": "/textures/mdf/Ultramarino_Cristallo.jpg"
+  },
+  {
+    "id": "dur_cro_riviera",
+    "brand": "Duratex",
+    "name": "Riviera",
+    "category": "Madeirado",
+    "hexColor": "#A58860",
+    "rgb": [
+      165,
+      136,
+      96
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Riviera_Cross.jpg",
+    "localTexture": "/textures/mdf/Riviera_Cross.jpg"
+  },
+  {
+    "id": "dur_des_absoluto",
+    "brand": "Duratex",
+    "name": "Absoluto",
+    "category": "Madeirado",
+    "hexColor": "#171717",
+    "rgb": [
+      23,
+      23,
+      23
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Design_Absoluto.jpg",
+    "localTexture": "/textures/mdf/Design_Absoluto.jpg"
+  },
+  {
+    "id": "dur_des_brise",
+    "brand": "Duratex",
+    "name": "Brise",
+    "category": "Madeirado",
+    "hexColor": "#AD8365",
+    "rgb": [
+      173,
+      131,
+      101
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Brise_Design.jpg",
+    "localTexture": "/textures/mdf/Brise_Design.jpg"
+  },
+  {
+    "id": "dur_des_carvalho_avela",
+    "brand": "Duratex",
+    "name": "Carvalho Avelã",
+    "category": "Madeirado",
+    "hexColor": "#826950",
+    "rgb": [
+      130,
+      105,
+      80
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Avela_Design.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Avela_Design.jpg"
+  },
+  {
+    "id": "dur_des_carvalho_berlim",
+    "brand": "Duratex",
+    "name": "Carvalho Berlim",
+    "category": "Madeirado",
+    "hexColor": "#CBBAAA",
+    "rgb": [
+      203,
+      186,
+      170
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Berlim_Design.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Berlim_Design.jpg"
+  },
+  {
+    "id": "dur_des_carvalho_hanover",
+    "brand": "Duratex",
+    "name": "Carvalho Hanover",
+    "category": "Madeirado",
+    "hexColor": "#AE8860",
+    "rgb": [
+      174,
+      136,
+      96
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Hanover_Design.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Hanover_Design.jpg"
+  },
+  {
+    "id": "dur_des_carvalho_malva",
+    "brand": "Duratex",
+    "name": "Carvalho Malva",
+    "category": "Madeirado",
+    "hexColor": "#B39C7B",
+    "rgb": [
+      179,
+      156,
+      123
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Malva_Design.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Malva_Design.jpg"
+  },
+  {
+    "id": "dur_des_carvalho_munique",
+    "brand": "Duratex",
+    "name": "Carvalho Munique",
+    "category": "Madeirado",
+    "hexColor": "#84644C",
+    "rgb": [
+      132,
+      100,
+      76
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Munique_Design.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Munique_Design.jpg"
+  },
+  {
+    "id": "dur_des_ibiza",
+    "brand": "Duratex",
+    "name": "Ibiza",
+    "category": "Madeirado",
+    "hexColor": "#E4E1D9",
+    "rgb": [
+      228,
+      225,
+      217
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Ibiza_Design.jpg",
+    "localTexture": "/textures/mdf/Ibiza_Design.jpg"
+  },
+  {
+    "id": "dur_des_maranta",
+    "brand": "Duratex",
+    "name": "Maranta",
+    "category": "Madeirado",
+    "hexColor": "#D9CCC3",
+    "rgb": [
+      217,
+      204,
+      195
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Maranta_Design.jpg",
+    "localTexture": "/textures/mdf/Maranta_Design.jpg"
+  },
+  {
+    "id": "dur_des_metropole",
+    "brand": "Duratex",
+    "name": "Metrópole",
+    "category": "Madeirado",
+    "hexColor": "#282217",
+    "rgb": [
+      40,
+      34,
+      23
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Metropole_Design.jpg",
+    "localTexture": "/textures/mdf/Metropole_Design.jpg"
+  },
+  {
+    "id": "dur_des_nogueira_caiena",
+    "brand": "Duratex",
+    "name": "Nogueira Caiena",
+    "category": "Madeirado",
+    "hexColor": "#542B11",
+    "rgb": [
+      84,
+      43,
+      17
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nogueira_Caiena_Design.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Caiena_Design.jpg"
+  },
+  {
+    "id": "dur_des_nogueira_thar",
+    "brand": "Duratex",
+    "name": "Nogueira Thar",
+    "category": "Madeirado",
+    "hexColor": "#94775C",
+    "rgb": [
+      148,
+      119,
+      92
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nogueira_Thar_Design.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Thar_Design.jpg"
+  },
+  {
+    "id": "dur_des_trancoso",
+    "brand": "Duratex",
+    "name": "Trancoso",
+    "category": "Madeirado",
+    "hexColor": "#322114",
+    "rgb": [
+      50,
+      33,
+      20
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Trancoso_Design.jpg",
+    "localTexture": "/textures/mdf/Trancoso_Design.jpg"
+  },
+  {
+    "id": "dur_dun_amendola_rustica",
+    "brand": "Duratex",
+    "name": "Amêndola Rústica",
+    "category": "Madeirado",
+    "hexColor": "#C2966B",
+    "rgb": [
+      194,
+      150,
+      107
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Amendola_Rustica_Duna.jpg",
+    "localTexture": "/textures/mdf/Amendola_Rustica_Duna.jpg"
+  },
+  {
+    "id": "dur_ess_azul_secreto",
+    "brand": "Duratex",
+    "name": "Azul Secreto",
+    "category": "Unicolor",
+    "hexColor": "#406170",
+    "rgb": [
+      64,
+      97,
+      112
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Azul_Secreto_Essencial.jpg",
+    "localTexture": "/textures/mdf/Azul_Secreto_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_branco_diamante",
+    "brand": "Duratex",
+    "name": "Branco Diamante",
+    "category": "Unicolor",
+    "hexColor": "#F3F3F3",
+    "rgb": [
+      243,
+      243,
+      243
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Branco_Diamante_Essencial.jpg",
+    "localTexture": "/textures/mdf/Branco_Diamante_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_cinza_sagrado",
+    "brand": "Duratex",
+    "name": "Cinza Sagrado",
+    "category": "Unicolor",
+    "hexColor": "#6F7578",
+    "rgb": [
+      111,
+      117,
+      120
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cinza_Sagrado_Essencial.jpg",
+    "localTexture": "/textures/mdf/Cinza_Sagrado_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_mint",
+    "brand": "Duratex",
+    "name": "Mint",
+    "category": "Madeirado",
+    "hexColor": "#C9D6CC",
+    "rgb": [
+      201,
+      214,
+      204
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Mint_Essencial.jpg",
+    "localTexture": "/textures/mdf/Mint_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_noce_amendoa",
+    "brand": "Duratex",
+    "name": "Noce Amêndoa",
+    "category": "Madeirado",
+    "hexColor": "#826E5E",
+    "rgb": [
+      130,
+      110,
+      94
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Noce_Amendoa_Essencial.jpg",
+    "localTexture": "/textures/mdf/Noce_Amendoa_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_noce_california",
+    "brand": "Duratex",
+    "name": "Noce Califórnia",
+    "category": "Madeirado",
+    "hexColor": "#93897E",
+    "rgb": [
+      147,
+      137,
+      126
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Noce_California_Essencial.jpg",
+    "localTexture": "/textures/mdf/Noce_California_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_noce_mare",
+    "brand": "Duratex",
+    "name": "Noce Mare",
+    "category": "Madeirado",
+    "hexColor": "#C1BAA9",
+    "rgb": [
+      193,
+      186,
+      169
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Noce_Mare_Essencial.jpg",
+    "localTexture": "/textures/mdf/Noce_Mare_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_perola_urbana",
+    "brand": "Duratex",
+    "name": "Pérola Urbana",
+    "category": "Madeirado",
+    "hexColor": "#9D8F85",
+    "rgb": [
+      157,
+      143,
+      133
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Perola_Urbana_Essencial.jpg",
+    "localTexture": "/textures/mdf/Perola_Urbana_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_pinole",
+    "brand": "Duratex",
+    "name": "Pinole",
+    "category": "Madeirado",
+    "hexColor": "#D8B192",
+    "rgb": [
+      216,
+      177,
+      146
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Essencial_Pinole.jpg",
+    "localTexture": "/textures/mdf/Essencial_Pinole.jpg"
+  },
+  {
+    "id": "dur_ess_portoro",
+    "brand": "Duratex",
+    "name": "Portoro",
+    "category": "Madeirado",
+    "hexColor": "#504D4E",
+    "rgb": [
+      80,
+      77,
+      78
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Portoro_Essencial.jpg",
+    "localTexture": "/textures/mdf/Portoro_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_prata",
+    "brand": "Duratex",
+    "name": "Prata",
+    "category": "Madeirado",
+    "hexColor": "#D1D2D6",
+    "rgb": [
+      209,
+      210,
+      214
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Prata_Essencial.jpg",
+    "localTexture": "/textures/mdf/Prata_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_rosa_glamour",
+    "brand": "Duratex",
+    "name": "Rosa Glamour",
+    "category": "Unicolor",
+    "hexColor": "#82615C",
+    "rgb": [
+      130,
+      97,
+      92
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Rosa_Glamour_Essencial.jpg",
+    "localTexture": "/textures/mdf/Rosa_Glamour_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_rosa_infinito",
+    "brand": "Duratex",
+    "name": "Rosa Infinito",
+    "category": "Unicolor",
+    "hexColor": "#F3E2D0",
+    "rgb": [
+      243,
+      226,
+      208
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Essencial_Rosa-Infinito.jpg",
+    "localTexture": "/textures/mdf/Essencial_Rosa-Infinito.jpg"
+  },
+  {
+    "id": "dur_ess_rovere_sereno",
+    "brand": "Duratex",
+    "name": "Rovere Sereno",
+    "category": "Madeirado",
+    "hexColor": "#C1BDB7",
+    "rgb": [
+      193,
+      189,
+      183
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Rovere_Sereno_Essencial.jpg",
+    "localTexture": "/textures/mdf/Rovere_Sereno_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_thassos",
+    "brand": "Duratex",
+    "name": "Thassos",
+    "category": "Madeirado",
+    "hexColor": "#ECEDE8",
+    "rgb": [
+      236,
+      237,
+      232
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Thassos_Essencial.jpg",
+    "localTexture": "/textures/mdf/Thassos_Essencial.jpg"
+  },
+  {
+    "id": "dur_ess_wood_alamo",
+    "brand": "Duratex",
+    "name": "Álamo",
+    "category": "Madeirado",
+    "hexColor": "#6E553C",
+    "rgb": [
+      110,
+      85,
+      60
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Alamo_Essencial_Wood.jpg",
+    "localTexture": "/textures/mdf/Alamo_Essencial_Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_carvalho_batur",
+    "brand": "Duratex",
+    "name": "Carvalho Batur",
+    "category": "Madeirado",
+    "hexColor": "#8E7458",
+    "rgb": [
+      142,
+      116,
+      88
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Batur_Essencial_Wood.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Batur_Essencial_Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_carvalho_eterno",
+    "brand": "Duratex",
+    "name": "Carvalho Eterno",
+    "category": "Madeirado",
+    "hexColor": "#B9A996",
+    "rgb": [
+      185,
+      169,
+      150
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Eterno_Essencial Wood.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Eterno_Essencial Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_carvalho_luar",
+    "brand": "Duratex",
+    "name": "Carvalho Luar",
+    "category": "Madeirado",
+    "hexColor": "#B3A599",
+    "rgb": [
+      179,
+      165,
+      153
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Luar_Essencial Wood.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Luar_Essencial Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_cumaru_raiz",
+    "brand": "Duratex",
+    "name": "Cumaru Raiz",
+    "category": "Madeirado",
+    "hexColor": "#A66F43",
+    "rgb": [
+      166,
+      111,
+      67
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cumaru_Essencial Wood.jpg",
+    "localTexture": "/textures/mdf/Cumaru_Essencial Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_freijo_puro",
+    "brand": "Duratex",
+    "name": "Freijó Puro",
+    "category": "Madeirado",
+    "hexColor": "#896B43",
+    "rgb": [
+      137,
+      107,
+      67
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Freijo_Puro.jpg",
+    "localTexture": "/textures/mdf/Freijo_Puro.jpg"
+  },
+  {
+    "id": "dur_ess_wood_inhotim",
+    "brand": "Duratex",
+    "name": "Inhotim",
+    "category": "Madeirado",
+    "hexColor": "#6E5A41",
+    "rgb": [
+      110,
+      90,
+      65
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Inhotim_Essencial_Wood.jpg",
+    "localTexture": "/textures/mdf/Inhotim_Essencial_Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_itapua",
+    "brand": "Duratex",
+    "name": "Itapuã",
+    "category": "Madeirado",
+    "hexColor": "#AE9476",
+    "rgb": [
+      174,
+      148,
+      118
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Itapua_Essencial_Wood.jpg",
+    "localTexture": "/textures/mdf/Itapua_Essencial_Wood.jpg"
+  },
+  {
+    "id": "dur_ess_wood_jequitiba_rosa",
+    "brand": "Duratex",
+    "name": "Jequitibá Rosa",
+    "category": "Unicolor",
+    "hexColor": "#B58152",
+    "rgb": [
+      181,
+      129,
+      82
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Essencial-Wood_Jequitiba-Rosa.jpg",
+    "localTexture": "/textures/mdf/Essencial-Wood_Jequitiba-Rosa.jpg"
+  },
+  {
+    "id": "dur_ess_wood_oasis",
+    "brand": "Duratex",
+    "name": "Oásis",
+    "category": "Madeirado",
+    "hexColor": "#DDCDB2",
+    "rgb": [
+      221,
+      205,
+      178
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Oasis.jpg",
+    "localTexture": "/textures/mdf/Oasis.jpg"
+  },
+  {
+    "id": "dur_ess_wood_pau_ferro_natural",
+    "brand": "Duratex",
+    "name": "Pau Ferro Natural",
+    "category": "Madeirado",
+    "hexColor": "#854528",
+    "rgb": [
+      133,
+      69,
+      40
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Essencial-Wood_Pau-Ferro-Natural.jpg",
+    "localTexture": "/textures/mdf/Essencial-Wood_Pau-Ferro-Natural.jpg"
+  },
+  {
+    "id": "dur_ess_wood_riga",
+    "brand": "Duratex",
+    "name": "Riga",
+    "category": "Madeirado",
+    "hexColor": "#CBBBA3",
+    "rgb": [
+      203,
+      187,
+      163
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Riga.jpg",
+    "localTexture": "/textures/mdf/Riga.jpg"
+  },
+  {
+    "id": "dur_ess_wood_rovere_marsala",
+    "brand": "Duratex",
+    "name": "Rovere Marsala",
+    "category": "Unicolor",
+    "hexColor": "#452A13",
+    "rgb": [
+      69,
+      42,
+      19
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Rovere_Marsala_Essencial_Wood.jpg",
+    "localTexture": "/textures/mdf/Rovere_Marsala_Essencial_Wood.jpg"
+  },
+  {
+    "id": "dur_ori_branco_artico",
+    "brand": "Duratex",
+    "name": "Branco Ártico",
+    "category": "Unicolor",
+    "hexColor": "#F1F0EC",
+    "rgb": [
+      241,
+      240,
+      236
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Branco_Artico_Original.jpg",
+    "localTexture": "/textures/mdf/Branco_Artico_Original.jpg"
+  },
+  {
+    "id": "dur_ori_cristal",
+    "brand": "Duratex",
+    "name": "Cristal",
+    "category": "Madeirado",
+    "hexColor": "#C7C6C7",
+    "rgb": [
+      199,
+      198,
+      199
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cristal_Original.jpg",
+    "localTexture": "/textures/mdf/Cristal_Original.jpg"
+  },
+  {
+    "id": "dur_ori_ovo",
+    "brand": "Duratex",
+    "name": "Ovo",
+    "category": "Madeirado",
+    "hexColor": "#CDC0AD",
+    "rgb": [
+      205,
+      192,
+      173
+    ],
+    "roughness": 0.5,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Ovo_Original.jpg",
+    "localTexture": "/textures/mdf/Ovo_Original.jpg"
+  },
+  {
+    "id": "dur_ori_preto",
+    "brand": "Duratex",
+    "name": "Preto",
+    "category": "Unicolor",
+    "hexColor": "#000000",
+    "rgb": [
+      0,
+      0,
+      0
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Preto_Original.jpg",
+    "localTexture": "/textures/mdf/Preto_Original.jpg"
+  },
+  {
+    "id": "dur_pri_carv_evora",
+    "brand": "Duratex",
+    "name": "Carvalho Évora",
+    "category": "Madeirado",
+    "hexColor": "#7A6453",
+    "rgb": [
+      122,
+      100,
+      83
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho_Evora_Prisma.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Evora_Prisma.jpg"
+  },
+  {
+    "id": "dur_pri_larnaca",
+    "brand": "Duratex",
+    "name": "Larnaca",
+    "category": "Madeirado",
+    "hexColor": "#957F60",
+    "rgb": [
+      149,
+      127,
+      96
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Lanarca_Prisma.jpg",
+    "localTexture": "/textures/mdf/Lanarca_Prisma.jpg"
+  },
+  {
+    "id": "dur_pri_lineo_textil",
+    "brand": "Duratex",
+    "name": "Lineo Têxtil",
+    "category": "Madeirado",
+    "hexColor": "#D8D7D3",
+    "rgb": [
+      216,
+      215,
+      211
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Lineo_Textil_Prisma.jpg",
+    "localTexture": "/textures/mdf/Lineo_Textil_Prisma.jpg"
+  },
+  {
+    "id": "dur_pri_nogueira_cadiz",
+    "brand": "Duratex",
+    "name": "Nogueira Cadiz",
+    "category": "Madeirado",
+    "hexColor": "#574838",
+    "rgb": [
+      87,
+      72,
+      56
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nogueira_Cadiz_Prisma.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Cadiz_Prisma.jpg"
+  },
+  {
+    "id": "dur_sin_rocha_rara",
+    "brand": "Duratex",
+    "name": "Rocha Rara",
+    "category": "Mineral / Pedra",
+    "hexColor": "#CBC5BA",
+    "rgb": [
+      203,
+      197,
+      186
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Rocha Rara.jpg",
+    "localTexture": "/textures/mdf/Rocha Rara.jpg"
+  },
+  {
+    "id": "dur_tra_aurora",
+    "brand": "Duratex",
+    "name": "Aurora",
+    "category": "Madeirado",
+    "hexColor": "#E4E4E4",
+    "rgb": [
+      228,
+      228,
+      228
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Aurora_Trama.jpg",
+    "localTexture": "/textures/mdf/Aurora_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_carbono",
+    "brand": "Duratex",
+    "name": "Carbono",
+    "category": "Madeirado",
+    "hexColor": "#545454",
+    "rgb": [
+      84,
+      84,
+      84
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carbono_Trama.jpg",
+    "localTexture": "/textures/mdf/Carbono_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_gianduia",
+    "brand": "Duratex",
+    "name": "Gianduia",
+    "category": "Madeirado",
+    "hexColor": "#B1A79D",
+    "rgb": [
+      177,
+      167,
+      157
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Gianduia_Trama.jpg",
+    "localTexture": "/textures/mdf/Gianduia_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_grafite",
+    "brand": "Duratex",
+    "name": "Grafite",
+    "category": "Unicolor",
+    "hexColor": "#383938",
+    "rgb": [
+      56,
+      57,
+      56
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Grafite_Trama.jpg",
+    "localTexture": "/textures/mdf/Grafite_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_nobile",
+    "brand": "Duratex",
+    "name": "Nobile",
+    "category": "Madeirado",
+    "hexColor": "#9E9A94",
+    "rgb": [
+      158,
+      154,
+      148
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nobile_Trama.jpg",
+    "localTexture": "/textures/mdf/Nobile_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_palha",
+    "brand": "Duratex",
+    "name": "Palha",
+    "category": "Tecido",
+    "hexColor": "#EAE6D7",
+    "rgb": [
+      234,
+      230,
+      215
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Palha Textura.jpg",
+    "localTexture": "/textures/mdf/Palha Textura.jpg"
+  },
+  {
+    "id": "dur_tra_sirena",
+    "brand": "Duratex",
+    "name": "Sirena",
+    "category": "Madeirado",
+    "hexColor": "#4F5C64",
+    "rgb": [
+      79,
+      92,
+      100
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Sirena_Trama.jpg",
+    "localTexture": "/textures/mdf/Sirena_Trama.jpg"
+  },
+  {
+    "id": "dur_tra_titanio",
+    "brand": "Duratex",
+    "name": "Titânio",
+    "category": "Unicolor",
+    "hexColor": "#B2B0AA",
+    "rgb": [
+      178,
+      176,
+      170
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Titanio_Trama.jpg",
+    "localTexture": "/textures/mdf/Titanio_Trama.jpg"
+  },
+  {
+    "id": "dur_qua_fibra_nativa",
+    "brand": "Duratex",
+    "name": "Fibra Nativa",
+    "category": "Madeirado",
+    "hexColor": "#CAB69F",
+    "rgb": [
+      202,
+      182,
+      159
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Quadratta_Fibra-Nativa.jpg",
+    "localTexture": "/textures/mdf/Quadratta_Fibra-Nativa.jpg"
+  },
+  {
+    "id": "dur_qua_ouro_palido",
+    "brand": "Duratex",
+    "name": "Ouro Pálido",
+    "category": "Unicolor",
+    "hexColor": "#C4B99D",
+    "rgb": [
+      196,
+      185,
+      157
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Quadratta_Ouro-Palido.jpg",
+    "localTexture": "/textures/mdf/Quadratta_Ouro-Palido.jpg"
+  },
+  {
+    "id": "dur_qua_renda",
+    "brand": "Duratex",
+    "name": "Renda",
+    "category": "Tecido",
+    "hexColor": "#E3DDCF",
+    "rgb": [
+      227,
+      221,
+      207
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Quadratta_Renda.jpg",
+    "localTexture": "/textures/mdf/Quadratta_Renda.jpg"
+  },
+  {
+    "id": "dur_qua_sepia",
+    "brand": "Duratex",
+    "name": "Sépia",
+    "category": "Madeirado",
+    "hexColor": "#866A54",
+    "rgb": [
+      134,
+      106,
+      84
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Quadratta_Sepia.jpg",
+    "localTexture": "/textures/mdf/Quadratta_Sepia.jpg"
+  },
+  {
+    "id": "dur_vel_azul_astral",
+    "brand": "Duratex",
+    "name": "Azul Astral",
+    "category": "Unicolor",
+    "hexColor": "#9AB2BC",
+    "rgb": [
+      154,
+      178,
+      188
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Azul-Astral.jpg",
+    "localTexture": "/textures/mdf/Azul-Astral.jpg"
+  },
+  {
+    "id": "dur_vel_ocre_solar",
+    "brand": "Duratex",
+    "name": "Ocre Solar",
+    "category": "Unicolor",
+    "hexColor": "#D5A865",
+    "rgb": [
+      213,
+      168,
+      101
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Ocre-Solar.jpg",
+    "localTexture": "/textures/mdf/Ocre-Solar.jpg"
+  },
+  {
+    "id": "dur_vel_verde_floresta",
+    "brand": "Duratex",
+    "name": "Verde Floresta",
+    "category": "Unicolor",
+    "hexColor": "#637461",
+    "rgb": [
+      99,
+      116,
+      97
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Verde-Floresta.jpg",
+    "localTexture": "/textures/mdf/Verde-Floresta.jpg"
+  },
+  {
+    "id": "dur_vel_cinza_fossil",
+    "brand": "Duratex",
+    "name": "Cinza Fóssil",
+    "category": "Unicolor",
+    "hexColor": "#C1C2BD",
+    "rgb": [
+      193,
+      194,
+      189
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Velluto_Cinza-Fossil_275x185m_2.jpg",
+    "localTexture": "/textures/mdf/Velluto_Cinza-Fossil_275x185m_2.jpg"
+  },
+  {
+    "id": "dur_vel_gianduia_natural",
+    "brand": "Duratex",
+    "name": "Gianduia Natural",
+    "category": "Madeirado",
+    "hexColor": "#A99F96",
+    "rgb": [
+      169,
+      159,
+      150
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Velluto_Gianduia-Natural_275x185m_2.jpg",
+    "localTexture": "/textures/mdf/Velluto_Gianduia-Natural_275x185m_2.jpg"
+  },
+  {
+    "id": "dur_vel_moss",
+    "brand": "Duratex",
+    "name": "Moss",
+    "category": "Madeirado",
+    "hexColor": "#8B928B",
+    "rgb": [
+      139,
+      146,
+      139
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Velluto_Moss_275x185m_2.jpg",
+    "localTexture": "/textures/mdf/Velluto_Moss_275x185m_2.jpg"
+  },
+  {
+    "id": "dur_vel_nazca",
+    "brand": "Duratex",
+    "name": "Nazca",
+    "category": "Madeirado",
+    "hexColor": "#D5CEBF",
+    "rgb": [
+      213,
+      206,
+      191
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Velluto_Nazca_275x185m_2.jpg",
+    "localTexture": "/textures/mdf/Velluto_Nazca_275x185m_2.jpg"
+  },
+  {
+    "id": "dur_vel_quartzo_bienna",
+    "brand": "Duratex",
+    "name": "Quartzo Bienna",
+    "category": "Mineral / Pedra",
+    "hexColor": "#8C9095",
+    "rgb": [
+      140,
+      144,
+      149
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Velluto_Quartzo-Bienna_275x185m_2.jpg",
+    "localTexture": "/textures/mdf/Velluto_Quartzo-Bienna_275x185m_2.jpg"
+  },
+  {
+    "id": "dur_ace_branco_diamante",
+    "brand": "Duratex",
+    "name": "Branco Diamante (Acetinatta)",
+    "category": "Unicolor",
+    "hexColor": "#D0CFCC",
+    "rgb": [
+      208,
+      207,
+      204
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Acetinatta_Branco-Diamante_2.jpg",
+    "localTexture": "/textures/mdf/Acetinatta_Branco-Diamante_2.jpg"
+  },
+  {
+    "id": "dur_ace_grafite",
+    "brand": "Duratex",
+    "name": "Grafite (Acetinatta)",
+    "category": "Unicolor",
+    "hexColor": "#4E4D52",
+    "rgb": [
+      78,
+      77,
+      82
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Acetinatta_Grafite_2.jpg",
+    "localTexture": "/textures/mdf/Acetinatta_Grafite_2.jpg"
+  },
+  {
+    "id": "dur_ace_preto",
+    "brand": "Duratex",
+    "name": "Preto (Acetinatta)",
+    "category": "Unicolor",
+    "hexColor": "#010201",
+    "rgb": [
+      1,
+      2,
+      1
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Acetinatta_Preto_2.jpg",
+    "localTexture": "/textures/mdf/Acetinatta_Preto_2.jpg"
+  },
+  {
+    "id": "dur_ace_tartufo",
+    "brand": "Duratex",
+    "name": "Tartufo (Acetinatta)",
+    "category": "Madeirado",
+    "hexColor": "#7E7A77",
+    "rgb": [
+      126,
+      122,
+      119
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Acetinatta_Tartufo_2.jpg",
+    "localTexture": "/textures/mdf/Acetinatta_Tartufo_2.jpg"
+  },
+  {
+    "id": "fib_ori_asp",
+    "brand": "Fibraplac",
+    "name": "Aspen",
+    "category": "Madeirado",
+    "hexColor": "#E5DAC1",
+    "rgb": [
+      229,
+      218,
+      193
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Aspen.jpg",
+    "localTexture": "/textures/mdf/Aspen.jpg"
+  },
+  {
+    "id": "fib_ori_car_lat",
+    "brand": "Fibraplac",
+    "name": "Carvalho Latino",
+    "category": "Madeirado",
+    "hexColor": "#D9CBA9",
+    "rgb": [
+      217,
+      203,
+      169
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Carvalho Latino.jpg",
+    "localTexture": "/textures/mdf/Carvalho Latino.jpg"
+  },
+  {
+    "id": "fib_ori_moc",
+    "brand": "Fibraplac",
+    "name": "Mocaccino",
+    "category": "Madeirado",
+    "hexColor": "#432C1C",
+    "rgb": [
+      67,
+      44,
+      28
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "Mocaccino.jpg",
+    "localTexture": "/textures/mdf/Mocaccino.jpg"
+  },
+  {
+    "id": "fib_ori_mur",
+    "brand": "Fibraplac",
+    "name": "Murano",
+    "category": "Madeirado",
+    "hexColor": "#B8A27D",
+    "rgb": [
+      184,
+      162,
+      125
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Murano.jpg",
+    "localTexture": "/textures/mdf/Murano.jpg"
+  },
+  {
+    "id": "fib_ori_nac",
+    "brand": "Fibraplac",
+    "name": "Nacre",
+    "category": "Madeirado",
+    "hexColor": "#CFC2AC",
+    "rgb": [
+      207,
+      194,
+      172
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Nacre.jpg",
+    "localTexture": "/textures/mdf/Nacre.jpg"
+  },
+  {
+    "id": "fib_ori_nog_bor",
+    "brand": "Fibraplac",
+    "name": "Nogueira Boreal",
+    "category": "Madeirado",
+    "hexColor": "#8A532D",
+    "rgb": [
+      138,
+      83,
+      45
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Nogueira Boreal.jpg",
+    "localTexture": "/textures/mdf/Nogueira Boreal.jpg"
+  },
+  {
+    "id": "fib_con_lin_cac",
+    "brand": "Fibraplac",
+    "name": "Linho Cacau",
+    "category": "Unicolor",
+    "hexColor": "#6E583F",
+    "rgb": [
+      110,
+      88,
+      63
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Linho_Cacau.jpg",
+    "localTexture": "/textures/mdf/Linho_Cacau.jpg"
+  },
+  {
+    "id": "fib_con_lin_cin_cal",
+    "brand": "Fibraplac",
+    "name": "Linho Cinza Calcário",
+    "category": "Unicolor",
+    "hexColor": "#CCCBCB",
+    "rgb": [
+      204,
+      203,
+      203
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Linho_Cinza_Calcario.jpg",
+    "localTexture": "/textures/mdf/Linho_Cinza_Calcario.jpg"
+  },
+  {
+    "id": "fib_con_lin_fen",
+    "brand": "Fibraplac",
+    "name": "Linho Fendi",
+    "category": "Unicolor",
+    "hexColor": "#CCBEA4",
+    "rgb": [
+      204,
+      190,
+      164
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Linho_Fendi.JPG",
+    "localTexture": "/textures/mdf/Linho_Fendi.JPG"
+  },
+  {
+    "id": "fib_con_lin_pla",
+    "brand": "Fibraplac",
+    "name": "Linho Platina",
+    "category": "Unicolor",
+    "hexColor": "#535F66",
+    "rgb": [
+      83,
+      95,
+      102
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Linho_Platina.jpg",
+    "localTexture": "/textures/mdf/Linho_Platina.jpg"
+  },
+  {
+    "id": "fib_con_lin",
+    "brand": "Fibraplac",
+    "name": "Linum",
+    "category": "Tecido",
+    "hexColor": "#9B8772",
+    "rgb": [
+      155,
+      135,
+      114
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Linum.jpg",
+    "localTexture": "/textures/mdf/LINUM.jpg"
+  },
+  {
+    "id": "fib_ver_cin_cal",
+    "brand": "Fibraplac",
+    "name": "Cinza Calcário",
+    "category": "Unicolor",
+    "hexColor": "#CFCECA",
+    "rgb": [
+      207,
+      206,
+      202
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cinza Calcario.jpg",
+    "localTexture": "/textures/mdf/Cinza Calcario.jpg"
+  },
+  {
+    "id": "fib_ver_moc",
+    "brand": "Fibraplac",
+    "name": "Mocca",
+    "category": "Unicolor",
+    "hexColor": "#958C7D",
+    "rgb": [
+      149,
+      140,
+      125
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "MOCCA.jpg",
+    "localTexture": "/textures/mdf/MOCCA.jpg"
+  },
+  {
+    "id": "fib_ver_pan",
+    "brand": "Fibraplac",
+    "name": "Panna",
+    "category": "Unicolor",
+    "hexColor": "#CDC3B9",
+    "rgb": [
+      205,
+      195,
+      185
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "PANNA.jpg",
+    "localTexture": "/textures/mdf/PANNA.jpg"
+  },
+  {
+    "id": "fib_ver_pre",
+    "brand": "Fibraplac",
+    "name": "Preto",
+    "category": "Unicolor",
+    "hexColor": "#101010",
+    "rgb": [
+      16,
+      16,
+      16
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Preto.jpg",
+    "localTexture": "/textures/mdf/Preto.jpg"
+  },
+  {
+    "id": "fib_ver_pre_tra",
+    "brand": "Fibraplac",
+    "name": "Preto Trama",
+    "category": "Unicolor",
+    "hexColor": "#1B1B1B",
+    "rgb": [
+      27,
+      27,
+      27
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "PRETO TRAMA.jpg",
+    "localTexture": "/textures/mdf/PRETO TRAMA.jpg"
+  },
+  {
+    "id": "fib_ver_ver",
+    "brand": "Fibraplac",
+    "name": "Versato",
+    "category": "Madeirado",
+    "hexColor": "#626971",
+    "rgb": [
+      98,
+      105,
+      113
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "VERSATO.jpg",
+    "localTexture": "/textures/mdf/VERSATO.jpg"
+  },
+  {
+    "id": "fib_res_aur",
+    "brand": "Fibraplac",
+    "name": "Auris",
+    "category": "Madeirado",
+    "hexColor": "#76533B",
+    "rgb": [
+      118,
+      83,
+      59
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Auris.jpg",
+    "localTexture": "/textures/mdf/Auris.jpg"
+  },
+  {
+    "id": "fib_res_car_mon",
+    "brand": "Fibraplac",
+    "name": "Carvalho Montreal",
+    "category": "Madeirado",
+    "hexColor": "#B89A75",
+    "rgb": [
+      184,
+      154,
+      117
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Carvalho Montreal.jpg",
+    "localTexture": "/textures/mdf/Carvalho Montreal.jpg"
+  },
+  {
+    "id": "fib_res_car_tro",
+    "brand": "Fibraplac",
+    "name": "Carvalho Tropical",
+    "category": "Madeirado",
+    "hexColor": "#C19C78",
+    "rgb": [
+      193,
+      156,
+      120
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "CARVALHO TROPICAL.jpg",
+    "localTexture": "/textures/mdf/CARVALHO TROPICAL.jpg"
+  },
+  {
+    "id": "fib_res_eba_exo",
+    "brand": "Fibraplac",
+    "name": "Ébano Exótico",
+    "category": "Madeirado",
+    "hexColor": "#1F1915",
+    "rgb": [
+      31,
+      25,
+      21
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Ebano_Exotico.jpg",
+    "localTexture": "/textures/mdf/Ebano_Exotico.jpg"
+  },
+  {
+    "id": "fib_res_fre_nat",
+    "brand": "Fibraplac",
+    "name": "Freijó Natura",
+    "category": "Madeirado",
+    "hexColor": "#99672D",
+    "rgb": [
+      153,
+      103,
+      45
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "FREIJO NATURA.jpg",
+    "localTexture": "/textures/mdf/FREIJO NATURA.jpg"
+  },
+  {
+    "id": "fib_res_nar",
+    "brand": "Fibraplac",
+    "name": "Narita",
+    "category": "Madeirado",
+    "hexColor": "#D6C8B0",
+    "rgb": [
+      214,
+      200,
+      176
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Narita.jpg",
+    "localTexture": "/textures/mdf/Narita.jpg"
+  },
+  {
+    "id": "fib_res_sie_nat",
+    "brand": "Fibraplac",
+    "name": "Siena Natural",
+    "category": "Madeirado",
+    "hexColor": "#7F5531",
+    "rgb": [
+      127,
+      85,
+      49
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "Siena_Natural.jpg",
+    "localTexture": "/textures/mdf/Siena_Natural.jpg"
+  },
+  {
+    "id": "fib_aqu_aca",
+    "brand": "Fibraplac",
+    "name": "Açaí",
+    "category": "Unicolor",
+    "hexColor": "#6C2333",
+    "rgb": [
+      108,
+      35,
+      51
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Acai_2.jpg",
+    "localTexture": "/textures/mdf/Acai_2.jpg"
+  },
+  {
+    "id": "fib_aqu_cac",
+    "brand": "Fibraplac",
+    "name": "Cacau",
+    "category": "Unicolor",
+    "hexColor": "#5A432B",
+    "rgb": [
+      90,
+      67,
+      43
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cacau_2.jpg",
+    "localTexture": "/textures/mdf/Cacau_2.jpg"
+  },
+  {
+    "id": "fib_aqu_mar",
+    "brand": "Fibraplac",
+    "name": "Maracujá",
+    "category": "Unicolor",
+    "hexColor": "#F6CE45",
+    "rgb": [
+      246,
+      206,
+      69
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Maracuja_2.jpg",
+    "localTexture": "/textures/mdf/Maracuja_2.jpg"
+  },
+  {
+    "id": "fib_aqu_pla",
+    "brand": "Fibraplac",
+    "name": "Platina",
+    "category": "Unicolor",
+    "hexColor": "#9E8D85",
+    "rgb": [
+      158,
+      141,
+      133
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Platina_2.jpg",
+    "localTexture": "/textures/mdf/Platina_2.jpg"
+  },
+  {
+    "id": "fib_aqu_tur",
+    "brand": "Fibraplac",
+    "name": "Turmalina",
+    "category": "Unicolor",
+    "hexColor": "#02C09A",
+    "rgb": [
+      2,
+      192,
+      154
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Turmalina_2.jpg",
+    "localTexture": "/textures/mdf/Turmalina_2.jpg"
+  },
+  {
+    "id": "fib_bra_tx",
+    "brand": "Fibraplac",
+    "name": "Branco Plus TX",
+    "category": "Unicolor",
+    "hexColor": "#F5F4F2",
+    "rgb": [
+      245,
+      244,
+      242
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "Branco_TX_tratado.jpg",
+    "localTexture": "/textures/mdf/Branco_TX_tratado.jpg"
+  },
+  {
+    "id": "fib_bra_ls",
+    "brand": "Fibraplac",
+    "name": "Branco Plus LS",
+    "category": "Unicolor",
+    "hexColor": "#FFFFFF",
+    "rgb": [
+      255,
+      255,
+      255
+    ],
+    "roughness": 0.05,
+    "specular": 0.3,
+    "mcode": "",
+    "textureFile": "Branco_Plus_LS.jpg",
+    "localTexture": "/textures/mdf/Branco_Plus_LS.jpg"
+  },
+  {
+    "id": "fib_bra_lar_lf",
+    "brand": "Fibraplac",
+    "name": "Branco Larissa",
+    "category": "Unicolor",
+    "hexColor": "#EDEDED",
+    "rgb": [
+      237,
+      237,
+      237
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Branco_Larissa_LF.jpg",
+    "localTexture": "/textures/mdf/Branco_Larissa_LF.jpg"
+  },
+  {
+    "id": "Gre_Toc_Col_Bel",
+    "brand": "Greenplac",
+    "name": "Granile",
+    "category": "Mineral / Pedra",
+    "hexColor": "#A6988B",
+    "rgb": [
+      166,
+      152,
+      139
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Bellini.jpg",
+    "localTexture": "/textures/mdf/Bellini.jpg"
+  },
+  {
+    "id": "Gre_Toc_Col_Cez",
+    "brand": "Greenplac",
+    "name": "Petale",
+    "category": "Madeirado",
+    "hexColor": "#887B72",
+    "rgb": [
+      136,
+      123,
+      114
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cezanne.jpg",
+    "localTexture": "/textures/mdf/Cezanne.jpg"
+  },
+  {
+    "id": "Gre_Toc_Dal",
+    "brand": "Greenplac",
+    "name": "Seline",
+    "category": "Madeirado",
+    "hexColor": "#B5BAB5",
+    "rgb": [
+      181,
+      186,
+      181
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Dali.jpg",
+    "localTexture": "/textures/mdf/Dali.jpg"
+  },
+  {
+    "id": "Gre_Toc_Mon",
+    "brand": "Greenplac",
+    "name": "Azuro",
+    "category": "Madeirado",
+    "hexColor": "#4B6179",
+    "rgb": [
+      75,
+      97,
+      121
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Mondrian.jpg",
+    "localTexture": "/textures/mdf/Mondrian.jpg"
+  },
+  {
+    "id": "Gre_Toc_Col_Mon",
+    "brand": "Greenplac",
+    "name": "Nottie",
+    "category": "Madeirado",
+    "hexColor": "#0D0B0C",
+    "rgb": [
+      13,
+      11,
+      12
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Monet.jpg",
+    "localTexture": "/textures/mdf/Monet.jpg"
+  },
+  {
+    "id": "Gre_Toc_Col_Por",
+    "brand": "Greenplac",
+    "name": "Nevari",
+    "category": "Madeirado",
+    "hexColor": "#EFF1F3",
+    "rgb": [
+      239,
+      241,
+      243
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Portinari.jpg",
+    "localTexture": "/textures/mdf/Portinari.jpg"
+  },
+  {
+    "id": "Gre_Toc_Col_Rom",
+    "brand": "Greenplac",
+    "name": "Cromato",
+    "category": "Madeirado",
+    "hexColor": "#575759",
+    "rgb": [
+      87,
+      87,
+      89
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Romero.jpg",
+    "localTexture": "/textures/mdf/Romero.jpg"
+  },
+  {
+    "id": "Gre_Toc_San",
+    "brand": "Greenplac",
+    "name": "Nerali",
+    "category": "Madeirado",
+    "hexColor": "#46494A",
+    "rgb": [
+      70,
+      73,
+      74
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Sanzio.jpg",
+    "localTexture": "/textures/mdf/Sanzio.jpg"
+  },
+  {
+    "id": "Gre_Toc_Tar",
+    "brand": "Greenplac",
+    "name": "Vino",
+    "category": "Madeirado",
+    "hexColor": "#60312B",
+    "rgb": [
+      96,
+      49,
+      43
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tarsila.jpg",
+    "localTexture": "/textures/mdf/Tarsila.jpg"
+  },
+  {
+    "id": "Gre_Toc_Vin",
+    "brand": "Greenplac",
+    "name": "Ditela",
+    "category": "Tecido",
+    "hexColor": "#9F968F",
+    "rgb": [
+      159,
+      150,
+      143
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Vinci.jpg",
+    "localTexture": "/textures/mdf/Vinci.jpg"
+  },
+  {
+    "id": "Gre_Toc_Vol",
+    "brand": "Greenplac",
+    "name": "Tessila",
+    "category": "Madeirado",
+    "hexColor": "#78766F",
+    "rgb": [
+      120,
+      118,
+      111
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Volpi.jpg",
+    "localTexture": "/textures/mdf/Volpi.jpg"
+  },
+  {
+    "id": "gre_toc_ros",
+    "brand": "Greenplac",
+    "name": "Rosato",
+    "category": "Unicolor",
+    "hexColor": "#BBA597",
+    "rgb": [
+      187,
+      165,
+      151
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "ROSATO.jpg",
+    "localTexture": "/textures/mdf/ROSATO.jpg"
+  },
+  {
+    "id": "gre_toc_ver",
+    "brand": "Greenplac",
+    "name": "Verbenni",
+    "category": "Madeirado",
+    "hexColor": "#ACADA2",
+    "rgb": [
+      172,
+      173,
+      162
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "VERBENNI.jpg",
+    "localTexture": "/textures/mdf/VERBENNI.jpg"
+  },
+  {
+    "id": "gre_toc_vto",
+    "brand": "Greenplac",
+    "name": "Volato",
+    "category": "Madeirado",
+    "hexColor": "#D8CDC7",
+    "rgb": [
+      216,
+      205,
+      199
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "VOLATO.jpg",
+    "localTexture": "/textures/mdf/VOLATO.jpg"
+  },
+  {
+    "id": "Gre_Ess_Ara",
+    "brand": "Greenplac",
+    "name": "Araton",
+    "category": "Madeirado",
+    "hexColor": "#21150B",
+    "rgb": [
+      33,
+      21,
+      11
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Araton.jpg",
+    "localTexture": "/textures/mdf/Araton.jpg"
+  },
+  {
+    "id": "Gre_Ess_Cap",
+    "brand": "Greenplac",
+    "name": "Caput",
+    "category": "Madeirado",
+    "hexColor": "#B6AEA9",
+    "rgb": [
+      182,
+      174,
+      169
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Caput.jpg",
+    "localTexture": "/textures/mdf/Caput.jpg"
+  },
+  {
+    "id": "Gre_Ess_Sie",
+    "brand": "Greenplac",
+    "name": "Siena",
+    "category": "Madeirado",
+    "hexColor": "#8B7F6A",
+    "rgb": [
+      139,
+      127,
+      106
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Siena.jpg",
+    "localTexture": "/textures/mdf/Siena.jpg"
+  },
+  {
+    "id": "Gre_Ess_Gar",
+    "brand": "Greenplac",
+    "name": "Garanza",
+    "category": "Madeirado",
+    "hexColor": "#CCB8A5",
+    "rgb": [
+      204,
+      184,
+      165
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Garanza.jpg",
+    "localTexture": "/textures/mdf/Garanza.jpg"
+  },
+  {
+    "id": "Gre_Ess_Pal",
+    "brand": "Greenplac",
+    "name": "Pale",
+    "category": "Madeirado",
+    "hexColor": "#E4E6E5",
+    "rgb": [
+      228,
+      230,
+      229
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Pale.jpg",
+    "localTexture": "/textures/mdf/Pale.jpg"
+  },
+  {
+    "id": "Gre_Ess_Pru",
+    "brand": "Greenplac",
+    "name": "Prussian",
+    "category": "Madeirado",
+    "hexColor": "#DAC9B4",
+    "rgb": [
+      218,
+      201,
+      180
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Prussian.jpg",
+    "localTexture": "/textures/mdf/Prussian.jpg"
+  },
+  {
+    "id": "Gre_Ess_Rav",
+    "brand": "Greenplac",
+    "name": "Raven",
+    "category": "Madeirado",
+    "hexColor": "#9B7F66",
+    "rgb": [
+      155,
+      127,
+      102
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Raven.jpg",
+    "localTexture": "/textures/mdf/Raven.jpg"
+  },
+  {
+    "id": "Gre_Ess_Bal",
+    "brand": "Greenplac",
+    "name": "Bali",
+    "category": "Madeirado",
+    "hexColor": "#E6C8B3",
+    "rgb": [
+      230,
+      200,
+      179
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Bali.JPG",
+    "localTexture": "/textures/mdf/Bali.JPG"
+  },
+  {
+    "id": "Gre_Ess_Fre_Ama",
+    "brand": "Greenplac",
+    "name": "Freijó Amazonas",
+    "category": "Madeirado",
+    "hexColor": "#9A7547",
+    "rgb": [
+      154,
+      117,
+      71
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Freijo Amazonas.JPG",
+    "localTexture": "/textures/mdf/Freijo Amazonas.JPG"
+  },
+  {
+    "id": "Gre_Nat_Jad",
+    "brand": "Greenplac",
+    "name": "Jade",
+    "category": "Madeirado",
+    "hexColor": "#C5AF9C",
+    "rgb": [
+      197,
+      175,
+      156
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "jade.jpg",
+    "localTexture": "/textures/mdf/jade.jpg"
+  },
+  {
+    "id": "Gre_Nat_Cil",
+    "brand": "Greenplac",
+    "name": "Cilento",
+    "category": "Madeirado",
+    "hexColor": "#908677",
+    "rgb": [
+      144,
+      134,
+      119
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cilento.jpg",
+    "localTexture": "/textures/mdf/Cilento.jpg"
+  },
+  {
+    "id": "Gre_Nat_Mal",
+    "brand": "Greenplac",
+    "name": "Málaga",
+    "category": "Madeirado",
+    "hexColor": "#6C4323",
+    "rgb": [
+      108,
+      67,
+      35
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Malaga.jpg",
+    "localTexture": "/textures/mdf/Malaga.jpg"
+  },
+  {
+    "id": "Gre_Nat_Nor",
+    "brand": "Greenplac",
+    "name": "Noronha",
+    "category": "Madeirado",
+    "hexColor": "#78593B",
+    "rgb": [
+      120,
+      89,
+      59
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Noronha.jpg",
+    "localTexture": "/textures/mdf/Noronha.jpg"
+  },
+  {
+    "id": "Gre_Nat_Ver",
+    "brand": "Greenplac",
+    "name": "Versalhes",
+    "category": "Madeirado",
+    "hexColor": "#CDCBBF",
+    "rgb": [
+      205,
+      203,
+      191
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Versalhes.jpg",
+    "localTexture": "/textures/mdf/Versalhes.jpg"
+  },
+  {
+    "id": "Gre_Nat_Vil",
+    "brand": "Greenplac",
+    "name": "Villandry",
+    "category": "Madeirado",
+    "hexColor": "#8F6238",
+    "rgb": [
+      143,
+      98,
+      56
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Villandry.jpg",
+    "localTexture": "/textures/mdf/Villandry.jpg"
+  },
+  {
+    "id": "Gre_Mod_Bui",
+    "brand": "Greenplac",
+    "name": "Build",
+    "category": "Madeirado",
+    "hexColor": "#ADB3BC",
+    "rgb": [
+      173,
+      179,
+      188
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Build.jpg",
+    "localTexture": "/textures/mdf/Build.jpg"
+  },
+  {
+    "id": "Gre_Mod_Ino",
+    "brand": "Greenplac",
+    "name": "Inova",
+    "category": "Madeirado",
+    "hexColor": "#EDECDE",
+    "rgb": [
+      237,
+      236,
+      222
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Inova.jpg",
+    "localTexture": "/textures/mdf/Inova.jpg"
+  },
+  {
+    "id": "Gre_Mod_Duo",
+    "brand": "Greenplac",
+    "name": "Duo",
+    "category": "Madeirado",
+    "hexColor": "#7D7567",
+    "rgb": [
+      125,
+      117,
+      103
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Duo.jpg",
+    "localTexture": "/textures/mdf/Duo.jpg"
+  },
+  {
+    "id": "Gre_Mod_Urb",
+    "brand": "Greenplac",
+    "name": "Urban",
+    "category": "Madeirado",
+    "hexColor": "#7E5B3B",
+    "rgb": [
+      126,
+      91,
+      59
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Urban.jpg",
+    "localTexture": "/textures/mdf/Urban.jpg"
+  },
+  {
+    "id": "Gre_Mod_Uni",
+    "brand": "Greenplac",
+    "name": "Unique",
+    "category": "Madeirado",
+    "hexColor": "#D9CAB9",
+    "rgb": [
+      217,
+      202,
+      185
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Unique.jpg",
+    "localTexture": "/textures/mdf/Unique.jpg"
+  },
+  {
+    "id": "Gre_Mod_Sty",
+    "brand": "Greenplac",
+    "name": "Style",
+    "category": "Madeirado",
+    "hexColor": "#4B4136",
+    "rgb": [
+      75,
+      65,
+      54
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Style.jpg",
+    "localTexture": "/textures/mdf/Style.jpg"
+  },
+  {
+    "id": "Gre_Mod_Pie_Bro",
+    "brand": "Greenplac",
+    "name": "Pietra Bronze",
+    "category": "Metálico",
+    "hexColor": "#AAAAA5",
+    "rgb": [
+      170,
+      170,
+      165
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Pietra Bronze.JPG",
+    "localTexture": "/textures/mdf/Pietra Bronze.JPG"
+  },
+  {
+    "id": "gua_mag_bronze",
+    "brand": "Guararapes",
+    "name": "Bronze",
+    "category": "Metálico",
+    "hexColor": "#5E3E23",
+    "rgb": [
+      94,
+      62,
+      35
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Bronze.jpg",
+    "localTexture": "/textures/mdf/Pietra Bronze.JPG"
+  },
+  {
+    "id": "gua_mag_cosmos",
+    "brand": "Guararapes",
+    "name": "Cosmos",
+    "category": "Madeirado",
+    "hexColor": "#4D4A47",
+    "rgb": [
+      77,
+      74,
+      71
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Cosmos.jpg"
+  },
+  {
+    "id": "gua_mag_fog",
+    "brand": "Guararapes",
+    "name": "Fog",
+    "category": "Madeirado",
+    "hexColor": "#EFEEE2",
+    "rgb": [
+      239,
+      238,
+      226
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Fog.jpg"
+  },
+  {
+    "id": "gua_mag_fon",
+    "brand": "Guararapes",
+    "name": "Fontana",
+    "category": "Madeirado",
+    "hexColor": "#CBC6B8",
+    "rgb": [
+      203,
+      198,
+      184
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Fontana.jpg"
+  },
+  {
+    "id": "gua_mag_fulge",
+    "brand": "Guararapes",
+    "name": "Fulgê",
+    "category": "Madeirado",
+    "hexColor": "#BEBCB2",
+    "rgb": [
+      190,
+      188,
+      178
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Fulge.jpg"
+  },
+  {
+    "id": "gua_mag_mar",
+    "brand": "Guararapes",
+    "name": "Marmo",
+    "category": "Mineral / Pedra",
+    "hexColor": "#1D1D22",
+    "rgb": [
+      29,
+      29,
+      34
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Marmo.jpg"
+  },
+  {
+    "id": "gua_mag_pet",
+    "brand": "Guararapes",
+    "name": "Petra",
+    "category": "Mineral / Pedra",
+    "hexColor": "#938F86",
+    "rgb": [
+      147,
+      143,
+      134
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Petra.jpg"
+  },
+  {
+    "id": "gua_mag_quartzo",
+    "brand": "Guararapes",
+    "name": "Quartzo",
+    "category": "Mineral / Pedra",
+    "hexColor": "#C6C1BC",
+    "rgb": [
+      198,
+      193,
+      188
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.Satin",
+    "textureFile": "Quartzo.jpg",
+    "localTexture": "/textures/mdf/Velluto_Quartzo-Bienna_275x185m_2.jpg"
+  },
+  {
+    "id": "gua_mag_ves",
+    "brand": "Guararapes",
+    "name": "Vesúvio",
+    "category": "Madeirado",
+    "hexColor": "#42372C",
+    "rgb": [
+      66,
+      55,
+      44
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.Sandblasted.SemiGloss",
+    "textureFile": "Vesuvio.jpg",
+    "localTexture": "/textures/mdf/VESUVIO (185X275).jpg"
+  },
+  {
+    "id": "gua_col_areia",
+    "brand": "Guararapes",
+    "name": "Areia",
+    "category": "Unicolor",
+    "hexColor": "#CECBC4",
+    "rgb": [
+      206,
+      203,
+      196
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "Wood.Soft.SandedMedium.Matte",
+    "textureFile": "Areia.jpg",
+    "localTexture": "/textures/mdf/Areia_Noronha.jpg"
+  },
+  {
+    "id": "gua_col_alecrim",
+    "brand": "Guararapes",
+    "name": "Alecrim",
+    "category": "Unicolor",
+    "hexColor": "#8A8F88",
+    "rgb": [
+      138,
+      143,
+      136
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Alecrim.jpg"
+  },
+  {
+    "id": "gua_col_azul",
+    "brand": "Guararapes",
+    "name": "Azul Petróleo",
+    "category": "Unicolor",
+    "hexColor": "#36454C",
+    "rgb": [
+      54,
+      69,
+      76
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "Wood.Soft.SandedMedium.Matte",
+    "textureFile": "Azul Petroleo.jpg"
+  },
+  {
+    "id": "gua_col_capuccino",
+    "brand": "Guararapes",
+    "name": "Capuccino",
+    "category": "Unicolor",
+    "hexColor": "#AB9683",
+    "rgb": [
+      171,
+      150,
+      131
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "Wood.Soft.SandedMedium.Matte",
+    "textureFile": "Cappucino.jpg"
+  },
+  {
+    "id": "gua_col_cin_urb",
+    "brand": "Guararapes",
+    "name": "Cinza Urban",
+    "category": "Unicolor",
+    "hexColor": "#B4B4B4",
+    "rgb": [
+      180,
+      180,
+      180
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cinza Urban.jpg"
+  },
+  {
+    "id": "gua_col_grafite",
+    "brand": "Guararapes",
+    "name": "Grafite",
+    "category": "Unicolor",
+    "hexColor": "#51514F",
+    "rgb": [
+      81,
+      81,
+      79
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Grafite.jpg",
+    "localTexture": "/textures/mdf/BP_Trama_Grafite.jpg"
+  },
+  {
+    "id": "gua_col_marsala",
+    "brand": "Guararapes",
+    "name": "Marsala",
+    "category": "Unicolor",
+    "hexColor": "#5A0F14",
+    "rgb": [
+      90,
+      15,
+      20
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Marsala.jpg",
+    "localTexture": "/textures/mdf/Rovere_Marsala_Essencial_Wood.jpg"
+  },
+  {
+    "id": "gua_col_branco",
+    "brand": "Guararapes",
+    "name": "Maxi Branco",
+    "category": "Unicolor",
+    "hexColor": "#FFFFFF",
+    "rgb": [
+      255,
+      255,
+      255
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Maxi Branco.jpg"
+  },
+  {
+    "id": "gua_col_niquel",
+    "brand": "Guararapes",
+    "name": "Níquel",
+    "category": "Madeirado",
+    "hexColor": "#585757",
+    "rgb": [
+      88,
+      87,
+      87
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Niquel.jpg"
+  },
+  {
+    "id": "gua_col_ouro",
+    "brand": "Guararapes",
+    "name": "Ouro",
+    "category": "Unicolor",
+    "hexColor": "#A48F74",
+    "rgb": [
+      164,
+      143,
+      116
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Ouro.jpg",
+    "localTexture": "/textures/mdf/ecowood_couro_cinza.jpg"
+  },
+  {
+    "id": "gua_col_pixel",
+    "brand": "Guararapes",
+    "name": "Pixel",
+    "category": "Madeirado",
+    "hexColor": "#766F69",
+    "rgb": [
+      118,
+      111,
+      105
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Pixel.jpg"
+  },
+  {
+    "id": "gua_col_rosa",
+    "brand": "Guararapes",
+    "name": "Rosa Milkshake",
+    "category": "Unicolor",
+    "hexColor": "#E2CECD",
+    "rgb": [
+      226,
+      206,
+      205
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Rosa Milkshake.jpg"
+  },
+  {
+    "id": "gua_col_terracota",
+    "brand": "Guararapes",
+    "name": "Terracota",
+    "category": "Unicolor",
+    "hexColor": "#4E321E",
+    "rgb": [
+      78,
+      50,
+      30
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Terracota.jpg",
+    "localTexture": "/textures/mdf/Terracota.jpg"
+  },
+  {
+    "id": "gua_col_tijolo",
+    "brand": "Guararapes",
+    "name": "Tijolo",
+    "category": "Unicolor",
+    "hexColor": "#7F6052",
+    "rgb": [
+      127,
+      96,
+      82
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tijolo.jpg"
+  },
+  {
+    "id": "gua_syn_baviera",
+    "brand": "Guararapes",
+    "name": "Baviera",
+    "category": "Madeirado",
+    "hexColor": "#2C221B",
+    "rgb": [
+      44,
+      34,
+      27
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Baviera.jpg"
+  },
+  {
+    "id": "gua_syn_caribe",
+    "brand": "Guararapes",
+    "name": "Caribe",
+    "category": "Madeirado",
+    "hexColor": "#483524",
+    "rgb": [
+      72,
+      53,
+      36
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Caribe.jpg"
+  },
+  {
+    "id": "gua_syn_freijo",
+    "brand": "Guararapes",
+    "name": "Freijó",
+    "category": "Madeirado",
+    "hexColor": "#C0AE81",
+    "rgb": [
+      192,
+      174,
+      129
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Freijo.jpg",
+    "localTexture": "/textures/mdf/Freijo.jpg"
+  },
+  {
+    "id": "gua_syn_nero",
+    "brand": "Guararapes",
+    "name": "Nero",
+    "category": "Madeirado",
+    "hexColor": "#232323",
+    "rgb": [
+      35,
+      35,
+      35
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nero.jpg",
+    "localTexture": "/textures/mdf/Imbuia Nero.jpg"
+  },
+  {
+    "id": "gua_syn_savana",
+    "brand": "Guararapes",
+    "name": "Savana",
+    "category": "Madeirado",
+    "hexColor": "#987B5F",
+    "rgb": [
+      152,
+      123,
+      95
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Savana.jpg",
+    "localTexture": "/textures/mdf/ecowood_savana.jpg"
+  },
+  {
+    "id": "gua_syn_siberia",
+    "brand": "Guararapes",
+    "name": "Siberia",
+    "category": "Madeirado",
+    "hexColor": "#E9EAE4",
+    "rgb": [
+      233,
+      234,
+      228
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Siberia.jpg"
+  },
+  {
+    "id": "gua_mad_bra_curupixa",
+    "brand": "Guararapes",
+    "name": "Curupixá",
+    "category": "Madeirado",
+    "hexColor": "#D7AF88",
+    "rgb": [
+      215,
+      175,
+      136
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Curupixa.jpg"
+  },
+  {
+    "id": "gua_mad_bra_imbuia",
+    "brand": "Guararapes",
+    "name": "Imbuia",
+    "category": "Madeirado",
+    "hexColor": "#573B25",
+    "rgb": [
+      87,
+      59,
+      37
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Imbuia.jpg",
+    "localTexture": "/textures/mdf/IMBUIA.JPG"
+  },
+  {
+    "id": "gua_mad_bra_ipe",
+    "brand": "Guararapes",
+    "name": "Ipê",
+    "category": "Madeirado",
+    "hexColor": "#4D3E2A",
+    "rgb": [
+      77,
+      62,
+      42
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Ipe.jpg",
+    "localTexture": "/textures/mdf/Ipe.jpg"
+  },
+  {
+    "id": "gua_mad_bra_pau_ferro",
+    "brand": "Guararapes",
+    "name": "Pau-Ferro",
+    "category": "Madeirado",
+    "hexColor": "#7F583B",
+    "rgb": [
+      127,
+      88,
+      59
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Pau Ferro.jpg",
+    "localTexture": "/textures/mdf/Pau Ferro Natural_Cristallo_2.jpg"
+  },
+  {
+    "id": "gua_mad_bra_tauari",
+    "brand": "Guararapes",
+    "name": "Tauari",
+    "category": "Madeirado",
+    "hexColor": "#BD9C79",
+    "rgb": [
+      189,
+      156,
+      121
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tauari.jpg",
+    "localTexture": "/textures/mdf/Tauari.jpg"
+  },
+  {
+    "id": "gua_dua_alabama",
+    "brand": "Guararapes",
+    "name": "Alabama",
+    "category": "Madeirado",
+    "hexColor": "#855E39",
+    "rgb": [
+      133,
+      94,
+      57
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Alabama.jpg"
+  },
+  {
+    "id": "gua_dua_antuerpia",
+    "brand": "Guararapes",
+    "name": "Antuérpia",
+    "category": "Madeirado",
+    "hexColor": "#D7CAB6",
+    "rgb": [
+      215,
+      202,
+      182
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Antuerpia.jpg"
+  },
+  {
+    "id": "gua_dua_dual_black",
+    "brand": "Guararapes",
+    "name": "Dual Black",
+    "category": "Madeirado",
+    "hexColor": "#1D1D1D",
+    "rgb": [
+      29,
+      29,
+      29
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Dual Black.jpg"
+  },
+  {
+    "id": "gua_dua_elmo_dubai",
+    "brand": "Guararapes",
+    "name": "Elmo Dubai",
+    "category": "Madeirado",
+    "hexColor": "#E6E1D5",
+    "rgb": [
+      230,
+      225,
+      213
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Elmo Dubai.jpg"
+  },
+  {
+    "id": "gua_dua_lisboa",
+    "brand": "Guararapes",
+    "name": "Lisboa",
+    "category": "Madeirado",
+    "hexColor": "#A68E79",
+    "rgb": [
+      166,
+      142,
+      121
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Lisboa.jpg"
+  },
+  {
+    "id": "gua_dua_paris",
+    "brand": "Guararapes",
+    "name": "Paris",
+    "category": "Madeirado",
+    "hexColor": "#D9CDBD",
+    "rgb": [
+      217,
+      205,
+      189
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Paris.jpg"
+  },
+  {
+    "id": "gua_dua_pretoria",
+    "brand": "Guararapes",
+    "name": "Pretória",
+    "category": "Madeirado",
+    "hexColor": "#614A2D",
+    "rgb": [
+      97,
+      74,
+      45
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Pretoria.jpg"
+  },
+  {
+    "id": "gua_met_aco_corten",
+    "brand": "Guararapes",
+    "name": "Aço Corten",
+    "category": "Metálico",
+    "hexColor": "#684A3E",
+    "rgb": [
+      104,
+      74,
+      62
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Aco Corten.jpg"
+  },
+  {
+    "id": "gua_met_berinjela",
+    "brand": "Guararapes",
+    "name": "Berinjela",
+    "category": "Madeirado",
+    "hexColor": "#635056",
+    "rgb": [
+      99,
+      80,
+      86
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Berinjela.jpg"
+  },
+  {
+    "id": "gua_met_cobre",
+    "brand": "Guararapes",
+    "name": "Cobre",
+    "category": "Metálico",
+    "hexColor": "#5D4F34",
+    "rgb": [
+      93,
+      79,
+      52
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cobre.jpg",
+    "localTexture": "/textures/mdf/Cobre.jpg"
+  },
+  {
+    "id": "gua_met_onix",
+    "brand": "Guararapes",
+    "name": "Ônix",
+    "category": "Metálico",
+    "hexColor": "#3E433D",
+    "rgb": [
+      62,
+      67,
+      61
+    ],
+    "roughness": 0.05,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Onix.jpg",
+    "localTexture": "/textures/mdf/elegance_carvalho_chamonix.jpg"
+  },
+  {
+    "id": "gua_nat_antiqua",
+    "brand": "Guararapes",
+    "name": "Antiqua",
+    "category": "Madeirado",
+    "hexColor": "#C49D75",
+    "rgb": [
+      196,
+      157,
+      117
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Antiqua.jpg"
+  },
+  {
+    "id": "gua_nat_avela",
+    "brand": "Guararapes",
+    "name": "Avelã",
+    "category": "Madeirado",
+    "hexColor": "#EFE9D3",
+    "rgb": [
+      239,
+      233,
+      211
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Avela.JPG",
+    "localTexture": "/textures/mdf/design_carvalho_avela.jpg"
+  },
+  {
+    "id": "gua_nat_bilbao",
+    "brand": "Guararapes",
+    "name": "Bilbao",
+    "category": "Madeirado",
+    "hexColor": "#D2B899",
+    "rgb": [
+      210,
+      184,
+      153
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Bilbao.jpg",
+    "localTexture": "/textures/mdf/elegance_nogueira_bilbao.JPG"
+  },
+  {
+    "id": "gua_nat_car_decape",
+    "brand": "Guararapes",
+    "name": "Carvalho Decape",
+    "category": "Madeirado",
+    "hexColor": "#504943",
+    "rgb": [
+      80,
+      73,
+      67
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho Decape.jpg"
+  },
+  {
+    "id": "gua_nat_carvalho_natural",
+    "brand": "Guararapes",
+    "name": "Carvalho Natural",
+    "category": "Madeirado",
+    "hexColor": "#C5B797",
+    "rgb": [
+      197,
+      183,
+      151
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Carvalho Natural.jpg",
+    "localTexture": "/textures/mdf/CARVALHO NATURAL.JPG"
+  },
+  {
+    "id": "gua_nat_cip_baikal",
+    "brand": "Guararapes",
+    "name": "Cipres",
+    "category": "Madeirado",
+    "hexColor": "#EAE1C5",
+    "rgb": [
+      234,
+      225,
+      197
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Cipres.JPG"
+  },
+  {
+    "id": "gua_nat_jauzi",
+    "brand": "Guararapes",
+    "name": "Jauzi",
+    "category": "Madeirado",
+    "hexColor": "#A48D70",
+    "rgb": [
+      164,
+      141,
+      112
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Jauzi.jpg"
+  },
+  {
+    "id": "gua_nat_new_cherry",
+    "brand": "Guararapes",
+    "name": "New Cherry",
+    "category": "Madeirado",
+    "hexColor": "#EFEAE0",
+    "rgb": [
+      239,
+      234,
+      224
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "New Cherry.JPG"
+  },
+  {
+    "id": "gua_nat_nog_champagne",
+    "brand": "Guararapes",
+    "name": "Nogal Champagne",
+    "category": "Madeirado",
+    "hexColor": "#A07B5A",
+    "rgb": [
+      160,
+      123,
+      90
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nogal Champagne.jpg"
+  },
+  {
+    "id": "gua_nat_nog_sevilha",
+    "brand": "Guararapes",
+    "name": "Nogal Sevilha",
+    "category": "Madeirado",
+    "hexColor": "#745536",
+    "rgb": [
+      116,
+      85,
+      54
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nogal Sevilha.jpg"
+  },
+  {
+    "id": "gua_nat_saw_cut",
+    "brand": "Guararapes",
+    "name": "Sawcut",
+    "category": "Madeirado",
+    "hexColor": "#87766A",
+    "rgb": [
+      135,
+      118,
+      106
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Sawcut.jpg"
+  },
+  {
+    "id": "gua_nat_tek_bianco",
+    "brand": "Guararapes",
+    "name": "Teka Bianco",
+    "category": "Madeirado",
+    "hexColor": "#F6F7F2",
+    "rgb": [
+      246,
+      247,
+      242
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Teka Bianco.jpg"
+  },
+  {
+    "id": "gua_com_can",
+    "brand": "Guararapes",
+    "name": "Canovas",
+    "category": "Madeirado",
+    "hexColor": "#E2D7BB",
+    "rgb": [
+      226,
+      215,
+      187
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "canovas.jpg"
+  },
+  {
+    "id": "gua_com_fen",
+    "brand": "Guararapes",
+    "name": "Fendi",
+    "category": "Unicolor",
+    "hexColor": "#9E8D77",
+    "rgb": [
+      158,
+      141,
+      119
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Fendi.png",
+    "localTexture": "/textures/mdf/FENDI.png"
+  },
+  {
+    "id": "gua_com_bran_ice",
+    "brand": "Guararapes",
+    "name": "Branco Iceland",
+    "category": "Unicolor",
+    "hexColor": "#FAFAFA",
+    "rgb": [
+      250,
+      250,
+      250
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "iceland.JPG"
+  },
+  {
+    "id": "gua_com_mil",
+    "brand": "Guararapes",
+    "name": "Milano",
+    "category": "Madeirado",
+    "hexColor": "#DBD9CE",
+    "rgb": [
+      219,
+      217,
+      206
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Milano.jpg",
+    "localTexture": "/textures/mdf/classic_carvalho_milano.jpg"
+  },
+  {
+    "id": "gua_com_nev",
+    "brand": "Guararapes",
+    "name": "Nevada",
+    "category": "Madeirado",
+    "hexColor": "#F2F1ED",
+    "rgb": [
+      242,
+      241,
+      237
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Nevada.jpg"
+  },
+  {
+    "id": "gua_com_pret_sil",
+    "brand": "Guararapes",
+    "name": "Preto Silk",
+    "category": "Unicolor",
+    "hexColor": "#2A2A2A",
+    "rgb": [
+      42,
+      42,
+      42
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Preto.jpg",
+    "localTexture": "/textures/mdf/Preto.jpg"
+  },
+  {
+    "id": "gua_com_san",
+    "brand": "Guararapes",
+    "name": "Santorini",
+    "category": "Madeirado",
+    "hexColor": "#A8A7A2",
+    "rgb": [
+      168,
+      167,
+      162
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Santorini.jpg",
+    "localTexture": "/textures/mdf/BP_Design_Santorini.jpg"
+  },
+  {
+    "id": "gua_com_tel",
+    "brand": "Guararapes",
+    "name": "Tela",
+    "category": "Tecido",
+    "hexColor": "#DAC596",
+    "rgb": [
+      218,
+      197,
+      150
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tela.jpg"
+  },
+  {
+    "id": "gua_com_tec",
+    "brand": "Guararapes",
+    "name": "Tecido",
+    "category": "Tecido",
+    "hexColor": "#BFC0BA",
+    "rgb": [
+      191,
+      192,
+      186
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tecido.jpg"
+  },
+  {
+    "id": "gua_com_tri",
+    "brand": "Guararapes",
+    "name": "Tricotê",
+    "category": "Tecido",
+    "hexColor": "#ABA9A2",
+    "rgb": [
+      171,
+      169,
+      162
+    ],
+    "roughness": 0.1,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Tricote.jpg"
+  },
+  {
+    "id": "gua_per_flo",
+    "brand": "Guararapes",
+    "name": "Floresta",
+    "category": "Madeirado",
+    "hexColor": "#6E8366",
+    "rgb": [
+      110,
+      131,
+      102
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Floresta.jpg",
+    "localTexture": "/textures/mdf/Floresta.jpg"
+  },
+  {
+    "id": "gua_per_sao_pau",
+    "brand": "Guararapes",
+    "name": "São Paulo",
+    "category": "Madeirado",
+    "hexColor": "#878585",
+    "rgb": [
+      135,
+      133,
+      133
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "SaoPaulo.jpg"
+  },
+  {
+    "id": "pla_bra_hib_sam",
+    "brand": "Placas do Brasil",
+    "name": "Samba",
+    "category": "Madeirado",
+    "hexColor": "#6A4C35",
+    "rgb": [
+      106,
+      76,
+      53
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Paint.Acrylic.Satin.None",
+    "textureFile": "Samba.jpg",
+    "localTexture": "/textures/mdf/Samba.jpg"
+  },
+  {
+    "id": "pla_bra_hib_tro",
+    "brand": "Placas do Brasil",
+    "name": "Tropicália",
+    "category": "Madeirado",
+    "hexColor": "#817A6F",
+    "rgb": [
+      129,
+      122,
+      111
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Paint.Acrylic.Satin.None",
+    "textureFile": "Tropicalia.jpg",
+    "localTexture": "/textures/mdf/Tropicalia.jpg"
+  },
+  {
+    "id": "pla_bra_hib_con_cap",
+    "brand": "Placas do Brasil",
+    "name": "Congo Capixaba",
+    "category": "Madeirado",
+    "hexColor": "#B5AFA1",
+    "rgb": [
+      181,
+      175,
+      161
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Paint.Acrylic.Satin.None",
+    "textureFile": "Congo_Capixaba.jpg",
+    "localTexture": "/textures/mdf/Congo_Capixaba.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_fre_3",
+    "brand": "Placas do Brasil",
+    "name": "Freijó",
+    "category": "Madeirado",
+    "hexColor": "#7A572E",
+    "rgb": [
+      122,
+      87,
+      46
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Freijo.jpg",
+    "localTexture": "/textures/mdf/Freijo.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Freijo Ripado",
+    "brand": "Placas do Brasil",
+    "name": "Freijo Ripado",
+    "category": "Madeirado",
+    "hexColor": "#927352",
+    "rgb": [
+      146,
+      115,
+      82
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Freijo Ripado.jpg",
+    "localTexture": "/textures/mdf/Freijo Ripado.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_mac_2",
+    "brand": "Placas do Brasil",
+    "name": "Macanaíba",
+    "category": "Madeirado",
+    "hexColor": "#644330",
+    "rgb": [
+      100,
+      67,
+      48
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Macanaiba.jpg",
+    "localTexture": "/textures/mdf/Macanaiba.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_jac_2",
+    "brand": "Placas do Brasil",
+    "name": "Jacarandá",
+    "category": "Madeirado",
+    "hexColor": "#53311E",
+    "rgb": [
+      83,
+      49,
+      30
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Jacaranda.jpg",
+    "localTexture": "/textures/mdf/Jacaranda.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Carvalho Aicana",
+    "brand": "Placas do Brasil",
+    "name": "Carvalho Aicana",
+    "category": "Madeirado",
+    "hexColor": "#E7E6EC",
+    "rgb": [
+      231,
+      230,
+      236
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Carvalho_Aicana.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Aicana.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Carvalho Arandu",
+    "brand": "Placas do Brasil",
+    "name": "Carvalho Arandu",
+    "category": "Madeirado",
+    "hexColor": "#BCB4A9",
+    "rgb": [
+      188,
+      180,
+      169
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Carvalho_Arandu.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Arandu.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Carvalho Caete",
+    "brand": "Placas do Brasil",
+    "name": "Carvalho Caete",
+    "category": "Madeirado",
+    "hexColor": "#9E9B96",
+    "rgb": [
+      158,
+      155,
+      150
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Carvalho_Caete.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Caete.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Carvalho Tupi",
+    "brand": "Placas do Brasil",
+    "name": "Carvalho Tupi",
+    "category": "Madeirado",
+    "hexColor": "#3D3B3A",
+    "rgb": [
+      61,
+      59,
+      58
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Carvalho_Tupi.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Tupi.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Elmo Aracruz",
+    "brand": "Placas do Brasil",
+    "name": "Elmo Aracruz",
+    "category": "Madeirado",
+    "hexColor": "#AAA7A3",
+    "rgb": [
+      170,
+      167,
+      163
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Elmo Aracruz.jpg",
+    "localTexture": "/textures/mdf/Elmo Aracruz.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Elmo Palmares",
+    "brand": "Placas do Brasil",
+    "name": "Elmo Palmares",
+    "category": "Madeirado",
+    "hexColor": "#CAA97A",
+    "rgb": [
+      202,
+      169,
+      122
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Elmo_Palmares.jpg",
+    "localTexture": "/textures/mdf/Elmo_Palmares.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Nogal Terena",
+    "brand": "Placas do Brasil",
+    "name": "Nogal Terena",
+    "category": "Madeirado",
+    "hexColor": "#927A68",
+    "rgb": [
+      146,
+      122,
+      104
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Nogal_Terena.jpg",
+    "localTexture": "/textures/mdf/Nogal_Terena.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Nogueira Arroio",
+    "brand": "Placas do Brasil",
+    "name": "Nogueira Arroio",
+    "category": "Madeirado",
+    "hexColor": "#2D2724",
+    "rgb": [
+      45,
+      39,
+      36
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Nogueira_Arroio.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Arroio.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Nogueira Caiapo",
+    "brand": "Placas do Brasil",
+    "name": "Nogueira Caiapo",
+    "category": "Madeirado",
+    "hexColor": "#7C6F5F",
+    "rgb": [
+      124,
+      111,
+      95
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Nogueira_Caiapo.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Caiapo.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Nogueira Carajas",
+    "brand": "Placas do Brasil",
+    "name": "Nogueira Carajas",
+    "category": "Madeirado",
+    "hexColor": "#67564C",
+    "rgb": [
+      103,
+      86,
+      76
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Nogueira_Carajas.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Carajas.jpg"
+  },
+  {
+    "id": "pla_bra_mad_bra_hor_Nogueira Goitaca",
+    "brand": "Placas do Brasil",
+    "name": "Nogueira Goitaca",
+    "category": "Madeirado",
+    "hexColor": "#37302B",
+    "rgb": [
+      55,
+      48,
+      43
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.Matte",
+    "textureFile": "Nogueira_Goitaca.jpg",
+    "localTexture": "/textures/mdf/Nogueira_Goitaca.jpg"
+  },
+  {
+    "id": "pla_bra_mad_rus_hor_car_2",
+    "brand": "Placas do Brasil",
+    "name": "Caravela",
+    "category": "Madeirado",
+    "hexColor": "#86633F",
+    "rgb": [
+      134,
+      99,
+      63
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedFine.None",
+    "textureFile": "Caravela.jpg",
+    "localTexture": "/textures/mdf/Caravela.jpg"
+  },
+  {
+    "id": "pla_bra_mad_rus_Aure Imperial",
+    "brand": "Placas do Brasil",
+    "name": "Aurea Imperial",
+    "category": "Madeirado",
+    "hexColor": "#EBE7D2",
+    "rgb": [
+      235,
+      231,
+      210
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedFine.None",
+    "textureFile": "Aurea_Imperial.jpg",
+    "localTexture": "/textures/mdf/Aurea_Imperial.jpg"
+  },
+  {
+    "id": "pla_bra_mad_rus_Vila Velha",
+    "brand": "Placas do Brasil",
+    "name": "Vila Velha",
+    "category": "Madeirado",
+    "hexColor": "#8B867B",
+    "rgb": [
+      139,
+      134,
+      123
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedFine.None",
+    "textureFile": "Vila_Velha.jpg",
+    "localTexture": "/textures/mdf/Vila_Velha.jpg"
+  },
+  {
+    "id": "pla_bra_tec_ing",
+    "brand": "Placas do Brasil",
+    "name": "Ingá",
+    "category": "Madeirado",
+    "hexColor": "#AEAAA0",
+    "rgb": [
+      174,
+      170,
+      160
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Fabric.Acetate.WovenMedium.None",
+    "textureFile": "Inga.jpg",
+    "localTexture": "/textures/mdf/Inga.jpg"
+  },
+  {
+    "id": "pla_bra_tec_gua",
+    "brand": "Placas do Brasil",
+    "name": "Guaraná",
+    "category": "Madeirado",
+    "hexColor": "#C3BFBC",
+    "rgb": [
+      195,
+      191,
+      188
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Fabric.Felt.WovenMedium.None",
+    "textureFile": "Guarana.jpg",
+    "localTexture": "/textures/mdf/Guarana.jpg"
+  },
+  {
+    "id": "pla_bra_tec_cup",
+    "brand": "Placas do Brasil",
+    "name": "Cupuaçu",
+    "category": "Madeirado",
+    "hexColor": "#CCCBBE",
+    "rgb": [
+      204,
+      203,
+      190
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Fabric.Felt.WovenMedium.None",
+    "textureFile": "Cupuacu.jpg",
+    "localTexture": "/textures/mdf/Cupuacu.jpg"
+  },
+  {
+    "id": "pla_bra_uni_pim_rei",
+    "brand": "Placas do Brasil",
+    "name": "Pimenta do Reino",
+    "category": "Madeirado",
+    "hexColor": "#3B393E",
+    "rgb": [
+      59,
+      57,
+      62
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Pimenta_Reino.jpg",
+    "localTexture": "/textures/mdf/Pimenta_Reino.jpg"
+  },
+  {
+    "id": "pla_bra_uni_caf_tor",
+    "brand": "Placas do Brasil",
+    "name": "Café Torrado",
+    "category": "Madeirado",
+    "hexColor": "#5F5855",
+    "rgb": [
+      95,
+      88,
+      85
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Cafe_Torrado.jpg",
+    "localTexture": "/textures/mdf/Cafe_Torrado.jpg"
+  },
+  {
+    "id": "pla_bra_uni_pit",
+    "brand": "Placas do Brasil",
+    "name": "Pitanga",
+    "category": "Madeirado",
+    "hexColor": "#A47F7C",
+    "rgb": [
+      164,
+      127,
+      124
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Pitanga.jpg",
+    "localTexture": "/textures/mdf/Pitanga.jpg"
+  },
+  {
+    "id": "pla_bra_uni_vit_reg",
+    "brand": "Placas do Brasil",
+    "name": "Vitória Régia",
+    "category": "Madeirado",
+    "hexColor": "#696A6F",
+    "rgb": [
+      105,
+      106,
+      111
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Vitoria_Regia.jpg",
+    "localTexture": "/textures/mdf/Vitoria_Regia.jpg"
+  },
+  {
+    "id": "pla_bra_uni_cas_caj",
+    "brand": "Placas do Brasil",
+    "name": "Castanha de Caju",
+    "category": "Madeirado",
+    "hexColor": "#8E8377",
+    "rgb": [
+      142,
+      131,
+      119
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Castanha_de_ Caju.jpg",
+    "localTexture": "/textures/mdf/Castanha_de_ Caju.jpg"
+  },
+  {
+    "id": "pla_bra_uni_tap",
+    "brand": "Placas do Brasil",
+    "name": "Tapioca",
+    "category": "Madeirado",
+    "hexColor": "#DCDBE0",
+    "rgb": [
+      220,
+      219,
+      224
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.Rough.SemiGloss",
+    "textureFile": "Tapioca.jpg",
+    "localTexture": "/textures/mdf/Tapioca.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Hort",
+    "brand": "Placas do Brasil",
+    "name": "Hortênsia",
+    "category": "Madeirado",
+    "hexColor": "#92959A",
+    "rgb": [
+      146,
+      149,
+      154
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "Paint.Acrylic.Satin.None",
+    "textureFile": "Hortesia.jpg",
+    "localTexture": "/textures/mdf/Hortesia.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Amazonas",
+    "brand": "Placas do Brasil",
+    "name": "Amazonas",
+    "category": "Madeirado",
+    "hexColor": "#D5D3D2",
+    "rgb": [
+      213,
+      211,
+      210
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas Do Brasil_Amazonas_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas Do Brasil_Amazonas_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Acacia",
+    "brand": "Placas do Brasil",
+    "name": "Acácia",
+    "category": "Madeirado",
+    "hexColor": "#C0C0C0",
+    "rgb": [
+      192,
+      192,
+      192
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas Do Brasil_Acacia_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas Do Brasil_Acacia_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Capim Dourado",
+    "brand": "Placas do Brasil",
+    "name": "Capim Dourado",
+    "category": "Madeirado",
+    "hexColor": "#6C573C",
+    "rgb": [
+      108,
+      87,
+      60
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas do Brasil_Capim Dourado_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas do Brasil_Capim Dourado_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Jequitiba Rei",
+    "brand": "Placas do Brasil",
+    "name": "Jequitibá Rei",
+    "category": "Madeirado",
+    "hexColor": "#916648",
+    "rgb": [
+      145,
+      102,
+      72
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas Do Brasil_Jequitiba Rei_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas Do Brasil_Jequitiba Rei_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Ocre",
+    "brand": "Placas do Brasil",
+    "name": "Ocre",
+    "category": "Unicolor",
+    "hexColor": "#936943",
+    "rgb": [
+      147,
+      105,
+      67
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas do Brasil_Ocre_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas do Brasil_Ocre_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Peroba do Brasil",
+    "brand": "Placas do Brasil",
+    "name": "Peroba do Brasil",
+    "category": "Madeirado",
+    "hexColor": "#A67B51",
+    "rgb": [
+      166,
+      123,
+      81
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas Do Brasil_Peroba do Brasil_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas Do Brasil_Peroba do Brasil_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Rio Negro",
+    "brand": "Placas do Brasil",
+    "name": "Rio Negro",
+    "category": "Madeirado",
+    "hexColor": "#57575C",
+    "rgb": [
+      87,
+      87,
+      92
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas Do Brasil_Rio Negro_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas Do Brasil_Rio Negro_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Selva",
+    "brand": "Placas do Brasil",
+    "name": "Selva",
+    "category": "Madeirado",
+    "hexColor": "#404139",
+    "rgb": [
+      64,
+      65,
+      57
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas do Brasil_Selva_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas do Brasil_Selva_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Terra Bronze",
+    "brand": "Placas do Brasil",
+    "name": "Terra Bronze",
+    "category": "Metálico",
+    "hexColor": "#705743",
+    "rgb": [
+      112,
+      87,
+      67
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Placas do Brasil_Terra Bronze_183x275cm.jpg",
+    "localTexture": "/textures/mdf/Placas do Brasil_Terra Bronze_183x275cm.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Urucum",
+    "brand": "Placas do Brasil",
+    "name": "Urucum",
+    "category": "Madeirado",
+    "hexColor": "#774D34",
+    "rgb": [
+      119,
+      77,
+      52
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": ""
+  },
+  {
+    "id": "pla_bra_COL_ID_Alva",
+    "brand": "Placas do Brasil",
+    "name": "Alva",
+    "category": "Madeirado",
+    "hexColor": "#BAB9B7",
+    "rgb": [
+      186,
+      185,
+      183
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Alva.jpg",
+    "localTexture": "/textures/mdf/Alva.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Luar",
+    "brand": "Placas do Brasil",
+    "name": "Luar",
+    "category": "Madeirado",
+    "hexColor": "#92928C",
+    "rgb": [
+      146,
+      146,
+      140
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Luar.jpg",
+    "localTexture": "/textures/mdf/Luar.jpg"
+  },
+  {
+    "id": "pla_bra_COL_ID_Poente",
+    "brand": "Placas do Brasil",
+    "name": "Poente",
+    "category": "Madeirado",
+    "hexColor": "#C6BEB3",
+    "rgb": [
+      198,
+      190,
+      179
+    ],
+    "roughness": 0.4,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Poente.jpg",
+    "localTexture": "/textures/mdf/Poente.jpg"
+  },
+  {
+    "id": "sudati_unicolores_amazonia",
+    "brand": "Sudati",
+    "name": "Amazônia",
+    "category": "Madeirado",
+    "hexColor": "#4E5544",
+    "rgb": [
+      78,
+      85,
+      68
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "AMAZONIA.JPG",
+    "localTexture": "/textures/mdf/AMAZONIA.JPG"
+  },
+  {
+    "id": "sudati_unicolores_havana",
+    "brand": "Sudati",
+    "name": "Havana",
+    "category": "Madeirado",
+    "hexColor": "#694E39",
+    "rgb": [
+      105,
+      78,
+      57
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Havana.jpg",
+    "localTexture": "/textures/mdf/Havana.jpg"
+  },
+  {
+    "id": "sudati_unicolores_manhattan",
+    "brand": "Sudati",
+    "name": "Manhattan",
+    "category": "Madeirado",
+    "hexColor": "#5D5855",
+    "rgb": [
+      93,
+      88,
+      85
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Manhattan.jpg",
+    "localTexture": "/textures/mdf/Manhattan.jpg"
+  },
+  {
+    "id": "sudati_unicolor_santiago",
+    "brand": "Sudati",
+    "name": "Santiago",
+    "category": "Madeirado",
+    "hexColor": "#957E6D",
+    "rgb": [
+      149,
+      126,
+      109
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Santiago_Sudati Texturizado.jpg",
+    "localTexture": "/textures/mdf/Santiago_Sudati Texturizado.jpg"
+  },
+  {
+    "id": "sudati_unicolor_argel",
+    "brand": "Sudati",
+    "name": "Argel",
+    "category": "Madeirado",
+    "hexColor": "#2F2E2A",
+    "rgb": [
+      47,
+      46,
+      42
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Argel.jpg",
+    "localTexture": "/textures/mdf/Argel.jpg"
+  },
+  {
+    "id": "sudati_unicolor_floripa",
+    "brand": "Sudati",
+    "name": "Floripa",
+    "category": "Madeirado",
+    "hexColor": "#DFCAA8",
+    "rgb": [
+      223,
+      202,
+      168
+    ],
+    "roughness": 0.17,
+    "specular": 0.08,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Floripa.jpg",
+    "localTexture": "/textures/mdf/Floripa.jpg"
+  },
+  {
+    "id": "sudati_unicolor_cambiasi",
+    "brand": "Sudati",
+    "name": "Cambiasi",
+    "category": "Madeirado",
+    "hexColor": "#FFFFFF",
+    "rgb": [
+      255,
+      255,
+      255
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": ""
+  },
+  {
+    "id": "sudati_unicolor_sampa",
+    "brand": "Sudati",
+    "name": "Sampa",
+    "category": "Madeirado",
+    "hexColor": "#716765",
+    "rgb": [
+      113,
+      103,
+      101
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Sampa.jpg",
+    "localTexture": "/textures/mdf/Sampa.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_bellini",
+    "brand": "Sudati",
+    "name": "Bellini",
+    "category": "Madeirado",
+    "hexColor": "#DBC8AF",
+    "rgb": [
+      219,
+      200,
+      175
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Bellini.jpg",
+    "localTexture": "/textures/mdf/Bellini.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_bianco_ravena",
+    "brand": "Sudati",
+    "name": "Bianco Ravena",
+    "category": "Madeirado",
+    "hexColor": "#E6E4E0",
+    "rgb": [
+      230,
+      228,
+      224
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Bianco_Ravena.jpg",
+    "localTexture": "/textures/mdf/Bianco_Ravena.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_cabernet",
+    "brand": "Sudati",
+    "name": "Cabernet",
+    "category": "Madeirado",
+    "hexColor": "#948475",
+    "rgb": [
+      148,
+      132,
+      117
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Cabernet.jpg",
+    "localTexture": "/textures/mdf/Cabernet.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_carmenere",
+    "brand": "Sudati",
+    "name": "Carmenere",
+    "category": "Madeirado",
+    "hexColor": "#8F7966",
+    "rgb": [
+      143,
+      121,
+      102
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Carmenere.jpg",
+    "localTexture": "/textures/mdf/Carmenere.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_carvalho_castelli",
+    "brand": "Sudati",
+    "name": "Carvalho Castelli",
+    "category": "Madeirado",
+    "hexColor": "#9B876E",
+    "rgb": [
+      155,
+      135,
+      110
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "Wood.Hard.SandedMedium.None",
+    "textureFile": "Carvalho_Castelli.jpg",
+    "localTexture": "/textures/mdf/Carvalho_Castelli.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_carvalho_lino",
+    "brand": "Sudati",
+    "name": "Carvalho Lino",
+    "category": "Madeirado",
+    "hexColor": "#8A7460",
+    "rgb": [
+      138,
+      116,
+      96
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "CARVALHO LINO.JPG",
+    "localTexture": "/textures/mdf/CARVALHO LINO.JPG"
+  },
+  {
+    "id": "sudati_comodita_hor_carvalho_natural",
+    "brand": "Sudati",
+    "name": "Carvalho Natural",
+    "category": "Madeirado",
+    "hexColor": "#B49F8B",
+    "rgb": [
+      180,
+      159,
+      139
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "CARVALHO NATURAL.JPG",
+    "localTexture": "/textures/mdf/CARVALHO NATURAL.JPG"
+  },
+  {
+    "id": "sudati_naturally_hor_chenin_blanc",
+    "brand": "Sudati",
+    "name": "Chenin Blanc",
+    "category": "Madeirado",
+    "hexColor": "#ECD9C3",
+    "rgb": [
+      236,
+      217,
+      195
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Chenin Blanc.jpg",
+    "localTexture": "/textures/mdf/Chenin Blanc.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_corazzi",
+    "brand": "Sudati",
+    "name": "Corazzi",
+    "category": "Madeirado",
+    "hexColor": "#C6A575",
+    "rgb": [
+      198,
+      165,
+      117
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Corazzi.jpg",
+    "localTexture": "/textures/mdf/Corazzi.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_imbuia",
+    "brand": "Sudati",
+    "name": "Imbuia",
+    "category": "Madeirado",
+    "hexColor": "#412D20",
+    "rgb": [
+      65,
+      45,
+      32
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "IMBUIA.JPG",
+    "localTexture": "/textures/mdf/IMBUIA.JPG"
+  },
+  {
+    "id": "sudati_rinascere_hor_leon",
+    "brand": "Sudati",
+    "name": "Leon",
+    "category": "Madeirado",
+    "hexColor": "#735A44",
+    "rgb": [
+      115,
+      90,
+      68
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Leon.jpg",
+    "localTexture": "/textures/mdf/Leon.jpg"
+  },
+  {
+    "id": "sudati_naturally_hor_louro_freijo",
+    "brand": "Sudati",
+    "name": "Louro Freijó",
+    "category": "Unicolor",
+    "hexColor": "#9C6E46",
+    "rgb": [
+      156,
+      110,
+      70
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Louro Freijo.jpg",
+    "localTexture": "/textures/mdf/Louro Freijo.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_molinara",
+    "brand": "Sudati",
+    "name": "Molinara",
+    "category": "Madeirado",
+    "hexColor": "#635344",
+    "rgb": [
+      99,
+      83,
+      68
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Molinara.jpg",
+    "localTexture": "/textures/mdf/Molinara.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_moscato",
+    "brand": "Sudati",
+    "name": "Moscato",
+    "category": "Madeirado",
+    "hexColor": "#C8BFAF",
+    "rgb": [
+      200,
+      191,
+      175
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Moscato.jpg",
+    "localTexture": "/textures/mdf/Moscato.jpg"
+  },
+  {
+    "id": "sudati_naturally_hor_nerello",
+    "brand": "Sudati",
+    "name": "Nerello",
+    "category": "Madeirado",
+    "hexColor": "#2A2219",
+    "rgb": [
+      42,
+      34,
+      25
+    ],
+    "roughness": 0.05,
+    "specular": 0.01,
+    "mcode": "",
+    "textureFile": "Nerello.jpg",
+    "localTexture": "/textures/mdf/Nerello.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_tempranillo",
+    "brand": "Sudati",
+    "name": "Tempranillo",
+    "category": "Madeirado",
+    "hexColor": "#342515",
+    "rgb": [
+      52,
+      37,
+      21
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Tempranillo.jpg",
+    "localTexture": "/textures/mdf/Tempranillo.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_trebbiano_blanc",
+    "brand": "Sudati",
+    "name": "Trebbiano Blanc",
+    "category": "Madeirado",
+    "hexColor": "#C3BBAE",
+    "rgb": [
+      195,
+      187,
+      174
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Trebbiano_Blanc.jpg",
+    "localTexture": "/textures/mdf/Trebbiano_Blanc.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_versati",
+    "brand": "Sudati",
+    "name": "Versati",
+    "category": "Madeirado",
+    "hexColor": "#5E4F37",
+    "rgb": [
+      94,
+      79,
+      55
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Versati.jpg",
+    "localTexture": "/textures/mdf/Versati.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_alessi",
+    "brand": "Sudati",
+    "name": "Alessi",
+    "category": "Madeirado",
+    "hexColor": "#766A5D",
+    "rgb": [
+      118,
+      106,
+      93
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Alessi.jpg",
+    "localTexture": "/textures/mdf/Alessi.jpg"
+  },
+  {
+    "id": "sudati_soul_hor_arinto",
+    "brand": "Sudati",
+    "name": "Arinto",
+    "category": "Madeirado",
+    "hexColor": "#968674",
+    "rgb": [
+      150,
+      134,
+      116
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Arinto.jpg",
+    "localTexture": "/textures/mdf/Arinto.jpg"
+  },
+  {
+    "id": "sudati_personalita_hor_asti",
+    "brand": "Sudati",
+    "name": "Asti",
+    "category": "Madeirado",
+    "hexColor": "#C6C6C4",
+    "rgb": [
+      198,
+      198,
+      196
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Asti.jpg",
+    "localTexture": "/textures/mdf/Asti.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_botticelli",
+    "brand": "Sudati",
+    "name": "Botticelli",
+    "category": "Madeirado",
+    "hexColor": "#B6AAA0",
+    "rgb": [
+      182,
+      170,
+      160
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Botticelli.jpg",
+    "localTexture": "/textures/mdf/Botticelli.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_lina",
+    "brand": "Sudati",
+    "name": "Lina",
+    "category": "Madeirado",
+    "hexColor": "#C8BEB7",
+    "rgb": [
+      200,
+      190,
+      183
+    ],
+    "roughness": 0.2,
+    "specular": 0.1,
+    "mcode": "",
+    "textureFile": "Lina.jpg",
+    "localTexture": "/textures/mdf/Lina.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_pisano",
+    "brand": "Sudati",
+    "name": "Pisano",
+    "category": "Madeirado",
+    "hexColor": "#BEB2A6",
+    "rgb": [
+      190,
+      178,
+      166
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Pisano.jpg",
+    "localTexture": "/textures/mdf/Pisano.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_rosselli",
+    "brand": "Sudati",
+    "name": "Rosselli",
+    "category": "Madeirado",
+    "hexColor": "#EEEDE9",
+    "rgb": [
+      238,
+      237,
+      233
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Rosselli.jpg",
+    "localTexture": "/textures/mdf/Rosselli.jpg"
+  },
+  {
+    "id": "sudati_rinascere_hor_sofisticato",
+    "brand": "Sudati",
+    "name": "Sofisticato",
+    "category": "Madeirado",
+    "hexColor": "#4C3A2B",
+    "rgb": [
+      76,
+      58,
+      43
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "SOFISTICAT.JPG",
+    "localTexture": "/textures/mdf/SOFISTICAT.JPG"
+  },
+  {
+    "id": "sudati_tx_glamour",
+    "brand": "Sudati",
+    "name": "Glamour",
+    "category": "Madeirado",
+    "hexColor": "#C1B0A4",
+    "rgb": [
+      193,
+      176,
+      164
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Glamour.jpg",
+    "localTexture": "/textures/mdf/Glamour.jpg"
+  },
+  {
+    "id": "sudati_tx_mineral",
+    "brand": "Sudati",
+    "name": "Mineral",
+    "category": "Mineral / Pedra",
+    "hexColor": "#DBD2C9",
+    "rgb": [
+      219,
+      210,
+      201
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "MINERAL.JPG",
+    "localTexture": "/textures/mdf/MINERAL.JPG"
+  },
+  {
+    "id": "sudati_tx_vulcano",
+    "brand": "Sudati",
+    "name": "Vulcano",
+    "category": "Mineral / Pedra",
+    "hexColor": "#E2E0DF",
+    "rgb": [
+      226,
+      224,
+      223
+    ],
+    "roughness": 0.2,
+    "specular": 0.05,
+    "mcode": "",
+    "textureFile": "Vulcano.jpg",
+    "localTexture": "/textures/mdf/Vulcano.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_cumaru",
+    "brand": "Sudati",
+    "name": "Cumaru",
+    "category": "Madeirado",
+    "hexColor": "#836C54",
+    "rgb": [
+      131,
+      108,
+      84
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Cumaru.jpg",
+    "localTexture": "/textures/mdf/Cumaru.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_ipe",
+    "brand": "Sudati",
+    "name": "Ipê",
+    "category": "Madeirado",
+    "hexColor": "#7D6951",
+    "rgb": [
+      125,
+      105,
+      81
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Ipe.jpg",
+    "localTexture": "/textures/mdf/Ipe.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_itauba",
+    "brand": "Sudati",
+    "name": "Itaúba",
+    "category": "Madeirado",
+    "hexColor": "#AB8F60",
+    "rgb": [
+      171,
+      143,
+      96
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Itauba.jpg",
+    "localTexture": "/textures/mdf/Itauba.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_jequitiba",
+    "brand": "Sudati",
+    "name": "Jequitibá",
+    "category": "Madeirado",
+    "hexColor": "#806958",
+    "rgb": [
+      128,
+      105,
+      88
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Jequitiba.jpg",
+    "localTexture": "/textures/mdf/Jequitiba.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_pau_ferro",
+    "brand": "Sudati",
+    "name": "Pau-Ferro",
+    "category": "Madeirado",
+    "hexColor": "#5D4638",
+    "rgb": [
+      93,
+      70,
+      56
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Pau-ferro.jpg",
+    "localTexture": "/textures/mdf/Pau-ferro.jpg"
+  },
+  {
+    "id": "sudati_comodita_hor_tauari",
+    "brand": "Sudati",
+    "name": "Tauari",
+    "category": "Madeirado",
+    "hexColor": "#A08668",
+    "rgb": [
+      160,
+      134,
+      104
+    ],
+    "roughness": 0.05,
+    "specular": 0.02,
+    "mcode": "",
+    "textureFile": "Tauari.jpg",
+    "localTexture": "/textures/mdf/Tauari.jpg"
+  }
+]

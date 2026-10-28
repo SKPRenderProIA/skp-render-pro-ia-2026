@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Duratex">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Conceito">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_con_arenito" NAME="Arenito">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Conceito\Arenito_ Conceito.jpg</TEXTUREFILE>
+          <COLORBASE R="226" G="218" B="207" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_basalto" NAME="Basalto">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Conceito\Conceito_Basalto.jpg</TEXTUREFILE>
+          <COLORBASE R="129" G="126" B="120" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_bolero" NAME="Bolero">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Conceito\Conceito Bolero.jpg</TEXTUREFILE>
+          <COLORBASE R="216" G="201" B="187" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_hong_kong" NAME="Hong Kong">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Conceito\Hong Kong_Conceito.jpg</TEXTUREFILE>
+          <COLORBASE R="184" G="174" B="163" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_lana" NAME="Lana">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Conceito\Lana_Conceito.jpg</TEXTUREFILE>
+          <COLORBASE R="224" G="225" B="216" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_lunar" NAME="Lunar">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Conceito\Lunar_Conceito.jpg</TEXTUREFILE>
+          <COLORBASE R="146" G="144" B="140" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_con_tramato" NAME="Tramato">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Conceito\Tramato_Conceito.jpg</TEXTUREFILE>
+          <COLORBASE R="74" G="60" B="44" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Cristallo">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="Dur_Cri_bra_diamante" NAME="Branco Diamante (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\cristallo\Branco_Diamante_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="243" G="243" B="243" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="dur_cri_cinza_sagrado" NAME="Cinza Sagrado (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\cristallo\Cinza_Sagrado_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="111" G="117" B="120" />
+          <ROUGHNESS>0.03</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_croma" NAME="Croma (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cristallo\Croma_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="168" G="111" B="77" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_gianduia" NAME="Gianduia (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\cristallo\Gianduia_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="177" G="167" B="157" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="dur_cri_opala" NAME="Opala (Cristallo)">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Cristallo\Opala_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="13" G="14" B="6" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_pau_fer_natural" NAME="Pau Ferro Natural (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cristallo\Pau Ferro Natural_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="134" G="69" B="41" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_preto" NAME="Preto (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cristallo\Preto_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="0" G="0" B="0" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_titanio" NAME="Titânio (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cristallo\Titanio_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="178" G="176" B="170" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="Dur_Cri_ultramarino" NAME="Ultramarino (Cristallo)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cristallo\Ultramarino_Cristallo.jpg</TEXTUREFILE>
+          <COLORBASE R="0" G="80" B="87" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.5</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Cross">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_cro_riviera" NAME="Riviera">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Cross\Riviera_Cross.jpg</TEXTUREFILE>
+          <COLORBASE R="165" G="136" B="96" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Design">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_des_absoluto" NAME="Absoluto">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Design_Absoluto.jpg</TEXTUREFILE>
+          <COLORBASE R="23" G="23" B="23" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_brise" NAME="Brise">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Brise_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="173" G="131" B="101" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_carvalho_avela" NAME="Carvalho Avelã">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Carvalho_Avela_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="130" G="105" B="80" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_carvalho_berlim" NAME="Carvalho Berlim">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Carvalho_Berlim_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="203" G="186" B="170" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_carvalho_hanover" NAME="Carvalho Hanover">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Carvalho_Hanover_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="174" G="136" B="96" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_carvalho_malva" NAME="Carvalho Malva">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Carvalho_Malva_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="179" G="156" B="123" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_carvalho_munique" NAME="Carvalho Munique">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Carvalho_Munique_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="132" G="100" B="76" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_ibiza" NAME="Ibiza">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Ibiza_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="228" G="225" B="217" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_maranta" NAME="Maranta">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Maranta_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="217" G="204" B="195" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_metropole" NAME="Metrópole">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Design\Metropole_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="40" G="34" B="23" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_nogueira_caiena" NAME="Nogueira Caiena">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Design\Nogueira_Caiena_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="84" G="43" B="17" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_nogueira_thar" NAME="Nogueira Thar">
+          <TEXTUREFILE>.\Textures\Fabrica\Duratex\Design\Nogueira_Thar_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="148" G="119" B="92" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_des_trancoso" NAME="Trancoso">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Design\Trancoso_Design.jpg</TEXTUREFILE>
+          <COLORBASE R="50" G="33" B="20" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Duna">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_dun_amendola_rustica" NAME="Amêndola Rústica">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Duna\Amendola_Rustica_Duna.jpg</TEXTUREFILE>
+          <COLORBASE R="194" G="150" B="107" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Essencial">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_ess_azul_secreto" NAME="Azul Secreto">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Azul_Secreto_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="64" G="97" B="112" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_branco_diamante" NAME="Branco Diamante">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Branco_Diamante_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="243" G="243" B="243" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_cinza_sagrado" NAME="Cinza Sagrado">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Cinza_Sagrado_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="111" G="117" B="120" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_mint" NAME="Mint">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Mint_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="201" G="214" B="204" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_noce_amendoa" NAME="Noce Amêndoa">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Noce_Amendoa_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="130" G="110" B="94" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_noce_california" NAME="Noce Califórnia">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Noce_California_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="147" G="137" B="126" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_noce_mare" NAME="Noce Mare">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Noce_Mare_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="193" G="186" B="169" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_perola_urbana" NAME="Pérola Urbana">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Perola_Urbana_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="157" G="143" B="133" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_pinole" NAME="Pinole">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Essencial_Pinole.jpg</TEXTUREFILE>
+          <COLORBASE R="216" G="177" B="146" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_portoro" NAME="Portoro">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Portoro_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="80" G="77" B="78" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_prata" NAME="Prata">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Prata_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="209" G="210" B="214" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_rosa_glamour" NAME="Rosa Glamour">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Rosa_Glamour_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="130" G="97" B="92" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_rosa_infinito" NAME="Rosa Infinito">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Essencial_Rosa-Infinito.jpg</TEXTUREFILE>
+          <COLORBASE R="243" G="226" B="208" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_rovere_sereno" NAME="Rovere Sereno">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Rovere_Sereno_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="193" G="189" B="183" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_thassos" NAME="Thassos">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial\Thassos_Essencial.jpg</TEXTUREFILE>
+          <COLORBASE R="236" G="237" B="232" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Essencial Wood">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_ess_wood_alamo" NAME="Álamo">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Alamo_Essencial_Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="110" G="85" B="60" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_carvalho_batur" NAME="Carvalho Batur">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Carvalho_Batur_Essencial_Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="142" G="116" B="88" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_carvalho_eterno" NAME="Carvalho Eterno">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Carvalho_Eterno_Essencial Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="185" G="169" B="150" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_carvalho_luar" NAME="Carvalho Luar">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Carvalho_Luar_Essencial Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="179" G="165" B="153" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_cumaru_raiz" NAME="Cumaru Raiz">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Cumaru_Essencial Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="166" G="111" B="67" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_freijo_puro" NAME="Freijó Puro">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Freijo_Puro.jpg</TEXTUREFILE>
+          <COLORBASE R="137" G="107" B="67" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_inhotim" NAME="Inhotim">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Inhotim_Essencial_Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="110" G="90" B="65" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_itapua" NAME="Itapuã">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Itapua_Essencial_Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="174" G="148" B="118" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_jequitiba_rosa" NAME="Jequitibá Rosa">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Essencial-Wood_Jequitiba-Rosa.jpg</TEXTUREFILE>
+          <COLORBASE R="181" G="129" B="82" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_oasis" NAME="Oásis">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Oasis.jpg</TEXTUREFILE>
+          <COLORBASE R="221" G="205" B="178" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_pau_ferro_natural" NAME="Pau Ferro Natural">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Essencial-Wood_Pau-Ferro-Natural.jpg</TEXTUREFILE>
+          <COLORBASE R="133" G="69" B="40" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_riga" NAME="Riga">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Riga.jpg</TEXTUREFILE>
+          <COLORBASE R="203" G="187" B="163" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ess_wood_rovere_marsala" NAME="Rovere Marsala">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Essencial Wood\Rovere_Marsala_Essencial_Wood.jpg</TEXTUREFILE>
+          <COLORBASE R="69" G="42" B="19" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Original">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_ori_branco_artico" NAME="Branco Ártico">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Original\Branco_Artico_Original.jpg</TEXTUREFILE>
+          <COLORBASE R="241" G="240" B="236" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ori_cristal" NAME="Cristal">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Original\Cristal_Original.jpg</TEXTUREFILE>
+          <COLORBASE R="199" G="198" B="199" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ori_ovo" NAME="Ovo">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Original\Ovo_Original.jpg</TEXTUREFILE>
+          <COLORBASE R="205" G="192" B="173" />
+          <ROUGHNESS>0.5</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="dur_ori_preto" NAME="Preto">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Original\Preto_Original.jpg</TEXTUREFILE>
+          <COLORBASE R="0" G="0" B="0" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Prisma">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_pri_carv_evora" NAME="Carvalho Évora">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Prisma\Carvalho_Evora_Prisma.jpg</TEXTUREFILE>
+          <COLORBASE R="122" G="100" B="83" />
+        </MATERIAL>
+        <MATERIAL ID="dur_pri_larnaca" NAME="Larnaca">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Prisma\Lanarca_Prisma.jpg</TEXTUREFILE>
+          <COLORBASE R="149" G="127" B="96" />
+        </MATERIAL>
+        <MATERIAL ID="dur_pri_lineo_textil" NAME="Lineo Têxtil">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Prisma\Lineo_Textil_Prisma.jpg</TEXTUREFILE>
+          <COLORBASE R="216" G="215" B="211" />
+        </MATERIAL>
+        <MATERIAL ID="dur_pri_nogueira_cadiz" NAME="Nogueira Cadiz">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Prisma\Nogueira_Cadiz_Prisma.jpg</TEXTUREFILE>
+          <COLORBASE R="87" G="72" B="56" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Singular">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_sin_rocha_rara" NAME="Rocha Rara">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Singular\Rocha Rara.jpg</TEXTUREFILE>
+          <COLORBASE R="203" G="197" B="186" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Trama">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_tra_aurora" NAME="Aurora">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Aurora_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="228" G="228" B="228" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_carbono" NAME="Carbono">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Carbono_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="84" G="84" B="84" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_gianduia" NAME="Gianduia">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Gianduia_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="177" G="167" B="157" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_grafite" NAME="Grafite">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Grafite_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="56" G="57" B="56" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_nobile" NAME="Nobile">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Nobile_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="158" G="154" B="148" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_palha" NAME="Palha">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Palha Textura.jpg</TEXTUREFILE>
+          <COLORBASE R="234" G="230" B="215" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_preto" NAME="Preto">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Preto_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="13" G="14" B="18" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_sirena" NAME="Sirena">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Sirena_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="79" G="92" B="100" />
+        </MATERIAL>
+        <MATERIAL ID="dur_tra_titanio" NAME="Titânio">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Trama\Titanio_Trama.jpg</TEXTUREFILE>
+          <COLORBASE R="178" G="176" B="170" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Quadratta">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_qua_fibra_nativa" NAME="Fibra Nativa">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Quadratta\Quadratta_Fibra-Nativa.jpg</TEXTUREFILE>
+          <COLORBASE R="202" G="182" B="159" />
+        </MATERIAL>
+        <MATERIAL ID="dur_qua_ouro_palido" NAME="Ouro Pálido">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Quadratta\Quadratta_Ouro-Palido.jpg</TEXTUREFILE>
+          <COLORBASE R="196" G="185" B="157" />
+        </MATERIAL>
+        <MATERIAL ID="dur_qua_renda" NAME="Renda">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Quadratta\Quadratta_Renda.jpg</TEXTUREFILE>
+          <COLORBASE R="227" G="221" B="207" />
+        </MATERIAL>
+        <MATERIAL ID="dur_qua_sepia" NAME="Sépia">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Quadratta\Quadratta_Sepia.jpg</TEXTUREFILE>
+          <COLORBASE R="134" G="106" B="84" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Velluto">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_vel_azul_astral" NAME="Azul Astral">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Azul-Astral.jpg</TEXTUREFILE>
+          <COLORBASE R="154" G="178" B="188" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_ocre_solar" NAME="Ocre Solar">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Ocre-Solar.jpg</TEXTUREFILE>
+          <COLORBASE R="213" G="168" B="101" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_verde_floresta" NAME="Verde Floresta">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Verde-Floresta.jpg</TEXTUREFILE>
+          <COLORBASE R="99" G="116" B="97" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_cinza_fossil" NAME="Cinza Fóssil">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Velluto_Cinza-Fossil_275x185m_2.jpg</TEXTUREFILE>
+          <COLORBASE R="193" G="194" B="189" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_gianduia_natural" NAME="Gianduia Natural">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Velluto_Gianduia-Natural_275x185m_2.jpg</TEXTUREFILE>
+          <COLORBASE R="169" G="159" B="150" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_moss" NAME="Moss">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Velluto_Moss_275x185m_2.jpg</TEXTUREFILE>
+          <COLORBASE R="139" G="146" B="139" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_nazca" NAME="Nazca">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Velluto_Nazca_275x185m_2.jpg</TEXTUREFILE>
+          <COLORBASE R="213" G="206" B="191" />
+        </MATERIAL>
+        <MATERIAL ID="dur_vel_quartzo_bienna" NAME="Quartzo Bienna">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Velluto\Velluto_Quartzo-Bienna_275x185m_2.jpg</TEXTUREFILE>
+          <COLORBASE R="140" G="144" B="149" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Acetinatta">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="dur_ace_branco_diamante" NAME="Branco Diamante (Acetinatta)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Acetinatta\Acetinatta_Branco-Diamante_2.jpg</TEXTUREFILE>
+          <COLORBASE R="208" G="207" B="204" />
+        </MATERIAL>
+        <MATERIAL ID="dur_ace_grafite" NAME="Grafite (Acetinatta)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Acetinatta\Acetinatta_Grafite_2.jpg</TEXTUREFILE>
+          <COLORBASE R="78" G="77" B="82" />
+        </MATERIAL>
+        <MATERIAL ID="dur_ace_preto" NAME="Preto (Acetinatta)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Acetinatta\Acetinatta_Preto_2.jpg</TEXTUREFILE>
+          <COLORBASE R="1" G="2" B="1" />
+        </MATERIAL>
+        <MATERIAL ID="dur_ace_tartufo" NAME="Tartufo (Acetinatta)">
+          <TEXTUREFILE>.\textures\fabrica\duratex\Acetinatta\Acetinatta_Tartufo_2.jpg</TEXTUREFILE>
+          <COLORBASE R="126" G="122" B="119" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>

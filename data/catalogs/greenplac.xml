@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Greenplac">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Toccare">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="Gre_Toc_Col_Bel" NAME="Granile">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Toccare\Bellini.jpg</TEXTUREFILE>
+          <COLORBASE R="166" G="152" B="139" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Col_Cez" NAME="Petale">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Toccare\Cezanne.jpg</TEXTUREFILE>
+          <COLORBASE R="136" G="123" B="114" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Dal" NAME="Seline">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Dali.jpg</TEXTUREFILE>
+          <COLORBASE R="181" G="186" B="181" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Mon" NAME="Azuro">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Mondrian.jpg</TEXTUREFILE>
+          <COLORBASE R="75" G="97" B="121" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Col_Mon" NAME="Nottie">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Toccare\Monet.jpg</TEXTUREFILE>
+          <COLORBASE R="13" G="11" B="12" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Col_Por" NAME="Nevari">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Toccare\Portinari.jpg</TEXTUREFILE>
+          <COLORBASE R="239" G="241" B="243" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Col_Rom" NAME="Cromato">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Toccare\Romero.jpg</TEXTUREFILE>
+          <COLORBASE R="87" G="87" B="89" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_San" NAME="Nerali">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Sanzio.jpg</TEXTUREFILE>
+          <COLORBASE R="70" G="73" B="74" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Tar" NAME="Vino">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Tarsila.jpg</TEXTUREFILE>
+          <COLORBASE R="96" G="49" B="43" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Vin" NAME="Ditela">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Vinci.jpg</TEXTUREFILE>
+          <COLORBASE R="159" G="150" B="143" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Toc_Vol" NAME="Tessila">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\Volpi.jpg</TEXTUREFILE>
+          <COLORBASE R="120" G="118" B="111" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gre_toc_ros" NAME="Rosato">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\ROSATO.jpg</TEXTUREFILE>
+          <COLORBASE R="187" G="165" B="151" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gre_toc_ver" NAME="Verbenni">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\VERBENNI.jpg</TEXTUREFILE>
+          <COLORBASE R="172" G="173" B="162" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gre_toc_vto" NAME="Volato">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Toccare\VOLATO.jpg</TEXTUREFILE>
+          <COLORBASE R="216" G="205" B="199" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Essenziale">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="Gre_Ess_Ara" NAME="Araton">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Araton.jpg</TEXTUREFILE>
+          <COLORBASE R="33" G="21" B="11" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Cap" NAME="Caput">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Caput.jpg</TEXTUREFILE>
+          <COLORBASE R="182" G="174" B="169" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Sie" NAME="Siena">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Siena.jpg</TEXTUREFILE>
+          <COLORBASE R="139" G="127" B="106" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Gar" NAME="Garanza">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Garanza.jpg</TEXTUREFILE>
+          <COLORBASE R="204" G="184" B="165" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Pal" NAME="Pale">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Pale.jpg</TEXTUREFILE>
+          <COLORBASE R="228" G="230" B="229" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Pru" NAME="Prussian">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Prussian.jpg</TEXTUREFILE>
+          <COLORBASE R="218" G="201" B="180" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Rav" NAME="Raven">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Essenziale\Raven.jpg</TEXTUREFILE>
+          <COLORBASE R="155" G="127" B="102" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Bal" NAME="Bali">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Essenziale\Vertical\Bali.JPG</TEXTUREFILE>
+          <COLORBASE R="230" G="200" B="179" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Ess_Fre_Ama" NAME="Freijó Amazonas">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Essenziale\Vertical\Freijo Amazonas.JPG</TEXTUREFILE>
+          <COLORBASE R="154" G="117" B="71" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Natural">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="Gre_Nat_Jad" NAME="Jade">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\jade.jpg</TEXTUREFILE>
+          <COLORBASE R="197" G="175" B="156" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Nat_Cil" NAME="Cilento">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\Cilento.jpg</TEXTUREFILE>
+          <COLORBASE R="144" G="134" B="119" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Nat_Mal" NAME="Málaga">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\Malaga.jpg</TEXTUREFILE>
+          <COLORBASE R="108" G="67" B="35" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Nat_Nor" NAME="Noronha">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\Noronha.jpg</TEXTUREFILE>
+          <COLORBASE R="120" G="89" B="59" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Nat_Ver" NAME="Versalhes">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\Versalhes.jpg</TEXTUREFILE>
+          <COLORBASE R="205" G="203" B="191" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Nat_Vil" NAME="Villandry">
+          <TEXTUREFILE>.\textures\fabrica\Greenplac\Natural\Villandry.jpg</TEXTUREFILE>
+          <COLORBASE R="143" G="98" B="56" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Moderno">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="Gre_Mod_Bui" NAME="Build">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Build.jpg</TEXTUREFILE>
+          <COLORBASE R="173" G="179" B="188" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Ino" NAME="Inova">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Inova.jpg</TEXTUREFILE>
+          <COLORBASE R="237" G="236" B="222" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Duo" NAME="Duo">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Duo.jpg</TEXTUREFILE>
+          <COLORBASE R="125" G="117" B="103" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Urb" NAME="Urban">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Urban.jpg</TEXTUREFILE>
+          <COLORBASE R="126" G="91" B="59" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Uni" NAME="Unique">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Unique.jpg</TEXTUREFILE>
+          <COLORBASE R="217" G="202" B="185" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Sty" NAME="Style">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Style.jpg</TEXTUREFILE>
+          <COLORBASE R="75" G="65" B="54" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="Gre_Mod_Pie_Bro" NAME="Pietra Bronze">
+          <TEXTUREFILE>.\Textures\Fabrica\Greenplac\Moderno\Vertical\Pietra Bronze.JPG</TEXTUREFILE>
+          <COLORBASE R="170" G="170" B="165" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>

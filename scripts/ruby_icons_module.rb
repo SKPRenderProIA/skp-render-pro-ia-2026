@@ -1,0 +1,71 @@
+  module Icons
+    # Ícones oficiais do SKP Render Pro IA (embutidos em Base64 - 100% autossuficientes)
+    ICONS_DATA = {
+      :painel => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaElEQVR4nN3TywkAIAxEwZRgy5ZldXoWNNlNFKIBj74BPyIZprTaV+tK9AjGxinEG4eQaFxFtA3ImMjbgHWmu5AGTEgqAD2ivIDrP1wHmGfqiv8BaAgLLOPohYfiUQSKexEqjmKh6KkZpUjtH94HTe8AAAAASUVORK5CYII=".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAiElEQVR4nO3UQQqAMAxE0R7BK3ssT6drIdSZZMYSaKCrgv8VasfoNsd13rO1JGrFZONlRDVcgqjjFMIVhxFLAcgH2IER6AkUgBDRFsDuhwDmEqkAL0RrwNdswO93gFkbYHmIUvENYBAKQBhHEVXANM7+EfLTuxFQ3IWg4kpIOqxASOIsxhJ1zgMVLT4WV7b/kAAAAABJRU5ErkJggg==".freeze
+      },
+      :capturar => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAX0lEQVR4nGNgIALwi2v9x4WJ0T9qwUiyAJ9BpOLBa4GcpjX1LQAZigtTbAE+w/FZQpYFFnt/wDFVLMBlODGWjBALkC3BZwFVUxG6yym2gOb5AJ8lNCkqiMUDY8EowAYAY9nfY0RPf9kAAAAASUVORK5CYII=".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAiElEQVR4nO3UMQ6AIBAEQH5gaWevLzDx7f7LTjtj4gG33CkY95ItZUcUQgCn66c9F3RNAgggoC2ApsAaAlwAw7jc8gpAKkYhxQBNuQZRBJBK5nU7gyBcANfyGOIxgFQuIdwAmrdHduF7gOqfoLmfsMoxrH4RIYjcGiZACqJ91gVgCQFJAOd3cwDqhEnyiRrB2gAAAABJRU5ErkJggg==".freeze
+      },
+      :estilo => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXUlEQVR4nGNgGHHg6zzu/0PXApDhMDz0LEA2nCaW0NQCbIZTzRJ8hlNkCTEGk2UROQYTZRE1DKabRQMbB+RYRJbBxFpCseH4LKGa4XSxAN0SqhtOFwsYhnyVSQ4AADPQhXEhpwK5AAAAAElFTkSuQmCC".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAe0lEQVR4nO3XuQqAMBBF0en9/9a/tFYsBBGXMJm3QHyQ+p5imkT869wyT+u4gD1+vPEA57gEIQXcxakIKeAtTkHIAC1hCCQTLoFUhFMQRLgJwgjbQLxvAAFJhSsgJeEMBBK2AXwh4HELwBOCFrcAXBH0uAUg1D8jC0DvNmxf3nRTl5NOAAAAAElFTkSuQmCC".freeze
+      },
+      :espelho => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAbElEQVR4nGNgGAWDEhg7hv4nFxNtATKw2PvjDjGYbAuItYQkC0AaSLWEZAtItYQsC0ixhGwLiLWEIguIsYRiCwhZQhUL8FlCNQtwWUJVC7BZQnUL0C2hiQXIltDMApglNLWA5EimaX0wCpABAFv3xN3Dba+xAAAAAElFTkSuQmCC".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhUlEQVR4nO3WsQ2AMAxE0exEQ8sQjMsmDEIHokCKEIHEd7ZB+EturVe4cEpR9Oa6YVxZ811AXj8ts2RoACkCAuwLUAQMQBEUAIKgAaQIKkCCoANaESqAFoQaoBahCqhBqAOeECaAO4QZoIQwBVwhzAFnhAsgR7gBDoQrAD5C95/QFRD9og0QMJzbezOkewAAAABJRU5ErkJggg==".freeze
+      },
+      :luz => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAUElEQVR4nGNgGAXUAr/OiP5HxzQzmGoWEWM42ZaQYjhZltDUAnIMJ8mSUQtoZgnRhtPFAlItIdlwUiwh23BiLKHY8CmLd/wnhEctoK0FowAA0kw9PwXEnfAAAAAASUVORK5CYII=".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAYUlEQVR4nO3OQQ0AIAxDUUzgHAeYQASKuAwFJLB2gZA26fm/lDTNsdGzrX4tHA45idMRnjgNgcQpiKsARhxCCCCAACyEO/4EAEXAcQRBi59CQsI7kPBoqc12L4AAIQDty02ahNlqOzi34QAAAABJRU5ErkJggg==".freeze
+      },
+      :materiais => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAiklEQVR4nOXTwQmAMAyF4Y7gPl67mG7lVOJBwZOCkEupyctrCoKF4Mn/E9um9Ku17ecl0yX6Nt3CNMTEYaQlDiFdAevFNefnOc4Hh2hhGQFkvgMg8RoAIxGbSwHDMqmjNeDfhMTLhmuT0TgN1CAKQBDrrKtxL1DGzK9nEfMGRyFw3AtRYQsLi7auG++RPaHx09spAAAAAElFTkSuQmCC".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAArUlEQVR4nO3TSw5AMBSFYUuwH9NujF1ZlRiQGBFNTETTcx+nHtGkiQH9Py1V9Y83jnFa1tS8JUrHaOJuCEvcjPCIqxGecTGCEYcRzDiEQBcZQohzv266Oc4igCN8BUAhprf3ACQR0ngKoN6FxwPof0Luobpv4ZlbjwZAP3D1EVAB1l1ILnpaG7pJAykKgD8sKYCFgOMMhDjugZAeDxWhjnsgzHELwi0uwdCinx0bAzZwPttKaegAAAAASUVORK5CYII=".freeze
+      },
+      :prep => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAZ0lEQVR4nGNgGAWDFljs/fEfGx78FqSUdP8HYVwWwOTx4WFuAQzgiwOBnY3/sWFSooJ2FhATRLgsICkO8GGqWvB1HjcGpsgCdECKBSQZTDMLiAkiEKY4ow1dC4iJAxAmyZABtWAUAACKFDOiI73EqAAAAABJRU5ErkJggg==".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAb0lEQVR4nGNgGAWjYBQQASz2/viPDY86gGYWppR0/0fGuByAro4YPOoAsqJkSCRCgZ2N/7FhujmSqg4gJ25xOYAqiXDkOYAcQLdE+HUe939seMAdQFVL8MU1LgfQtCgeeQ7AB+iSBkYdMApGAT0BAJJZ1luIREO2AAAAAElFTkSuQmCC".freeze
+      },
+      :pano360 => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAbUlEQVR4nOXTuw3AIBADUCbI/gtkOKY4qkhX4LP5RiSWaJDsVyBS+lXMZdrodWd7jo+/Hx5mQDNUKyuAhKCiClBkKRCVWgCInA3YgnwMOP+RtwAMUQE4vgWIEAWg4xHCAHkcQQjoGq4l/ERvpQCqavBK1xKncgAAAABJRU5ErkJggg==".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAl0lEQVR4nO3SuxHAIAwDUCbI/gtkuExBLgV3LjCWDIR8rDs3FNIrSCnyxmz7ka+TKW/TR+XVAPKmjiOAIQitGAV0IVqlDMCFsApZAIVAyjwACIEWeQEm4t8ApqQHoCKWA/KNCcAz/8ByAIvwAtTxALAID8AcZxAsAB5HEQyAHkcQKMA9biEQQPd4C2EBho1rmBpg2uhncwJivJ3XUI4JNAAAAABJRU5ErkJggg==".freeze
+      },
+      :gemini => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAeUlEQVR4nOXVPQ7AIAiGYQ7aG/W+rjQOJoSAIj+mTb/NwfcZHAT43RARS+Nj6fH7arSP/fwdoMckIAUZIQ0IITQyA1wID6yALUS6bAHMCAZWGj+CvOMNNGQFmOMaMgO24xKiAe44RyQgHKcIB9LiRwCo/tEoUhb37AHcM347whB0zAAAAABJRU5ErkJggg==".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAApklEQVR4nO3USwqAMAxFURfqjtyv04iDQghNmjSfFvTNnOQeUDyOf84BAHwXAGjl8eu8cR/e59J4D1CCaCEOkIrAEQmQhlgKoIERIBTRO64BhCC4w1qACyEdtQCmEKODVoAZAQlbGt8CYXoFy78BDcICMMc1CC1gOj5CaADuuIQYAcLiHEIChMe3AFAEB0iLU0QPkB7HCAooi7dN/2ajEcviWwC8ewA8l0qRzn2hwwAAAABJRU5ErkJggg==".freeze
+      },
+      :limpar => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAMklEQVR4nGNgGAWjAATeu7j8x4VHLaCdBfgMpaplPwoL/xPCZPti1IJRC0YtGC4WjAIA9aN+4f1k8fkAAAAASUVORK5CYII=".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAPElEQVR4nO3OwQkAIAwEwRRnQ6ncr79YgggiKLNw75sISa/VW6vVAACuH14Bjcza3ZFjAAAAAAAAAH3fBCUhw/5ndr04AAAAAElFTkSuQmCC".freeze
+      },
+      :licenca => {
+        :b24 => "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAUklEQVR4nGNgGAWDHrzazPEfGdPMYKpaRMhwii3BZRBVLCFkAFUtoETN4LAAlwEURzo+jVRJWcQmU6r6gtikS7QF+CzBp44kC8hxyKgFo2AIAgBuwDeonBHcTgAAAABJRU5ErkJggg==".freeze,
+        :b32 => "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAbklEQVR4nO2UOwrAMAxDM/b+V+mtcol06lgi+RNR0ANvtvUIxGMY8zfmfa23JKFfJQ1vk2DCyyV2IRKBTF9aoKo3FC4XqO6nBY6/ALO07Vsiy1rvQ+QIySV2c7QAI4HMhwQQEXQmJRDBAhYwxiA84vkQPwhI0dkAAAAASUVORK5CYII=".freeze
+      },
+    }.freeze
+
+    def self.get_icon_paths(icon_key = :painel)
+      icon_key = :painel unless ICONS_DATA.key?(icon_key)
+      data = ICONS_DATA[icon_key] || ICONS_DATA[:painel]
+      folder = (Sketchup.respond_to?(:temp_dir) ? Sketchup.temp_dir : Dir.tmpdir) rescue Dir.tmpdir
+      
+      icon_24 = File.join(folder, "skp_render_pro_icon_#{icon_key}_24.png")
+      icon_32 = File.join(folder, "skp_render_pro_icon_#{icon_key}_32.png")
+
+      begin
+        unless File.exist?(icon_24) && File.size(icon_24) > 50
+          File.open(icon_24, "wb") { |f| f.write(Base64.decode64(data[:b24])) }
+        end
+        unless File.exist?(icon_32) && File.size(icon_32) > 50
+          File.open(icon_32, "wb") { |f| f.write(Base64.decode64(data[:b32])) }
+        end
+      rescue => e
+        puts "[SKP Render Pro] Aviso ao extrair ícone #{icon_key}: #{e.message}"
+      end
+
+      { :small => icon_24, :large => icon_32 }
+    end
+  end

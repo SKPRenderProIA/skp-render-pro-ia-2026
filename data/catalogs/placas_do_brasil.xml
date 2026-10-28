@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Placas do Brasil">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Híbrido">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_hib_sam" NAME="Samba">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Hibrido\Samba.jpg</TEXTUREFILE>
+          <MCODE>Paint.Acrylic.Satin.None</MCODE>
+          <COLORBASE R="106" G="76" B="53" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_hib_tro" NAME="Tropicália">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Hibrido\Tropicalia.jpg</TEXTUREFILE>
+          <MCODE>Paint.Acrylic.Satin.None</MCODE>
+          <COLORBASE R="129" G="122" B="111" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_hib_con_cap" NAME="Congo Capixaba">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Hibrido\Congo_Capixaba.jpg</TEXTUREFILE>
+          <MCODE>Paint.Acrylic.Satin.None</MCODE>
+          <COLORBASE R="181" G="175" B="161" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Madeira Brasileira">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_mad_bra_hor_fre_3" NAME="Freijó">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Madeira Brasileira\Freijo.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="122" G="87" B="46" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Freijo Ripado" NAME="Freijo Ripado">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Brasileira\Freijo Ripado.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="146" G="115" B="82" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_mac_2" NAME="Macanaíba">
+          <TEXTUREFILE>.\textures\Fabrica\Placas_do_Brasil\Madeira Brasileira\Macanaiba.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="100" G="67" B="48" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_jac_2" NAME="Jacarandá">
+          <TEXTUREFILE>.\textures\Fabrica\Placas_do_Brasil\Madeira Brasileira\Jacaranda.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="83" G="49" B="30" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Madeirada Contemporânea">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Carvalho Aicana" NAME="Carvalho Aicana">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Carvalho_Aicana.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="231" G="230" B="236" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Carvalho Arandu" NAME="Carvalho Arandu">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Carvalho_Arandu.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="188" G="180" B="169" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Carvalho Caete" NAME="Carvalho Caete">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Carvalho_Caete.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="158" G="155" B="150" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Carvalho Tupi" NAME="Carvalho Tupi">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Carvalho_Tupi.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="61" G="59" B="58" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Elmo Aracruz" NAME="Elmo Aracruz">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Elmo Aracruz.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="170" G="167" B="163" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Elmo Palmares" NAME="Elmo Palmares">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Elmo_Palmares.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="202" G="169" B="122" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Nogal Terena" NAME="Nogal Terena">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Nogal_Terena.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="146" G="122" B="104" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Nogueira Arroio" NAME="Nogueira Arroio">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Nogueira_Arroio.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="45" G="39" B="36" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Nogueira Caiapo" NAME="Nogueira Caiapo">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Nogueira_Caiapo.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="124" G="111" B="95" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Nogueira Carajas" NAME="Nogueira Carajas">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Nogueira_Carajas.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="103" G="86" B="76" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_bra_hor_Nogueira Goitaca" NAME="Nogueira Goitaca">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Contemporanea\Nogueira_Goitaca.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.Matte</MCODE>
+          <COLORBASE R="55" G="48" B="43" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Madeira Rústica">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_mad_rus_hor_car_2" NAME="Caravela">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Rustica\Caravela.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedFine.None</MCODE>
+          <COLORBASE R="134" G="99" B="63" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_rus_Aure Imperial" NAME="Aurea Imperial">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Rustica\Aurea_Imperial.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedFine.None</MCODE>
+          <COLORBASE R="235" G="231" B="210" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_mad_rus_Vila Velha" NAME="Vila Velha">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Madeira Rustica\Vila_Velha.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedFine.None</MCODE>
+          <COLORBASE R="139" G="134" B="123" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Tecido">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_tec_ing" NAME="Ingá">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Tecido\Inga.jpg</TEXTUREFILE>
+          <MCODE>Fabric.Acetate.WovenMedium.None</MCODE>
+          <COLORBASE R="174" G="170" B="160" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_tec_gua" NAME="Guaraná">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Tecido\Guarana.jpg</TEXTUREFILE>
+          <MCODE>Fabric.Felt.WovenMedium.None</MCODE>
+          <COLORBASE R="195" G="191" B="188" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_tec_cup" NAME="Cupuaçu">
+          <TEXTUREFILE>.\Textures\Fabrica\Placas_do_Brasil\Tecido\Cupuacu.jpg</TEXTUREFILE>
+          <MCODE>Fabric.Felt.WovenMedium.None</MCODE>
+          <COLORBASE R="204" G="203" B="190" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Unicolor">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_uni_pim_rei" NAME="Pimenta do Reino">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Pimenta_Reino.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="59" G="57" B="62" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_uni_caf_tor" NAME="Café Torrado">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Cafe_Torrado.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="95" G="88" B="85" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_uni_pit" NAME="Pitanga">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Pitanga.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="164" G="127" B="124" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_uni_vit_reg" NAME="Vitória Régia">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Vitoria_Regia.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="105" G="106" B="111" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_uni_cas_caj" NAME="Castanha de Caju">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Castanha_de_ Caju.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="142" G="131" B="119" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_uni_tap" NAME="Tapioca">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolor\Tapioca.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Rough.SemiGloss</MCODE>
+          <COLORBASE R="220" G="219" B="224" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <SPECULAR>0.02</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Colecao Identidades">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_COL_ID_Hort" NAME="Hortênsia">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Hortesia.jpg</TEXTUREFILE>
+          <MCODE>Paint.Acrylic.Satin.None</MCODE>
+          <COLORBASE R="146" G="149" B="154" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Amazonas" NAME="Amazonas">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas Do Brasil_Amazonas_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="213" G="211" B="210" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Acacia" NAME="Acácia">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas Do Brasil_Acacia_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="192" G="192" B="192" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Capim Dourado" NAME="Capim Dourado">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas do Brasil_Capim Dourado_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="108" G="87" B="60" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Jequitiba Rei" NAME="Jequitibá Rei">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas Do Brasil_Jequitiba Rei_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="145" G="102" B="72" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Ocre" NAME="Ocre">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas do Brasil_Ocre_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="147" G="105" B="67" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Peroba do Brasil" NAME="Peroba do Brasil">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas Do Brasil_Peroba do Brasil_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="166" G="123" B="81" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Rio Negro" NAME="Rio Negro">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas Do Brasil_Rio Negro_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="87" G="87" B="92" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Selva" NAME="Selva">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas do Brasil_Selva_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="64" G="65" B="57" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Terra Bronze" NAME="Terra Bronze">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Colecao Identidades\Placas do Brasil_Terra Bronze_183x275cm.jpg</TEXTUREFILE>
+          <COLORBASE R="112" G="87" B="67" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Urucum" NAME="Urucum">
+          <COLORBASE R="119" G="77" B="52" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Unicolores Versáteis">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="pla_bra_COL_ID_Alva" NAME="Alva">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolores Versateis\Alva.jpg</TEXTUREFILE>
+          <COLORBASE R="186" G="185" B="183" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Luar" NAME="Luar">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolores Versateis\Luar.jpg</TEXTUREFILE>
+          <COLORBASE R="146" G="146" B="140" />
+        </MATERIAL>
+        <MATERIAL ID="pla_bra_COL_ID_Poente" NAME="Poente">
+          <TEXTUREFILE>.\textures\fabrica\Placas_do_Brasil\Unicolores Versateis\Poente.jpg</TEXTUREFILE>
+          <COLORBASE R="198" G="190" B="179" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>

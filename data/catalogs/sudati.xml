@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Sudati">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Unicolores">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="sudati_unicolores_amazonia" NAME="Amazônia">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>1000</ESCALETEXTUREX>
+          <ESCALETEXTUREY>1000</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.4</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\Textures\Fabrica\Sudati\Unicolores\AMAZONIA.JPG</TEXTUREFILE>
+          <MAPPING>Cubo</MAPPING>
+          <COLORBASE R="78" G="85" B="68" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolores_havana" NAME="Havana">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>754</ESCALETEXTUREX>
+          <ESCALETEXTUREY>1200</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.4</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Havana.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="105" G="78" B="57" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolores_manhattan" NAME="Manhattan">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>804</ESCALETEXTUREX>
+          <ESCALETEXTUREY>1200</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.4</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Manhattan.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="93" G="88" B="85" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolor_santiago" NAME="Santiago">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>804</ESCALETEXTUREX>
+          <ESCALETEXTUREY>1200</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.4</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Santiago_Sudati Texturizado.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="149" G="126" B="109" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolor_argel" NAME="Argel">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>350</ESCALETEXTUREX>
+          <ESCALETEXTUREY>336.5834</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.55</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Argel.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="47" G="46" B="42" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolor_floripa" NAME="Floripa">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA>
+                  <AMBIENT>0</AMBIENT>
+                  <SPECULAR>0</SPECULAR>
+                  <METALLIC>0</METALLIC>
+                  <ROUGHNESS>0</ROUGHNESS>
+                  <OPACITY>0</OPACITY>
+                  <EMISSIVE>0</EMISSIVE>
+                  <TRANSPARENCYENABLE>N</TRANSPARENCYENABLE>
+                </MOOBLEMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>250</ESCALETEXTUREX>
+          <ESCALETEXTUREY>240.4167</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.8</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.08</SPECULAR>
+          <ROUGHNESS>0.17</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Floripa.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="223" G="202" B="168" />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolor_cambiasi" NAME="Cambiasi">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA />
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <COLORBASE R="255" G="255" B="255" />
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX />
+          <ESCALETEXTUREY />
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.4</AMBIENT>
+          <DIFFUSE>0.7</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.05</SPECULAR>
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <IOR>1</IOR>
+          <EMISSION>0</EMISSION>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Nenhum</DIRECTION>
+          <SLIDEMODE>Default</SLIDEMODE>
+          <TEXTUREFILES />
+        </MATERIAL>
+        <MATERIAL ID="sudati_unicolor_sampa" NAME="Sampa">
+          <METADATAS>
+            <METADATA ID="LightWorksMaterialData">
+              <METADATA.VALUE>
+                <LIGHTWORKSMATERIALDATA>
+                  <FINISHDATA NAME="Eggshell" GROUP="Coatings_Woods" TYPE="Standard" />
+                </LIGHTWORKSMATERIALDATA>
+              </METADATA.VALUE>
+            </METADATA>
+            <METADATA ID="MoobleMaterialData">
+              <METADATA.VALUE>
+                <MOOBLEMATERIALDATA />
+              </METADATA.VALUE>
+            </METADATA>
+          </METADATAS>
+          <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+          <BORDERCOLOR R="0" G="0" B="0" />
+          <BORDERWIDTH>0</BORDERWIDTH>
+          <MAPPING>Cubo</MAPPING>
+          <ROTATION>0</ROTATION>
+          <ESCALETEXTUREX>1850</ESCALETEXTUREX>
+          <ESCALETEXTUREY>2750</ESCALETEXTUREY>
+          <NUMBERTEXTUREX>0</NUMBERTEXTUREX>
+          <NUMBERTEXTUREY>0</NUMBERTEXTUREY>
+          <MIRROR>N</MIRROR>
+          <AMBIENT>0.3</AMBIENT>
+          <DIFFUSE>0.5</DIFFUSE>
+          <REFLECTIONMIN>0.03</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+          <CRAND>0</CRAND>
+          <SPECULAR>0.02</SPECULAR>
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <METALLIC>0</METALLIC>
+          <TRANSPARENCY>0</TRANSPARENCY>
+          <IOR>1</IOR>
+          <EMISSION>0</EMISSION>
+          <CONSERVEENERGY>N</CONSERVEENERGY>
+          <DIRECTION>Vertical</DIRECTION>
+          <SLIDEMODE>CropCenter</SLIDEMODE>
+          <TEXTUREFILE>.\textures\fabrica\Sudati\Unicolor\Sampa.jpg</TEXTUREFILE>
+          <COLORBASE R="113" G="103" B="101" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Naturally">
+      <FOLDERCOLLECTION>
+        <FOLDER NAME="Horizontal">
+          <MATERIALCOLLECTION>
+            <MATERIAL ID="sudati_rinascere_hor_bellini" NAME="Bellini">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Bellini.jpg</TEXTUREFILE>
+              <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+              <COLORBASE R="219" G="200" B="175" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_bianco_ravena" NAME="Bianco Ravena">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Comodita\Bianco_Ravena.jpg</TEXTUREFILE>
+              <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+              <COLORBASE R="230" G="228" B="224" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_cabernet" NAME="Cabernet">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Cabernet.jpg</TEXTUREFILE>
+              <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+              <COLORBASE R="148" G="132" B="117" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_carmenere" NAME="Carmenere">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Carmenere.jpg</TEXTUREFILE>
+              <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+              <COLORBASE R="143" G="121" B="102" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_carvalho_castelli" NAME="Carvalho Castelli">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Comodita\Carvalho_Castelli.jpg</TEXTUREFILE>
+              <MCODE>Wood.Hard.SandedMedium.None</MCODE>
+              <COLORBASE R="155" G="135" B="110" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_carvalho_lino" NAME="Carvalho Lino">
+              <TEXTUREFILE>.\Textures\Fabrica\Sudati\Naturally\Horizontal\CARVALHO LINO.JPG</TEXTUREFILE>
+              <COLORBASE R="138" G="116" B="96" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_carvalho_natural" NAME="Carvalho Natural">
+              <TEXTUREFILE>.\Textures\Fabrica\Sudati\Naturally\Horizontal\CARVALHO NATURAL.JPG</TEXTUREFILE>
+              <COLORBASE R="180" G="159" B="139" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_naturally_hor_chenin_blanc" NAME="Chenin Blanc">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Chenin Blanc.jpg</TEXTUREFILE>
+              <COLORBASE R="236" G="217" B="195" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_corazzi" NAME="Corazzi">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Corazzi.jpg</TEXTUREFILE>
+              <COLORBASE R="198" G="165" B="117" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_imbuia" NAME="Imbuia">
+              <TEXTUREFILE>.\Textures\Fabrica\Sudati\Naturally\Horizontal\IMBUIA.JPG</TEXTUREFILE>
+              <COLORBASE R="65" G="45" B="32" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_leon" NAME="Leon">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Leon.jpg</TEXTUREFILE>
+              <COLORBASE R="115" G="90" B="68" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_naturally_hor_louro_freijo" NAME="Louro Freijó">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Louro Freijo.jpg</TEXTUREFILE>
+              <COLORBASE R="156" G="110" B="70" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_molinara" NAME="Molinara">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Molinara.jpg</TEXTUREFILE>
+              <COLORBASE R="99" G="83" B="68" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_moscato" NAME="Moscato">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Moscato.jpg</TEXTUREFILE>
+              <COLORBASE R="200" G="191" B="175" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_naturally_hor_nerello" NAME="Nerello">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Nerello.jpg</TEXTUREFILE>
+              <COLORBASE R="42" G="34" B="25" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.01</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_tempranillo" NAME="Tempranillo">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Tempranillo.jpg</TEXTUREFILE>
+              <COLORBASE R="52" G="37" B="21" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_trebbiano_blanc" NAME="Trebbiano Blanc">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Trebbiano_Blanc.jpg</TEXTUREFILE>
+              <COLORBASE R="195" G="187" B="174" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_versati" NAME="Versati">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Comodita\Versati.jpg</TEXTUREFILE>
+              <COLORBASE R="94" G="79" B="55" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+          </MATERIALCOLLECTION>
+        </FOLDER>
+      </FOLDERCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Soul">
+      <FOLDERCOLLECTION>
+        <FOLDER NAME="Horizontal">
+          <MATERIALCOLLECTION>
+            <MATERIAL ID="sudati_rinascere_hor_alessi" NAME="Alessi">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Alessi.jpg</TEXTUREFILE>
+              <COLORBASE R="118" G="106" B="93" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_soul_hor_arinto" NAME="Arinto">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Arinto.jpg</TEXTUREFILE>
+              <COLORBASE R="150" G="134" B="116" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_personalita_hor_asti" NAME="Asti">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Personalita\Asti.jpg</TEXTUREFILE>
+              <COLORBASE R="198" G="198" B="196" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_botticelli" NAME="Botticelli">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Botticelli.jpg</TEXTUREFILE>
+              <COLORBASE R="182" G="170" B="160" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_lina" NAME="Lina">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Lina.jpg</TEXTUREFILE>
+              <COLORBASE R="200" G="190" B="183" />
+              <ROUGHNESS>0.2</ROUGHNESS>
+              <SPECULAR>0.1</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_pisano" NAME="Pisano">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Pisano.jpg</TEXTUREFILE>
+              <COLORBASE R="190" G="178" B="166" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_rosselli" NAME="Rosselli">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Rinascere\Rosselli.jpg</TEXTUREFILE>
+              <COLORBASE R="238" G="237" B="233" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_rinascere_hor_sofisticato" NAME="Sofisticato">
+              <TEXTUREFILE>.\Textures\Fabrica\Sudati\Soul\Horizontal\SOFISTICAT.JPG</TEXTUREFILE>
+              <COLORBASE R="76" G="58" B="43" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+          </MATERIALCOLLECTION>
+        </FOLDER>
+      </FOLDERCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="TX">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="sudati_tx_glamour" NAME="Glamour">
+          <TEXTUREFILE>.\textures\fabrica\Sudati\TX\Glamour.jpg</TEXTUREFILE>
+          <COLORBASE R="193" G="176" B="164" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.05</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="sudati_tx_mineral" NAME="Mineral">
+          <TEXTUREFILE>.\Textures\Fabrica\Sudati\TX\MINERAL.JPG</TEXTUREFILE>
+          <COLORBASE R="219" G="210" B="201" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.05</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="sudati_tx_vulcano" NAME="Vulcano">
+          <TEXTUREFILE>.\textures\fabrica\Sudati\TX\Vulcano.jpg</TEXTUREFILE>
+          <COLORBASE R="226" G="224" B="223" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.05</SPECULAR>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Eleva">
+      <FOLDERCOLLECTION>
+        <FOLDER NAME="Horizontal">
+          <MATERIALCOLLECTION>
+            <MATERIAL ID="sudati_comodita_hor_cumaru" NAME="Cumaru">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Cumaru.jpg</TEXTUREFILE>
+              <COLORBASE R="131" G="108" B="84" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_ipe" NAME="Ipê">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Ipe.jpg</TEXTUREFILE>
+              <COLORBASE R="125" G="105" B="81" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_itauba" NAME="Itaúba">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Itauba.jpg</TEXTUREFILE>
+              <COLORBASE R="171" G="143" B="96" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_jequitiba" NAME="Jequitibá">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Jequitiba.jpg</TEXTUREFILE>
+              <COLORBASE R="128" G="105" B="88" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_pau_ferro" NAME="Pau-Ferro">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Pau-ferro.jpg</TEXTUREFILE>
+              <COLORBASE R="93" G="70" B="56" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+            <MATERIAL ID="sudati_comodita_hor_tauari" NAME="Tauari">
+              <TEXTUREFILE>.\textures\fabrica\Sudati\Eleva\Tauari.jpg</TEXTUREFILE>
+              <COLORBASE R="160" G="134" B="104" />
+              <ROUGHNESS>0.05</ROUGHNESS>
+              <SPECULAR>0.02</SPECULAR>
+            </MATERIAL>
+          </MATERIALCOLLECTION>
+        </FOLDER>
+      </FOLDERCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>

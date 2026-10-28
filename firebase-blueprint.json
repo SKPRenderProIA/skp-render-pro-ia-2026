@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "License": {
+      "title": "License",
+      "description": "SKP Render Pro IA client license records and authorization keys",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique license document identifier"
+        },
+        "clientName": {
+          "type": "string",
+          "description": "Client full name or company"
+        },
+        "clientContact": {
+          "type": "string",
+          "description": "WhatsApp or phone number"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional administrative notes"
+        },
+        "pcId": {
+          "type": "string",
+          "description": "Hardware UUID of the client machine"
+        },
+        "validUntil": {
+          "type": "string",
+          "description": "Expiration ISO timestamp"
+        },
+        "licenseKey": {
+          "type": "string",
+          "description": "Cryptographically signed activation token"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation ISO timestamp"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current license state",
+          "enum": ["active", "revoked"]
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "System or user owner identifier"
+        }
+      },
+      "required": ["id", "clientName", "pcId", "validUntil", "status"]
+    },
+    "DeletedLicense": {
+      "title": "DeletedLicense",
+      "description": "Permanent tombstone records of deleted license IDs",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Deleted license unique identifier"
+        },
+        "pcId": {
+          "type": "string",
+          "description": "Associated hardware UUID"
+        },
+        "deletedAt": {
+          "type": "string",
+          "description": "Deletion timestamp"
+        }
+      },
+      "required": ["id", "deletedAt"]
+    }
+  },
+  "firestore": {
+    "/licenses/{licenseId}": {
+      "schema": {
+        "$ref": "#/entities/License"
+      },
+      "description": "Collection of activated client licenses"
+    },
+    "/deleted_licenses/{tombstoneId}": {
+      "schema": {
+        "$ref": "#/entities/DeletedLicense"
+      },
+      "description": "Collection of permanently deleted license tombstones"
+    }
+  }
+}

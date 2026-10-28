@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FOLDER NAME="Guararapes">
+  <FOLDERCOLLECTION>
+    <FOLDER NAME="Magma">
+      <FOLDERCOLLECTION />
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_mag_bronze" NAME="Bronze">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Bronze.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="94" G="62" B="35" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <REFLECTIONMIN>0.01</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_cosmos" NAME="Cosmos">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Cosmos.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="77" G="74" B="71" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_fog" NAME="Fog">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Fog.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="239" G="238" B="226" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_fon" NAME="Fontana">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Fontana.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="203" G="198" B="184" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_fulge" NAME="Fulgê">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Fulge.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="190" G="188" B="178" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_mar" NAME="Marmo">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Marmo.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="29" G="29" B="34" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_pet" NAME="Petra">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Petra.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="147" G="143" B="134" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_quartzo" NAME="Quartzo">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Quartzo.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.Satin</MCODE>
+          <COLORBASE R="198" G="193" B="188" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mag_ves" NAME="Vesúvio">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Magma\Vesuvio.jpg</TEXTUREFILE>
+          <MCODE>Wood.Hard.Sandblasted.SemiGloss</MCODE>
+          <COLORBASE R="66" G="55" B="44" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Colors">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_col_areia" NAME="Areia">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Areia.jpg</TEXTUREFILE>
+          <MCODE>Wood.Soft.SandedMedium.Matte</MCODE>
+          <COLORBASE R="206" G="203" B="196" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_alecrim" NAME="Alecrim">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Alecrim.jpg</TEXTUREFILE>
+          <COLORBASE R="138" G="143" B="136" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_azul" NAME="Azul Petróleo">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Azul Petroleo.jpg</TEXTUREFILE>
+          <MCODE>Wood.Soft.SandedMedium.Matte</MCODE>
+          <COLORBASE R="54" G="69" B="76" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_capuccino" NAME="Capuccino">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Cappucino.jpg</TEXTUREFILE>
+          <MCODE>Wood.Soft.SandedMedium.Matte</MCODE>
+          <COLORBASE R="171" G="150" B="131" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_cin_urb" NAME="Cinza Urban">
+          <TEXTUREFILE>.\Textures\Fabrica\Guararapes\Colors\Cinza Urban.jpg</TEXTUREFILE>
+          <COLORBASE R="180" G="180" B="180" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_grafite" NAME="Grafite">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Grafite.jpg</TEXTUREFILE>
+          <COLORBASE R="81" G="81" B="79" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_marsala" NAME="Marsala">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Marsala.jpg</TEXTUREFILE>
+          <COLORBASE R="90" G="15" B="20" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_branco" NAME="Maxi Branco">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Maxi Branco.jpg</TEXTUREFILE>
+          <COLORBASE R="255" G="255" B="255" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_niquel" NAME="Níquel">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Niquel.jpg</TEXTUREFILE>
+          <COLORBASE R="88" G="87" B="87" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_ouro" NAME="Ouro">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Ouro.jpg</TEXTUREFILE>
+          <COLORBASE R="164" G="143" B="116" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_pixel" NAME="Pixel">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Pixel.jpg</TEXTUREFILE>
+          <COLORBASE R="118" G="111" B="105" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_rosa" NAME="Rosa Milkshake">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Rosa Milkshake.jpg</TEXTUREFILE>
+          <COLORBASE R="226" G="206" B="205" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_terracota" NAME="Terracota">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Terracota.jpg</TEXTUREFILE>
+          <COLORBASE R="78" G="50" B="30" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_col_tijolo" NAME="Tijolo">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Colors\Tijolo.jpg</TEXTUREFILE>
+          <COLORBASE R="127" G="96" B="82" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Dual Syncro">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_syn_baviera" NAME="Baviera">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Baviera.jpg</TEXTUREFILE>
+          <COLORBASE R="44" G="34" B="27" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_syn_caribe" NAME="Caribe">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Caribe.jpg</TEXTUREFILE>
+          <COLORBASE R="72" G="53" B="36" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_syn_freijo" NAME="Freijó">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Freijo.jpg</TEXTUREFILE>
+          <COLORBASE R="192" G="174" B="129" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="gua_syn_nero" NAME="Nero">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Nero.jpg</TEXTUREFILE>
+          <COLORBASE R="35" G="35" B="35" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_syn_savana" NAME="Savana">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Savana.jpg</TEXTUREFILE>
+          <COLORBASE R="152" G="123" B="95" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_syn_siberia" NAME="Siberia">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Syncro\Siberia.jpg</TEXTUREFILE>
+          <COLORBASE R="233" G="234" B="228" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Madeiras do Brasil">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_mad_bra_curupixa" NAME="Curupixá">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Madeiras do Brasil\Curupixa.jpg</TEXTUREFILE>
+          <COLORBASE R="215" G="175" B="136" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mad_bra_imbuia" NAME="Imbuia">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Madeiras do Brasil\Imbuia.jpg</TEXTUREFILE>
+          <COLORBASE R="87" G="59" B="37" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mad_bra_ipe" NAME="Ipê">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Madeiras do Brasil\Ipe.jpg</TEXTUREFILE>
+          <COLORBASE R="77" G="62" B="42" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mad_bra_pau_ferro" NAME="Pau-Ferro">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Madeiras do Brasil\Pau Ferro.jpg</TEXTUREFILE>
+          <COLORBASE R="127" G="88" B="59" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_mad_bra_tauari" NAME="Tauari">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Madeiras do Brasil\Tauari.jpg</TEXTUREFILE>
+          <COLORBASE R="189" G="156" B="121" />
+          <ROUGHNESS>0.4</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Dual Touch">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_dua_alabama" NAME="Alabama">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Alabama.jpg</TEXTUREFILE>
+          <COLORBASE R="133" G="94" B="57" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_antuerpia" NAME="Antuérpia">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Antuerpia.jpg</TEXTUREFILE>
+          <COLORBASE R="215" G="202" B="182" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_dual_black" NAME="Dual Black">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Dual Black.jpg</TEXTUREFILE>
+          <COLORBASE R="29" G="29" B="29" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_elmo_dubai" NAME="Elmo Dubai">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Elmo Dubai.jpg</TEXTUREFILE>
+          <COLORBASE R="230" G="225" B="213" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_lisboa" NAME="Lisboa">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Lisboa.jpg</TEXTUREFILE>
+          <COLORBASE R="166" G="142" B="121" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_paris" NAME="Paris">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Paris.jpg</TEXTUREFILE>
+          <COLORBASE R="217" G="205" B="189" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_dua_pretoria" NAME="Pretória">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Dual Touch\Pretoria.jpg</TEXTUREFILE>
+          <COLORBASE R="97" G="74" B="45" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Metalic">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_met_aco_corten" NAME="Aço Corten">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Metalic\Aco Corten.jpg</TEXTUREFILE>
+          <COLORBASE R="104" G="74" B="62" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+          <REFLECTIONMIN>0.01</REFLECTIONMIN>
+          <REFLECTIONMAX>0.03</REFLECTIONMAX>
+        </MATERIAL>
+        <MATERIAL ID="gua_met_berinjela" NAME="Berinjela">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Metalic\Berinjela.jpg</TEXTUREFILE>
+          <COLORBASE R="99" G="80" B="86" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_met_cobre" NAME="Cobre">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Metalic\Cobre.jpg</TEXTUREFILE>
+          <COLORBASE R="93" G="79" B="52" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_met_onix" NAME="Ônix">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Metalic\Onix.jpg</TEXTUREFILE>
+          <COLORBASE R="62" G="67" B="61" />
+          <ROUGHNESS>0.05</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Naturale">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_nat_antiqua" NAME="Antiqua">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Antiqua.jpg</TEXTUREFILE>
+          <COLORBASE R="196" G="157" B="117" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+          <SPECULAR>0.1</SPECULAR>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_avela" NAME="Avelã">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Avela.JPG</TEXTUREFILE>
+          <COLORBASE R="239" G="233" B="211" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_bilbao" NAME="Bilbao">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Bilbao.jpg</TEXTUREFILE>
+          <COLORBASE R="210" G="184" B="153" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_car_decape" NAME="Carvalho Decape">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Carvalho Decape.jpg</TEXTUREFILE>
+          <COLORBASE R="80" G="73" B="67" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_carvalho_natural" NAME="Carvalho Natural">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Carvalho Natural.jpg</TEXTUREFILE>
+          <COLORBASE R="197" G="183" B="151" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_cip_baikal" NAME="Cipres">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Cipres.JPG</TEXTUREFILE>
+          <COLORBASE R="234" G="225" B="197" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_jauzi" NAME="Jauzi">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Jauzi.jpg</TEXTUREFILE>
+          <COLORBASE R="164" G="141" B="112" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_new_cherry" NAME="New Cherry">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\New Cherry.JPG</TEXTUREFILE>
+          <COLORBASE R="239" G="234" B="224" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_nog_champagne" NAME="Nogal Champagne">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Nogal Champagne.jpg</TEXTUREFILE>
+          <COLORBASE R="160" G="123" B="90" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_nog_sevilha" NAME="Nogal Sevilha">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Nogal Sevilha.jpg</TEXTUREFILE>
+          <COLORBASE R="116" G="85" B="54" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_saw_cut" NAME="Sawcut">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Sawcut.jpg</TEXTUREFILE>
+          <COLORBASE R="135" G="118" B="106" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_nat_tek_bianco" NAME="Teka Bianco">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Naturale\Teka Bianco.jpg</TEXTUREFILE>
+          <COLORBASE R="246" G="247" B="242" />
+          <ROUGHNESS>0.2</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Comfort">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_com_can" NAME="Canovas">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\canovas.jpg</TEXTUREFILE>
+          <COLORBASE R="226" G="215" B="187" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_fen" NAME="Fendi">
+          <TEXTUREFILE>.\Textures\Fabrica\Guararapes\Comfort\Fendi.png</TEXTUREFILE>
+          <COLORBASE R="158" G="141" B="119" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_bran_ice" NAME="Branco Iceland">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\iceland.JPG</TEXTUREFILE>
+          <COLORBASE R="250" G="250" B="250" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_mil" NAME="Milano">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Milano.jpg</TEXTUREFILE>
+          <COLORBASE R="219" G="217" B="206" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_nev" NAME="Nevada">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Nevada.jpg</TEXTUREFILE>
+          <COLORBASE R="242" G="241" B="237" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_pret_sil" NAME="Preto Silk">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Preto.jpg</TEXTUREFILE>
+          <COLORBASE R="42" G="42" B="42" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_san" NAME="Santorini">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Santorini.jpg</TEXTUREFILE>
+          <COLORBASE R="168" G="167" B="162" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_tel" NAME="Tela">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Tela.jpg</TEXTUREFILE>
+          <COLORBASE R="218" G="197" B="150" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_tec" NAME="Tecido">
+          <TEXTUREFILE>.\textures\fabrica\Guararapes\Comfort\Tecido.jpg</TEXTUREFILE>
+          <COLORBASE R="191" G="192" B="186" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+        <MATERIAL ID="gua_com_tri" NAME="Tricotê">
+          <TEXTUREFILE>.\Textures\Fabrica\Guararapes\Comfort\Tricote.jpg</TEXTUREFILE>
+          <COLORBASE R="171" G="169" B="162" />
+          <ROUGHNESS>0.1</ROUGHNESS>
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+    <FOLDER NAME="Perspectivas">
+      <MATERIALCOLLECTION>
+        <MATERIAL ID="gua_per_flo" NAME="Floresta">
+          <TEXTUREFILE>.\Textures\Fabrica\Guararapes\Perspectivas\Vertical\Floresta.jpg</TEXTUREFILE>
+          <COLORBASE R="110" G="131" B="102" />
+        </MATERIAL>
+        <MATERIAL ID="gua_per_sao_pau" NAME="São Paulo">
+          <TEXTUREFILE>.\Textures\Fabrica\Guararapes\Perspectivas\Vertical\SaoPaulo.jpg</TEXTUREFILE>
+          <COLORBASE R="135" G="133" B="133" />
+        </MATERIAL>
+      </MATERIALCOLLECTION>
+    </FOLDER>
+  </FOLDERCOLLECTION>
+</FOLDER>
