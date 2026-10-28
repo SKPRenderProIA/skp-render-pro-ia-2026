@@ -377,11 +377,11 @@ async function generateContentSafe(
   timeoutMs: number = 45000
 ): Promise<any> {
   // Valid high-availability active models
-  const validGuaranteedFallbacks = ["gemini-flash-latest", "gemini-3.1-flash-lite", "gemini-3.8-flash"];
+  const validGuaranteedFallbacks = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-flash-latest"];
   const combinedModels = [primaryModel, ...fallbackModels, ...validGuaranteedFallbacks];
   // Filter out any models that are known deprecated or invalid
   const modelsToTry = Array.from(new Set(combinedModels)).filter(
-    (m) => m && !m.includes("2.0") && !m.includes("2.5") && !m.includes("3.5") && !m.includes("flash-lite-latest")
+    (m) => m && !m.includes("2.0") && !m.includes("2.5")
   );
   let lastError: any = null;
 
@@ -1145,8 +1145,8 @@ Para cada item retorne:
       try {
         const response = await generateContentSafe(
           ai,
-          "gemini-flash-latest",
-          ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+          "gemini-flash-lite-latest",
+          ["gemini-3.5-flash-lite", "gemini-flash-latest"],
           {
             contents: [
               {
@@ -1301,8 +1301,8 @@ Para cada item retorne:
 
       const response = await generateContentSafe(
         ai,
-        "gemini-flash-latest",
-        ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+        "gemini-flash-lite-latest",
+        ["gemini-3.5-flash-lite", "gemini-flash-latest"],
         {
           contents: contentParts,
           config: {
@@ -1439,8 +1439,8 @@ ESTRUTURA OBRIGATÓRIA:
           try {
             const response = await generateContentSafe(
               ai,
-              "gemini-flash-latest",
-              ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+              "gemini-flash-lite-latest",
+              ["gemini-3.5-flash-lite", "gemini-flash-latest"],
               {
                 contents: [
                   {
@@ -1757,8 +1757,8 @@ High-end architectural visualization, realistic lighting, global illumination, s
         try {
           const visionResponse = await generateContentSafe(
             ai,
-            "gemini-flash-latest",
-            ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+            "gemini-flash-lite-latest",
+            ["gemini-3.5-flash-lite", "gemini-flash-latest"],
             {
               contents: [
                 {
@@ -1865,8 +1865,8 @@ Responda OBRIGATORIAMENTE dentro do bloco:
           try {
             const refinementResponse = await generateContentSafe(
               ai,
-              "gemini-3.8-flash",
-              ["gemini-flash-latest", "gemini-3.1-flash-lite"],
+              "gemini-flash-lite-latest",
+              ["gemini-3.5-flash-lite", "gemini-flash-latest"],
               {
                 contents: refinementPrompt,
                 config: {
@@ -1902,8 +1902,8 @@ Responda OBRIGATORIAMENTE dentro do bloco:
         try {
           const response = await generateContentSafe(
             ai,
-            "gemini-flash-latest",
-            ["gemini-3.1-flash-lite", "gemini-3.8-flash"],
+            "gemini-flash-lite-latest",
+            ["gemini-3.5-flash-lite", "gemini-flash-latest"],
             {
               contents: textContext,
               config: {
