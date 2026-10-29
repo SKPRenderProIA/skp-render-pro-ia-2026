@@ -28,7 +28,9 @@ export default function App() {
   const [showPasswordPrompt, setShowPasswordPrompt] = useState<boolean>(false);
   const [adminPasswordInput, setAdminPasswordInput] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
-  const [isAdminUnlocked, setIsAdminUnlocked] = useState<boolean>(false);
+  const [isAdminUnlocked, setIsAdminUnlocked] = useState<boolean>(() => {
+    return localStorage.getItem('skp_admin_unlocked') === 'true';
+  });
   const [isCapturing, setIsCapturing] = useState<boolean>(false);
   const [isCapturing360, setIsCapturing360] = useState<boolean>(false);
   const [showMaterialsModal, setShowMaterialsModal] = useState<boolean>(false);
@@ -2581,6 +2583,89 @@ export default function App() {
         onRecheck={verifySketchupStatus}
         onDownloadRb={() => handleDownloadRb()}
       />
+    );
+  }
+
+  // Se o sistema for aberto no navegador web comum (fora do SketchUp, ou seja, sem o parâmetro skp_pcid) e NÃO desbloqueado
+  const hasSkpPcId = Boolean(skpPcId);
+  if (!hasSkpPcId && !isAdminUnlocked) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen w-full bg-[#11231b] text-white p-6 select-none font-sans">
+        <div className="max-w-md w-full bg-[#1b3629] border border-[#2d5a45] rounded-2xl p-8 shadow-2xl flex flex-col items-center text-center">
+          <div className="w-16 h-16 rounded-2xl bg-[#2d5a45] flex items-center justify-center mb-6 shadow-inner border border-[#4ade80]/30">
+            <ShieldAlert className="w-9 h-9 text-[#4ade80]" />
+          </div>
+          
+          <img 
+            src="/skp_header_banner.png" 
+            alt="SKP RENDER PRO IA" 
+            className="h-10 object-contain mb-4 select-none"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
+          
+          <h1 className="text-xl font-bold tracking-wide mb-2 text-white">SKP RENDER PRO IA</h1>
+          
+          <div className="bg-amber-950/40 border border-amber-600/40 rounded-xl p-4 mb-6 text-amber-200 text-xs sm:text-sm leading-relaxed">
+            Acesso Restrito: Aplicação de uso exclusivo integrado no SketchUp.
+          </div>
+
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (adminPasswordInput.trim() === '31542066') {
+                localStorage.setItem('skp_admin_unlocked', 'true');
+                setIsAdminUnlocked(true);
+                setPasswordError(null);
+                showToast('✓ Acesso liberado com sucesso!');
+              } else {
+                setPasswordError('Senha incorreta. Tente novamente.');
+              }
+            }}
+            className="w-full space-y-4"
+          >
+            <div className="text-left">
+              <label className="block text-xs font-semibold text-emerald-300 mb-1.5 uppercase tracking-wider">
+                Acesso do Administrador
+              </label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-400">
+                  <KeyRound className="w-4 h-4 text-emerald-400" />
+                </span>
+                <input 
+                  type="password"
+                  value={adminPasswordInput}
+                  onChange={(e) => {
+                    setAdminPasswordInput(e.target.value);
+                    if (passwordError) setPasswordError(null);
+                  }}
+                  placeholder="Digite a senha de administrador..."
+                  className="w-full pl-10 pr-4 py-3 bg-[#11231b] border border-[#3b6e55] rounded-xl text-white placeholder-stone-500 text-sm focus:outline-none focus:border-[#4ade80] focus:ring-1 focus:ring-[#4ade80] transition"
+                  autoFocus
+                />
+              </div>
+              {passwordError && (
+                <p className="text-rose-400 text-xs mt-1.5 font-medium flex items-center gap-1">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  {passwordError}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl shadow-lg transition transform active:scale-95 cursor-pointer text-sm tracking-wide"
+            >
+              Desbloquear Acesso
+            </button>
+          </form>
+
+          <div className="mt-6 text-[11px] text-stone-400">
+            SKP Render Pro IA • Sistema Proprietário de Renderização
+          </div>
+        </div>
+      </div>
     );
   }
 
