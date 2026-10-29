@@ -640,6 +640,42 @@ module SKPRenderPro
       # Oculta o objeto do espelho para não bloquear a captura
       selected_obj.visible = false rescue nil
 
+      # Ghost Shadow Blocker (Técnica do PNG Transparente do SketchUcation):
+      # Cria um escudo temporário no plano de corte com textura 100% transparente para bloquear
+      # a luz solar vinda de trás do corte sem obstruir a visão da câmera.
+      shield_grp = nil
+      trans_png_path = nil
+      begin
+        trans_png_bytes = Base64.decode64("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=")
+        trans_png_path = File.join(Dir.tmpdir, "skp_shield_#{Time.now.to_i}.png")
+        File.binwrite(trans_png_path, trans_png_bytes)
+
+        shield_mat = model.materials.add("SKP_Shield_Mat_#{Time.now.to_i}")
+        shield_mat.texture = trans_png_path
+        shield_mat.alpha = 0.0
+
+        u_axis = normal.perpendicular
+        u_axis.normalize!
+        v_axis = normal.cross(u_axis)
+        v_axis.normalize!
+
+        size = 5000.0
+        p1 = plane_pt.offset(u_axis, -size).offset(v_axis, -size)
+        p2 = plane_pt.offset(u_axis,  size).offset(v_axis, -size)
+        p3 = plane_pt.offset(u_axis,  size).offset(v_axis,  size)
+        p4 = plane_pt.offset(u_axis, -size).offset(v_axis,  size)
+
+        shield_grp = entities.add_group
+        shield_face = shield_grp.entities.add_face(p1, p2, p3, p4) rescue nil
+        if shield_face && shield_face.valid?
+          shield_face.material = shield_mat
+          shield_face.back_material = shield_mat
+          shield_face.edges.each { |e| e.hidden = true rescue nil }
+        end
+      rescue => err_shield
+        puts "[SKP RENDER PRO] Aviso Ghost Shadow Blocker: #{err_shield.message}"
+      end
+
       # Aplica a câmera refletida
       camera.set(ref_eye, ref_target, ref_up)
       camera.fov = orig_fov if orig_fov
@@ -649,10 +685,21 @@ module SKPRenderPro
       # Dimensões da tela
       vp_w = view.vpwidth
       vp_h = view.vpheight
+      vp_w = 800 if vp_w <= 0
+      vp_h = 600 if vp_h <= 0
 
-      # Captura a imagem refletida
+      # Alta resolução 2K para evitar serrilhado e embaçamento no espelho
+      target_w = 2560
+      target_h = (target_w.to_f * vp_h / vp_w).round
+      target_h = 1440 if target_h <= 0
+
+      # Captura a imagem refletida em alta resolução 2K
       temp_path = File.join(Dir.tmpdir, "mirror_real_#{Time.now.to_i}.png")
-      view.write_image(temp_path, vp_w, vp_h, true)
+      view.write_image(temp_path, target_w, target_h, true)
+
+      # Remove o escudo protetor imediatamente após a captura
+      shield_grp.erase! if shield_grp && shield_grp.valid? rescue nil
+      File.delete(trans_png_path) if trans_png_path && File.exist?(trans_png_path) rescue nil
 
       # Restaura a câmera original, remove o corte e reexibe o espelho
       camera.set(orig_eye, orig_target, orig_up)
@@ -739,28 +786,28 @@ module SKPRenderPro
 
       case surf_type
       when 'espelho'
-        # Espelho Cristalino: NÃO altera mat.color para preservar 100% das cores reais RGB
+        # Espelho Cristalino: Especular perfeito, máxima nitidez e fidelidade de cores 100% opaco
         mat.alpha = 1.0
       when 'bronze'
-        # Reflecta Bronze / Âmbar
-        mat.color = Sketchup::Color.new(195, 145, 95)
-        mat.alpha = (opacity / 100.0).clamp(0.05, 0.98)
+        # Reflecta Bronze: Efeito espelhado aquecido, tom dourado/sofisticado aconchegante
+        mat.alpha = (opacity / 100.0).clamp(0.70, 0.90)
+        mat.color = Sketchup::Color.new(220, 180, 135) rescue nil
       when 'fume'
-        # Vidro / Espelho Fumê Grafite
-        mat.color = Sketchup::Color.new(65, 65, 65)
-        mat.alpha = (opacity / 100.0).clamp(0.05, 0.98)
+        # Vidro / Espelho Fumê: Efeito espelhado escuro, absorve luz, focado no contraste cinza escuro
+        mat.alpha = (opacity / 100.0).clamp(0.75, 0.92)
+        mat.color = Sketchup::Color.new(85, 85, 90) rescue nil
       when 'tv'
-        # Tela de TV / Monitor
-        mat.color = Sketchup::Color.new(30, 30, 30)
-        mat.alpha = (opacity / 100.0).clamp(0.05, 0.85)
+        # Tela de TV Desligada: Espelho negro / alto contraste com reflexo nítido e fundo escurecido
+        mat.alpha = (opacity / 100.0).clamp(0.82, 0.96)
+        mat.color = Sketchup::Color.new(40, 40, 45) rescue nil
       when 'vidro'
-        # Vidro transparente incolor
-        mat.alpha = (opacity / 100.0).clamp(0.05, 0.70)
+        # Vidro Transparente Incolor: Reflexo muito baixo (4% a 8%), translúcido, transmitindo luz
+        mat.alpha = (opacity / 100.0).clamp(0.15, 0.28)
       when 'piso'
-        # Porcelanato / Piso Polido
-        mat.alpha = (opacity / 100.0).clamp(0.05, 0.80)
+        # Piso Polido (Porcelanato/Madeira/Pedra): Reflexo borrado por perspectiva, suave e natural
+        mat.alpha = (opacity / 100.0).clamp(0.35, 0.70)
       else
-        mat.alpha = (opacity / 100.0).clamp(0.05, 1.0)
+        mat.alpha = (opacity / 100.0).clamp(0.15, 1.0)
       end
 
       # 6. Aplica o material EXCLUSIVAMENTE na face do grupo solto (NUNCA toca no bloco 3D)
@@ -786,6 +833,8 @@ module SKPRenderPro
     ensure
       selected_obj.visible = true if selected_obj rescue nil
       sec_plane.erase! if sec_plane && sec_plane.valid? rescue nil
+      shield_grp.erase! if shield_grp && shield_grp.valid? rescue nil
+      File.delete(trans_png_path) if trans_png_path && File.exist?(trans_png_path) rescue nil
     end
 
     # Apaga todos os grupos de reflexo gerados pelo plugin de forma 100% segura e abrangente
