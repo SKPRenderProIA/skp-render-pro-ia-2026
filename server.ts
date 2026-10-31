@@ -275,7 +275,7 @@ function ensurePromptStartsWithUserText(rawResult: string, userInitialLead: stri
 }
 
 // Helper to generate an ultra-deep forensic ArchViz prompt when external API is in high demand (503)
-function generateArchVizFallbackPrompt(userPrompt: string, sceneId: string, userInitialLead = "", targetW = 2000, targetH = 2500, ratioLabel = "4:5 (Feed do Instagram)"): string {
+function generateArchVizFallbackPrompt(userPrompt: string, sceneId: string, userInitialLead = "", targetW = 2000, targetH = 2500, ratioLabel = "4:5 (Feed do Instagram)"): { reply: string; promptPt: string; promptEn: string } {
   const lead = (userInitialLead || (sceneId ? `${sceneId} GERAR` : "A1 GERAR")).trim();
   const cleanedPrompt = userPrompt
     .replace(/^[A-Za-z][0-9]{1,2}\s*(GERAR\s*-?)?/i, "")
@@ -289,80 +289,12 @@ function generateArchVizFallbackPrompt(userPrompt: string, sceneId: string, user
   const fullFrameBlockPt = buildMandatoryFullFramePrompt(lead, materialsPt);
   const fullFrameBlockEn = buildMandatoryFullFramePrompt(lead, materialsEn);
 
-  return `# ${lead}
+  const promptPt = `${lead}\n\n${fullFrameBlockPt}`;
+  const promptEn = `${lead}\n\n${fullFrameBlockEn}`;
 
-### SEÇÃO 1 — IMAGEM ANALISADA
+  const reply = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
 
-* **Identificação da Cena:** Espaço arquitetônico contemporâneo com marcenaria sob medida, integração espacial e composição equilibrada.
-* **Origem Visual:** Captura de viewport 3D do SketchUp com exibição de linhas de contorno (edges) ativas, sombreamento básico e geometria pura sem ray tracing ou iluminação global estocástica.
-
----
-
-### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA
-
-* **Câmera:**
-  - **Enquadramento e Altura:** Câmera frontal posicionada rigidamente ao nível dos olhos (1,50 m a 1,60 m do piso acabado).
-  - **Orientação e Perspectiva:** Perspectiva central estável, pontos de fuga alinhados no plano horizontal, linhas verticais aprumadas a 90 graus (sem distorções de grande angular).
-  - **Proporção:** Enquadramento travado ${ratioLabel} com resolução de saída ${targetW}x${targetH} px.
-
-* **Arquitetura e Volumetria:**
-  - **Estrutura e Volumes:** Volumes ortogonais limpos, pé-direito proporcional (2,80 m a 3,00 m), transições nítidas entre alvenaria, forro e planos verticais.
-  - **Aberturas:** Vãos livres e esquadrias de proporções arquitetônicas equilibradas mantendo alinhamentos estruturais.
-
-* **Materiais e Acabamentos (LEITURA CIRÚRGICA DE MATERIAIS):**
-  - **Piso:** Pavimentação contínua em réguas amadeiradas com textura tátil de carvalho/freijó natural fosco (roughness 0.45), juntas milimétricas retificadas de 1mm assentadas no sentido longitudinal da perspectiva, com reflexão difusa das aberturas sem brilho especular artificial.
-  - **Paredes e Painéis:** Alvenaria com pintura mineral acetinada fosca tom neutro quente/areia (roughness 0.70, zero reflexão espelhada); painéis de marcenaria vertical com veios orgânicos contínuos e frisos de dilatação de 5mm.
-  - **Teto e Forro:** Forro de gesso liso ultra-fosco aveludado com recortes perimetrais e sancas para iluminação indireta rasante.
-  - **Esquadrias:** Perfis de alumínio com pintura eletrostática preto fosco microtexturizado e vidro laminado incolor translúcido com reflexo de fresnel suave.
-  - **Mobiliário Fixo e Bancadas:** Marcenaria sob medida em laca fosca anti-touch e lâmina de madeira natural nobre; bancadas minerais sólidas com acabamento acetinado escovado e bordas com micro-chanfro de 1mm.
-  - **Metais e Detalhes:** Perfis metálicos e ferragens com acabamento anodizado escovado sem aberrações cromáticas.
-  - **Tecidos e Estofados:** Linho e fibras naturais com trama tátil visível, micro-sombras de contato e sem aspecto sintético plastificado.
-
-* **Iluminação e Sombras:**
-  - **Fonte de Luz:** Iluminação natural difusa preenchendo o ambiente suavemente através das aberturas sem estouro de brancos.
-  - **Iluminação Artificial:** Fitas de LED indiretas embutidas em temperatura de cor quente (2700K a 3000K), gerando luz rasante suave sobre as texturas das paredes e marcenaria.
-  - **Sombras:** Sombras de contato nítidas e oclusão de ambiente realista sob móveis, rodapés e junções de planos.
-
-* **Paisagismo e Hardscape:**
-  - Vegetação e elementos verdes em primeiro plano e exterior respeitando espécies adequadas, folhagens com micro-translucidez (subsurface scattering) sob a luz natural.
-
-* **Entorno e Horizonte:**
-  - Contexto externo visível pelas aberturas coerente com iluminação e atmosfera geral do projeto.
-
-* **Objetos e Veículos:**
-  - Mobiliário e adornos decorativos ancorados com firmeza sobre as superfícies de apoio, respeitando escala e ergonomia visual.
-
-* **Profundidade e Relações Espaciais:**
-  - Primeiro plano nítido estabelecendo a profundidade espacial, plano intermediário com o conjunto arquitetônico principal e fundo delimitando o horizonte e fechamentos visuais.
-
-A arquitetura e a câmera serão preservadas integralmente.
-
----
-
-### SEÇÃO 3 — INTERVENÇÃO INTELIGENTE
-
-* **Status:** ${cleanedPrompt}
-* **Preservação:** Câmera, geometria arquitetônica, volumetria e materiais base preservados com 100% de fidelidade ao modelo.
-
----
-
-### SEÇÃO 4 — PROMPT COMPLETO — PT
-
-\`\`\`text
-${lead}
-
-${fullFrameBlockPt}
-\`\`\`
-
----
-
-### SEÇÃO 5 — PROMPT COMPLETO — EN
-
-\`\`\`text
-${lead}
-
-${fullFrameBlockEn}
-\`\`\``;
+  return { reply, promptPt, promptEn };
 }
 
 // Helper to execute generateContent with automatic retry and model fallback
@@ -1459,10 +1391,10 @@ ESTRUTURA OBRIGATÓRIA:
             );
             visionResult = response.text || "";
           } catch (err) {
-            visionResult = generateArchVizFallbackPrompt(userLeadText, code, lead, targetW, targetH, ratioLabel);
+            visionResult = generateArchVizFallbackPrompt(userLeadText, code, lead, targetW, targetH, ratioLabel).reply;
           }
         } else {
-          visionResult = generateArchVizFallbackPrompt(userLeadText, code, lead, targetW, targetH, ratioLabel);
+          visionResult = generateArchVizFallbackPrompt(userLeadText, code, lead, targetW, targetH, ratioLabel).reply;
         }
 
         // Garante que o bloco MANDATORY FULL-FRAME PRESERVATION contenha os materiais unificados do ambiente
@@ -1675,85 +1607,51 @@ ESTRUTURA OBRIGATÓRIA:
         langInstruction = "🚨 IMPORTANTE - USUÁRIO FALA ESPANHOL: Você DEVE adicionar uma 'SEÇÃO 4.5 — PROMPT COMPLETO — ES' com o prompt traduzido para ESPANHOL técnico de ArchViz, logo após a seção em Português.";
       }
 
-        const visionPrompt = `SISTEMA RENDER PRO IA — LEITURA FORENSE ULTRA-MINUCIOSA (CAMADAS 0 A 71)
+        const visionPrompt = `SISTEMA RENDER PRO IA — GERAÇÃO DE PROMPTS FOTOGRÁFICOS BILINGUES (CAMADAS 0 A 71)
 Você é o Arquiteto e Engenheiro Forense de Renderização ArchViz do SKP RENDER PRO IA.
-Sua missão é realizar uma LEITURA FORENSE PROFUNDA E EXAUSTIVA desta imagem do SketchUp, gerando o relatório técnico arquitetônico de 5 seções no padrão de excelência máximo do sistema.
+Sua missão é realizar uma leitura forense detalhada desta imagem do SketchUp e gerar EXATAMENTE duas seções de prompt arquitetônico fotorrealista (PBR):
+1. SEÇÃO 4 — PROMPT COMPLETO — PT (Escrito 100% em PORTUGUÊS DO BRASIL).
+2. SEÇÃO 5 — PROMPT COMPLETO — EN (Written 100% in PROFESSIONAL ARCHITECTURAL ENGLISH. Zero Portuguese words in Section 5).
 
-${langInstruction}
-
-🚨 REGRA CRÍTICA DE PROMPT: NUNCA mencione "360°", "Panorama 360", "Equirectangular", "360 VR", "câmera 360" ou termos afins.
 CENA DO USUÁRIO: "${userInitialLead}"
 ENTRADA: "${userPrompt}"
 PROPORÇÃO: ${ratioLabel}
 
-🚨 DIRETRIZES DE PADRÃO OURO ARQUITETÔNICO — OBRIGATÓRIAS:
+ESTRUTURA OBRIGATÓRIA DE SAÍDA (retorne APENAS estas duas seções, sem introduções ou outras seções):
 
-1. PROIBIÇÃO ABSOLUTA DE RESUMO TELEGRÁFICO (ANTI-RESUMO):
-Nas Seções 2, 4 e 5, NUNCA resuma materiais em frases curtas genéricas como "Piso laminado, Roughness 0.65" ou "Cadeira em tela mesh". 
-Cada material e objeto detectado na cena DEVE OBRIGATORIAMENTE ser descrito com riqueza técnica profunda:
-- Nome exato e padrão/espécie (ex: Carvalho Natural, Carvalho Castelli, Freijó Puro, Louro Freijó, Nogueira Caiena, Aço Inox AISI 304, laca acetinada anti-touch).
-- Desenho dos veios, alinhamento, juntas chanfradas e sensação tátil (aveludada, acetinada, anti-touch, textura rústica mineral).
-- Física PBR precisa: valor exato de roughness (ex: roughness 0.05 para vidro, 0.45 para madeira acetinada, 0.85 para tijolo ou tinta mineral fosca), reflexos especulares e micro-sombras de oclusão de contato (AO).
-- Propriedades ópticas especiais quando aplicável: translucidez de subsuperfície (SSS) em folhas de plantas, anisotropia em metais escovados e antirreflexo em telas/vidros.
-
-2. BLOCOS DE CÓDIGO OBRIGATÓRIOS (COM QUEBRA DE LINHAS):
-As Seções 4 (PROMPT COMPLETO — PT) e 5 (PROMPT COMPLETO — EN) DEVEM OBRIGATORIAMENTE ser formatadas dentro de blocos de código markdown (\`\`\`text) com quebras de linha estruturadas entre os blocos "MANDATORY FULL-FRAME PRESERVATION", "STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK)" e a descrição de materiais, permitindo cópia limpa com 1 clique pelo usuário.
-
-3. EXEMPLO OFICIAL DE REFERÊNCIA (FEW-SHOT):
-Siga rigorosamente este modelo de profundidade técnica:
----
-### SEÇÃO 1 — IMAGEM ANALISADA
-Perspectiva angular detalhada do ambiente, identificando o enquadramento, uso do espaço, ilha/bancada, móveis secundários, acabamentos de parede, forro e iluminação técnica.
-
-### SEÇÃO 2 — ANÁLISE VISUAL PROFUNDA
-- **Piso:** Tipo de piso, padrão amadeirado/porcelanato com veios lineares, acabamento acetinado de baixa refletância (roughness 0.45) e juntas chanfradas discretas.
-- **Mobiliário e Marcenaria:** Madeira natural em lâmina contínua (roughness 0.55), frentes laqueadas em laca acetinada anti-touch com puxadores usinados, gaveteiros com rodízios de silicone.
-- **Paredes:** Pintura mineral/acrílica aveludada ultra-fosca (roughness 0.85) com alta absorção de reflexos; alvenarias em tijolo aparente ou concreto estrutural.
-- **Metais e Vidros:** Metais em aço escovado acetinado fosco; vidros temperados reflexivos (roughness 0.05) com transparência e reflexos reais da cena.
-- **Estofados e Cadeiras:** Tecidos tramados, telas ergonômicas biomecânicas respiráveis semitranslúcidas, polímeros técnicos texturizados.
-- **Iluminação e Vegetação:** Iluminação técnica de plafons e spots LED (3000K a 4000K) gerando sombras de contato realistas (AO); plantas com transmissão natural de luz nas folhas (SSS).
-
-### SEÇÃO 3 — INTERVENÇÃO INTELIGENTE
-Parágrafo técnico calibrando fotorrealismo PBR, micro-deslocamento e preservação rígida de 100% da geometria original da cena.
-
-### SEÇÃO 4 — PROMPT COMPLETO — PT
+### 🇧🇷 Seção 4 — Prompt em Português
 \`\`\`text
 ${userInitialLead}
 
 MANDATORY FULL-FRAME PRESERVATION:
-Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
-Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
+Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges. Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
 
 STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
 
-Apply materials and atmosphere as described: ${userInitialLead} — [Nome do Ambiente]..
-[Todos os materiais da SEÇÃO 2 com riqueza técnica profunda concatenados em texto corrido separados por ponto e vírgula (;)]
+Apply materials and atmosphere as described: ${userInitialLead} — [Descrever detalhadamente os materiais visíveis com acabamento PBR, rugosidade e iluminação em Português].
 
 High-end architectural visualization, realistic lighting, global illumination, sharp detail.
 \`\`\`
 
-### SEÇÃO 5 — PROMPT COMPLETO — EN
+### 🇺🇸 Seção 5 — Prompt em Inglês
 \`\`\`text
 ${userInitialLead}
 
 MANDATORY FULL-FRAME PRESERVATION:
-Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
-Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
+Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges. Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
 
 STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
 
-Apply materials and atmosphere as described: ${userInitialLead} — [Room Name]..
-[All materials from SECTION 2 translated to technical ArchViz English with deep PBR detail, concatenated separated by semicolon (;)]
+Apply materials and atmosphere as described: ${userInitialLead} — [Describe in complete detail all visible materials with PBR physical properties, roughness, and lighting in professional architectural English].
 
 High-end architectural visualization, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
 \`\`\`
-
-🚨 NUNCA mencione resoluções numéricas em pixels no texto do prompt final.
-🚨 Forneça SEMPRE as 5 seções completas, profundas e ricas para esta imagem.`;
+`;
 
         let visionResult = "";
+        let fallbackResult: { reply: string; promptPt: string; promptEn: string } | null = null;
         try {
           const visionResponse = await generateContentSafe(
             ai,
@@ -1778,51 +1676,35 @@ High-end architectural visualization, realistic lighting, global illumination, s
           visionResult = visionResponse.text || "";
         } catch (visionErr: any) {
           console.warn("Vision model temporarily unavailable or in high demand, using intelligent ArchViz fallback prompt:", visionErr?.message || visionErr);
-          visionResult = generateArchVizFallbackPrompt(userPrompt, sceneId, userInitialLead, targetW, targetH, ratioLabel);
+          fallbackResult = generateArchVizFallbackPrompt(userPrompt, sceneId, userInitialLead, targetW, targetH, ratioLabel);
+          visionResult = fallbackResult.reply;
         }
 
         // Aplica a garantia absoluta: a inicial do prompt é SEMPRE o que o usuário escreveu
         let unifiedMasterPrompt = ensurePromptStartsWithUserText(visionResult, userInitialLead);
-        let masterPromptForRender = "";
-
-        // Extrai o prompt contínuo conforme o idioma do usuário para a renderização de imagem rápida
-        let match = null;
-        if (targetLang === 'en') {
-          match = unifiedMasterPrompt.match(/### SEÇÃO [56][^\n]*(?:EN|INGL[EÊ]S|ENGLISH)[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-        } else if (targetLang === 'es') {
-          match = unifiedMasterPrompt.match(/### SEÇÃO [45][^\n]*(?:ES|ESPANHOL|ESPAÑOL)[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-        }
         
-        // Fallback para PT se não encontrar o idioma específico ou se for PT
-        if (!match) {
-          match = unifiedMasterPrompt.match(/### SEÇÃO [45][^\n]*(?:PT|PORTUGU[EÊ]S|PROMPT COMPLETO)[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i) || 
-                  unifiedMasterPrompt.match(/### SEÇÃO [45][^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-        }
-
-        if (match && match[1]) {
-          masterPromptForRender = match[1].trim();
+        let promptPt = "";
+        let promptEn = "";
+        if (fallbackResult) {
+          promptPt = fallbackResult.promptPt;
+          promptEn = fallbackResult.promptEn;
         } else {
-          masterPromptForRender = unifiedMasterPrompt;
+          let ptMatch = unifiedMasterPrompt.match(/### SEÇÃO 4[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
+          let enMatch = unifiedMasterPrompt.match(/### SEÇÃO 5[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
+          promptPt = ptMatch ? ptMatch[1].trim() : unifiedMasterPrompt;
+          promptEn = enMatch ? enMatch[1].trim() : unifiedMasterPrompt;
         }
 
-        extractedMasterPrompt = unifiedMasterPrompt;
-
-        // Geração de imagem desativada conforme solicitação: o sistema atua 100% como gerador e sintetizador de Super Prompts
-        generatedImage = undefined;
-
-        const isCorrection = /mude|altere|troque|coloque|retire|adicione|remova|corrija|ajuste|substitua|refaça|refeito|nova versão|versão|muda|troca|editar|edição/i.test(userPrompt);
-
-        replyText = `${unifiedMasterPrompt}`;
-
-        if (!replyText.trim()) {
-          replyText = `📸 **LEITURA SEMÂNTICA CONCLUÍDA!**\n\nCena processada pelo SKP Render Pro IA com fidelidade cromática, materiais PBR e iluminação fotorrealista 8K.`;
-        }
+        replyText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+        unifiedMasterPrompt = replyText;
 
         // Return everything unified
         return res.json({ 
           reply: replyText,
           image: generatedImage,
-          masterPrompt: unifiedMasterPrompt, // This ensures the Copy button gets the full unified block
+          masterPrompt: unifiedMasterPrompt,
+          promptPt: promptPt,
+          promptEn: promptEn,
         });
       } else {
         // Standard chat / prompt text processing
@@ -1899,6 +1781,7 @@ Responda OBRIGATORIAMENTE dentro do bloco:
         const sceneMatch = currentUserText.match(/^([A-Za-z][0-9]{1,2})/);
         const sceneId = sceneMatch ? sceneMatch[1].toUpperCase() : "";
 
+        let chatFallback: { reply: string; promptPt: string; promptEn: string } | null = null;
         try {
           const response = await generateContentSafe(
             ai,
@@ -1916,35 +1799,53 @@ Responda OBRIGATORIAMENTE dentro do bloco:
           responseText = response.text || "";
         } catch (chatErr: any) {
           console.warn("Chat model temporarily unavailable, using prompt synthesizer fallback:", chatErr?.message || chatErr);
-          responseText = generateArchVizFallbackPrompt(currentUserText || "A1 GERAR", sceneId, currentUserText, targetW, targetH, ratioLabel);
+          chatFallback = generateArchVizFallbackPrompt(currentUserText || "A1 GERAR", sceneId, currentUserText, targetW, targetH, ratioLabel);
+          responseText = chatFallback.reply;
         }
 
         if (!responseText || !responseText.trim()) {
-          responseText = generateArchVizFallbackPrompt(currentUserText || "A1 GERAR", sceneId, currentUserText, targetW, targetH, ratioLabel);
+          chatFallback = generateArchVizFallbackPrompt(currentUserText || "A1 GERAR", sceneId, currentUserText, targetW, targetH, ratioLabel);
+          responseText = chatFallback.reply;
         }
 
-        replyText = responseText;
-      }
+        let promptPt = "";
+        let promptEn = "";
+        if (chatFallback) {
+          promptPt = chatFallback.promptPt;
+          promptEn = chatFallback.promptEn;
+        } else {
+          let ptMatch = responseText.match(/### SEÇÃO 4[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
+          let enMatch = responseText.match(/### SEÇÃO 5[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
+          promptPt = ptMatch ? ptMatch[1].trim() : responseText;
+          promptEn = enMatch ? enMatch[1].trim() : responseText;
+        }
 
-      return res.json({ 
-        reply: replyText,
-        masterPrompt: replyText,
-        image: generatedImage,
-        imageWidth: targetW,
-        imageHeight: targetH,
-        isImported: isImportedImage,
-      });
+        replyText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+
+        return res.json({ 
+          reply: replyText,
+          masterPrompt: responseText,
+          promptPt: promptPt,
+          promptEn: promptEn,
+          image: generatedImage,
+          imageWidth: targetW,
+          imageHeight: targetH,
+          isImported: isImportedImage,
+        });
+      }
     } catch (error: any) {
       console.warn("Handled Chat API status:", error?.message || error);
       const latestMsg = req.body?.messages?.[req.body?.messages?.length - 1];
       const userText = (latestMsg?.text || "A1 GERAR").trim();
       const sceneMatch = userText.match(/^([A-Za-z][0-9]{1,2})/);
       const sceneId = sceneMatch ? sceneMatch[1].toUpperCase() : "A1";
-      const fallbackPrompt = generateArchVizFallbackPrompt(userText, sceneId, userText);
+      const fallback = generateArchVizFallbackPrompt(userText, sceneId, userText);
 
       return res.json({ 
-        reply: fallbackPrompt,
-        masterPrompt: fallbackPrompt,
+        reply: fallback.reply,
+        masterPrompt: fallback.reply,
+        promptPt: fallback.promptPt,
+        promptEn: fallback.promptEn,
         image: null,
         success: true,
       });

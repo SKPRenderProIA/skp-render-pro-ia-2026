@@ -12,6 +12,8 @@ export interface Message {
   image?: string;
   images?: string[];
   masterPrompt?: string;
+  promptPt?: string;
+  promptEn?: string;
   timestamp?: string;
   imageWidth?: number;
   imageHeight?: number;

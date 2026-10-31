@@ -3615,41 +3615,7 @@ export default function App() {
                 )}
               </button>
 
-              {/* BOTÃO DE ++ (LEITURA EM LOTE / MÚLTIPLAS CENAS DO MESMO AMBIENTE) */}
-              <button
-                type="button"
-                id="btnBatchAdd"
-                className={`btn-add-img shrink-0 flex flex-col items-center justify-center border rounded transition active:scale-95 overflow-hidden cursor-pointer ${
-                  batchScenes.length > 0
-                    ? 'bg-[#1c4432] border-[#2c5842] text-white shadow-xs'
-                    : 'bg-[#eaf3ee] hover:bg-[#dbe9e0] border-[#9AAEA3] text-[#1c4432]'
-                }`}
-                style={{ 
-                  height: '100%', 
-                  minHeight: `${footerHeight < 60 ? 28 : 36}px`, 
-                  width: footerHeight < 60 ? '30px' : '38px' 
-                }}
-                onClick={() => {
-                  if (batchScenes.length > 0) {
-                    setShowBatchModal(true);
-                  } else {
-                    batchFileInputRef.current?.click();
-                  }
-                }}
-                title="Leitura em Lote (++) — Adicionar múltiplas cenas do mesmo ambiente para gerar materiais e iluminação 100% uniformes"
-              >
-                {batchScenes.length > 0 ? (
-                  <div className="relative w-full h-full p-0.5 flex flex-col items-center justify-center">
-                    <span className="font-black text-[#4ade80] text-[11px] leading-none">++</span>
-                    <span className="text-[6.5px] font-black uppercase tracking-tight text-white leading-none mt-0.5">{batchScenes.length}</span>
-                  </div>
-                ) : (
-                  <>
-                    <span className={`font-black text-[#1c4432] leading-none ${footerHeight < 60 ? 'text-xs' : 'text-sm'}`}>++</span>
-                    <span className="text-[7px] font-black text-[#1c4432] uppercase tracking-tight leading-none mt-0.5">LOTE</span>
-                  </>
-                )}
-              </button>
+
 
               {/* TEXTAREA DA CAIXA DE MENSAGEM (NUNCA SOME) */}
               <textarea 
@@ -3682,33 +3648,7 @@ export default function App() {
                 <span className="text-[7.5px] font-bold text-emerald-800 uppercase tracking-tight">SKP</span>
               </button>
 
-              {/* BOTÃO COM NÚMERO 360 (CAPTURAR PRINT 360° PANORÂMICO) */}
-              <button
-                type="button"
-                id="btn360"
-                className={`btn-add-img shrink-0 flex flex-col items-center justify-center border rounded transition active:scale-95 cursor-pointer ${
-                  isCapturing360
-                    ? 'bg-emerald-600 border-emerald-700 text-white animate-pulse'
-                    : is360Mode 
-                      ? 'bg-[#396252] border-[#25543f] text-white shadow-xs hover:bg-[#2e4f42]' 
-                      : 'bg-white border-stone-300 text-stone-700 hover:bg-stone-50'
-                }`}
-                style={{ 
-                  height: '100%', 
-                  minHeight: `${footerHeight < 60 ? 28 : 36}px`, 
-                  width: footerHeight < 60 ? '30px' : '38px' 
-                }}
-                onClick={() => handleCapture360()}
-                disabled={isCapturing || isCapturing360}
-                title="🌐 Capturar Print em 360° Panorâmico (Proporção 2:1 - 4096x2048px)"
-              >
-                <span className={`font-black tracking-tighter leading-none ${footerHeight < 60 ? 'text-[11px]' : 'text-xs'} ${isCapturing360 || is360Mode ? 'text-white' : 'text-[#396252]'}`}>
-                  360
-                </span>
-                <span className={`text-[6.5px] font-extrabold uppercase tracking-tight leading-none mt-0.5 ${isCapturing360 || is360Mode ? 'text-emerald-100' : 'text-stone-500'}`}>
-                  {isCapturing360 ? '...' : is360Mode ? 'ON' : 'VR'}
-                </span>
-              </button>
+
             </div>
           </div>
         </div>

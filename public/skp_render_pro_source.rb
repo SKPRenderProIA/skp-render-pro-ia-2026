@@ -961,187 +961,92 @@ module SKPRenderPro
       return unless model && face && face.valid?
 
       tr ||= Geom::Transformation.new
-      model.start_operation("Gerar Spot Fake", true)
+      model.start_operation("Gerar Spot Billboard", true)
 
       color_hex = (config["color"] || config[:color] || "#ffe7ae").to_s
-      alcance_cm = (config["reach"] || config[:reach] || 120).to_f
       intensidade = (config["intensity"] || config[:intensity] || 80).to_f
-      abertura_deg = (config["angle"] || config[:angle] || 45).to_f
-      light_type = (config["light_type"] || config[:light_type] || "spot").to_s
+      spot_id = (config["spot_id"] || config[:spot_id] || "01").to_s.rjust(2, '0')
+      width_cm = (config["width_cm"] || config[:width_cm] || 25).to_f
+      height_cm = (config["height_cm"] || config[:height_cm] || 35).to_f
+      w_inch = width_cm / 2.54
+      h_inch = height_cm / 2.54
 
-      alcance_inch = (alcance_cm / 2.54)
-      alcance_inch = 25.0 if alcance_inch < 5.0
-
-      cam = model.active_view.camera
       normal = face.normal.transform(tr).normalize
       pts = face.vertices.map { |v| v.position.transform(tr) }
       
-      # Centro geométrico da face original
       center = Geom::Point3d.new(
         pts.map(&:x).sum / pts.size,
         pts.map(&:y).sum / pts.size,
         pts.map(&:z).sum / pts.size
       )
 
-      # Determina a direção do facho da luz para o interior do ambiente
-      # Se for teto/face horizontal (normal no eixo Z), o facho SEMPRE desce para baixo [0, 0, -1]
-      dir_facho = nil
-      if normal.z.abs > 0.5
-        dir_facho = Geom::Vector3d.new(0, 0, -1)
-      else
-        # Para paredes ou faces verticais, a luz deve sair na direção da câmera (sala)
-        v_to_cam = (cam.eye - center)
-        v_to_cam = -cam.direction if cam.perspective? == false || v_to_cam.length < 0.001
-        if normal.dot(v_to_cam) < 0
-          dir_facho = normal.reverse
-        else
-          dir_facho = normal.clone
-        end
-      end
-      dir_facho = dir_facho.normalize
-
-      # DESLOCAMENTO EXATO DE 2MM ABAIXO DA FACE
-      dist_2mm = 2.0 / 25.4 # 2mm em polegadas
-      offset_vec = dir_facho.clone
+      dist_2mm = 2.0 / 25.4
+      dir_down = (normal.z.abs > 0.5) ? Geom::Vector3d.new(0, 0, -1) : normal.reverse
+      offset_vec = dir_down.clone
       offset_vec.length = dist_2mm
-
-      # Move centro e vértices exatamente 2mm abaixo da face
       center = center.offset(offset_vec)
-      pts = pts.map { |p| p.offset(offset_vec) }
 
-      grp = model.active_entities.add_group
-      grp.name = "SKP_LuzFake_#{light_type.capitalize}_#{Time.now.to_i}"
-      grp.set_attribute("SKP_RENDER_PRO", "is_fake_light", true)
-      grp.set_attribute("SKP_RENDER_PRO", "fake_light_type", light_type)
-      grp.casts_shadows = false rescue nil
-      grp.receives_shadows = false rescue nil
-      
-      # Metadados para a IA
-      grp.set_attribute("SKP_RENDER_PRO_AI", "type", light_type)
-      grp.set_attribute("SKP_RENDER_PRO_AI", "color", color_hex)
-      grp.set_attribute("SKP_RENDER_PRO_AI", "intensity", intensidade)
-      grp.set_attribute("SKP_RENDER_PRO_AI", "reach", alcance_cm)
+      def_name = "SKP_Spot_Billboard_#{spot_id}_#{Time.now.to_i}"
+      definition = model.definitions.add(def_name)
+      behavior = definition.behavior
+      behavior.always_face_camera = true
+      behavior.cuts_opening = false
+      behavior.shadows_face_sun = false
 
-      # Materiais de degradê ultra-suaves e etéreos (glow sutil, sem bloco de plástico)
-      mats_grad = []
-      [0.15, 0.07, 0.02].each_with_index do |mul, idx|
-        m_name = "SKP_LuzFake_Grad_#{idx}_#{color_hex.gsub('#', '')}"
-        m = model.materials[m_name]
-        unless m && m.valid?
-          m = model.materials.add(m_name)
-          m.color = Sketchup::Color.new(color_hex)
+      ents = definition.entities
+      half_w = w_inch / 2.0
+      p1 = Geom::Point3d.new(-half_w, 0, 0)
+      p2 = Geom::Point3d.new(half_w, 0, 0)
+      p3 = Geom::Point3d.new(half_w, -h_inch, 0)
+      p4 = Geom::Point3d.new(-half_w, -h_inch, 0)
+
+      spot_face = ents.add_face(p1, p2, p3, p4) rescue nil
+      if spot_face && spot_face.valid?
+        spot_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true; e.casts_shadows = false rescue nil }
+
+        tex_path = Sketchup.find_support_file("assets/spots/spot_#{spot_id}.png", "Plugins") rescue nil
+        unless tex_path && File.exist?(tex_path.to_s)
+          tex_path = File.join(File.dirname(__FILE__), "assets", "spots", "spot_#{spot_id}.png") rescue nil
         end
-        m.alpha = [[(intensidade / 100.0) * mul, 0.01].max, 0.18].min rescue 0.08
-        mats_grad << m
+        unless tex_path && File.exist?(tex_path.to_s)
+          tex_path = File.join(Dir.tmpdir, "spot_#{spot_id}.png")
+        end
+
+        mat_name = "SKP_SpotMat_#{spot_id}_#{color_hex.gsub('#', '')}"
+        mat = model.materials[mat_name] || model.materials.add(mat_name)
+        if File.exist?(tex_path.to_s)
+          mat.texture = tex_path
+        end
+        mat.alpha = (intensidade / 100.0).clamp(0.1, 1.0)
+        mat.color = Sketchup::Color.new(color_hex) rescue nil
+
+        uv_pts = [
+          p1, Geom::Point3d.new(0, 0, 0),
+          p2, Geom::Point3d.new(1, 0, 0),
+          p3, Geom::Point3d.new(1, 1, 0),
+          p4, Geom::Point3d.new(0, 1, 0)
+        ]
+        spot_face.position_material(mat, uv_pts, true) rescue nil
       end
 
-      mat_core_name = "SKP_LuzFake_Core_#{color_hex.gsub('#', '')}"
-      mat_core = model.materials[mat_core_name]
-      unless mat_core && mat_core.valid?
-        mat_core = model.materials.add(mat_core_name)
-        mat_core.color = Sketchup::Color.new(color_hex)
-        mat_core.alpha = 1.0
-      end
+      tr_inst = Geom::Transformation.translation(center)
+      instance = model.active_entities.add_instance(definition, tr_inst)
+      instance.name = "SKP_Spot_Billboard_#{spot_id}"
+      instance.casts_shadows = false rescue nil
+      instance.receives_shadows = false rescue nil
 
-      ents = grp.entities
-      half_angle_rad = (abertura_deg / 2.0) * (Math::PI / 180.0)
-      tan_angle = Math.tan(half_angle_rad)
-
-      if light_type == "plafon"
-        # Modo Plafon: Segue a geometria da face (quadrado/retângulo) com degradê vertical (sem tampa de fundo)
-        core_face = ents.add_face(pts) rescue nil
-        if core_face
-          core_face.material = mat_core
-          core_face.back_material = mat_core
-          core_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true; e.casts_shadows = false rescue nil }
-        end
-
-        levels = 3
-        prev_pts = pts
-        (1..levels).each do |lvl|
-          h_step = (alcance_inch / levels.to_f)
-          current_h = h_step * lvl
-          lvl_center = center.offset(dir_facho, current_h)
-          lvl_pts = []
-          
-          pts.each do |p|
-            vec_from_center = p - center
-            dist_from_center = vec_from_center.length
-            new_dist = dist_from_center + current_h * tan_angle
-            dir_vec = vec_from_center.length > 0.001 ? vec_from_center.normalize : Geom::Vector3d.new(1, 0, 0)
-            lvl_pts << lvl_center.offset(dir_vec, new_dist)
-          end
-
-          # Cria as faces laterais para este nível
-          (0...pts.size).each do |i|
-            next_i = (i + 1) % pts.size
-            side_face = ents.add_face(prev_pts[i], lvl_pts[i], lvl_pts[next_i], prev_pts[next_i]) rescue nil
-            if side_face
-              side_face.material = mats_grad[lvl-1]
-              side_face.back_material = mats_grad[lvl-1]
-              side_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true; e.casts_shadows = false rescue nil }
-            end
-          end
-          # Sem tampa na base: facho dissipa suavemente no ar
-          prev_pts = lvl_pts
-        end
-      else
-        # Modo Spot: Tradicional redondo com facho cônico aberto suave (sem tampa na base)
-        z_axis = dir_facho.normalize
-        x_axis = z_axis.parallel?(Geom::Vector3d.new(0, 0, 1)) ? Geom::Vector3d.new(1, 0, 0) : z_axis.cross(Geom::Vector3d.new(0, 0, 1)).normalize
-        y_axis = z_axis.cross(x_axis).normalize
-
-        r_top = (3.5 / 2.54) # ~3.5cm raio da lâmpada
-        segments = 16
-        
-        # 1. Disco emissivo
-        top_pts = []
-        (0...segments).each do |i|
-          ang = (2.0 * Math::PI * i) / segments
-          top_pts << center.offset(x_axis, Math.cos(ang) * r_top).offset(y_axis, Math.sin(ang) * r_top)
-        end
-        core_face = ents.add_face(top_pts) rescue nil
-        if core_face
-          core_face.material = mat_core
-          core_face.back_material = mat_core
-          core_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true; e.casts_shadows = false rescue nil }
-        end
-
-        levels = 3
-        prev_pts = top_pts
-        (1..levels).each do |lvl|
-          h_step = (alcance_inch / levels.to_f)
-          current_h = h_step * lvl
-          lvl_center = center.offset(z_axis, current_h)
-          r_lvl = r_top + current_h * tan_angle
-          r_lvl = 6.0 if r_lvl < 3.0
-          
-          lvl_pts = []
-          (0...segments).each do |i|
-            ang = (2.0 * Math::PI * i) / segments
-            lvl_pts << lvl_center.offset(x_axis, Math.cos(ang) * r_lvl).offset(y_axis, Math.sin(ang) * r_lvl)
-          end
-
-          # Facho cônico lateral (suavemente translúcido)
-          (0...segments).each do |i|
-            next_i = (i + 1) % segments
-            side_face = ents.add_face(prev_pts[i], lvl_pts[i], lvl_pts[next_i], prev_pts[next_i]) rescue nil
-            if side_face
-              side_face.material = mats_grad[lvl-1]
-              side_face.back_material = mats_grad[lvl-1]
-              side_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true; e.casts_shadows = false rescue nil }
-            end
-          end
-          # Sem tampa na base: facho dissipa naturalmente no ambiente
-          prev_pts = lvl_pts
-        end
-      end
+      instance.set_attribute("SKP_RENDER_PRO", "is_fake_light", true)
+      instance.set_attribute("SKP_RENDER_PRO", "fake_light_type", "spot_billboard")
+      instance.set_attribute("SKP_RENDER_PRO_AI", "type", "spot_billboard")
+      instance.set_attribute("SKP_RENDER_PRO_AI", "spot_id", spot_id)
+      instance.set_attribute("SKP_RENDER_PRO_AI", "color", color_hex)
+      instance.set_attribute("SKP_RENDER_PRO_AI", "intensity", intensidade)
 
       model.commit_operation
       model.active_view.invalidate
-      Sketchup.status_text = "SKP Render Pro IA: #{light_type.capitalize} de luz fake gerado com sucesso (2mm abaixo da face)!"
+      Sketchup.status_text = "SKP Render Pro IA: Spot #{spot_id} (Billboard) gerado com sucesso!"
     rescue => err
-      puts "[SKP RENDER PRO] Erro ao gerar spot/plafon: #{err.message}"
+      puts "[SKP RENDER PRO] Erro ao gerar spot billboard: #{err.message}"
     end
 
     def gerar_fita_led_marcenaria(edges, config = {})
@@ -1312,162 +1217,79 @@ module SKPRenderPro
       puts "[SKP RENDER PRO] Erro ao gerar fita marcenaria: #{err.message}"
     end
 
+    def self.create_led_mirror(face, tr = nil, settings = {})
+      gerar_fita_led_espelho(face, tr, settings)
+    end
+
     def gerar_fita_led_espelho(face, tr = nil, config = {})
       model = Sketchup.active_model
       return unless model && face && face.valid?
 
       tr ||= Geom::Transformation.new
-      model.start_operation("Gerar Fita de LED Espelho", true)
+      model.start_operation("Gerar LED Espelho 1-Click", true)
 
       color_hex = (config["color"] || config[:color] || "#ffe7ae").to_s
-      reach_cm = (config["reach"] || config[:reach] || 15).to_f
       intensidade = (config["intensity"] || config[:intensity] || 80).to_f
-      direcao = (config["direction"] || config[:direction] || "fora").to_s.downcase
-
-      reach_inch = (reach_cm / 2.54)
-      reach_inch = 3.0 if reach_inch < 1.0
+      led_style = (config["led_style"] || config[:led_style] || "suave").to_s.downcase
 
       normal = face.normal.transform(tr).normalize
       outer_loop = face.outer_loop
-      vertices = outer_loop.vertices.map { |v| v.position.transform(tr) }
-      n_verts = vertices.size
-      return if n_verts < 3
+      edges = outer_loop.edges rescue face.edges
+      return unless edges && !edges.empty?
 
       grp = model.active_entities.add_group
-      grp.name = "SKP_LuzFake_Espelho_#{Time.now.to_i}"
+      grp.name = "SKP_LED_Espelho_1Click_#{Time.now.to_i}"
       grp.set_attribute("SKP_RENDER_PRO", "is_fake_light", true)
       grp.set_attribute("SKP_RENDER_PRO", "fake_light_type", "fita_led_espelho")
-      
-      # Metadados para a IA
-      grp.set_attribute("SKP_RENDER_PRO_AI", "type", "fita_led_espelho")
-      grp.set_attribute("SKP_RENDER_PRO_AI", "color", color_hex)
-      grp.set_attribute("SKP_RENDER_PRO_AI", "intensity", intensidade)
-      grp.set_attribute("SKP_RENDER_PRO_AI", "reach", reach_cm)
-
       grp.casts_shadows = false rescue nil
       grp.receives_shadows = false rescue nil
 
-      # Materiais de degradê para halo do espelho (3 níveis sutis)
-      mats_grad = []
-      [0.16, 0.07, 0.02].each_with_index do |mul, idx|
-        m_name = "SKP_LuzFake_HaloGrad_#{idx}_#{color_hex.gsub('#', '')}"
-        m = model.materials[m_name]
-        unless m && m.valid?
-          m = model.materials.add(m_name)
-          m.color = Sketchup::Color.new(color_hex)
-        end
-        m.alpha = [[(intensidade / 100.0) * mul, 0.01].max, 0.18].min rescue 0.07
-        mats_grad << m
-      end
-
-      mat_core_name = "SKP_LuzFake_Core_#{color_hex.gsub('#', '')}"
-      mat_core = model.materials[mat_core_name]
-      unless mat_core && mat_core.valid?
-        mat_core = model.materials.add(mat_core_name)
-        mat_core.color = Sketchup::Color.new(color_hex)
-        mat_core.alpha = 1.0
-      end
-
       ents = grp.entities
-
-      center = Geom::Point3d.new(
-        vertices.map(&:x).sum / n_verts,
-        vertices.map(&:y).sum / n_verts,
-        vertices.map(&:z).sum / n_verts
-      )
-
       back_offset = normal.reverse
-      back_offset.length = 0.08 # ~2mm atrás
+      back_offset.length = 0.08
 
-      out_pts = []
-      in_pts  = []
-      base_pts = vertices.map { |p| p.offset(back_offset) }
-
-      vertices.each do |p|
-        p_back = p.offset(back_offset)
-        v_radial = (p_back - center).normalize
-        out_pts << p_back.offset(v_radial, reach_inch)
-        in_pts  << p_back.offset(v_radial.reverse, reach_inch * 0.5)
+      offset_dist = 2.0 / 25.4
+      tex_name = led_style == 'marcado' ? 'led_marcado.png' : 'led_suave.png'
+      tex_path = Sketchup.find_support_file("assets/led/#{tex_name}", "Plugins") rescue nil
+      unless tex_path && File.exist?(tex_path.to_s)
+        tex_path = File.join(File.dirname(__FILE__), "assets", "led", tex_name) rescue nil
       end
 
-      case direcao
-      when "fora"
-        levels = 3
-        prev_pts = base_pts
+      mat_name = "SKP_LED_Mat_#{led_style}_#{color_hex.gsub('#', '')}"
+      mat = model.materials[mat_name] || model.materials.add(mat_name)
+      if tex_path && File.exist?(tex_path.to_s)
+        mat.texture = tex_path
+      end
+      mat.alpha = (intensidade / 100.0).clamp(0.15, 0.95)
+      mat.color = Sketchup::Color.new(color_hex) rescue nil
+
+      edges.each do |e|
+        p1 = e.start.position.transform(tr).offset(back_offset)
+        p2 = e.end.position.transform(tr).offset(back_offset)
         
-        (1..levels).each do |lvl|
-          lvl_reach = (reach_inch / levels.to_f) * lvl
-          lvl_pts = []
-          vertices.each do |p|
-            p_back = p.offset(back_offset)
-            v_radial = (p_back - center).normalize
-            lvl_pts << p_back.offset(v_radial, lvl_reach)
-          end
-          
-          # Anel de brilho do nível
-          (0...n_verts).each do |i|
-            next_i = (i + 1) % n_verts
-            halo_face = ents.add_face(prev_pts[i], lvl_pts[i], lvl_pts[next_i], prev_pts[next_i]) rescue nil
-            if halo_face
-              halo_face.material = mats_grad[lvl-1]
-              halo_face.back_material = mats_grad[lvl-1]
-              halo_face.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true }
-            end
-          end
-          prev_pts = lvl_pts
-        end
-      when "dentro"
-        (0...n_verts).each do |i|
-          next_i = (i + 1) % n_verts
-          f = ents.add_face(base_pts[i], base_pts[next_i], in_pts[next_i], in_pts[i]) rescue nil
-          if f
-            f.material = mats_grad[0]
-            f.back_material = mats_grad[0]
-            f.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true }
-          end
-        end
-      when "duplo"
-        # Fora com degradê
-        levels = 3
-        prev_pts = base_pts
-        (1..levels).each do |lvl|
-          lvl_reach = (reach_inch / levels.to_f) * lvl
-          lvl_pts = []
-          vertices.each { |p| lvl_pts << p.offset(back_offset).offset((p.offset(back_offset) - center).normalize, lvl_reach) }
-          (0...n_verts).each do |i|
-            next_i = (i + 1) % n_verts
-            f = ents.add_face(prev_pts[i], lvl_pts[i], lvl_pts[next_i], prev_pts[next_i]) rescue nil
-            if f; f.material = mats_grad[lvl-1]; f.back_material = mats_grad[lvl-1]; f.edges.each{|e| e.hidden=true; e.soft=true; e.smooth=true}; end
-          end
-          prev_pts = lvl_pts
-        end
-        # Dentro simples
-        (0...n_verts).each do |i|
-          next_i = (i + 1) % n_verts
-          f_in = ents.add_face(base_pts[i], base_pts[next_i], in_pts[next_i], in_pts[i]) rescue nil
-          if f_in; f_in.material = mats_grad[0]; f_in.back_material = mats_grad[0]; f_in.edges.each{|e| e.hidden=true; e.soft=true; e.smooth=true}; end
-        end
-      end
+        v_edge = (p2 - p1).normalize
+        v_in = (face.bounds.center.transform(tr) - p1).normalize
+        offset_v = v_in.clone
+        offset_v.length = offset_dist
 
-      # Fita neon estreita de perímetro
-      (0...n_verts).each do |i|
-        next_i = (i + 1) % n_verts
-        v_rad = (base_pts[i] - center).normalize
-        p_narrow_1 = base_pts[i].offset(v_rad, 0.15)
-        p_narrow_2 = base_pts[next_i].offset(v_rad, 0.15)
-        f_neon = ents.add_face(base_pts[i], base_pts[next_i], p_narrow_2, p_narrow_1) rescue nil
-        if f_neon
-          f_neon.material = mat_core
-          f_neon.back_material = mat_core
-          f_neon.edges.each { |e| e.hidden = true; e.soft = true; e.smooth = true }
+        ip1 = p1.offset(offset_v)
+        ip2 = p2.offset(offset_v)
+        ip3 = ip2.offset(v_in, 0.5)
+        ip4 = ip1.offset(v_in, 0.5)
+
+        strip_face = ents.add_face(ip1, ip2, ip3, ip4) rescue nil
+        if strip_face && strip_face.valid?
+          strip_face.material = mat
+          strip_face.back_material = mat
+          strip_face.edges.each { |ed| ed.hidden = true; ed.soft = true; ed.smooth = true; ed.casts_shadows = false rescue nil }
         end
       end
 
       model.commit_operation
       model.active_view.invalidate
-      Sketchup.status_text = "SKP Render Pro IA: Fita de LED no espelho gerada com sucesso!"
+      Sketchup.status_text = "SKP Render Pro IA: Fita de LED no espelho gerada com sucesso em 1 clique!"
     rescue => err
-      puts "[SKP RENDER PRO] Erro ao gerar fita no espelho: #{err.message}"
+      puts "[SKP RENDER PRO] Erro ao gerar LED espelho: #{err.message}"
     end
 
     def apagar_todas_luzes_fake(silencioso = false)
