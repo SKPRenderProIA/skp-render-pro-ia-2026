@@ -140,157 +140,66 @@ function ensurePromptStartsWithUserText(rawResult: string, userInitialLead: stri
   const sceneIdMatch = cleanLead.match(/^([A-Za-z][0-9]{1,2}(?:\s*GERAR)?)/i);
   const leadEn = sceneIdMatch ? sceneIdMatch[1].toUpperCase() : cleanLead;
 
-  // 1. Garantir que o Prompt Completo PT (SEÇÃO 4 ou SEÇÃO 5) inicie com o texto exato do usuário e inclua o bloco mandatório INTEGRALMENTE
-  const secPtRegex = /(### SEÇÃO [45][^\n]*(?:PT|PORTUGU[EÊ]S|PROMPT COMPLETO)[^\n]*\n+```(?:text)?\s*)([\s\S]*?)(```)/i;
-  const secPtMatch = result.match(secPtRegex);
-  if (secPtMatch) {
-    let ptPrompt = secPtMatch[2].trim();
+  const secPtRegex = /(?:###\s*(?:🇧🇷\s*)?Seção 4[^\n]*\n+```(?:text)?\s*)([\s\S]*?)(?:```|$)/i;
+  const secEnRegex = /(?:###\s*(?:🇺🇸\s*)?Seção 5[^\n]*\n+```(?:text)?\s*)([\s\S]*?)(?:```|$)/i;
 
-    // Substitui placeholders literais caso o modelo não os tenha preenchido
-    ptPrompt = ptPrompt.replace(/\[PROMPT DO CLIENTE\]/gi, cleanLead);
-    ptPrompt = ptPrompt.replace(/\[materiais gerados pelo plugin\]/gi, mats.pt);
+  let ptPrompt = "";
+  let enPrompt = "";
 
-    if (!ptPrompt.includes("MANDATORY FULL-FRAME PRESERVATION")) {
-      const fullFrameBlock = buildMandatoryFullFramePrompt(cleanLead, mats.pt);
-      let remainingPt = ptPrompt;
-      if (remainingPt.toLowerCase().startsWith(cleanLead.toLowerCase())) {
-        remainingPt = remainingPt.substring(cleanLead.length).trim();
-      }
-      ptPrompt = remainingPt 
-        ? `${cleanLead}\n\n${fullFrameBlock}\n\n${remainingPt}`
-        : `${cleanLead}\n\n${fullFrameBlock}`;
-    } else {
-      // Garante que o início do bloco seja o cleanLead
-      const lowerPt = ptPrompt.toLowerCase();
-      const lowerLead = cleanLead.toLowerCase();
-      if (!lowerPt.startsWith(lowerLead)) {
-        ptPrompt = `${cleanLead}\n\n${ptPrompt}`;
-      }
-      // Se tiver versão truncada de MANDATORY FULL-FRAME PRESERVATION, garante a versão íntegra
-      if (!ptPrompt.includes("STRICT") || !ptPrompt.includes("Never crop, zoom")) {
-        const fullFrameBlock = buildMandatoryFullFramePrompt(cleanLead, mats.pt);
-        ptPrompt = `${cleanLead}\n\n${fullFrameBlock}`;
-      }
-    }
-    ptPrompt = ptPrompt
-      .replace(/MANDATORY FULL-FRAME PRESERVATION:\s*source image is [^\n]*\n?/gi, "MANDATORY FULL-FRAME PRESERVATION:\n")
-      .replace(/Preservação obrigatória do enquadramento completo[^\n]*\n?/gi, "Preservação obrigatória do enquadramento total:\n")
-      .replace(/Preservação obrigatória do enquadramento total\s*\([^)]*\)/gi, "Preservação obrigatória do enquadramento total")
-      .replace(/(?:a imagem de origem tem \d+x\d+.*?A área de renderização[^\n.]*\.?)/gi, "")
-      .replace(/(?:source image is \d+x\d+.*?Output canvas is \d+x\d+.*?(?:aspect ratio|\.))/gi, "")
-      .replace(/\(?\b720x1290\s*(?:->|para)?\s*608x1088\b\)?/gi, "")
-      .replace(/\b720x1290\b/gi, "")
-      .replace(/\b608x1088\b/gi, "")
-      .replace(/Only requested materials(?: and lighting)? may change\.?\s*(STRICT GEOMETRIC)/gi, "Only requested materials and lighting may change.\n\n$1")
-      .replace(/(?:Do not add, remove or move any object\.?)\s*(Apply materials and atmosphere as described:)/gi, "Do not add, remove or move any object.\n\n$1")
-      .trim();
-    result = result.replace(secPtRegex, `$1${ptPrompt}\n$3`);
+  const matchPt = result.match(secPtRegex);
+  if (matchPt && matchPt[1]) {
+    ptPrompt = matchPt[1].trim();
   }
 
-  // 2. Garantir que o Prompt Completo EN (SEÇÃO 5 ou SEÇÃO 6) inicie com o identificador/texto do usuário e inclua o bloco mandatório INTEGRALMENTE
-  const secEnRegex = /(### SEÇÃO [56][^\n]*(?:EN|INGL[EÊ]S|ENGLISH)[^\n]*\n+```(?:text)?\s*)([\s\S]*?)(```)/i;
-  const secEnMatch = result.match(secEnRegex);
-  if (secEnMatch) {
-    let enPrompt = secEnMatch[2].trim();
-
-    enPrompt = enPrompt.replace(/\[PROMPT DO CLIENTE\]/gi, leadEn);
-    enPrompt = enPrompt.replace(/\[materiais gerados pelo plugin\]/gi, mats.en);
-
-    if (!enPrompt.includes("MANDATORY FULL-FRAME PRESERVATION")) {
-      const fullFrameBlock = buildMandatoryFullFramePrompt(leadEn, mats.en);
-      let remainingEn = enPrompt;
-      if (remainingEn.toLowerCase().startsWith(leadEn.toLowerCase())) {
-        remainingEn = remainingEn.substring(leadEn.length).trim();
-      }
-      enPrompt = remainingEn
-        ? `${leadEn}\n\n${fullFrameBlock}\n\n${remainingEn}`
-        : `${leadEn}\n\n${fullFrameBlock}`;
-    } else {
-      const lowerEn = enPrompt.toLowerCase();
-      const lowerLeadEn = leadEn.toLowerCase();
-      if (!lowerEn.startsWith(lowerLeadEn)) {
-        enPrompt = `${leadEn}\n\n${enPrompt}`;
-      }
-      if (!enPrompt.includes("STRICT") || !enPrompt.includes("Never crop, zoom")) {
-        const fullFrameBlock = buildMandatoryFullFramePrompt(leadEn, mats.en);
-        enPrompt = `${leadEn}\n\n${fullFrameBlock}`;
-      }
-    }
-    enPrompt = enPrompt
-      .replace(/MANDATORY FULL-FRAME PRESERVATION:\s*source image is [^\n]*\n?/gi, "MANDATORY FULL-FRAME PRESERVATION:\n")
-      .replace(/Preservação obrigatória do enquadramento completo[^\n]*\n?/gi, "Preservação obrigatória do enquadramento total:\n")
-      .replace(/Preservação obrigatória do enquadramento total\s*\([^)]*\)/gi, "Preservação obrigatória do enquadramento total")
-      .replace(/(?:source image is \d+x\d+.*?Output canvas is \d+x\d+.*?(?:aspect ratio|\.))/gi, "")
-      .replace(/(?:a imagem de origem tem \d+x\d+.*?A área de renderização[^\n.]*\.?)/gi, "")
-      .replace(/\(?\b720x1290\s*(?:->|para)?\s*608x1088\b\)?/gi, "")
-      .replace(/\b720x1290\b/gi, "")
-      .replace(/\b608x1088\b/gi, "")
-      .replace(/Only requested materials(?: and lighting)? may change\.?\s*(STRICT GEOMETRIC)/gi, "Only requested materials and lighting may change.\n\n$1")
-      .replace(/(?:Do not add, remove or move any object\.?)\s*(Apply materials and atmosphere as described:)/gi, "Do not add, remove or move any object.\n\n$1")
-      .trim();
-    result = result.replace(secEnRegex, `$1${enPrompt}\n$3`);
+  const matchEn = result.match(secEnRegex);
+  if (matchEn && matchEn[1]) {
+    enPrompt = matchEn[1].trim();
   }
 
-  // 3. Se nenhuma seção com código text foi identificada, injeta SEÇÃO 4 e SEÇÃO 5 completas
-  if (!result.includes("MANDATORY FULL-FRAME PRESERVATION")) {
-    const fullFrameBlockPt = buildMandatoryFullFramePrompt(cleanLead, mats.pt);
-    const fullFrameBlockEn = buildMandatoryFullFramePrompt(leadEn, mats.en);
-    result = `${result}\n\n---\n\n### SEÇÃO 4 — PROMPT COMPLETO — PT\n\n\`\`\`text\n${cleanLead}\n\n${fullFrameBlockPt}\n\`\`\`\n\n---\n\n### SEÇÃO 5 — PROMPT COMPLETO — EN\n\n\`\`\`text\n${leadEn}\n\n${fullFrameBlockEn}\n\`\`\``;
+  if (!ptPrompt) {
+    const fullFramePt = buildMandatoryFullFramePrompt(cleanLead, mats.pt);
+    ptPrompt = `${cleanLead}\n\n${fullFramePt}`;
   }
 
-  // 4. Garantir que o topo do documento tenha como cabeçalho inicial o que o usuário escreveu
-  const startsWithUserText = result.startsWith(cleanLead) || 
-                             result.startsWith(`# ${cleanLead}`) || 
-                             result.startsWith(`**${cleanLead}**`);
-  if (!startsWithUserText) {
-    result = `# ${cleanLead}\n\n${result}`;
+  if (!enPrompt) {
+    const fullFrameEn = buildMandatoryFullFramePrompt(leadEn, mats.en);
+    enPrompt = `${leadEn}\n\n${fullFrameEn}`;
   }
 
-  // 5. Remover terminantemente SEÇÃO 6 — IMAGE READING JSON e blocos JSON no final
-  result = result.replace(/(\n*---\s*)?\n*### SEÇÃO 6[\s\S]*$/i, "").trim();
-  result = result.replace(/(\n*---\s*)?\n*### [^\n]*IMAGE READING JSON[\s\S]*$/i, "").trim();
-  result = result.replace(/\n+```json[\s\S]*?```\s*$/i, "").trim();
 
-  // 6. Remover qualquer termo residual de 360, VR e equirretangular dos prompts gerados
-  result = result.replace(/\[\s*(?:GERAR NA MAIOR RESOLUÇÃO POSSÍVEL|MANDATORY MAXIMUM RESOLUTION)?[^\]]*8000x4000[^\]]*\]\s*/gi, "");
-  result = result.replace(/(?:Panorama\s+)?(?:Equirretangular|Equirectangular)\s*(?:esférico\s*)?(?:360[°º]?\s*(?:x\s*180[°º]?)?)?(?:\s*\(proporção 2:1\)|\s*\(2:1 aspect ratio\))?/gi, "Fotografia arquitetônica");
-  result = result.replace(/\b360[°º]?\s*(?:VR|esféric[oa]|graus)?\b/gi, "");
-  result = result.replace(/\bseamless\s+wrap-around\b/gi, "");
-  result = result.replace(/\bcostura\s+(?:360\s+)?contínua\s+perfeita\b/gi, "");
-  result = result.replace(/\bcâmera\s+360[°º]?\b/gi, "câmera");
 
-  // 7. Remover terminantemente qualquer menção de dimensões em pixels (ex: 720x1290, 608x1088, imagem de origem tem...) que prejudiquem a renderização
-  result = result
+  const cleanTextProc = (t: string) => t
     .replace(/MANDATORY FULL-FRAME PRESERVATION:\s*source image is [^\n]*\n?/gi, "MANDATORY FULL-FRAME PRESERVATION:\n")
-    .replace(/Preservação obrigatória do enquadramento completo \(full-frame\): a imagem de origem tem [^\n.]*\.[^\n.]*\./gi, "Preservação obrigatória do enquadramento total mantendo a mesma orientação e proporção.")
     .replace(/Preservação obrigatória do enquadramento completo[^\n]*\n?/gi, "Preservação obrigatória do enquadramento total:\n")
-    .replace(/Preservação obrigatória do enquadramento total\s*\([^)]*720x1290[^)]*\)/gi, "Preservação obrigatória do enquadramento total")
     .replace(/(?:a imagem de origem tem \d+x\d+.*?A área de renderização[^\n.]*\.?)/gi, "")
     .replace(/(?:source image is \d+x\d+.*?Output canvas is \d+x\d+.*?(?:aspect ratio|\.))/gi, "")
-    .replace(/\(?\b720x1290\s*(?:->|para)?\s*608x1088\b\)?/gi, "")
     .replace(/\b720x1290\b/gi, "")
-    .replace(/\b608x1088\b/gi, "");
+    .replace(/\b608x1088\b/gi, "")
+    .replace(/\b360[°º]?\s*(?:VR|esféric[oa]|graus)?\b/gi, "")
+    .trim();
 
-  return result;
+  ptPrompt = cleanTextProc(ptPrompt);
+  enPrompt = cleanTextProc(enPrompt);
+
+  const reply = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${ptPrompt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${enPrompt}\n\`\`\``;
+  return reply;
 }
 
 // Helper to generate an ultra-deep forensic ArchViz prompt when external API is in high demand (503)
-function generateArchVizFallbackPrompt(userPrompt: string, sceneId: string, userInitialLead = "", targetW = 2000, targetH = 2500, ratioLabel = "4:5 (Feed do Instagram)"): { reply: string; promptPt: string; promptEn: string } {
+function generateArchVizFallbackPrompt(userPrompt: string, sceneId: string, userInitialLead = "", targetW = 2000, targetH = 2500, ratioLabel = "4:5"): { reply: string; promptPt: string; promptEn: string } {
   const lead = (userInitialLead || (sceneId ? `${sceneId} GERAR` : "A1 GERAR")).trim();
-  const cleanedPrompt = userPrompt
-    .replace(/^[A-Za-z][0-9]{1,2}\s*(GERAR\s*-?)?/i, "")
-    .replace(/\b(?:360[°º]?|VR|equirretangular|equirectangular)\b/gi, "")
-    .trim() || "Reconstrução fiel / Fidelidade arquitetônica absoluta sem alterações de elementos.";
+  const sceneIdMatch = lead.match(/^([A-Za-z][0-9]{1,2}(?:\s*GERAR)?)/i);
+  const leadEn = sceneIdMatch ? sceneIdMatch[1].toUpperCase() : lead;
 
   const materialsPt = `Pavimentação contínua com réguas amadeiradas de carvalho natural fosco (roughness 0.45); alvenaria mineral acetinada fosca em tom neutro quente/areia (roughness 0.70); marcenaria sob medida com veios orgânicos contínuos em lâmina natural nobre; forro de gesso liso ultra-fosco aveludado; perfis de alumínio preto fosco microtexturizado; vidros translúcidos com reflexo de fresnel suave; iluminação indireta rasante com fitas de LED 2700K-3000K e luz natural difusa.`;
 
   const materialsEn = `Continuous flooring in matte natural oak wood planks (roughness 0.45); warm neutral sand mineral wall paint (roughness 0.70); bespoke architectural joinery in continuous organic wood veneer; velvet ultra-matte smooth gypsum ceiling; micro-textured matte black aluminum frames; high-transparency glass with subtle Fresnel reflections; warm ambient indirect LED cove lighting (2700K-3000K) balanced with soft diffused daylight.`;
 
   const fullFrameBlockPt = buildMandatoryFullFramePrompt(lead, materialsPt);
-  const fullFrameBlockEn = buildMandatoryFullFramePrompt(lead, materialsEn);
+  const fullFrameBlockEn = buildMandatoryFullFramePrompt(leadEn, materialsEn);
 
   const promptPt = `${lead}\n\n${fullFrameBlockPt}`;
-  const promptEn = `${lead}\n\n${fullFrameBlockEn}`;
+  const promptEn = `${leadEn}\n\n${fullFrameBlockEn}`;
 
   const reply = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
 
@@ -1689,17 +1598,20 @@ High-end architectural visualization, realistic lighting, global illumination, s
           promptPt = fallbackResult.promptPt;
           promptEn = fallbackResult.promptEn;
         } else {
-          let ptMatch = unifiedMasterPrompt.match(/### SEÇÃO 4[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-          let enMatch = unifiedMasterPrompt.match(/### SEÇÃO 5[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-          promptPt = ptMatch ? ptMatch[1].trim() : unifiedMasterPrompt;
-          promptEn = enMatch ? enMatch[1].trim() : unifiedMasterPrompt;
+          const codeBlocks = Array.from(unifiedMasterPrompt.matchAll(/```(?:text)?\s*([\s\S]*?)```/g));
+          promptPt = codeBlocks[0] ? codeBlocks[0][1].trim() : unifiedMasterPrompt;
+          promptEn = codeBlocks[1] ? codeBlocks[1][1].trim() : (codeBlocks[0] ? codeBlocks[0][1].trim() : unifiedMasterPrompt);
         }
 
-        replyText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+        const replyPtText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\``;
+        const replyEnText = `### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+        replyText = `${replyPtText}\n\n${replyEnText}`;
         unifiedMasterPrompt = replyText;
 
         // Return everything unified
         return res.json({ 
+          replyPt: replyPtText,
+          replyEn: replyEnText,
           reply: replyText,
           image: generatedImage,
           masterPrompt: unifiedMasterPrompt,
@@ -1814,15 +1726,18 @@ Responda OBRIGATORIAMENTE dentro do bloco:
           promptPt = chatFallback.promptPt;
           promptEn = chatFallback.promptEn;
         } else {
-          let ptMatch = responseText.match(/### SEÇÃO 4[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-          let enMatch = responseText.match(/### SEÇÃO 5[^\n]*\n+```(?:text)?\s*([\s\S]*?)```/i);
-          promptPt = ptMatch ? ptMatch[1].trim() : responseText;
-          promptEn = enMatch ? enMatch[1].trim() : responseText;
+          const codeBlocks = Array.from(responseText.matchAll(/```(?:text)?\s*([\s\S]*?)```/g));
+          promptPt = codeBlocks[0] ? codeBlocks[0][1].trim() : responseText;
+          promptEn = codeBlocks[1] ? codeBlocks[1][1].trim() : (codeBlocks[0] ? codeBlocks[0][1].trim() : responseText);
         }
 
-        replyText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\`\n\n### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+        const replyPtText = `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${promptPt}\n\`\`\``;
+        const replyEnText = `### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${promptEn}\n\`\`\``;
+        replyText = `${replyPtText}\n\n${replyEnText}`;
 
         return res.json({ 
+          replyPt: replyPtText,
+          replyEn: replyEnText,
           reply: replyText,
           masterPrompt: responseText,
           promptPt: promptPt,

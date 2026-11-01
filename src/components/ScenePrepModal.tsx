@@ -190,16 +190,6 @@ export const OUTPUT_FORMATS: OutputFormatOption[] = [
     description: 'Proporção Panorâmica Intermediária (1.4000)',
     usage: 'Molduras de quadros decorativos e apresentações corporativas'
   },
-  {
-    id: '360',
-    label: '360° VR',
-    sublabel: '2:1',
-    ratio: 2.0,
-    defaultWidth: 8000,
-    defaultHeight: 4000,
-    description: 'Panorama Equirretangular 360° (2.0000) Ultra HD 8K',
-    usage: 'Tours virtuais interativos, visualizadores 360°, óculos VR e renders em altíssima resolução 8000x4000'
-  }
 ];
 
 export const FOCAL_LENGTHS: FocalLengthOption[] = [

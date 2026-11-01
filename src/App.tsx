@@ -497,6 +497,37 @@ export default function App() {
     showToast('✓ Prompt copiado para a área de transferência!');
   };
 
+  const handleCopySectionContent = async (fullText: string, sectionKey: 'pt' | 'en', idRef: string) => {
+    if (!fullText) return;
+    let textToCopy = '';
+    const codeBlockRegex = /```(?:text)?\s*([\s\S]*?)```/g;
+    const matches = Array.from(fullText.matchAll(codeBlockRegex));
+
+    if (matches.length >= 2) {
+      textToCopy = sectionKey === 'pt' ? matches[0][1].trim() : matches[1][1].trim();
+    } else if (matches.length === 1) {
+      textToCopy = matches[0][1].trim();
+    } else {
+      const parts = fullText.split(/###\s*(?:🇺🇸\s*)?Seção\s*5|###\s*(?:EN|Inglês)/i);
+      if (sectionKey === 'pt') {
+        textToCopy = parts[0]
+          .replace(/###\s*(?:🇧🇷\s*)?Seção\s*4[^\n]*/gi, '')
+          .replace(/```(?:text)?/g, '')
+          .trim();
+      } else {
+        textToCopy = parts[1] ? parts[1].replace(/```(?:text)?/g, '').trim() : fullText;
+      }
+    }
+
+    textToCopy = textToCopy
+      .replace(/^###\s*(?:🇧🇷\s*)?Seção\s*4[^\n]*\n*/i, '')
+      .replace(/^###\s*(?:🇺🇸\s*)?Seção\s*5[^\n]*\n*/i, '')
+      .trim();
+
+    await handleCopyText(textToCopy, idRef);
+    showToast(sectionKey === 'pt' ? '✓ Prompt PT + Resumo copiado!' : '✓ Prompt EN + Resumo copiado!');
+  };
+
   // Helper para renderizar o prompt arquitetônico com formatação rica e limpa (SISTEMA MESTRE e blocos)
   const renderFormattedPrompt = (text: string) => {
     if (!text) return null;
@@ -1951,18 +1982,34 @@ export default function App() {
         data = { reply: 'Resposta recebida do servidor.' };
       }
 
-      const iaReply: Message = {
+      const replyPt = data.replyPt || (data.promptPt ? `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${data.promptPt}\n\`\`\`` : (data.reply || ''));
+      const replyEn = data.replyEn || (data.promptEn ? `### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${data.promptEn}\n\`\`\`` : (data.reply || ''));
+
+      const iaReplyPt: Message = {
         id: (Date.now() + 1).toString(),
         sender: 'ia',
-        text: data.reply || 'Comando processado com sucesso pelo SKP Render Pro IA.',
+        text: replyPt,
         image: data.image || undefined,
-        masterPrompt: data.masterPrompt || undefined,
+        masterPrompt: replyPt,
         imageWidth: data.imageWidth || imgWidth,
         imageHeight: data.imageHeight || imgHeight,
         isImported,
+        languageType: 'pt',
       };
 
-      setMessages((prev) => [...prev, iaReply]);
+      const iaReplyEn: Message = {
+        id: (Date.now() + 2).toString(),
+        sender: 'ia',
+        text: replyEn,
+        image: undefined,
+        masterPrompt: replyEn,
+        imageWidth: data.imageWidth || imgWidth,
+        imageHeight: data.imageHeight || imgHeight,
+        isImported,
+        languageType: 'en',
+      };
+
+      setMessages((prev) => [...prev, iaReplyPt, iaReplyEn]);
       scrollToBottom('smooth');
       setTimeout(() => scrollToBottom('auto'), 150);
 
@@ -1976,7 +2023,7 @@ export default function App() {
       }
 
       if (data.masterPrompt) {
-        handleCopyText(data.masterPrompt, `mp-${iaReply.id}`);
+        handleCopyText(data.masterPrompt, `mp-${iaReplyPt.id}`);
         showToast('✓ Super Prompt gerado com IA e copiado!');
       }
     } catch (err) {
@@ -2079,18 +2126,34 @@ export default function App() {
         data = { reply: 'Resposta recebida do servidor.' };
       }
 
-      const iaReply: Message = {
+      const replyPt = data.replyPt || (data.promptPt ? `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${data.promptPt}\n\`\`\`` : (data.reply || ''));
+      const replyEn = data.replyEn || (data.promptEn ? `### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${data.promptEn}\n\`\`\`` : (data.reply || ''));
+
+      const iaReplyPt: Message = {
         id: (Date.now() + 1).toString(),
         sender: 'ia',
-        text: data.reply || 'Comando corrigido e processado com sucesso pelo SKP Render Pro IA.',
+        text: replyPt,
         image: data.image || undefined,
-        masterPrompt: data.masterPrompt || undefined,
+        masterPrompt: replyPt,
         imageWidth: data.imageWidth || imgWidth,
         imageHeight: data.imageHeight || imgHeight,
         isImported,
+        languageType: 'pt',
       };
 
-      setMessages((prev) => [...prev, iaReply]);
+      const iaReplyEn: Message = {
+        id: (Date.now() + 2).toString(),
+        sender: 'ia',
+        text: replyEn,
+        image: undefined,
+        masterPrompt: replyEn,
+        imageWidth: data.imageWidth || imgWidth,
+        imageHeight: data.imageHeight || imgHeight,
+        isImported,
+        languageType: 'en',
+      };
+
+      setMessages((prev) => [...prev, iaReplyPt, iaReplyEn]);
       scrollToBottom('smooth');
       setTimeout(() => scrollToBottom('auto'), 150);
 
@@ -2104,7 +2167,7 @@ export default function App() {
       }
 
       if (data.masterPrompt) {
-        handleCopyText(data.masterPrompt, `mp-${iaReply.id}`);
+        handleCopyText(data.masterPrompt, `mp-${iaReplyPt.id}`);
       }
       showToast('✓ Imagem refeita pela IA com suas correções!');
     } catch (err) {
@@ -3323,15 +3386,31 @@ export default function App() {
                         {expandedMessages.has(msg.id) ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                       </button>
                       
-                      <button
-                        type="button"
-                        onClick={() => handleCopyText(msg.masterPrompt || msg.text, `msg-${msg.id}`)}
-                        className="px-3 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[11px] font-bold rounded-md flex items-center gap-1.5 shadow-sm active:scale-95 transition cursor-pointer border border-[#4ade80]/50 shrink-0"
-                        title="Copiar prompt completo para a área de transferência"
-                      >
-                        {copiedId === `msg-${msg.id}` ? <Check className="w-3 h-3.5 text-[#4ade80]" /> : <Copy className="w-3 h-3.5" />}
-                        <span>{copiedId === `msg-${msg.id}` ? t.copied.replace('!', '') : t.copy_prompt}</span>
-                      </button>
+                      <div className="flex items-center gap-1.5 shrink-0 flex-wrap">
+                        {(msg.languageType === 'pt' || (!msg.languageType && (msg.text.includes('Português') || msg.text.includes('Seção 4')))) && (
+                          <button
+                            type="button"
+                            onClick={() => handleCopySectionContent(msg.masterPrompt || msg.text, 'pt', `pt-${msg.id}`)}
+                            className="px-2.5 py-1 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[10.5px] font-bold rounded-md flex items-center gap-1 shadow-sm active:scale-95 transition cursor-pointer border border-[#4ade80]/50"
+                            title="Copiar prompt em Português + Resumo de Materiais"
+                          >
+                            {copiedId === `pt-${msg.id}` ? <Check className="w-3 h-3 text-[#4ade80]" /> : <Copy className="w-3 h-3" />}
+                            <span>{copiedId === `pt-${msg.id}` ? 'Copiado!' : '🇧🇷 Copiar PT + Resumo'}</span>
+                          </button>
+                        )}
+
+                        {(msg.languageType === 'en' || (!msg.languageType && (msg.text.includes('Inglês') || msg.text.includes('Seção 5')))) && (
+                          <button
+                            type="button"
+                            onClick={() => handleCopySectionContent(msg.masterPrompt || msg.text, 'en', `en-${msg.id}`)}
+                            className="px-2.5 py-1 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[10.5px] font-bold rounded-md flex items-center gap-1 shadow-sm active:scale-95 transition cursor-pointer border border-[#4ade80]/50"
+                            title="Copiar prompt em Inglês + Resumo de Materiais"
+                          >
+                            {copiedId === `en-${msg.id}` ? <Check className="w-3 h-3 text-[#4ade80]" /> : <Copy className="w-3 h-3" />}
+                            <span>{copiedId === `en-${msg.id}` ? 'Copiado!' : '🇺🇸 Copiar EN + Resumo'}</span>
+                          </button>
+                        )}
+                      </div>
                     </div>
 
                     {/* Conteúdo Expansível */}
@@ -3524,39 +3603,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Badge de Lote Ativo com múltiplas cenas do mesmo ambiente */}
-          {batchScenes.length > 0 && footerHeight >= 125 && (
-            <div className="flex items-center justify-between gap-1.5 px-2.5 py-1 bg-[#eaf3ee] border border-[#2c5842]/40 rounded text-xs shrink-0 shadow-2xs">
-              <div className="flex items-center gap-1.5 truncate">
-                <span className="bg-[#113222] text-[#4ade80] font-black px-1.5 py-0.2 rounded text-[10px] font-mono border border-[#4ade80]/40">
-                  ++
-                </span>
-                <span className="font-bold text-[#113222] text-[11px] truncate">
-                  Lote Ativo: {batchScenes.length} cena(s) do mesmo ambiente
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setShowBatchModal(true)}
-                  className="px-2 py-0.5 bg-[#1c4432] hover:bg-[#163829] text-white rounded text-[10px] font-bold transition cursor-pointer"
-                >
-                  Abrir Lote
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setBatchScenes([]);
-                    showToast('Lote de cenas limpo.');
-                  }}
-                  className="px-1 text-stone-500 hover:text-red-600 transition cursor-pointer"
-                  title="Limpar lote"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
-          )}
+
 
           {/* CAIXA DE MENSAGEM, BOTÃO + E BOTÃO SKP: NUNCA SOMEM */}
           <div className="input-box-container flex-1 flex flex-col min-h-0 justify-center">

@@ -18,6 +18,7 @@ export interface Message {
   imageWidth?: number;
   imageHeight?: number;
   isImported?: boolean;
+  languageType?: 'pt' | 'en';
 }
 
 export interface RenderConfig {
