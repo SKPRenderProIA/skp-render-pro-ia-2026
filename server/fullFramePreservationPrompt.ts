@@ -13,7 +13,7 @@ Do not add, remove or move any object.
 Apply materials and atmosphere as described: [PROMPT DO CLIENTE].
 [materiais gerados pelo plugin]
 
-Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail.`;
+Shot on Hasselblad H6D-100c.`;
 
 
 export function buildMandatoryFullFramePrompt(

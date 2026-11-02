@@ -1542,7 +1542,7 @@ Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Descrever detalhadamente os materiais visíveis com acabamento PBR, rugosidade e iluminação em Português].
 
-Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail.
+Shot on Hasselblad H6D-100c.
 \`\`\`
 
 ### 🇺🇸 Seção 5 — Prompt em Inglês
@@ -1557,7 +1557,7 @@ Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Describe in complete detail all visible materials with PBR physical properties, roughness, and lighting in professional architectural English].
 
-Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
+Shot on Hasselblad H6D-100c.
 \`\`\`
 `;
 

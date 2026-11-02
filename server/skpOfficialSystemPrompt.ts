@@ -195,7 +195,7 @@ Do not add, remove or move any object.
 Apply materials and atmosphere as described: [CÓDIGO] GERAR — Ambiente: [Nome do ambiente]..
 [Todos os materiais da Seção 2 com nome e especificações detalhadas de padrão, tom, textura, roughness e acabamento, separados por ponto e vírgula (;)].
 
-Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail.
+Shot on Hasselblad H6D-100c.
 \`\`\`
 
 ### SEÇÃO 5 — PROMPT COMPLETO — EN
@@ -212,7 +212,7 @@ Do not add, remove or move any object.
 Apply materials and atmosphere as described: [CÓDIGO] GERAR — Environment: [Room Name]..
 [Todos os materiais da Seção 2 traduzidos para inglês técnico de ArchViz com padrões, texturas, roughness e acabamentos, separados por ponto e vírgula (;)].
 
-Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
+Shot on Hasselblad H6D-100c.
 \`\`\`
 
 🚨 NUNCA mencione resoluções numéricas em pixels no texto do prompt final.
