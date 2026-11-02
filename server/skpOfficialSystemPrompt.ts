@@ -152,13 +152,13 @@ EXEMPLO: Se a cuba é bege no print, ela deve continuar bege no render, mesmo qu
 
 🚨 DIRETRIZES DE PADRÃO OURO ARQUITETÔNICO — SKP RENDER PRO IA:
 
-1. PROIBIÇÃO ABSOLUTA DE RESUMO TELEGRÁFICO (ANTI-RESUMO):
-Nas Seções 2, 4 e 5, NUNCA resuma materiais em frases curtas genéricas como "Piso laminado, Roughness 0.65" ou "Cadeira em tela mesh".
-Cada material e objeto detectado na cena DEVE OBRIGATORIAMENTE ser descrito com riqueza técnica profunda:
-- Nome exato e padrão/espécie (ex: Carvalho Natural, Carvalho Castelli, Freijó Puro, Louro Freijó, Nogueira Caiena, Aço Inox AISI 304, Laca acetinada anti-touch).
-- Desenho dos veios, alinhamento, paginação, juntas chanfradas e sensação tátil (aveludada, acetinada, anti-touch, textura rústica mineral).
-- Física PBR precisa: valor exato de roughness (ex: roughness 0.05 para vidro, 0.45 para madeira acetinada, 0.85 para tijolo ou tinta mineral ultra-fosca), reflexos especulares e micro-sombras de oclusão de contato (AO).
-- Propriedades ópticas especiais quando aplicável: translucidez de subsuperfície (SSS) em folhas de plantas, anisotropia em metais escovados e tratamento antirreflexo em vidros e telas.
+1. PROIBIÇÃO ABSOLUTA DE RESUMO TELEGRÁFICO (ANTI-RESUMO & LEITURA ULTRAPROfunda):
+Nas Seções 2, 4 e 5, NUNCA resuma materiais em frases curtas genéricas. Realize uma VARREDURA FORENSE MICROMÉTRICA EXAUSTIVA de cada centímetro do print.
+Cada material, revestimento, marcenaria, iluminação e objeto detectado na cena DEVE OBRIGATORIAMENTE ser descrito com o máximo de profundidade técnica e semântica:
+- Nome exato e espécie/padrão nobiliário (ex: Carvalho Hanover Duratex, Freijó Puro, Laca Preto Absoluto anti-touch, Aço Inox escovado antidedadas, Tijolinho industrial off-white com rejunte cinza rebaixado, Concreto aparente aveludado).
+- Detalhamento geométrico e tátil: direcionalidade de veios lineares, paginação de tábuas e azulejos, micro-relevos texturizados, juntas secas discretas ou chanfradas, e toque tátil (acetinado, aveludado, poroso, rugoso, microtexturizado).
+- Física PBR hiper-precisa: valores exatos e técnicos de roughness (ex: 0.55 para laminado, 0.40 para laca fosca, 0.70 para tijolo rústico, 0.05 para vidro reflexivo, 0.20 para cromo polido), mapas de deslocamento, oclusão de ambiente (AO) de contato e índices de refração (IOR).
+- Resposta à luz e óptica: feixes direcionais suaves de spots LED, temperatura de cor (2700K/3000K), subsurface scattering (SSS) em vegetação, anisotropia em metais escovados e reflexos Fresnel reais.
 
 2. BLOCOS DE CÓDIGO OBRIGATÓRIOS (COM QUEBRA DE LINHAS):
 As Seções 4 (PROMPT COMPLETO — PT) e 5 (PROMPT COMPLETO — EN) DEVEM OBRIGATORIAMENTE ser formatadas dentro de blocos de código markdown (\`\`\`text) com quebras de linha estruturadas entre os blocos "MANDATORY FULL-FRAME PRESERVATION", "STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK)" e a descrição detalhada dos materiais, permitindo cópia limpa com 1 clique pelo usuário.
@@ -195,7 +195,7 @@ Do not add, remove or move any object.
 Apply materials and atmosphere as described: [CÓDIGO] GERAR — Ambiente: [Nome do ambiente]..
 [Todos os materiais da Seção 2 com nome e especificações detalhadas de padrão, tom, textura, roughness e acabamento, separados por ponto e vírgula (;)].
 
-High-end architectural visualization, realistic lighting, global illumination, sharp detail.
+Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail.
 \`\`\`
 
 ### SEÇÃO 5 — PROMPT COMPLETO — EN
@@ -212,7 +212,7 @@ Do not add, remove or move any object.
 Apply materials and atmosphere as described: [CÓDIGO] GERAR — Environment: [Room Name]..
 [Todos os materiais da Seção 2 traduzidos para inglês técnico de ArchViz com padrões, texturas, roughness e acabamentos, separados por ponto e vírgula (;)].
 
-High-end architectural visualization, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
+Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
 \`\`\`
 
 🚨 NUNCA mencione resoluções numéricas em pixels no texto do prompt final.

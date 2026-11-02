@@ -1518,7 +1518,9 @@ ESTRUTURA OBRIGATÓRIA:
 
         const visionPrompt = `SISTEMA RENDER PRO IA — GERAÇÃO DE PROMPTS FOTOGRÁFICOS BILINGUES (CAMADAS 0 A 71)
 Você é o Arquiteto e Engenheiro Forense de Renderização ArchViz do SKP RENDER PRO IA.
-Sua missão é realizar uma leitura forense detalhada desta imagem do SketchUp e gerar EXATAMENTE duas seções de prompt arquitetônico fotorrealista (PBR):
+Sua missão é realizar uma LEITURA FORENSE MICROMÉTRICA E EXAUSTIVA desta imagem do SketchUp. Analise profundamente cada centímetro do projeto: marcenaria sob medida, veios de madeira, paginação de revestimentos, juntas de assentamento, tipos exatos de metais, iluminação indireta rasante, reflexos especulares PBR e objetos de decoração.
+NUNCA faça resumos telegráficos. Cada material detectado deve ser descrito com máxima densidade técnica e semântica.
+Gere EXATAMENTE duas seções de prompt arquitetônico fotorrealista (PBR):
 1. SEÇÃO 4 — PROMPT COMPLETO — PT (Escrito 100% em PORTUGUÊS DO BRASIL).
 2. SEÇÃO 5 — PROMPT COMPLETO — EN (Written 100% in PROFESSIONAL ARCHITECTURAL ENGLISH. Zero Portuguese words in Section 5).
 
@@ -1540,7 +1542,7 @@ Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Descrever detalhadamente os materiais visíveis com acabamento PBR, rugosidade e iluminação em Português].
 
-High-end architectural visualization, realistic lighting, global illumination, sharp detail.
+Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail.
 \`\`\`
 
 ### 🇺🇸 Seção 5 — Prompt em Inglês
@@ -1555,7 +1557,7 @@ Do not add, remove or move any object.
 
 Apply materials and atmosphere as described: ${userInitialLead} — [Describe in complete detail all visible materials with PBR physical properties, roughness, and lighting in professional architectural English].
 
-High-end architectural visualization, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
+Shot on Hasselblad H6D-100c, realistic lighting, global illumination, sharp detail, 8k textures, architectural magazine publication quality.
 \`\`\`
 `;
 
