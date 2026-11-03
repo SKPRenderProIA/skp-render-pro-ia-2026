@@ -160,9 +160,35 @@ export function Gallery({
     }
   };
 
-  const handleCopyPrompt = (prompt: string, id: string) => {
-    onCopyText(prompt);
-    setCopiedPromptId(id);
+  const handleCopySection = async (fullText: string, sectionKey: 'pt' | 'en', id: string) => {
+    if (!fullText) return;
+    let textToCopy = '';
+    const codeBlockRegex = /```(?:text)?\s*([\s\S]*?)```/g;
+    const matches = Array.from(fullText.matchAll(codeBlockRegex));
+
+    if (matches.length >= 2) {
+      textToCopy = sectionKey === 'pt' ? matches[0][1].trim() : matches[1][1].trim();
+    } else if (matches.length === 1) {
+      textToCopy = matches[0][1].trim();
+    } else {
+      const parts = fullText.split(/###\s*(?:🇺🇸\s*)?Seção\s*5|###\s*(?:EN|Inglês)/i);
+      if (sectionKey === 'pt') {
+        textToCopy = parts[0]
+          .replace(/###\s*(?:🇧🇷\s*)?Seção\s*4[^\n]*/gi, '')
+          .replace(/```(?:text)?/g, '')
+          .trim();
+      } else {
+        textToCopy = parts[1] ? parts[1].replace(/```(?:text)?/g, '').trim() : fullText;
+      }
+    }
+
+    textToCopy = textToCopy
+      .replace(/^###\s*(?:🇧🇷\s*)?Seção\s*4[^\n]*\n*/i, '')
+      .replace(/^###\s*(?:🇺🇸\s*)?Seção\s*5[^\n]*\n*/i, '')
+      .trim();
+
+    onCopyText(textToCopy);
+    setCopiedPromptId(`${id}-${sectionKey}`);
     setTimeout(() => setCopiedPromptId(null), 2500);
   };
 
@@ -286,24 +312,44 @@ export function Gallery({
                       </button>
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <button
-                        type="button"
-                        onClick={() => handleCopyPrompt(item.prompt, item.id)}
-                        className="w-full py-1.5 bg-[#396252] text-white text-[9px] font-bold rounded uppercase flex items-center justify-center gap-1.5 transition hover:bg-[#2b4c3e] cursor-pointer"
-                        title="Copiar prompt desta cena"
-                      >
-                        {copiedPromptId === item.id ? (
-                          <>
-                            <Check className="w-3 h-3 text-[#4ade80]" />
-                            <span>Prompt Copiado!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3 h-3" />
-                            <span>Copiar Prompt</span>
-                          </>
-                        )}
-                      </button>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => handleCopySection(item.prompt, 'pt', item.id)}
+                          className="py-1.5 bg-[#396252] hover:bg-[#2b4c3e] text-white text-[9px] font-bold rounded uppercase flex items-center justify-center gap-1 transition cursor-pointer"
+                          title="Copiar prompt em Português"
+                        >
+                          {copiedPromptId === `${item.id}-pt` ? (
+                            <>
+                              <Check className="w-3 h-3 text-[#4ade80]" />
+                              <span>Copiado!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3" />
+                              <span>🇧🇷 Copiar PT</span>
+                            </>
+                          )}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleCopySection(item.prompt, 'en', item.id)}
+                          className="py-1.5 bg-[#2b4c3e] hover:bg-[#1f372d] text-white text-[9px] font-bold rounded uppercase flex items-center justify-center gap-1 transition cursor-pointer"
+                          title="Copiar prompt em Inglês"
+                        >
+                          {copiedPromptId === `${item.id}-en` ? (
+                            <>
+                              <Check className="w-3 h-3 text-[#4ade80]" />
+                              <span>Copiado!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3" />
+                              <span>🇺🇸 Copiar EN</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
 
                       <div className="grid grid-cols-2 gap-1.5">
                         <button
