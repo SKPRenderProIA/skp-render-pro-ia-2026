@@ -480,24 +480,7 @@ export const MaterialsEditorModal: React.FC<MaterialsEditorModalProps> = ({
               <span>Print Atual</span>
             </button>
 
-            <button
-              type="button"
-              onClick={() => setViewMode('batch')}
-              className={`px-3 py-1 rounded-md text-[11px] font-bold flex items-center gap-1.5 transition cursor-pointer ${
-                viewMode === 'batch'
-                  ? 'bg-[#1c4432] text-white shadow-xs'
-                  : 'text-[#1c4432] hover:bg-white/60'
-              }`}
-              title="Leitura em Lote (++) — Adicionar múltiplas cenas do mesmo ambiente para gerar materiais e iluminação 100% uniformes"
-            >
-              <span className="font-mono text-emerald-300 font-extrabold text-[12px] leading-none">++</span>
-              <span>Leitura em Lote</span>
-              <span className={`px-1.5 py-0.2 rounded-full text-[9px] font-bold ${
-                viewMode === 'batch' ? 'bg-emerald-400 text-stone-900' : 'bg-[#25543f] text-white'
-              }`}>
-                {batchScenes.length}
-              </span>
-            </button>
+
           </div>
 
           {/* Controles da janela (Recarregar e Fechar) */}
@@ -578,19 +561,7 @@ export const MaterialsEditorModal: React.FC<MaterialsEditorModalProps> = ({
               <span>Novo Item</span>
             </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                setTargetMaterialId(null);
-                setIsCatalogOpen(true);
-              }}
-              className="px-2.5 py-1 text-[11px] font-bold bg-[#1c4432] hover:bg-[#153426] text-white rounded flex items-center gap-1.5 transition cursor-pointer shadow-xs active:scale-95 shrink-0 border border-[#4ade80]/40"
-              title="Navegar pelo catálogo com 316 padrões reais de MDF com texturas"
-            >
-              <Layers className="w-3.5 h-3.5 text-[#25543f]" />
-              <span>Catálogo MDF</span>
-              <span className="bg-[#25543f] text-white px-1.5 py-0.2 rounded-full text-[9px] font-bold">316</span>
-            </button>
+
 
             <button
               type="button"
@@ -682,20 +653,7 @@ export const MaterialsEditorModal: React.FC<MaterialsEditorModalProps> = ({
                 <span>{isBatchDetecting ? 'Lendo Lote...' : '⚡ Ler Materiais em Lote com IA'}</span>
               </button>
 
-              {/* Catálogo de MDF com Texturas */}
-              <button
-                type="button"
-                onClick={() => {
-                  setTargetMaterialId(null);
-                  setIsCatalogOpen(true);
-                }}
-                className="px-2.5 py-1 text-[11px] font-bold bg-[#1c4432] hover:bg-[#153426] text-white rounded flex items-center gap-1.5 transition cursor-pointer shadow-xs active:scale-95 shrink-0 border border-[#4ade80]/40"
-                title="Navegar pelo catálogo com 316 padrões reais de MDF com texturas"
-              >
-                <Layers className="w-3.5 h-3.5 text-[#25543f]" />
-                <span>Catálogo MDF</span>
-                <span className="bg-[#25543f] text-white px-1.5 py-0.2 rounded-full text-[9px] font-bold">316</span>
-              </button>
+
 
               {/* Subir Imagens e Prompts para o Chat */}
               {onApplyBatchToChat && (
@@ -1141,14 +1099,7 @@ export const MaterialsEditorModal: React.FC<MaterialsEditorModalProps> = ({
 
                       {/* Ações do Card: Escolher MDF, Editar, Salvar e Excluir */}
                       <div className="flex items-center gap-1 shrink-0 opacity-80 group-hover:opacity-100 transition pt-0.5">
-                        <button
-                          type="button"
-                          onClick={() => openCatalogForMaterial(mat.id)}
-                          className="p-1 text-stone-500 hover:text-[#25543f] hover:bg-stone-100 rounded transition cursor-pointer"
-                          title="Escolher padrão de MDF do catálogo para este item"
-                        >
-                          <Layers className="w-3.5 h-3.5" />
-                        </button>
+
                         <button
                           type="button"
                           onClick={() => startEdit(mat)}
