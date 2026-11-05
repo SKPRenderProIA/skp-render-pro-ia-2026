@@ -1168,9 +1168,7 @@ export const ScenePrepModal: React.FC<ScenePrepModalProps> = ({
 
           {/* ========================================================================= */}
           {/* 4. LUZ FAKE (ILUMINAÇÃO IA - SPOTS, MARCENARIA, ESPELHOS & FITAS DE LED)  */}
-          {/* OCULTADO A PEDIDO DO USUÁRIO */}
           {/* ========================================================================= */}
-          {false && (
           <div className="border border-[#224433] rounded-2xl overflow-hidden bg-[#102219] shadow-lg">
             <button
               type="button"
@@ -1631,7 +1629,6 @@ export const ScenePrepModal: React.FC<ScenePrepModalProps> = ({
               </div>
             )}
           </div>
-          )}
         </div>
 
         {/* ========================================================================= */}
