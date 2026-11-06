@@ -51,6 +51,8 @@ export default function App() {
     } catch (_) { return ''; }
   });
   const [isRefreshingCredits, setIsRefreshingCredits] = useState<boolean>(false);
+  const [askEditMessageId, setAskEditMessageId] = useState<string | null>(null);
+  const [editRequestText, setEditRequestText] = useState<string>('');
   const batchFileInputRef = useRef<HTMLInputElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
 
@@ -397,13 +399,17 @@ export default function App() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showScrollBottomBtn, setShowScrollBottomBtn] = useState(false);
+  const isUserScrolledUpRef = useRef<boolean>(false);
+  const prevMessagesLengthRef = useRef<number>(0);
 
   // Monitora a rolagem para exibir o botão flutuante de descer ao final se o usuário tiver subido
   const handleChatScroll = () => {
     const container = chatAreaRef.current;
     if (!container) return;
     const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight;
-    setShowScrollBottomBtn(distanceFromBottom > 220);
+    const isUp = distanceFromBottom > 150;
+    isUserScrolledUpRef.current = isUp;
+    setShowScrollBottomBtn(isUp);
   };
 
   // Show temporary toast feedback
@@ -1211,13 +1217,22 @@ export default function App() {
     });
   };
 
-  // Rolagem para o final ultra-robusta (evita congelamento em navegadores embutidos / SketchUp CEF)
-  const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+  // Rolagem para o final respeitando a vontade do usuário (não força scroll se o usuário rolou pra cima)
+  const scrollToBottom = (behavior: ScrollBehavior = 'smooth', force = false) => {
     const container = chatAreaRef.current;
     if (!container) return;
 
+    // Se o usuário rolou para cima para ler mensagens anteriores, NÃO força a descida a menos que seja explícito (force === true)
+    if (isUserScrolledUpRef.current && !force) {
+      return;
+    }
+
+    if (force) {
+      isUserScrolledUpRef.current = false;
+      setShowScrollBottomBtn(false);
+    }
+
     requestAnimationFrame(() => {
-      // 1. Rolagem direta no container (funciona 100% no CEF e Web sem travar)
       try {
         container.scrollTo({
           top: container.scrollHeight,
@@ -1227,22 +1242,11 @@ export default function App() {
         container.scrollTop = container.scrollHeight;
       }
 
-      // 2. Se for 'auto' ou para assegurar fim do scroll após renderização completa
       if (behavior === 'auto') {
         container.scrollTop = container.scrollHeight;
-      } else {
-        setTimeout(() => {
-          if (container) {
-            const maxScroll = container.scrollHeight - container.clientHeight;
-            if (maxScroll > 0 && container.scrollTop < maxScroll - 15) {
-              container.scrollTop = container.scrollHeight;
-            }
-          }
-        }, 160);
       }
 
-      // 3. Garante que o elemento sentinela também entre em visão
-      if (messagesEndRef.current) {
+      if (messagesEndRef.current && !isUserScrolledUpRef.current) {
         try {
           messagesEndRef.current.scrollIntoView({ behavior, block: 'end' });
         } catch (_) {}
@@ -1250,23 +1254,25 @@ export default function App() {
     });
   };
 
-  // Scroll ao final quando chegam novas mensagens ou muda o estado de carregamento
+  // Scroll ao final quando chega uma NOVA mensagem (somente se usuário não subiu a tela ou se enviou mensagem)
   useEffect(() => {
-    scrollToBottom('smooth');
-    const t1 = setTimeout(() => scrollToBottom('smooth'), 50);
-    const t2 = setTimeout(() => scrollToBottom('smooth'), 150);
-    const t3 = setTimeout(() => scrollToBottom('auto'), 350);
-    const t4 = setTimeout(() => scrollToBottom('auto'), 600);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      clearTimeout(t4);
-    };
-  }, [messages, isLoading]);
+    const currentLen = messages.length;
+    const isNewMessage = currentLen > prevMessagesLengthRef.current;
+    prevMessagesLengthRef.current = currentLen;
 
-  // MutationObserver: Garante que o chat role pra cima automaticamente sempre que o texto do prompt
-  // formatado terminar de renderizar ou qualquer print/imagem for inserido no DOM
+    // Se o usuário acabou de enviar uma mensagem dele, força a rolagem para o final
+    const lastMsg = messages[messages.length - 1];
+    const isUserSent = lastMsg?.sender === 'user';
+
+    if (isUserSent) {
+      isUserScrolledUpRef.current = false;
+      scrollToBottom('smooth', true);
+    } else if (isNewMessage && !isUserScrolledUpRef.current) {
+      scrollToBottom('smooth', false);
+    }
+  }, [messages]);
+
+  // MutationObserver: Só ajusta scroll se o usuário já estiver colado no final
   useEffect(() => {
     const container = chatAreaRef.current;
     if (!container) return;
@@ -1275,24 +1281,26 @@ export default function App() {
     const observer = new MutationObserver(() => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 450;
-        if (isNearBottom || isLoading) {
-          scrollToBottom('smooth');
+        // Se o usuário rolou para cima para ler, NUNCA puxe a tela para baixo
+        if (isUserScrolledUpRef.current) return;
+
+        const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 120;
+        if (isNearBottom) {
+          scrollToBottom('smooth', false);
         }
-      }, 50);
+      }, 80);
     });
 
     observer.observe(container, {
       childList: true,
       subtree: true,
-      characterData: true,
     });
 
     return () => {
       clearTimeout(debounceTimer);
       observer.disconnect();
     };
-  }, [isLoading]);
+  }, []);
 
   // Helper to optimize any dataUrl string (downsampling & compression) to avoid CEF memory crash in SketchUp
   const optimizeDataUrl = (dataUrl: string, maxDim = 8000, quality = 0.88): Promise<string> => {
@@ -2207,6 +2215,121 @@ export default function App() {
           text: 'Não foi possível refazer a imagem no momento. Por favor, tente novamente.',
         },
       ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Pedir alteração na imagem renderizada com IA (mantém a imagem de base e envia a instrução de alteração)
+  const handleRequestChange = async (baseImage: string, changeInstruction: string) => {
+    if (!changeInstruction.trim() || isLoading) return;
+
+    const trimmedInstruction = changeInstruction.trim();
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      sender: 'user',
+      text: `Pedido de alteração: ${trimmedInstruction}`,
+      image: baseImage,
+      isImported: true,
+      imageWidth: width,
+      imageHeight: height,
+    };
+
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
+    setAskEditMessageId(null);
+    setEditRequestText('');
+    setIsLoading(true);
+    scrollToBottom('smooth', true);
+
+    try {
+      const currentConfig: RenderConfig = {
+        ratio: ratio,
+        width: width,
+        height: height,
+        isImported: false,
+      };
+
+      const payloadMessages = newMessages.slice(-6).map((m, idx, arr) => {
+        const isLastOrNearLast = idx >= arr.length - 2;
+        return {
+          id: m.id,
+          sender: m.sender,
+          text: m.text,
+          image: isLastOrNearLast ? m.image : undefined,
+          isImported: m.isImported,
+          imageWidth: m.imageWidth,
+          imageHeight: m.imageHeight,
+        };
+      });
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: payloadMessages,
+          currentConfig,
+          language,
+          lightingReport,
+          mode: 'edit',
+          changeInstruction: trimmedInstruction,
+          emergentCredentials: emergentUser ? {
+            email: emergentUser.email,
+            password: emergentPassword,
+          } : undefined
+        }),
+      });
+
+      let data: any = {};
+      if (response.ok) {
+        data = await response.json();
+      } else {
+        data = { reply: 'Resposta recebida do servidor.' };
+      }
+
+      const replyPt = data.replyPt || (data.promptPt ? `### 🇧🇷 Seção 4 — Prompt em Português\n\`\`\`text\n${data.promptPt}\n\`\`\`` : (data.reply || ''));
+      const replyEn = data.replyEn || (data.promptEn ? `### 🇺🇸 Seção 5 — Prompt em Inglês\n\`\`\`text\n${data.promptEn}\n\`\`\`` : (data.reply || ''));
+
+      const iaReplyPt: Message = {
+        id: (Date.now() + 1).toString(),
+        sender: 'ia',
+        text: replyPt,
+        image: data.image || undefined,
+        masterPrompt: replyPt,
+        imageWidth: width,
+        imageHeight: height,
+        isImported: false,
+        languageType: 'pt',
+      };
+
+      const iaReplyEn: Message = {
+        id: (Date.now() + 2).toString(),
+        sender: 'ia',
+        text: replyEn,
+        image: undefined,
+        masterPrompt: replyEn,
+        imageWidth: width,
+        imageHeight: height,
+        isImported: false,
+        languageType: 'en',
+      };
+
+      setMessages((prev) => [...prev, iaReplyPt, iaReplyEn]);
+      scrollToBottom('smooth', true);
+
+      const imageToGallery = data.image || baseImage;
+      if (data.masterPrompt && imageToGallery) {
+        window.dispatchEvent(
+          new CustomEvent('add-to-skp-gallery', {
+            detail: { image: imageToGallery, prompt: data.masterPrompt },
+          })
+        );
+      }
+
+      showToast('✓ Imagem alterada pela IA com sucesso!');
+    } catch (err) {
+      console.error('Error applying change request:', err);
+      showToast('⚠️ Não foi possível aplicar a alteração no momento.');
     } finally {
       setIsLoading(false);
     }
@@ -3279,11 +3402,10 @@ export default function App() {
                   alt={msg.sender === 'ia' ? "Fotografia Ultra Realista IA" : "Render / Print SketchUp"} 
                   className="msg-media cursor-pointer hover:opacity-95 transition"
                   onClick={() => setPreviewImage(msg.image || null)}
-                  onLoad={() => scrollToBottom('smooth')}
                   title="Clique para ampliar a imagem"
                 />
 
-                {/* Linha 1 de Botões: SALVAR à esquerda, COPIAR PRINT à direita (ajustáveis à largura) */}
+                {/* Linha 1 de Botões: SALVAR à esquerda, PEDIR ALTERAÇÃO (se for IA) ou COPIAR PRINT (se for User) à direita */}
                 <div className="grid grid-cols-2 gap-1.5 mt-0.5 w-full">
                   <button
                     type="button"
@@ -3303,24 +3425,88 @@ export default function App() {
                     <span className="truncate">SALVAR ({msg.isImported ? (msg.imageWidth && msg.imageHeight ? `${msg.imageWidth}x${msg.imageHeight}` : 'Original') : `${msg.imageWidth || width}x${msg.imageHeight || height}`})</span>
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (msg.isImported) {
-                        handleCopyImage(msg.image!, `img-${msg.id}`, -1, -1);
-                      } else {
-                        const targetW = msg.imageWidth || width;
-                        const targetH = msg.imageHeight || height;
-                        handleCopyImage(msg.image!, `img-${msg.id}`, targetW, targetH);
-                      }
-                    }}
-                    className="w-full min-w-0 px-2 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[10.5px] font-bold rounded-md flex items-center justify-center gap-1 border border-white/20 transition cursor-pointer shadow-sm active:scale-95 overflow-hidden"
-                    title={msg.isImported ? `Copiar na dimensão original (${msg.imageWidth}x${msg.imageHeight}px)` : `Copiar com resolução (${msg.imageWidth || width}x${msg.imageHeight || height}px)`}
-                  >
-                    {copiedId === `img-${msg.id}` ? <Check className="w-3.5 h-3.5 shrink-0 text-[#4ade80]" /> : <Copy className="w-3.5 h-3.5 shrink-0" />}
-                    <span className="truncate">{copiedId === `img-${msg.id}` ? 'COPIADO!' : (msg.sender === 'ia' ? 'COPIAR FOTO' : 'COPIAR PRINT')}</span>
-                  </button>
+                  {msg.sender === 'ia' ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAskEditMessageId(askEditMessageId === msg.id ? null : msg.id);
+                        setEditRequestText('');
+                      }}
+                      className="w-full min-w-0 px-2 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[10.5px] font-bold rounded-md flex items-center justify-center gap-1 border border-[#4ade80]/50 transition cursor-pointer shadow-sm active:scale-95 overflow-hidden"
+                      title="Pedir alteração nesta imagem renderizada (mudar acabamento, iluminação, cor ou materiais)"
+                    >
+                      <Pencil className="w-3.5 h-3.5 shrink-0 text-[#4ade80]" />
+                      <span className="truncate">Pedir alteração</span>
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (msg.isImported) {
+                          handleCopyImage(msg.image!, `img-${msg.id}`, -1, -1);
+                        } else {
+                          const targetW = msg.imageWidth || width;
+                          const targetH = msg.imageHeight || height;
+                          handleCopyImage(msg.image!, `img-${msg.id}`, targetW, targetH);
+                        }
+                      }}
+                      className="w-full min-w-0 px-2 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-[10.5px] font-bold rounded-md flex items-center justify-center gap-1 border border-white/20 transition cursor-pointer shadow-sm active:scale-95 overflow-hidden"
+                      title={msg.isImported ? `Copiar na dimensão original (${msg.imageWidth}x${msg.imageHeight}px)` : `Copiar com resolução (${msg.imageWidth || width}x${msg.imageHeight || height}px)`}
+                    >
+                      {copiedId === `img-${msg.id}` ? <Check className="w-3.5 h-3.5 shrink-0 text-[#4ade80]" /> : <Copy className="w-3.5 h-3.5 shrink-0" />}
+                      <span className="truncate">{copiedId === `img-${msg.id}` ? 'COPIADO!' : 'COPIAR PRINT'}</span>
+                    </button>
+                  )}
                 </div>
+
+                {/* Caixa de Entrada para Pedir Alteração na Imagem IA */}
+                {msg.sender === 'ia' && askEditMessageId === msg.id && (
+                  <div className="mt-2 p-2.5 rounded-lg border border-[#25543f]/40 bg-[#eaf3ee] flex flex-col gap-2 shadow-sm animate-in fade-in duration-150">
+                    <div className="flex items-center justify-between text-xs font-bold text-[#1F4936]">
+                      <span className="flex items-center gap-1">
+                        <Pencil className="w-3.5 h-3.5 text-[#25543f]" />
+                        O que você deseja modificar na imagem?
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setAskEditMessageId(null)}
+                        className="text-stone-500 hover:text-stone-800 p-0.5 rounded cursor-pointer"
+                        title="Fechar"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    <textarea
+                      value={editRequestText}
+                      onChange={(e) => setEditRequestText(e.target.value)}
+                      rows={2}
+                      placeholder="Ex.: trocar a cor da bancada para carvalho natural fosco e deixar a iluminação mais quente"
+                      className="w-full text-xs p-2 rounded border border-stone-300 bg-white text-stone-900 outline-none focus:border-[#25543f] focus:ring-1 focus:ring-[#25543f] resize-none font-sans"
+                      autoFocus
+                    />
+
+                    <div className="flex items-center justify-end gap-2 pt-0.5">
+                      <button
+                        type="button"
+                        onClick={() => setAskEditMessageId(null)}
+                        className="px-2.5 py-1 text-xs font-semibold text-stone-600 hover:text-stone-800 rounded cursor-pointer"
+                      >
+                        Cancelar
+                      </button>
+
+                      <button
+                        type="button"
+                        disabled={!editRequestText.trim() || isLoading}
+                        onClick={() => handleRequestChange(msg.image!, editRequestText)}
+                        className="px-3 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white text-xs font-bold rounded-md flex items-center gap-1.5 shadow-sm active:scale-95 disabled:opacity-50 cursor-pointer"
+                      >
+                        <RotateCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
+                        <span>Aplicar alteração</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
             

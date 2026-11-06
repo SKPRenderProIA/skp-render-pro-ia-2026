@@ -268,8 +268,11 @@ const EMERGENT_RENDER_ENABLED = process.env.EMERGENT_RENDER_ENABLED !== "false";
 const userTokens = new Map<string, { token: string; expiresAt: number }>();
 
 async function getEmergentAuthToken(customEmail?: string, customPassword?: string): Promise<string | null> {
-  const email = (customEmail || EMERGENT_USER_EMAIL).trim().toLowerCase();
-  const password = customPassword || EMERGENT_USER_PASSWORD;
+  if (!customEmail || !customPassword) {
+    return null;
+  }
+  const email = customEmail.trim().toLowerCase();
+  const password = customPassword;
   const now = Date.now();
 
   const cached = userTokens.get(email);
@@ -316,7 +319,7 @@ async function getEmergentAuthToken(customEmail?: string, customPassword?: strin
 async function generateEmergentRenderImage(
   dataUrlOrBase64: string,
   instructionText: string,
-  mode: "render" | "panorama" = "render",
+  mode: "render" | "panorama" | "edit" = "render",
   customEmail?: string,
   customPassword?: string
 ): Promise<string | null> {
@@ -324,10 +327,16 @@ async function generateEmergentRenderImage(
     return null;
   }
 
+  // REGRA ESTRITA: Se o usuário não estiver logado com e-mail e senha no plugin, NUNCA gere a imagem!
+  if (!customEmail || !customPassword) {
+    console.log("[EMERGENT RENDER] Usuário não logado no plugin. Geração de imagem ignorada — fornecendo exclusivamente os Prompts.");
+    return null;
+  }
+
   try {
     const token = await getEmergentAuthToken(customEmail, customPassword);
     if (!token) {
-      console.warn("[EMERGENT RENDER] Token não disponível, pulando render direto.");
+      console.warn(`[EMERGENT RENDER] Falha de autenticação para o usuário ${customEmail}. Imagem não será gerada.`);
       return null;
     }
 
@@ -1719,7 +1728,7 @@ ESTRUTURA OBRIGATÓRIA:
   // SKP Render Pro IA chat & photo rendering endpoint
   app.post("/api/chat", async (req, res) => {
     try {
-      const { messages, currentConfig, language, lightingReport, renderStrength, emergentCredentials } = req.body;
+      const { messages, currentConfig, language, lightingReport, renderStrength, emergentCredentials, mode, changeInstruction } = req.body;
       const targetLang = language || 'pt';
       
       if (!messages || !Array.isArray(messages)) {
@@ -1728,6 +1737,7 @@ ESTRUTURA OBRIGATÓRIA:
 
       const clientEmail = emergentCredentials?.email?.trim();
       const clientPassword = emergentCredentials?.password;
+      const isEditMode = mode === "edit" || Boolean(changeInstruction);
 
       const ai = getAIClient();
 
@@ -1902,12 +1912,16 @@ Shot on Hasselblad H6D-100c.
 
         // Renderização fotográfica automática via motor Emergent (Flux/ControlNet)
         try {
-          console.log("[CHAT] Iniciando geração da imagem final via ponte Emergent...");
-          const renderPromptInstruction = promptEn || promptPt || userPrompt;
+          console.log(`[CHAT] Iniciando geração da imagem final via ponte Emergent (modo: ${isEditMode ? 'edit' : (is360 ? 'panorama' : 'render')})...`);
+          const editInstruction = changeInstruction || (rawUserMsgText.startsWith("Pedido de alteração:") ? rawUserMsgText.replace("Pedido de alteração:", "").trim() : "");
+          const renderPromptInstruction = isEditMode && editInstruction 
+            ? editInstruction 
+            : (promptEn || promptPt || userPrompt);
+          
           const rendered = await generateEmergentRenderImage(
             imagePayload,
             renderPromptInstruction,
-            is360 ? "panorama" : "render",
+            isEditMode ? "edit" : (is360 ? "panorama" : "render"),
             clientEmail,
             clientPassword
           );
