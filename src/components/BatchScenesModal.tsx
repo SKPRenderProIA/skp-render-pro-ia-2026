@@ -370,17 +370,25 @@ export const BatchScenesModal: React.FC<BatchScenesModalProps> = ({
         }),
       });
 
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.error || 'Falha ao processar materiais em lote.');
+      let data: any = null;
+      const contentType = res.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        try {
+          data = await res.json();
+        } catch (_) {
+          data = null;
+        }
       }
 
-      const data = await res.json();
       if (data && data.success && Array.isArray(data.materials)) {
         setDetectedMaterials(data.materials);
         setMaterialsSummaryText(data.formattedText || '');
         setActiveTab('materials');
         showToast(`✓ ${data.materials.length} materiais unificados detectados em todo o ambiente!`);
+      } else if (data && data.error) {
+        throw new Error(data.error);
+      } else if (!res.ok) {
+        throw new Error('Servidor indisponível ou sobrecarregado. Tente novamente em instantes.');
       } else {
         throw new Error('Nenhum material retornado pela IA.');
       }

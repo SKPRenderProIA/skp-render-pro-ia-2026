@@ -12,7 +12,8 @@ import { Panorama360Modal } from './components/Panorama360Modal';
 import { Panorama360PopoutView } from './components/Panorama360PopoutView';
 import { BatchScenesModal } from './components/BatchScenesModal';
 import { SKP_PLUGIN_STABLE_CODE } from './data/skpPluginSource';
-import { Copy, Check, Sparkles, ExternalLink, Camera, Pencil, RotateCw, Key, KeyRound, Lock, X, ShieldAlert, AlertTriangle, RefreshCw, Download, Palette, ChevronUp, ChevronDown, Maximize2, Compass, Image as ImageIcon } from 'lucide-react';
+import { EmergentAccountModal, EmergentUser } from './components/EmergentAccountModal';
+import { Copy, Check, Sparkles, ExternalLink, Camera, Pencil, RotateCw, Key, KeyRound, Lock, X, ShieldAlert, AlertTriangle, RefreshCw, Download, Palette, ChevronUp, ChevronDown, Maximize2, Compass, Image as ImageIcon, User, Coins } from 'lucide-react';
 
 export default function App() {
   // State for camera and rendering configuration
@@ -37,6 +38,19 @@ export default function App() {
   const [showLanguageMenu, setShowLanguageMenu] = useState<boolean>(false);
   const [batchScenes, setBatchScenes] = useState<BatchSceneItem[]>([]);
   const [showBatchModal, setShowBatchModal] = useState<boolean>(false);
+  const [showEmergentAccountModal, setShowEmergentAccountModal] = useState<boolean>(false);
+  const [emergentUser, setEmergentUser] = useState<EmergentUser | null>(() => {
+    try {
+      const stored = localStorage.getItem('skp_emergent_user');
+      return stored ? JSON.parse(stored) : null;
+    } catch (_) { return null; }
+  });
+  const [emergentPassword, setEmergentPassword] = useState<string>(() => {
+    try {
+      return localStorage.getItem('skp_emergent_pass') || '';
+    } catch (_) { return ''; }
+  });
+  const [isRefreshingCredits, setIsRefreshingCredits] = useState<boolean>(false);
   const batchFileInputRef = useRef<HTMLInputElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
 
@@ -1876,18 +1890,27 @@ export default function App() {
         }),
       });
 
-      const data = await res.json();
-      if (data.success && Array.isArray(data.materials)) {
+      let data: any = null;
+      const contentType = res.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        console.warn('Resposta não-JSON recebida ao detectar materiais:', text.slice(0, 100));
+        throw new Error('Servidor temporariamente ocupado. Tente novamente em alguns segundos.');
+      }
+
+      if (data && data.success && Array.isArray(data.materials)) {
         setDetectedMaterials(data.materials);
         updateInputWithMaterials(data.materials);
         syncMaterialsBroadcast(data.materials, imgToAnalyze);
         showToast(`✓ ${data.materials.length} materiais e objetos identificados no print atual!`);
       } else {
-        throw new Error(data.error || 'Falha ao identificar materiais e objetos');
+        throw new Error(data?.error || 'Falha ao identificar materiais e objetos');
       }
     } catch (err: any) {
       console.error('[DETECT MATERIALS ERROR]', err);
-      showToast('⚠️ Erro ao ler materiais do print: ' + (err?.message || 'Tente novamente'));
+      showToast('⚠️ Leitura de materiais: ' + (err?.message || 'Tente novamente'));
     } finally {
       setIsDetectingMaterials(false);
     }
@@ -1958,7 +1981,11 @@ export default function App() {
           messages: payloadMessages,
           currentConfig,
           language,
-          lightingReport
+          lightingReport,
+          emergentCredentials: emergentUser ? {
+            email: emergentUser.email,
+            password: emergentPassword,
+          } : undefined
         }),
       });
 
@@ -2870,6 +2897,32 @@ export default function App() {
               <span className="tracking-wide">Admin</span>
             </button>
           )}
+
+          {/* Botão de Conta / Créditos do Cliente */}
+          <button
+            id="header-btn-account"
+            type="button"
+            onClick={() => setShowEmergentAccountModal(true)}
+            className={`flex items-center gap-1.5 px-2 py-1 text-[9px] sm:text-[10px] font-semibold active:scale-95 border rounded shadow-xs transition-all cursor-pointer whitespace-nowrap ${
+              emergentUser 
+                ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300' 
+                : 'bg-white hover:bg-stone-50 text-stone-700 border-stone-300'
+            }`}
+            title={emergentUser ? `Conectado como ${emergentUser.name || emergentUser.email} (${emergentUser.credits_left} créditos)` : "Entrar com sua conta de renderização"}
+          >
+            {emergentUser ? (
+              <>
+                <Coins className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500 shrink-0" />
+                <span className="font-bold text-emerald-700">{emergentUser.credits_left}</span>
+                <span className="hidden sm:inline text-emerald-600">créditos</span>
+              </>
+            ) : (
+              <>
+                <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-stone-500 shrink-0" />
+                <span>Entrar</span>
+              </>
+            )}
+          </button>
 
           {/* Redes Sociais no Header - Agora na extremidade direita conforme marcado na foto */}
           <div className="flex items-center gap-2.5">
@@ -3890,6 +3943,55 @@ export default function App() {
         showToast={showToast}
         onApplyBatchToChat={handleApplyBatchToChat}
         isInsideSketchup={isInsideSketchup}
+      />
+
+      {/* MODAL DE CONTA / LOGIN DO CLIENTE NO MOTOR DE RENDERIZAÇÃO */}
+      <EmergentAccountModal
+        open={showEmergentAccountModal}
+        onClose={() => setShowEmergentAccountModal(false)}
+        currentUser={emergentUser}
+        isRefreshing={isRefreshingCredits}
+        onLoginSuccess={(user, pwd) => {
+          setEmergentUser(user);
+          setEmergentPassword(pwd);
+          try {
+            localStorage.setItem('skp_emergent_user', JSON.stringify(user));
+            localStorage.setItem('skp_emergent_pass', pwd);
+          } catch (_) {}
+          showToast(`✓ Conectado como ${user.name || user.email}! (${user.credits_left} créditos disponíveis)`);
+        }}
+        onLogout={() => {
+          setEmergentUser(null);
+          setEmergentPassword('');
+          try {
+            localStorage.removeItem('skp_emergent_user');
+            localStorage.removeItem('skp_emergent_pass');
+          } catch (_) {}
+          showToast('Desconectado da conta de renderização.');
+        }}
+        onRefreshCredits={async () => {
+          if (!emergentUser || !emergentPassword) return;
+          setIsRefreshingCredits(true);
+          try {
+            const res = await fetch('/api/emergent/me', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: emergentUser.email, password: emergentPassword }),
+            });
+            const data = await res.json();
+            if (res.ok && data.success && data.user) {
+              setEmergentUser(data.user);
+              try { localStorage.setItem('skp_emergent_user', JSON.stringify(data.user)); } catch (_) {}
+              showToast(`✓ Saldo atualizado: ${data.user.credits_left} créditos disponíveis!`);
+            } else {
+              showToast('Não foi possível atualizar o saldo no momento.');
+            }
+          } catch (_) {
+            showToast('Erro ao consultar créditos.');
+          } finally {
+            setIsRefreshingCredits(false);
+          }
+        }}
       />
     </>
     </div>

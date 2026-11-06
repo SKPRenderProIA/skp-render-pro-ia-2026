@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "validUntil": "2026-12-03T23:59",
+    "clientName": "GILBERTO SOUZA",
+    "clientContact": "83999746173",
+    "createdAt": "2026-11-03T13:40:19.377Z",
+    "status": "active",
+    "licenseKey": "eyJpZCI6IjAzMDAwMjAwLTA0MDAtMDUwMC0wMDA2LTAwMDcwMDA4MDAwOSIsInZhbGlkYWRlIjoiMjAyNi0xMi0wM1QyMzo1OSJ9fDdjZDcxMDliOWU2ZjY5N2U3Njg1ZTJiMTVlNzliNmZjODk5MDczZDlkMjA0NmVlNTQzNmVhYmU3YTg5NTI2ODg=",
+    "notes": "",
+    "id": "148ba51d-8ebd-446d-b2f6-e2c95b4368bb",
+    "pcId": "03000200-0400-0500-0006-000700080009",
+    "ownerId": "system"
+  },
+  {
+    "clientName": "eugenio",
+    "pcId": "AB006B9C-5671-0000-0000-000000000000",
+    "validUntil": "2026-11-11T23:59",
+    "ownerId": "system",
+    "notes": "",
+    "clientContact": "",
+    "licenseKey": "eyJpZCI6IkFCMDA2QjlDLTU2NzEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsInZhbGlkYWRlIjoiMjAyNi0xMS0xMVQyMzo1OSJ9fGJkY2QxZTZiYjRhODQwMjEzYTRmMzJjZjcyN2ZlOTMwNDBjNTc3M2UwMTVhMDUwZjhhMGQwNjAwYmYzOThlZjE=",
+    "createdAt": "2026-11-04T19:53:44.729Z",
+    "status": "active",
+    "id": "48f08558-d53b-4a4a-8d3c-31ed16dabc4f"
+  },
+  {
+    "id": "543b5893-b738-4c10-b655-249054a6be5c",
+    "pcId": "4B27DD78-5D78-11EC-BE75-F372F3FC0900",
+    "validUntil": "2026-11-06T15:37",
+    "notes": "",
+    "clientName": "ALCI  NOTBOOK TESTE",
+    "licenseKey": "eyJpZCI6IjRCMjdERDc4LTVENzgtMTFFQy1CRTc1LUYzNzJGM0ZDMDkwMCIsInZhbGlkYWRlIjoiMjAyNi0xMS0wNlQxNTozNyJ9fDFlNTI4YmRiZTMzMzQ0Yjg5YjU4MzhjMmRiMDAwZDk1MTQxNTVjMGNkMjcwYzRkMTM3ZTE2ZTIwMGQ5NmE1YWQ=",
+    "clientContact": "",
+    "ownerId": "system",
+    "status": "active",
+    "createdAt": "2026-10-28T13:05:22.201Z"
+  },
+  {
+    "createdAt": "2026-11-03T17:27:19.676Z",
+    "licenseKey": "eyJpZCI6IjRDNEM0NTQ0LTAwNDQtNTYxMC04MDUyLUIxQzA0RjM4NTgzMyIsInZhbGlkYWRlIjoiMjAyNi0xMi0wM1QyMzo1OSJ9fGUxNzY4ZGEzNjAwMGY2Y2YzN2I3NmFmNjI4Mzk1MDhkOWQwYjcyMDhkNDRhYTRlMDc4ZGRhNzdhYmQ5MTRlNWQ=",
+    "notes": "",
+    "pcId": "4C4C4544-0044-5610-8052-B1C04F385833",
+    "status": "active",
+    "id": "95b5ca4d-d0f9-4e82-88c6-35c8a8caeee0",
+    "validUntil": "2026-12-03T23:59",
+    "clientName": "IZAELLY ARQUITETA",
+    "clientContact": "81 9843505892",
+    "ownerId": "system"
+  },
+  {
+    "createdAt": "2026-10-20T11:15:07.857Z",
+    "ownerId": "system",
+    "clientName": "MEU PC",
+    "validUntil": "2026-11-11T23:59",
+    "notes": "",
+    "status": "active",
+    "id": "ae119017-e5d0-4c22-9770-c514dd3c1972",
+    "licenseKey": "eyJpZCI6IjFFOUI5ODgxLTVFQUMtOUI5OC03OUQzLTYwQ0Y4NENGRjE4NSIsInZhbGlkYWRlIjoiMjAyNi0xMS0xMVQyMzo1OSJ9fDUzOTIyZmE2YTBkMjBlYjkyZWZlNmZmNDNhNzhjNTNhOGJlMDE1N2I1NzBmMTE2ZTAzZjZmYjRkMTRkYjMxM2U=",
+    "clientContact": "",
+    "pcId": "1E9B9881-5EAC-9B98-79D3-60CF84CFF185"
+  },
+  {
+    "id": "c92605a1-22c4-456b-a07d-27a81eff832b",
+    "status": "active",
+    "licenseKey": "eyJpZCI6IjRFNkREMkZELUYwNDMtQTlENy00Q0I1LTQwMTY3RTc1NzIwNSIsInZhbGlkYWRlIjoiMjAyNi0xMC0zMFQxNjozMyJ9fGU1YTgyODdjMWJjNGE1OTZhNWZmNzgwMjM0NmVjY2RhMjRiYWFiNTVhNTNlN2U4NGJiNjhiN2MxZjRmZDFiMTA=",
+    "createdAt": "2026-10-30T13:33:09.407Z",
+    "ownerId": "system",
+    "clientContact": "",
+    "notes": "",
+    "clientName": "CLAUDIO",
+    "pcId": "4E6DD2FD-F043-A9D7-4CB5-40167E757205",
+    "validUntil": "2026-10-30T16:33"
+  }
+]

@@ -138,19 +138,19 @@ export const PurpleGemIcon: React.FC<{ className?: string; style?: React.CSSProp
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       <defs>
-        <linearGradient id="purpleGemBgBtn" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2e1065" />
-          <stop offset="50%" stopColor="#581c87" />
-          <stop offset="100%" stopColor="#7e22ce" />
+        <linearGradient id="yellowGemBgBtn" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#422006" />
+          <stop offset="50%" stopColor="#713f12" />
+          <stop offset="100%" stopColor="#a16207" />
         </linearGradient>
-        <linearGradient id="purpleGemGradBtn" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#faf5ff" />
-          <stop offset="50%" stopColor="#c084fc" />
-          <stop offset="100%" stopColor="#9333ea" />
+        <linearGradient id="yellowGemGradBtn" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fef08a" />
+          <stop offset="50%" stopColor="#facc15" />
+          <stop offset="100%" stopColor="#eab308" />
         </linearGradient>
       </defs>
-      <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#purpleGemBgBtn)" stroke="#a855f7" strokeWidth="2.5" />
-      <path d="M 32 10 Q 32 28 50 32 Q 32 36 32 54 Q 32 36 14 32 Q 32 28 32 10 Z" fill="url(#purpleGemGradBtn)" />
+      <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#yellowGemBgBtn)" stroke="#eab308" strokeWidth="2.5" />
+      <path d="M 32 10 Q 32 28 50 32 Q 32 36 32 54 Q 32 36 14 32 Q 32 28 32 10 Z" fill="url(#yellowGemGradBtn)" />
       <circle cx="32" cy="32" r="3.5" fill="#ffffff" />
       <path d="M 46 16 Q 46 22 52 23 Q 46 24 46 30 Q 46 24 40 23 Q 46 22 46 16 Z" fill="#ffffff" opacity="0.9" />
     </svg>
