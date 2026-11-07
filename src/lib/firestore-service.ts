@@ -16,6 +16,7 @@ export interface ClientLicenseRecord {
   id: string;
   clientName: string;
   clientContact?: string;
+  clientEmail?: string;
   notes?: string;
   pcId: string;
   validUntil: string;

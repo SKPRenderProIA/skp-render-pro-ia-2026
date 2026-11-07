@@ -3,7 +3,7 @@ import {
   ShieldCheck, Copy, Check, Download, Terminal, 
   X, FileCode, ShieldAlert, Key, Sparkles, RefreshCw, AlertCircle, RotateCw, RotateCcw, Wrench, Globe,
   Users, Phone, Calendar, Hash, UserPlus, Trash2, ShieldX, Clock, Search, Filter, Image as ImageIcon,
-  BellRing
+  BellRing, Pencil
 } from 'lucide-react';
 import { SKP_PLUGIN_STABLE_CODE } from '../data/skpPluginSource';
 
@@ -32,6 +32,7 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
   const [newClient, setNewClient] = useState({
     name: '',
     contact: '',
+    email: '',
     pcId: '',
     duration: '30', // default 1 month
     customValidUntil: '',
@@ -62,6 +63,64 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
   // Modal de Exclusão de Licença
   const [deletingLicense, setDeletingLicense] = useState<any | null>(null);
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
+
+  // Modal de Edição Completa de Cliente / Licença
+  const [editingLicense, setEditingLicense] = useState<any | null>(null);
+  const [editClientForm, setEditClientForm] = useState({
+    clientName: '',
+    clientContact: '',
+    clientEmail: '',
+    notes: '',
+    validUntil: '',
+  });
+  const [isSavingEdit, setIsSavingEdit] = useState<boolean>(false);
+  const [editError, setEditError] = useState<string | null>(null);
+
+  const handleOpenEditModal = (lic: any) => {
+    setEditingLicense(lic);
+    setEditClientForm({
+      clientName: lic.clientName || '',
+      clientContact: lic.clientContact || '',
+      clientEmail: lic.clientEmail || '',
+      notes: lic.notes || '',
+      validUntil: lic.validUntil ? lic.validUntil.slice(0, 16) : '',
+    });
+    setEditError(null);
+  };
+
+  const handleSaveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingLicense) return;
+    setIsSavingEdit(true);
+    setEditError(null);
+
+    try {
+      const res = await fetch(`/api/license/${editingLicense.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          clientName: editClientForm.clientName.trim(),
+          clientContact: editClientForm.clientContact.trim(),
+          clientEmail: editClientForm.clientEmail.trim(),
+          notes: editClientForm.notes.trim(),
+          validUntil: editClientForm.validUntil.trim(),
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSuccessMessage(`✓ Dados de ${editClientForm.clientName} atualizados com sucesso!`);
+        setEditingLicense(null);
+        fetchLicenses();
+      } else {
+        setEditError(data.error || 'Erro ao salvar alterações.');
+      }
+    } catch (err: any) {
+      setEditError('Erro de conexão ao salvar alterações.');
+    } finally {
+      setIsSavingEdit(false);
+    }
+  };
 
   // URL do Servidor configurada no Plugin para distribuição (Padrão automático: http://localhost:3000)
   const [targetServerUrl, setTargetServerUrl] = useState<string>('http://localhost:3000');
@@ -386,6 +445,7 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
           pcId: newClient.pcId.trim(),
           clientName: newClient.name.trim(),
           clientContact: newClient.contact.trim(),
+          clientEmail: newClient.email.trim(),
           validUntil,
         }),
       });
@@ -394,7 +454,7 @@ export const LicenseManagerModal: React.FC<LicenseManagerModalProps> = ({
       const data = await res.json();
       if (res.ok && data.success) {
         setSuccessMessage(`✓ Licença para ${newClient.name} gerada com sucesso! Código disponível na lista abaixo.`);
-        setNewClient({ name: '', contact: '', pcId: '', duration: '30', customValidUntil: '' });
+        setNewClient({ name: '', contact: '', email: '', pcId: '', duration: '30', customValidUntil: '' });
         await fetchLicenses();
       } else {
         setErrorMessage(data.error || 'Erro ao gerar licença.');
@@ -796,6 +856,23 @@ puts licenca`;
                         className="text-xs text-emerald-300 font-bold uppercase tracking-wider block"
                         style={{ color: '#6ee7b7' }}
                       >
+                        E-mail do Cliente
+                      </label>
+                      <input 
+                        type="email"
+                        value={newClient.email}
+                        onChange={e => setNewClient({...newClient, email: e.target.value})}
+                        className="w-full bg-[#081810] text-white placeholder-gray-400 border border-[#2D5A44] rounded-lg px-3 py-2.5 text-xs font-medium focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40 outline-none transition-all shadow-inner"
+                        style={{ color: '#ffffff', backgroundColor: '#081810' }}
+                        placeholder="Ex: cliente@email.com"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label 
+                        className="text-xs text-emerald-300 font-bold uppercase tracking-wider block"
+                        style={{ color: '#6ee7b7' }}
+                      >
                         ID do Computador (PC ID)
                       </label>
                       <input 
@@ -948,7 +1025,7 @@ puts licenca`;
                       <thead className="sticky top-0 bg-[#163024] z-10">
                         <tr className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                           <th className="px-4 py-3">Cliente</th>
-                          <th className="px-4 py-3">Validade</th>
+                          <th className="px-4 py-3">Data Início x Data Final</th>
                           <th className="px-4 py-3">Status</th>
                           <th className="px-4 py-3 text-right">Ações</th>
                         </tr>
@@ -973,6 +1050,9 @@ puts licenca`;
                               <td className="px-4 py-3">
                                 <div className="flex flex-col">
                                   <span className="text-xs font-bold text-white">{lic.clientName}</span>
+                                  {lic.clientContact && (
+                                    <span className="text-[10px] text-emerald-400/90">{lic.clientContact}</span>
+                                  )}
                                   <span className="text-[10px] text-gray-500 flex items-center gap-1">
                                     <Hash className="w-2.5 h-2.5" />
                                     {lic.pcId.slice(0, 16)}...
@@ -980,10 +1060,15 @@ puts licenca`;
                                 </div>
                               </td>
                               <td className="px-4 py-3">
-                                <div className="flex flex-col">
-                                  <span className="text-[11px] text-gray-300">{lic.formattedValidUntil}</span>
-                                  <span className={`text-[10px] font-medium ${lic.daysRemaining <= 3 || (lic.remainingText && (lic.remainingText.includes('hora') || lic.remainingText.includes('minuto'))) ? 'text-amber-400' : 'text-gray-500'}`}>
-                                    {lic.computedStatus === 'expired' ? 'Expirou' : lic.remainingText || `${lic.daysRemaining} dias restantes`}
+                                <div className="flex flex-col text-[11px] space-y-0.5">
+                                  <div className="text-emerald-400/90 font-medium">
+                                    <span className="text-gray-500 text-[10px]">Início:</span> {lic.createdAt ? new Date(lic.createdAt).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) : 'N/A'}
+                                  </div>
+                                  <div className="text-gray-200 font-semibold">
+                                    <span className="text-gray-500 text-[10px]">Fim:</span> {lic.formattedValidUntil || lic.validUntil}
+                                  </div>
+                                  <span className={`text-[9.5px] font-medium ${lic.daysRemaining <= 3 || (lic.remainingText && (lic.remainingText.includes('hora') || lic.remainingText.includes('minuto'))) ? 'text-amber-400' : 'text-gray-400'}`}>
+                                    ({lic.computedStatus === 'expired' ? 'Expirou' : lic.remainingText || `${lic.daysRemaining} dias restantes`})
                                   </span>
                                 </div>
                               </td>
@@ -1000,6 +1085,15 @@ puts licenca`;
                               </td>
                               <td className="px-4 py-3 text-right">
                                 <div className="flex items-center justify-end gap-1.5">
+                                  {/* Botão de Editar Dados do Cliente */}
+                                  <button
+                                    onClick={() => handleOpenEditModal(lic)}
+                                    className="p-1.5 text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors cursor-pointer"
+                                    title="Editar dados e validade do cliente"
+                                  >
+                                    <Pencil className="w-3.5 h-3.5" />
+                                  </button>
+
                                   {/* Botão de Reativar destacado para Licenças Expiradas */}
                                   {lic.computedStatus === 'expired' && (
                                     <button
@@ -1684,6 +1778,128 @@ puts licenca`;
                 <span>{isDeleting ? 'Excluindo...' : 'CONFIRMAR EXCLUSÃO'}</span>
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL DE EDIÇÃO COMPLETA DE CLIENTE / LICENÇA */}
+      {editingLicense && (
+        <div className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-[#0C1A14] border border-emerald-500/50 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-4 text-gray-200 animate-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between border-b border-[#1F4733] pb-3">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shadow-inner">
+                  <Pencil className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white">Editar Dados da Licença</h3>
+                  <p className="text-[11px] text-gray-400">Altere o nome, telefone, observações ou validade do cliente</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingLicense(null)}
+                className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveEdit} className="space-y-3.5">
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block" style={{ color: '#6ee7b7' }}>
+                  Nome do Cliente
+                </label>
+                <input
+                  type="text"
+                  value={editClientForm.clientName}
+                  onChange={(e) => setEditClientForm({...editClientForm, clientName: e.target.value})}
+                  className="w-full bg-[#081810] text-white placeholder-gray-400 border border-[#2D5A44] rounded-xl px-3 py-2 text-xs focus:border-emerald-400 outline-none"
+                  style={{ color: '#ffffff', backgroundColor: '#081810' }}
+                  required
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block" style={{ color: '#6ee7b7' }}>
+                  Telefone / WhatsApp
+                </label>
+                <input
+                  type="text"
+                  value={editClientForm.clientContact}
+                  onChange={(e) => setEditClientForm({...editClientForm, clientContact: e.target.value})}
+                  className="w-full bg-[#081810] text-white placeholder-gray-400 border border-[#2D5A44] rounded-xl px-3 py-2 text-xs focus:border-emerald-400 outline-none"
+                  style={{ color: '#ffffff', backgroundColor: '#081810' }}
+                  placeholder="Ex: (11) 99999-9999"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block" style={{ color: '#6ee7b7' }}>
+                  E-mail do Cliente
+                </label>
+                <input
+                  type="email"
+                  value={editClientForm.clientEmail}
+                  onChange={(e) => setEditClientForm({...editClientForm, clientEmail: e.target.value})}
+                  className="w-full bg-[#081810] text-white placeholder-gray-400 border border-[#2D5A44] rounded-xl px-3 py-2 text-xs focus:border-emerald-400 outline-none"
+                  style={{ color: '#ffffff', backgroundColor: '#081810' }}
+                  placeholder="Ex: cliente@email.com"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block" style={{ color: '#6ee7b7' }}>
+                  Observações / Descrição
+                </label>
+                <input
+                  type="text"
+                  value={editClientForm.notes}
+                  onChange={(e) => setEditClientForm({...editClientForm, notes: e.target.value})}
+                  className="w-full bg-[#081810] text-white placeholder-gray-400 border border-[#2D5A44] rounded-xl px-3 py-2 text-xs focus:border-emerald-400 outline-none"
+                  style={{ color: '#ffffff', backgroundColor: '#081810' }}
+                  placeholder="Notas internas..."
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block" style={{ color: '#6ee7b7' }}>
+                  Data Final de Validade (Data/Hora)
+                </label>
+                <input
+                  type="datetime-local"
+                  value={editClientForm.validUntil}
+                  onChange={(e) => setEditClientForm({...editClientForm, validUntil: e.target.value})}
+                  className="w-full bg-[#081810] text-white border border-emerald-500/40 rounded-xl px-3 py-2 text-xs focus:border-emerald-400 outline-none"
+                  style={{ color: '#ffffff', backgroundColor: '#081810', colorScheme: 'dark' }}
+                  required
+                />
+              </div>
+
+              {editError && (
+                <div className="p-2.5 bg-red-500/20 border border-red-500/40 rounded-xl text-xs text-red-300">
+                  {editError}
+                </div>
+              )}
+
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1F4733]">
+                <button
+                  type="button"
+                  onClick={() => setEditingLicense(null)}
+                  className="px-4 py-2 text-xs text-gray-400 hover:text-white rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSavingEdit}
+                  className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg flex items-center gap-2 disabled:opacity-50 cursor-pointer active:scale-95"
+                >
+                  <Pencil className={`w-3.5 h-3.5 ${isSavingEdit ? 'animate-spin' : ''}`} />
+                  <span>{isSavingEdit ? 'Salvando...' : 'SALVAR ALTERAÇÕES'}</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

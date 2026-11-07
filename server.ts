@@ -750,7 +750,7 @@ async function startServer() {
   // GERAÇÃO DE LICENÇA
   app.post("/api/license/generate", async (req, res) => {
     try {
-      const { pcId, validUntil, clientName, clientContact, notes, ownerId } = req.body;
+      const { pcId, validUntil, clientName, clientContact, clientEmail, notes, ownerId } = req.body;
       if (!pcId || typeof pcId !== "string" || !pcId.trim()) {
         return res.status(400).json({ error: "O ID do Computador (UUID) é obrigatório." });
       }
@@ -768,6 +768,7 @@ async function startServer() {
         id: existingRecord ? existingRecord.id : crypto.randomUUID(),
         clientName: clientName || (existingRecord ? existingRecord.clientName : "Cliente Sem Nome"),
         clientContact: clientContact || (existingRecord ? existingRecord.clientContact : ""),
+        clientEmail: clientEmail !== undefined ? String(clientEmail).trim() : (existingRecord ? existingRecord.clientEmail : ""),
         notes: notes || (existingRecord ? existingRecord.notes : ""),
         pcId: idLimpo,
         validUntil: validade,
@@ -798,7 +799,7 @@ async function startServer() {
   app.put("/api/license/:id", async (req, res) => {
     try {
       const { id } = req.params;
-      const { clientName, clientContact, notes, validUntil, status } = req.body;
+      const { clientName, clientContact, clientEmail, notes, validUntil, status } = req.body;
 
       const current = await getLicenseById(id);
       if (!current) {
@@ -816,6 +817,7 @@ async function startServer() {
         ...current,
         clientName: clientName !== undefined ? String(clientName).trim() : current.clientName,
         clientContact: clientContact !== undefined ? String(clientContact).trim() : current.clientContact,
+        clientEmail: clientEmail !== undefined ? String(clientEmail).trim() : current.clientEmail,
         notes: notes !== undefined ? String(notes).trim() : current.notes,
         validUntil: newValidUntil,
         licenseKey: newLicenseKey,
