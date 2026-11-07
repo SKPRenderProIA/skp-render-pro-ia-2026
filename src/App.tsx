@@ -166,6 +166,31 @@ export default function App() {
     return () => clearInterval(intervalVersion);
   }, []);
 
+  // Sincronização e atualização automática do saldo de créditos em segundo plano a cada 20 segundos
+  useEffect(() => {
+    if (!emergentUser || !emergentPassword) return;
+
+    const pollCredits = async () => {
+      try {
+        const res = await fetch('/api/emergent/me', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emergentUser.email, password: emergentPassword }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.user) {
+            setEmergentUser(data.user);
+            try { localStorage.setItem('skp_emergent_user', JSON.stringify(data.user)); } catch (_) {}
+          }
+        }
+      } catch (_) {}
+    };
+
+    const intervalCredits = setInterval(pollCredits, 20000);
+    return () => clearInterval(intervalCredits);
+  }, [emergentUser?.email, emergentPassword]);
+
   // Listener para quando o plugin for salvo com sucesso no SketchUp
   useEffect(() => {
     const handlePluginSaved = () => {
@@ -3005,28 +3030,28 @@ export default function App() {
           </div>
         </div>
 
-        {/* Lado Direito: Social / Admin / Spacer */}
-        <div className="relative z-50 flex items-center h-full gap-3 justify-end pr-3">
+        {/* Lado Direito: Social / Conta fixos na extrema direita */}
+        <div className="absolute right-2 top-0 bottom-0 z-50 flex items-center gap-2">
           {/* Botão de Administração - Visível ESTRITAMENTE fora do SketchUp (no navegador web) */}
           {!isInsideSketchup && (
             <button
               id="header-btn-admin"
               type="button"
               onClick={handleOpenAdminPanel}
-              className="flex items-center gap-1.5 px-2 py-1 text-[9px] sm:text-[10px] font-semibold text-stone-700 hover:text-emerald-700 bg-white hover:bg-emerald-50 active:scale-95 border border-stone-300 hover:border-emerald-300 rounded shadow-xs transition-all cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-1 px-1.5 py-1 text-[9px] font-semibold text-stone-700 hover:text-emerald-700 bg-white hover:bg-emerald-50 active:scale-95 border border-stone-300 hover:border-emerald-300 rounded shadow-xs transition-all cursor-pointer whitespace-nowrap"
               title="Painel de Administração de Licenças"
             >
-              <Key className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-stone-600 shrink-0" />
+              <Key className="w-3 h-3 text-stone-600 shrink-0" />
               <span className="tracking-wide">Admin</span>
             </button>
           )}
 
-          {/* Botão de Conta / Créditos do Cliente */}
+          {/* Botão de Conta / Créditos do Cliente com Nome e Atualização Automática */}
           <button
             id="header-btn-account"
             type="button"
             onClick={() => setShowEmergentAccountModal(true)}
-            className={`flex items-center gap-1.5 px-2 py-1 text-[9px] sm:text-[10px] font-semibold active:scale-95 border rounded shadow-xs transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-1 px-1.5 py-1 text-[9px] font-semibold active:scale-95 border rounded shadow-xs transition-all cursor-pointer whitespace-nowrap ${
               emergentUser 
                 ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300' 
                 : 'bg-white hover:bg-stone-50 text-stone-700 border-stone-300'
@@ -3035,26 +3060,29 @@ export default function App() {
           >
             {emergentUser ? (
               <>
-                <Coins className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500 shrink-0" />
+                <User className="w-3 h-3 text-emerald-700 shrink-0" />
+                <span className="font-bold text-emerald-950 truncate max-w-[70px]">{emergentUser.name || emergentUser.email.split('@')[0]}</span>
+                <span className="text-emerald-700/60">|</span>
+                <Coins className="w-3 h-3 text-amber-500 shrink-0" />
                 <span className="font-bold text-emerald-700">{emergentUser.credits_left}</span>
                 <span className="hidden sm:inline text-emerald-600">créditos</span>
               </>
             ) : (
               <>
-                <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-stone-500 shrink-0" />
+                <User className="w-3 h-3 text-stone-500 shrink-0" />
                 <span>Entrar</span>
               </>
             )}
           </button>
 
-          {/* Redes Sociais no Header - Agora na extremidade direita conforme marcado na foto */}
-          <div className="flex items-center gap-2.5">
+          {/* Redes Sociais no Header - Na extremidade direita */}
+          <div className="flex items-center gap-1.5">
             <InstagramIcon 
-              className="w-5.5 h-5.5 text-stone-600 hover:text-[#E4405F] transition-all cursor-pointer active:scale-90 hover:scale-110" 
+              className="w-5 h-5 text-stone-600 hover:text-[#E4405F] transition-all cursor-pointer active:scale-90 hover:scale-110" 
               onClick={() => handleSocialLink('insta')} 
             />
             <WhatsAppIcon 
-              className="w-5.5 h-5.5 text-stone-600 hover:text-[#25D366] transition-all cursor-pointer active:scale-90 hover:scale-110" 
+              className="w-5 h-5 text-stone-600 hover:text-[#25D366] transition-all cursor-pointer active:scale-90 hover:scale-110" 
               onClick={() => handleSocialLink('zap')} 
             />
           </div>

@@ -3,12 +3,16 @@
  * MANDATORY FULL-FRAME PRESERVATION
  */
 
-export const MANDATORY_FULL_FRAME_PRESERVATION_TEMPLATE = `MANDATORY FULL-FRAME PRESERVATION:
+export const MANDATORY_FULL_FRAME_PRESERVATION_TEMPLATE = `STRICT FLAT RECTILINEAR PROJECTION LOCK (HIGHEST PRIORITY): Absolutely NO 360-degree panorama, NO spherical wrap, NO fish-eye effect, NO wall curving, NO equirectangular projection, NO 2:1 ratio panorama. Standard architectural perspective photography with straight vertical lines and normal flat rectilinear lens projection. This is a standard 2D perspective photo render of a single interior/exterior view, NOT a 360 panorama.
+
+MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges.
 Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
 
 STRICT GEOMETRIC & CHROMATIC FIDELITY (CONTROLNET LOCK): Preserve 100% of the room geometry, camera angle, perspective, walls, openings, window frames, cabinet shapes, and exact furniture layout without moving, adding, or deleting any elements. Keep the exact original project colors and material placements from the 3D model. Zero recoloring, zero material substitution. Only transform flat 3D surfaces into real physically-based PBR materials, add soft realistic ambient occlusion, natural indirect bounce lighting, subtle realistic contact shadows, authentic glass reflections, and professional architectural photography optics.
 Do not add, remove or move any object.
+
+HYPER-REAL MATERIAL & BOTANICAL PHYSICS: Apply extreme PBR surface physics with micro-displacement maps, tactile roughness, and chamfered edge wear with specular highlights. When vegetation is present, render individual leaves with natural color variation (lime to deep forest green), physical Subsurface Scattering (SSS) translucency showing internal leaf veins against light, organic dust accumulation, and subtle natural leaf edge imperfections. Fabrics with physical tension wrinkles and stitching. Metals with anisotropic brush marks and water spot traces.
 
 Apply materials and atmosphere as described: [PROMPT DO CLIENTE].
 [materiais gerados pelo plugin]

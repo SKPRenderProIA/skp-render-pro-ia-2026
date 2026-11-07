@@ -340,6 +340,26 @@ async function generateEmergentRenderImage(
       return null;
     }
 
+    // REGRA ESTRITA: Verificar se o usuário possui créditos disponíveis
+    try {
+      const meRes = await fetch(`${EMERGENT_BASE_URL}/api/auth/me`, {
+        headers: {
+          Cookie: `access_token=${token}`,
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (meRes.ok) {
+        const userData = await meRes.json();
+        const creditsLeft = userData.credits_left ?? userData.credits_total ?? 0;
+        if (creditsLeft <= 0) {
+          console.warn(`[EMERGENT RENDER] Usuário ${customEmail} está sem créditos (${creditsLeft}). Geração de imagem bloqueada — fornecendo exclusivamente os Prompts.`);
+          return null;
+        }
+      }
+    } catch (credErr) {
+      console.warn("[EMERGENT RENDER] Aviso ao verificar créditos, prosseguindo com renderização:", credErr);
+    }
+
     const formattedImage = dataUrlOrBase64.startsWith("data:") 
       ? dataUrlOrBase64 
       : `data:image/jpeg;base64,${dataUrlOrBase64}`;
@@ -1834,7 +1854,7 @@ ESTRUTURA OBRIGATÓRIA DE SAÍDA (retorne APENAS estas duas seções, sem introd
 \`\`\`text
 ${userInitialLead}
 
-STRICT FLAT RECTILINEAR PROJECTION LOCK: Proibido absolutamente qualquer efeito 360 graus, projeção esférica, distorção olho de peixe ou panorama equirretangular. Fotografia arquitetônica padrão em perspectiva retilínea plana, com linhas verticais perfeitamente retas e paralelas.
+STRICT FLAT RECTILINEAR PROJECTION LOCK (HIGHEST PRIORITY): Proibido absolutamente qualquer efeito 360 graus, projeção esférica, distorção olho de peixe, curvatura de paredes ou panorama equirretangular. Fotografia arquitetônica padrão em perspectiva retilínea plana, com linhas verticais perfeitamente retas e paralelas.
 
 MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges. Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
@@ -1853,7 +1873,7 @@ Shot on Hasselblad H6D-100c.
 \`\`\`text
 ${userInitialLead}
 
-STRICT FLAT RECTILINEAR PROJECTION LOCK: Absolutely NO 360-degree panorama, NO spherical wrap, NO fish-eye effect, NO equirectangular projection. Standard architectural perspective photography with straight vertical lines and normal lens projection.
+STRICT FLAT RECTILINEAR PROJECTION LOCK (HIGHEST PRIORITY): Absolutely NO 360-degree panorama, NO spherical wrap, NO fish-eye effect, NO wall curving, NO equirectangular projection. Standard architectural perspective photography with straight vertical lines and normal flat rectilinear lens projection.
 
 MANDATORY FULL-FRAME PRESERVATION:
 Render the ENTIRE source image edge-to-edge maintaining the exact camera framing and orientation. Never crop, zoom, reframe, widen the camera, convert portrait to landscape, stretch, or omit content at any of the four edges. Keep the exact original field of view, camera position and scene boundaries, including floor and ceiling. Only requested materials and lighting may change.
