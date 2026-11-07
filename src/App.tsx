@@ -4000,23 +4000,48 @@ export default function App() {
       {/* Lightbox fullscreen preview modal */}
       {previewImage && (
         <div 
-          className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 backdrop-blur-xs select-none animate-fade-in"
+          className="fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center p-4 backdrop-blur-sm select-none animate-fade-in"
           onClick={() => setPreviewImage(null)}
         >
-          <div className="relative max-w-full max-h-full flex flex-col items-center">
-            <img 
-              src={previewImage} 
-              alt="Visualização ampliada" 
-              className="max-h-[85vh] max-w-[95vw] object-contain rounded shadow-2xl border border-white/20"
-              onClick={(e) => e.stopPropagation()}
-            />
+          <div className="absolute top-4 right-4 z-50 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                downloadImageWithExactResolution(previewImage, -1, -1, 'SKP_Render_Pro_Ampliada');
+              }}
+              className="px-3 py-1.5 bg-[#25543f] hover:bg-[#1a3d2e] text-white rounded-md text-xs font-bold flex items-center gap-1.5 shadow-lg transition cursor-pointer border border-[#4ade80]/40"
+              title="Baixar imagem em alta resolução"
+            >
+              <Download className="w-3.5 h-3.5 text-[#4ade80]" />
+              <span>Baixar Imagem</span>
+            </button>
             <button
               type="button"
               onClick={() => setPreviewImage(null)}
-              className="mt-3 px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-full text-xs font-bold transition cursor-pointer tracking-wider uppercase"
+              className="p-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition cursor-pointer"
+              title="Fechar"
             >
-              FECHAR VISUALIZAÇÃO
+              <X className="w-5 h-5" />
             </button>
+          </div>
+
+          <div className="relative max-w-full max-h-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={previewImage} 
+              alt="Visualização ampliada" 
+              className="max-h-[82vh] max-w-[95vw] object-contain rounded-lg shadow-2xl border border-white/20"
+            />
+            <div className="mt-3 flex items-center gap-3">
+              <span className="text-stone-300 text-xs font-medium">Clique fora ou no botão fechar para voltar ao chat</span>
+              <button
+                type="button"
+                onClick={() => setPreviewImage(null)}
+                className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full text-xs font-bold transition cursor-pointer tracking-wider uppercase"
+              >
+                FECHAR VISUALIZAÇÃO
+              </button>
+            </div>
           </div>
         </div>
       )}
