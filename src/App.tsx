@@ -2984,15 +2984,15 @@ export default function App() {
         {/* Lado Esquerdo: Área livre */}
         <div className="w-[40px] h-full" />
 
-        {/* Logo Area - Globalmente Centralizada (Abaixo dos botões laterais no Z-index) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-20 sm:px-24">
-          <div className="relative group flex items-center justify-center">
+        {/* Logo Area - Fixada no Lado Esquerdo da Interface */}
+        <div className="absolute left-2 top-0 bottom-0 z-30 flex items-center justify-start pointer-events-none">
+          <div className="relative group flex items-center justify-start">
             <img 
-              src={customHeaderLogo || "/skp_header_banner.png"} 
+              src={customHeaderLogo || "/skp_header_banner.jpg"} 
               alt="SKP RENDER PRO" 
               style={{ 
                 height: `${Math.max(16, headerHeight - 8)}px`,
-                maxWidth: '100%',
+                maxWidth: '220px',
                 objectFit: 'contain'
               }}
               className="transition-all duration-150 select-none pointer-events-auto cursor-pointer"
