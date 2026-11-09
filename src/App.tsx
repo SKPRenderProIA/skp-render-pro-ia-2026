@@ -548,8 +548,14 @@ export default function App() {
     showToast('✓ Prompt copiado para a área de transferência!');
   };
 
-  // Abre a imagem gerada em uma nova interface individual (janela separada) em alta resolução
+  // Abre a imagem gerada em alta resolução (lightbox no SketchUp ou nova janela na Web)
   const openImageInNewWindow = (imgUrl: string) => {
+    // Se estiver rodando dentro do plugin do SketchUp, usa diretamente o lightbox modal interno (evita o erro do about:blank do Windows)
+    if (isInsideSketchup) {
+      setPreviewImage(imgUrl);
+      return;
+    }
+
     try {
       const win = window.open('', '_blank', 'width=1200,height=800,resizable=yes,scrollbars=yes');
       if (win) {
