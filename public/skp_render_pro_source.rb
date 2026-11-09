@@ -553,58 +553,6 @@ module SKPRenderPro
       end
     end
 
-    def open_image_viewer_dialog(img_data_url = nil)
-      return unless validar_ou_solicitar_licenca
-
-      if img_data_url && img_data_url.to_s.start_with?("data:image")
-        @last_image_viewer_data = img_data_url.to_s
-      end
-
-      if @image_viewer_dialog && @image_viewer_dialog.visible?
-        @image_viewer_dialog.bring_to_front
-        if @last_image_viewer_data
-          js = "if (window.carregarImagemExternaViewer) { window.carregarImagemExternaViewer(#{@last_image_viewer_data.to_json}); }"
-          @image_viewer_dialog.execute_script(js) rescue nil
-        end
-        return
-      end
-
-      img_options = {
-        dialog_title: 'SKP RENDER PRO IA — VISUALIZADOR DE IMAGEM EM ALTA RESOLUÇÃO',
-        preferences_key: 'com.skprenderpro.image_viewer_dialog',
-        scrollable: false,
-        resizable: true,
-        width: 1100,
-        height: 750,
-        min_width: 500,
-        min_height: 400,
-        style: UI::HtmlDialog::STYLE_DIALOG
-      }
-
-      meu_id = obter_id_pc
-      url = "#{app_url}/?popout=imageviewer&skp_pcid=#{URI.encode_www_form_component(meu_id)}&inside_skp=1&skp=1&t=#{Time.now.to_i}"
-
-      @image_viewer_dialog = UI::HtmlDialog.new(img_options)
-      @image_viewer_dialog.set_url(url)
-      setup_dialog_callbacks(@image_viewer_dialog)
-
-      @image_viewer_dialog.set_on_closed do
-        @image_viewer_dialog = nil
-      end
-
-      @image_viewer_dialog.center
-      @image_viewer_dialog.show
-
-      if @last_image_viewer_data
-        UI.start_timer(1.2, false) do
-          if @image_viewer_dialog && @image_viewer_dialog.visible? && @last_image_viewer_data
-            js = "if (window.carregarImagemExternaViewer) { window.carregarImagemExternaViewer(#{@last_image_viewer_data.to_json}); }"
-            @image_viewer_dialog.execute_script(js) rescue nil
-          end
-        end
-      end
-    end
-
     # ==============================================================================
     # GERADOR DE ESPELHO REALISTA (Código Original Funcional e Fiel)
     # ==============================================================================
@@ -2024,18 +1972,6 @@ module SKPRenderPro
       dlg.add_action_callback("solicitar_imagem_360_inicial") do |_context|
         if @last_panorama_data
           js = "if (window.carregarPanorama360Externo) { window.carregarPanorama360Externo(#{@last_panorama_data.to_json}); }"
-          dlg.execute_script(js) rescue nil
-        end
-      end
-
-      # Callbacks para Janela Separada de Visualizador de Imagem no SketchUp
-      dlg.add_action_callback("abrir_dialogo_imagem") do |_context, data_url|
-        open_image_viewer_dialog(data_url.to_s)
-      end
-
-      dlg.add_action_callback("solicitar_imagem_viewer_inicial") do |_context|
-        if @last_image_viewer_data
-          js = "if (window.carregarImagemExternaViewer) { window.carregarImagemExternaViewer(#{@last_image_viewer_data.to_json}); }"
           dlg.execute_script(js) rescue nil
         end
       end

@@ -11,7 +11,6 @@ import { MaterialsEditorModal } from './components/MaterialsEditorModal';
 import { Panorama360Modal } from './components/Panorama360Modal';
 import { Panorama360PopoutView } from './components/Panorama360PopoutView';
 import { BatchScenesModal } from './components/BatchScenesModal';
-import { ImageViewerPopoutView } from './components/ImageViewerPopoutView';
 import { SKP_PLUGIN_STABLE_CODE } from './data/skpPluginSource';
 import { EmergentAccountModal, EmergentUser } from './components/EmergentAccountModal';
 import { Copy, Check, Sparkles, ExternalLink, Camera, Pencil, RotateCw, Key, KeyRound, Lock, X, ShieldAlert, AlertTriangle, RefreshCw, Download, Palette, ChevronUp, ChevronDown, Maximize2, Compass, Image as ImageIcon, User, Coins } from 'lucide-react';
@@ -64,11 +63,6 @@ export default function App() {
     window.location.href.includes('popout=materials')
   );
   const isPopoutPanorama360Mode = typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('popout') === 'panorama360' || new URLSearchParams(window.location.search).get('popout') === '360');
-  const isPopoutImageViewerMode = typeof window !== 'undefined' && (
-    new URLSearchParams(window.location.search).get('popout') === 'imageviewer' ||
-    window.location.search.includes('popout=imageviewer') ||
-    window.location.search.includes('popout=image')
-  );
 
   // Detecta se está sendo executado no plugin do SketchUp e o ID da máquina
   const skpPcId = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('skp_pcid') : null;
@@ -546,106 +540,6 @@ export default function App() {
       setTimeout(() => setCopiedId(null), 2500);
     }
     showToast('✓ Prompt copiado para a área de transferência!');
-  };
-
-  // Abre a imagem gerada em alta resolução (lightbox no SketchUp ou nova janela na Web)
-  const openImageInNewWindow = (imgUrl: string) => {
-    // Se estiver rodando dentro do plugin do SketchUp, usa diretamente o lightbox modal interno (evita o erro do about:blank do Windows)
-    if (isInsideSketchup) {
-      setPreviewImage(imgUrl);
-      return;
-    }
-
-    try {
-      const win = window.open('', '_blank', 'width=1200,height=800,resizable=yes,scrollbars=yes');
-      if (win) {
-        win.document.write(`
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>SKP Render Pro IA - Visualizador de Imagem em Alta Resolução</title>
-            <style>
-              body {
-                margin: 0;
-                background: #0b1410;
-                color: #fff;
-                font-family: system-ui, -apple-system, sans-serif;
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                overflow: hidden;
-              }
-              .header {
-                padding: 14px 24px;
-                background: #14281e;
-                border-bottom: 1px solid #244834;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-              }
-              .title {
-                font-size: 15px;
-                font-weight: 800;
-                color: #4ade80;
-                letter-spacing: 0.5px;
-              }
-              .actions {
-                display: flex;
-                gap: 10px;
-              }
-              .btn {
-                background: #25543f;
-                color: white;
-                border: 1px solid #4ade80;
-                padding: 8px 16px;
-                font-size: 12px;
-                font-weight: bold;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: background 0.2s;
-              }
-              .btn:hover {
-                background: #1a3d2e;
-              }
-              .content {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 24px;
-                overflow: auto;
-              }
-              img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-                border-radius: 8px;
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-              }
-            </style>
-          </head>
-          <body>
-            <div class="header">
-              <span class="title">SKP RENDER PRO IA — VISUALIZAÇÃO EM TELA CHEIA (ALTA RESOLUÇÃO)</span>
-              <div class="actions">
-                <button class="btn" onclick="const a = document.createElement('a'); a.href='${imgUrl}'; a.download='SKP_Render_Pro_Alta_Resolucao.jpg'; a.click();">Baixar Imagem</button>
-                <button class="btn" onclick="window.close()" style="background:#374155;border-color:#6b7280;">Fechar Janela</button>
-              </div>
-            </div>
-            <div class="content">
-              <img src="${imgUrl}" alt="Render em alta resolução" />
-            </div>
-          </body>
-          </html>
-        `);
-        win.document.close();
-      } else {
-        setPreviewImage(imgUrl);
-      }
-    } catch (err) {
-      setPreviewImage(imgUrl);
-    }
   };
 
   const handleCopySectionContent = async (fullText: string, sectionKey: 'pt' | 'en', idRef: string) => {
@@ -3025,15 +2919,6 @@ export default function App() {
     );
   }
 
-  // Se a página foi aberta como Pop-out do Visualizador de Imagem (Janela Separada do SketchUp)
-  if (isPopoutImageViewerMode) {
-    return (
-      <ImageViewerPopoutView
-        showToast={showToast}
-      />
-    );
-  }
-
   // Se a página foi aberta como Pop-out fora do plugin
   if (isPopoutMaterialsMode) {
     const activeImage = attachedImage || (messages.length ? messages.slice().reverse().find((m) => Boolean(m.image))?.image : null);
@@ -3544,8 +3429,8 @@ export default function App() {
                   src={msg.image} 
                   alt={msg.sender === 'ia' ? "Fotografia Ultra Realista IA" : "Render / Print SketchUp"} 
                   className="msg-media cursor-pointer hover:opacity-95 transition"
-                  onClick={() => openImageInNewWindow(msg.image!)}
-                  title="Clique para abrir a imagem em uma nova janela em alta resolução"
+                  onClick={() => setPreviewImage(msg.image || null)}
+                  title="Clique para ampliar a imagem"
                 />
 
                 {/* Linha 1 de Botões: SALVAR à esquerda, PEDIR ALTERAÇÃO (se for IA) ou COPIAR PRINT (se for User) à direita */}
