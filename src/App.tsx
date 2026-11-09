@@ -3429,8 +3429,23 @@ export default function App() {
                   src={msg.image} 
                   alt={msg.sender === 'ia' ? "Fotografia Ultra Realista IA" : "Render / Print SketchUp"} 
                   className="msg-media cursor-pointer hover:opacity-95 transition"
-                  onClick={() => setPreviewImage(msg.image || null)}
-                  title="Clique para ampliar a imagem"
+                  onClick={() => {
+                    if ((window as any).sketchup?.abrir_imagem_externa) {
+                      try {
+                        (window as any).sketchup.abrir_imagem_externa(msg.image);
+                        return;
+                      } catch (_) {}
+                    }
+                    try {
+                      const win = window.open();
+                      if (win) {
+                        win.document.write(`<html><body style="margin:0;background:#0b1310;display:flex;align-items:center;justify-content:center;height:100vh;"><img src="${msg.image}" style="max-width:98vw;max-height:95vh;object-fit:contain;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.8);" /></body></html>`);
+                        return;
+                      }
+                    } catch (_) {}
+                    setPreviewImage(msg.image || null);
+                  }}
+                  title="Clique para abrir a imagem em tamanho grande em uma nova tela / janela externa"
                 />
 
                 {/* Linha 1 de Botões: SALVAR à esquerda, PEDIR ALTERAÇÃO (se for IA) ou COPIAR PRINT (se for User) à direita */}

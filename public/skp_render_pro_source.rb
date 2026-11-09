@@ -1863,6 +1863,44 @@ module SKPRenderPro
         UI.openURL(url.to_s)
       end
 
+      # Callback para abrir imagem em tamanho grande em uma tela/janela externa nova no navegador padrão
+      dlg.add_action_callback("abrir_imagem_externa") do |_context, data_url|
+        begin
+          if data_url.to_s.start_with?("data:image")
+            tmp_file = File.join(Dir.tmpdir, "skp_render_pro_view_#{Time.now.to_i}.html")
+            html_content = <<~HTML
+              <!DOCTYPE html>
+              <html>
+              <head>
+                <meta charset="utf-8">
+                <title>SKP Render Pro IA — Visualização de Imagem em Tela Grande</title>
+                <style>
+                  body { margin: 0; background: #0b1310; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; }
+                  img { max-width: 98vw; max-height: 88vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid #2a5540; }
+                  .bar { margin-top: 15px; color: #a3c9b6; font-size: 14px; font-weight: bold; display: flex; gap: 20px; align-items: center; }
+                  .btn { background: #25543f; color: white; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; border: 1px solid #4ade80; cursor: pointer; }
+                  .btn:hover { background: #1a3d2e; }
+                </style>
+              </head>
+              <body>
+                <img src="#{data_url}" alt="Render SKP Render Pro" />
+                <div class="bar">
+                  <span>SKP Render Pro IA — Visualização em Alta Resolução</span>
+                  <a class="btn" href="#{data_url}" download="skp_render_pro_render.jpg">Baixar Imagem em Alta Resolução</a>
+                </div>
+              </body>
+              </html>
+            HTML
+            File.open(tmp_file, "w:UTF-8") { |f| f.write(html_content) }
+            UI.openURL(tmp_file)
+          else
+            UI.openURL(data_url.to_s)
+          end
+        rescue => e
+          UI.messagebox("Erro ao abrir imagem externa: #{e.message}")
+        end
+      end
+
       # Callback para salvar o arquivo .rb abrindo DIRETAMENTE na pasta de plugins do SketchUp do usuário:
       dlg.add_action_callback("salvar_plugin_direto") do |_context, code_content|
         salvar_plugin_na_pasta_plugins(code_content.to_s)
