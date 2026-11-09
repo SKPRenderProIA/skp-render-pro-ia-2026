@@ -542,6 +542,100 @@ export default function App() {
     showToast('✓ Prompt copiado para a área de transferência!');
   };
 
+  // Abre a imagem gerada em uma nova interface individual (janela separada) em alta resolução
+  const openImageInNewWindow = (imgUrl: string) => {
+    try {
+      const win = window.open('', '_blank', 'width=1200,height=800,resizable=yes,scrollbars=yes');
+      if (win) {
+        win.document.write(`
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>SKP Render Pro IA - Visualizador de Imagem em Alta Resolução</title>
+            <style>
+              body {
+                margin: 0;
+                background: #0b1410;
+                color: #fff;
+                font-family: system-ui, -apple-system, sans-serif;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                overflow: hidden;
+              }
+              .header {
+                padding: 14px 24px;
+                background: #14281e;
+                border-bottom: 1px solid #244834;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              .title {
+                font-size: 15px;
+                font-weight: 800;
+                color: #4ade80;
+                letter-spacing: 0.5px;
+              }
+              .actions {
+                display: flex;
+                gap: 10px;
+              }
+              .btn {
+                background: #25543f;
+                color: white;
+                border: 1px solid #4ade80;
+                padding: 8px 16px;
+                font-size: 12px;
+                font-weight: bold;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background 0.2s;
+              }
+              .btn:hover {
+                background: #1a3d2e;
+              }
+              .content {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+                overflow: auto;
+              }
+              img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+              }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <span class="title">SKP RENDER PRO IA — VISUALIZAÇÃO EM TELA CHEIA (ALTA RESOLUÇÃO)</span>
+              <div class="actions">
+                <button class="btn" onclick="const a = document.createElement('a'); a.href='${imgUrl}'; a.download='SKP_Render_Pro_Alta_Resolucao.jpg'; a.click();">Baixar Imagem</button>
+                <button class="btn" onclick="window.close()" style="background:#374155;border-color:#6b7280;">Fechar Janela</button>
+              </div>
+            </div>
+            <div class="content">
+              <img src="${imgUrl}" alt="Render em alta resolução" />
+            </div>
+          </body>
+          </html>
+        `);
+        win.document.close();
+      } else {
+        setPreviewImage(imgUrl);
+      }
+    } catch (err) {
+      setPreviewImage(imgUrl);
+    }
+  };
+
   const handleCopySectionContent = async (fullText: string, sectionKey: 'pt' | 'en', idRef: string) => {
     if (!fullText) return;
     let textToCopy = '';
@@ -3429,8 +3523,8 @@ export default function App() {
                   src={msg.image} 
                   alt={msg.sender === 'ia' ? "Fotografia Ultra Realista IA" : "Render / Print SketchUp"} 
                   className="msg-media cursor-pointer hover:opacity-95 transition"
-                  onClick={() => setPreviewImage(msg.image || null)}
-                  title="Clique para ampliar a imagem"
+                  onClick={() => openImageInNewWindow(msg.image!)}
+                  title="Clique para abrir a imagem em uma nova janela em alta resolução"
                 />
 
                 {/* Linha 1 de Botões: SALVAR à esquerda, PEDIR ALTERAÇÃO (se for IA) ou COPIAR PRINT (se for User) à direita */}
