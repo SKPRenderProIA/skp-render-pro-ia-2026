@@ -1866,9 +1866,10 @@ module SKPRenderPro
       # Callback para abrir imagem em tamanho grande em uma tela/janela externa nova no navegador padrão
       dlg.add_action_callback("abrir_imagem_externa") do |_context, data_url|
         begin
-          if data_url.to_s.start_with?("data:image")
+          url_str = data_url.to_s.force_encoding('UTF-8')
+          if url_str.start_with?("data:image")
             tmp_file = File.join(Dir.tmpdir, "skp_render_pro_view_#{Time.now.to_i}.html")
-            html_content = <<~HTML
+            html_content = <<~HTML.force_encoding('UTF-8')
               <!DOCTYPE html>
               <html>
               <head>
@@ -1883,10 +1884,10 @@ module SKPRenderPro
                 </style>
               </head>
               <body>
-                <img src="#{data_url}" alt="Render SKP Render Pro" />
+                <img src="#{url_str}" alt="Render SKP Render Pro" />
                 <div class="bar">
                   <span>SKP Render Pro IA — Visualização em Alta Resolução</span>
-                  <a class="btn" href="#{data_url}" download="skp_render_pro_render.jpg">Baixar Imagem em Alta Resolução</a>
+                  <a class="btn" href="#{url_str}" download="skp_render_pro_render.jpg">Baixar Imagem em Alta Resolução</a>
                 </div>
               </body>
               </html>
@@ -1894,7 +1895,7 @@ module SKPRenderPro
             File.open(tmp_file, "w:UTF-8") { |f| f.write(html_content) }
             UI.openURL(tmp_file)
           else
-            UI.openURL(data_url.to_s)
+            UI.openURL(url_str)
           end
         rescue => e
           UI.messagebox("Erro ao abrir imagem externa: #{e.message}")
