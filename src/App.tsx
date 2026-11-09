@@ -11,6 +11,7 @@ import { MaterialsEditorModal } from './components/MaterialsEditorModal';
 import { Panorama360Modal } from './components/Panorama360Modal';
 import { Panorama360PopoutView } from './components/Panorama360PopoutView';
 import { BatchScenesModal } from './components/BatchScenesModal';
+import { ImageViewerPopoutView } from './components/ImageViewerPopoutView';
 import { SKP_PLUGIN_STABLE_CODE } from './data/skpPluginSource';
 import { EmergentAccountModal, EmergentUser } from './components/EmergentAccountModal';
 import { Copy, Check, Sparkles, ExternalLink, Camera, Pencil, RotateCw, Key, KeyRound, Lock, X, ShieldAlert, AlertTriangle, RefreshCw, Download, Palette, ChevronUp, ChevronDown, Maximize2, Compass, Image as ImageIcon, User, Coins } from 'lucide-react';
@@ -63,6 +64,11 @@ export default function App() {
     window.location.href.includes('popout=materials')
   );
   const isPopoutPanorama360Mode = typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('popout') === 'panorama360' || new URLSearchParams(window.location.search).get('popout') === '360');
+  const isPopoutImageViewerMode = typeof window !== 'undefined' && (
+    new URLSearchParams(window.location.search).get('popout') === 'imageviewer' ||
+    window.location.search.includes('popout=imageviewer') ||
+    window.location.search.includes('popout=image')
+  );
 
   // Detecta se está sendo executado no plugin do SketchUp e o ID da máquina
   const skpPcId = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('skp_pcid') : null;
@@ -3008,6 +3014,15 @@ export default function App() {
         onUsePanorama={(imgUrl, res) => {
           handleUsePanorama360(imgUrl, res);
         }}
+        showToast={showToast}
+      />
+    );
+  }
+
+  // Se a página foi aberta como Pop-out do Visualizador de Imagem (Janela Separada do SketchUp)
+  if (isPopoutImageViewerMode) {
+    return (
+      <ImageViewerPopoutView
         showToast={showToast}
       />
     );
