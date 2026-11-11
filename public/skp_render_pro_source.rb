@@ -1863,42 +1863,63 @@ module SKPRenderPro
         UI.openURL(url.to_s)
       end
 
-      # Callback para abrir imagem em tamanho grande em uma tela/janela externa nova no navegador padrão
+      @image_preview_dialog = nil unless defined?(@image_preview_dialog)
+
+      # Callback para abrir imagem em tamanho grande em uma janela flutuante dedicada DENTRO do SketchUp
       dlg.add_action_callback("abrir_imagem_externa") do |_context, data_url|
         begin
           url_str = data_url.to_s.force_encoding('UTF-8')
-          if url_str.start_with?("data:image")
-            tmp_file = File.join(Dir.tmpdir, "skp_render_pro_view_#{Time.now.to_i}.html")
+          if url_str.start_with?("data:image") || url_str.start_with?("http")
+            if @image_preview_dialog && @image_preview_dialog.respond_to?(:visible?) && @image_preview_dialog.visible?
+              @image_preview_dialog.bring_to_front
+            else
+              @image_preview_dialog = UI::HtmlDialog.new(
+                {
+                  :dialog_title => "SKP Render Pro IA — Visualizador de Imagem",
+                  :preferences_key => "SKPRenderPro_ImagePreview",
+                  :resizable => true,
+                  :width => 1024,
+                  :height => 768,
+                  :style => UI::HtmlDialog::STYLE_DIALOG
+                }
+              )
+            end
+
             html_content = <<~HTML.force_encoding('UTF-8')
               <!DOCTYPE html>
               <html>
               <head>
                 <meta charset="utf-8">
-                <title>SKP Render Pro IA — Visualização de Imagem em Tela Grande</title>
+                <title>SKP Render Pro IA — Visualizador</title>
                 <style>
-                  body { margin: 0; background: #0b1310; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; }
-                  img { max-width: 98vw; max-height: 88vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid #2a5540; }
-                  .bar { margin-top: 15px; color: #a3c9b6; font-size: 14px; font-weight: bold; display: flex; gap: 20px; align-items: center; }
-                  .btn { background: #25543f; color: white; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; border: 1px solid #4ade80; cursor: pointer; }
+                  body { margin: 0; background: #0b1310; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; overflow: hidden; }
+                  .container { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100vh; padding: 10px; box-sizing: border-box; }
+                  img { max-width: 96vw; max-height: 82vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid #2a5540; }
+                  .bar { margin-top: 12px; color: #a3c9b6; font-size: 13px; font-weight: bold; display: flex; gap: 20px; align-items: center; }
+                  .btn { background: #25543f; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; border: 1px solid #4ade80; cursor: pointer; transition: background 0.2s; }
                   .btn:hover { background: #1a3d2e; }
                 </style>
               </head>
               <body>
-                <img src="#{url_str}" alt="Render SKP Render Pro" />
-                <div class="bar">
-                  <span>SKP Render Pro IA — Visualização em Alta Resolução</span>
-                  <a class="btn" href="#{url_str}" download="skp_render_pro_render.jpg">Baixar Imagem em Alta Resolução</a>
+                <div class="container">
+                  <img src="#{url_str}" alt="Render SKP Render Pro" />
+                  <div class="bar">
+                    <span>SKP Render Pro IA — Visualizador Interno SketchUp</span>
+                    <a class="btn" href="#{url_str}" download="skp_render_pro_render.jpg">Baixar Imagem</a>
+                  </div>
                 </div>
               </body>
               </html>
             HTML
-            File.open(tmp_file, "w:UTF-8") { |f| f.write(html_content) }
-            UI.openURL(tmp_file)
+
+            @image_preview_dialog.set_html(html_content)
+            @image_preview_dialog.center
+            @image_preview_dialog.show
           else
             UI.openURL(url_str)
           end
         rescue => e
-          UI.messagebox("Erro ao abrir imagem externa: #{e.message}")
+          UI.messagebox("Erro ao abrir janela de imagem no SketchUp: #{e.message}")
         end
       end
 
